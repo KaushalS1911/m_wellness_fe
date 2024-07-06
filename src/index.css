@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: "Overpass", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+li{
+  list-style-type: none;
+}
+a{
+  text-decoration: none;
+}
+img{
+  max-height: 100%;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.box:hover {
+  color: #397a4a;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.box {
+  margin-inline: 10px;
+}
+.css-1bp6ly3-MuiPaper-root-MuiAccordion-root {
+  background-color: unset !important;
+}
+.css-l0fmuu-MuiPaper-root-MuiAccordion-root{
+
+  background-color: unset !important;
+  border-bottom: 1px solid #FFFCF6;
+  outline: none;
+  border: none;
+}
