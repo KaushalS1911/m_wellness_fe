@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import divider3 from "../../assets/home/divider-main-3.png"
 import {
     Accordion,
     AccordionSummary,
@@ -146,7 +147,10 @@ const Frequently = () => {
   return (
     <>
 
-        <Box sx={{ backgroundColor: "#325343",pt:"120px" }}>
+        <Box sx={{ backgroundColor: "#325343",pt:"120px",position:"relative" }}>
+            <Box sx={{position: "absolute", top: "-10px", width: "100%"}}>
+                <img src={divider3} alt="divider image" />
+            </Box>
             <Box>
                 <Box sx={{ display: "flex", justifyContent: "center" }} pb={5}>
                     <Typography sx={{ fontSize: "44px", color: "white" }}>
@@ -205,7 +209,7 @@ const Frequently = () => {
                                         <TableHead sx={{ backgroundColor: "#325343" }}>
                                             <TableRow>
                                                 <TableCell sx={{ color: "white" }}></TableCell>
-                                                <TableCell align="center" sx={{ fontSize:"20px", color: "white" ,backgroundColor:"green",borderTopLeftRadius:"10px",borderTopRightRadius:"10px"}}>
+                                                <TableCell align="center" sx={{ fontSize:"20px", color: "white" ,backgroundColor:"green"}}>
                                                     BetterHelp
                                                 </TableCell>
                                                 <TableCell align="center" sx={{fontSize:"20px",  color: "white" }}>
@@ -217,7 +221,7 @@ const Frequently = () => {
                                             {rows.map((row) => (
                                                 <TableRow key={row.feature}>
                                                     <TableCell
-                                                        component="th"
+                                                        // component="th"
                                                         scope="row"
                                                         sx={{ color: "white" }}
                                                     >
@@ -341,7 +345,18 @@ const Frequently = () => {
         <img src={divider} alt="divider image" />
       </Box>
 
-      <Box sx={{ py: "30px" }}>
+      <Box sx={{ py: "30px",position:"relative", '&::before': {
+              content: '""',
+              height: '72px',
+              // zIndex: -1,
+              background: '#fffcf6',
+              borderRadius: '40% 40% 0 0 / 50% 50% 0 0',
+              position: 'absolute',
+              top: '-70px',
+              left: 0,
+              width:"100%",
+              // transform: 'scaleX(1.15)'
+      } }}>
         <Container>
           <Box sx={{ px: { lg: "160px", md: "50px" } }}>
             <Box
@@ -366,7 +381,6 @@ const Frequently = () => {
                   backgroundColor: "liteCream",
                   boxShadow: "unset",
                   py: "6px",
-                  marginBottom: "0",
                   "& div": { paddingInline: "0px !important" },
                   "& p": { fontSize: "20px" },
                 }}
