@@ -13,10 +13,11 @@ import {
   ListItemText,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { NavLink } from "react-router-dom";
 
 const navigationItems = [
-  { name: "Business", link: "#" },
-  { name: "About", link: "#" },
+  { name: "Business", link: "/business" },
+  { name: "About", link: "/about" },
   { name: "Service", link: "#" },
   { name: "Advice", link: "#" },
   { name: "FAQ", link: "#" },
@@ -54,9 +55,11 @@ function Header(props) {
             alignItems: "center",
           }}
         >
-          <Box sx={{ width: "180px" }}>
-            <img src={logo} alt="logo" />
-          </Box>
+          <NavLink to={"/"}>
+            <Box sx={{ width: "180px" }}>
+              <img src={logo} alt="logo" />
+            </Box>
+          </NavLink>
           {isLgScreen ? (
             <Box sx={{ color: "white" }}>
               <IconButton
@@ -81,9 +84,11 @@ function Header(props) {
                 >
                   <List>
                     {navigationItems.map((item, index) => (
-                      <ListItem button key={index}>
-                        <ListItemText primary={item.name} />
-                      </ListItem>
+                      <NavLink to={item.link}>
+                        <ListItem button key={index} sx={{ cursor: "pointer" }}>
+                          <ListItemText primary={item.name} />
+                        </ListItem>
+                      </NavLink>
                     ))}
                     <ListItem button>
                       <Button
@@ -136,25 +141,30 @@ function Header(props) {
               }}
             >
               {navigationItems.map((item, index) => (
-                <Box sx={{ position: "relative" }}>
-                  <Box
-                    key={index}
-                    sx={{ "&:hover ~ .underline": { opacity: 1 } }}
-                  >
-                    {item.name}
+                <NavLink to={item.link} style={{ color: "unset" }}>
+                  <Box sx={{ position: "relative" }}>
+                    <Box
+                      key={index}
+                      sx={{
+                        "&:hover ~ .underline": { opacity: 1 },
+                        cursor: "pointer",
+                      }}
+                    >
+                      {item.name}
+                    </Box>
+                    <Box
+                      className="underline"
+                      sx={{
+                        height: "4px",
+                        width: "100%",
+                        backgroundColor: "liteGreen",
+                        position: "absolute",
+                        bottom: "-16px",
+                        opacity: 0,
+                      }}
+                    ></Box>
                   </Box>
-                  <Box
-                    className="underline"
-                    sx={{
-                      height: "4px",
-                      width: "100%",
-                      backgroundColor: "liteGreen",
-                      position: "absolute",
-                      bottom: "-16px",
-                      opacity: 0,
-                    }}
-                  ></Box>
-                </Box>
+                </NavLink>
               ))}
               <Box>
                 <Button

@@ -27,23 +27,24 @@ const GiftMembership = () => {
 
     <>
 
-      <Box sx={{ backgroundColor: "cream", pt: "20px",pb:"70px", position:"relative" }}>
+      <Box sx={{ backgroundColor: "cream", pt: "20px",pb:"10px", position:"relative" }}>
         <Box sx={{ position: 'absolute', top:{sm:'-40px',xs:"-20px"},left:'0',width:"100%"}}>
           <img src={divider} alt="divider image" />
         </Box>
         <Container>
-          <Grid container>
+          <Grid container sx={{pt: {md:"50px",xs:"unset"}}}>
             <Grid item xs={12} md={8} sx={{textAlign:{xs:'center',md:'unset'},zIndex:'11'}}>
               <Box
                 sx={{
                   fontSize: { md: "48px", xs: "32px" },
                   margin: {md:"48px 0 24px"},
                 }}
+                className="overpass"
               >
                 <Typography variant="span" sx={{ color: "darkGreen" }}>
                   Give the gift
                 </Typography>{" "}
-                of a BetterHelp membership
+                of a MWellness membership
               </Box>
               <Grid
                 item
@@ -69,12 +70,13 @@ const GiftMembership = () => {
                   </Box>
                 </Box>
               </Grid>
-              <Box sx={{ fontSize:{md: "20px",xs:"16px"}, margin: { xl: "0 100px 40px 0" } }}>
+              <Box sx={{ fontSize:{md: "20px",xs:"16px"}, margin: { xl: "0 100px 40px 0" },color:"liteBlack" }}>
                 Therapy is one of the most meaningful gifts you can give to your
                 friends and loved ones.
               </Box>
               <Box>
                 <Button
+                    className="overpass"
                   variant="outlined"
                   sx={{
                     fontSize: "20px",
@@ -139,16 +141,17 @@ const GiftMembership = () => {
               >
                 <Box
                   sx={{
-                    fontSize: "14px",
+                    fontSize: "15px",
                     color: "liteBlack",
                     fontWeight: "700",
+                      lineHeight:1.5
                   }}
                 >
                   If you are in a crisis or any other person may be in danger -
                   don't use this site. <br />
                   <Typography
                     variant="span"
-                    sx={{ color: "darkGreen", textDecoration: "underline" }}
+                    sx={{ color: "green", textDecoration: "underline" }}
                   >
                     These resources
                   </Typography>{" "}

@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 * {
   margin: 0;
@@ -7,7 +8,8 @@
 }
 body {
   margin: 0;
-  font-family: "Overpass", sans-serif;
+  font-family: "Inter", sans-serif;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -111,4 +113,20 @@ img {
     .swiper-pagination-bullet {
     padding: 5px !important;
   }
+}
+.businessSlider .swiper-button-next:after,.businessSlider .swiper-button-prev:after,.aboutSlider .swiper-button-next:after,.aboutSlider .swiper-button-prev:after {
+  display: none !important;
+}
+.aboutSlider  .css-jdl63k-MuiButtonBase-root-MuiButton-root{
+  position: absolute;
+  top: 36%;
+  font-size: 32px;
+}
+.aboutSlider .css-db6xg3-MuiButtonBase-root-MuiButton-root{
+  position: absolute;
+  top: 36%;
+  font-size: 32px;
+}
+.overpass{
+  font-family: "Overpass", sans-serif !important;
 }

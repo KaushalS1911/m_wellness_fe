@@ -16,7 +16,7 @@ function BusinessPage() {
         <ClinicalApproach />
         <StandardIndustry />
         <HitrustCertified />
-        <Slider2/>
+        <Slider2 />
       </Box>
     </>
   );

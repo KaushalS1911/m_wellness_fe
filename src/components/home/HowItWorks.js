@@ -24,10 +24,10 @@ function HowItWorks() {
             <Box>
                 <Box display={"flex"} justifyContent={"center"}>
                     <Typography
+                        className="overpass"
                         my={5}
                         sx={{
                             fontSize: getTitleFontSize(),
-                            fontWeight: "500",
                             color: "#252625",
                         }}
                     >
@@ -45,7 +45,7 @@ function HowItWorks() {
                                 </Grid>
                                 <Grid item md={4} alignSelf={"center"} p={{ xs: 5, md: 0 }}>
                                     <Box>
-                                        <Typography style={{ fontSize: "32px", color: "4a4d4a" }}>
+                                        <Typography className="overpass" style={{ fontSize: "32px", color: "4a4d4a" }}>
                                             Get matched to the best therapist for you
                                         </Typography>
                                         <Typography
@@ -55,9 +55,9 @@ function HowItWorks() {
                                                 color: "4a4d4a",
                                             }}
                                         >
-                                            Answer a few questions to find a credentialled therapist
+                                            Answer a few questions to find a credentialed therapist
                                             who fits your needs and preferences. Tap into the largest
-                                            network of credentialled providers.
+                                            network of credentialed providers.
                                         </Typography>
                                     </Box>
                                 </Grid>
@@ -77,7 +77,7 @@ function HowItWorks() {
                                 </Grid>
                                 <Grid item md={4} alignSelf={"center"} p={{ xs: 5, md: 0 }}>
                                     <Box>
-                                        <Typography style={{ fontSize: "32px", color: "4a4d4a" }}>
+                                        <Typography className="overpass" style={{ fontSize: "32px", color: "4a4d4a" }}>
                                             Get matched to the best therapist for you
                                         </Typography>
                                         <Typography
@@ -87,9 +87,9 @@ function HowItWorks() {
                                                 color: "4a4d4a",
                                             }}
                                         >
-                                            Answer a few questions to find a credentialled therapist
+                                            Answer a few questions to find a credentialed therapist
                                             who fits your needs and preferences. Tap into the largest
-                                            network of credentialled providers.
+                                            network of credentialed providers.
                                         </Typography>
                                     </Box>
                                 </Grid>
@@ -109,7 +109,7 @@ function HowItWorks() {
                                 </Grid>
                                 <Grid item md={4} alignSelf={"center"} p={{ xs: 5, md: 0 }}>
                                     <Box>
-                                        <Typography style={{ fontSize: "32px", color: "4a4d4a" }}>
+                                        <Typography className="overpass" style={{ fontSize: "32px", color: "4a4d4a" }}>
                                             Get matched to the best therapist for you
                                         </Typography>
                                         <Typography
@@ -119,9 +119,9 @@ function HowItWorks() {
                                                 color: "4a4d4a",
                                             }}
                                         >
-                                            Answer a few questions to find a credentialled therapist
+                                            Answer a few questions to find a credentialed therapist
                                             who fits your needs and preferences. Tap into the largest
-                                            network of credentialled providers.
+                                            network of credentialed providers.
                                         </Typography>
                                     </Box>
                                 </Grid>
