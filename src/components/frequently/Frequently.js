@@ -115,12 +115,12 @@ const Frequently = () => {
       desc: "After you sign up, we will match you to an available therapist who fits your objectives, preferences, and the type of issues you are dealing with. Different therapists have different approaches and areas of focus, so it's important to find the right person who can achieve the best results for you. We have found that we are able to provide a successful match most of the time; however, if you start the process and you feel your therapist isn't a good fit for you, you may elect to be matched to a different therapist.",
     },
     {
-      title: "Is BetterHelp right for me?",
-      desc: "BetterHelp may be right for you if you're looking to improve the quality of your life. Whenever there is anything that interferes with your happiness or prevents you from achieving your goals, we may be able to help. We also have therapists who specialize in specific issues such as stress, anxiety, relationships, parenting, depression, addictions, eating, sleeping, trauma, anger, family conflicts, LGBT matters, grief, religion, self esteem, and more.",
+      title: "Is MWellness right for me?",
+      desc: "MWellness may be right for you if you're looking to improve the quality of your life. Whenever there is anything that interferes with your happiness or prevents you from achieving your goals, we may be able to help. We also have therapists who specialize in specific issues such as stress, anxiety, relationships, parenting, depression, addictions, eating, sleeping, trauma, anger, family conflicts, LGBT matters, grief, religion, self esteem, and more.",
     },
     {
       title: "How much does it cost?",
-      desc: "The cost of therapy through BetterHelp ranges from $65 to $90 per week (billed every 4 weeks) and it is based on your location, source, preferences, and therapist availability. You can cancel your membership at any time, for any reason.",
+      desc: "The cost of therapy through MWellness ranges from $65 to $90 per week (billed every 4 weeks) and it is based on your location, source, preferences, and therapist availability. You can cancel your membership at any time, for any reason.",
     },
     {
       title: "After I sign up, how long until I'm matched with a therapist?",
@@ -128,19 +128,19 @@ const Frequently = () => {
     },
     {
       title: "How will I communicate with my therapist?",
-      desc: "The cost of therapy through BetterHelp ranges from $65 to $90 per week (billed every 4 weeks) and it is based on your location, source, preferences, and therapist availability. You can cancel your membership at any time, for any reason.",
+      desc: "The cost of therapy through MWellness ranges from $65 to $90 per week (billed every 4 weeks) and it is based on your location, source, preferences, and therapist availability. You can cancel your membership at any time, for any reason.",
     },
     {
-      title: "Can BetterHelp substitute for traditional face-to-face therapy?",
-      desc: "The professionals who work through BetterHelp are licensed and credentialed therapists who were certified by their state's board to provide therapy and counseling. However, while the service may have similar benefits, it's not capable of substituting for traditional face-to-face therapy in every case. Please note that your provider won't be able to make any official diagnosis, to fulfill any court order or prescribe medication.",
+      title: "Can MWellness substitute for traditional face-to-face therapy?",
+      desc: "The professionals who work through MWellness are licensed and credentialed therapists who were certified by their state's board to provide therapy and counseling. However, while the service may have similar benefits, it's not capable of substituting for traditional face-to-face therapy in every case. Please note that your provider won't be able to make any official diagnosis, to fulfill any court order or prescribe medication.",
     },
     {
-      title: "How long can I use BetterHelp?",
+      title: "How long can I use MWellness?",
       desc: "This depends on your needs and varies a lot from one person to another. Some people feel they get most of the value after just a few weeks, while others prefer to stick to the program for an extended period of time. This is completely up to you.",
     },
     {
       title: "How can I be sure that this is an effective form of therapy?",
-      desc: 'There are many studies that confirm the effectiveness of the online medium for making life changes. For example, a study published by JMIR Publications and conducted by researchers from University of California - Berkeley, University of California - San Francisco, and the San Francisco General Hospital concluded that "users of BetterHelp experienced significantly reduced depression symptom severity after engaging with the platform." You can read the full study here. Our confidence in the platform comes primarily from the feedback and testimonials we receive from users. Every day, we are excited to hear from more people about the way this service helped them make a tremendous change in their lives.',
+      desc: 'There are many studies that confirm the effectiveness of the online medium for making life changes. For example, a study published by JMIR Publications and conducted by researchers from University of California - Berkeley, University of California - San Francisco, and the San Francisco General Hospital concluded that "users of MWellness experienced significantly reduced depression symptom severity after engaging with the platform." You can read the full study here. Our confidence in the platform comes primarily from the feedback and testimonials we receive from users. Every day, we are excited to hear from more people about the way this service helped them make a tremendous change in their lives.',
     },
   ];
 
@@ -148,16 +148,16 @@ const Frequently = () => {
     <>
 
         <Box sx={{ backgroundColor: "#325343",pt:"120px",position:"relative" }}>
-            <Box sx={{position: "absolute", top: "-10px", width: "100%"}}>
+            <Box sx={{position: "absolute", top: -14, width: "100%"}}>
                 <img src={divider3} alt="divider image" />
             </Box>
             <Box>
                 <Box sx={{ display: "flex", justifyContent: "center" }} pb={5}>
                     <Typography sx={{ fontSize: "44px", color: "white" }}>
                         <Typography variant="span" sx={{ color: "#A6DE9B" }}>
-                            Better
+                            M
                         </Typography>
-                        Help vs. traditional in-office therapy
+                        Wellness vs. traditional in-office therapy
                     </Typography>
                 </Box>
                 <Box>
@@ -189,7 +189,7 @@ const Frequently = () => {
                                 {/*                        marginTop: 1,*/}
                                 {/*                    }}*/}
                                 {/*                >*/}
-                                {/*                    <Typography>BetterHelp</Typography>*/}
+                                {/*                    <Typography>MWellness</Typography>*/}
                                 {/*                    <Checkbox checked={row.betterHelp} disabled />*/}
                                 {/*                </Box>*/}
                                 {/*                <Box*/}
@@ -210,7 +210,7 @@ const Frequently = () => {
                                             <TableRow>
                                                 <TableCell sx={{ color: "white" }}></TableCell>
                                                 <TableCell align="center" sx={{ fontSize:"20px", color: "white" ,backgroundColor:"green",borderTopLeftRadius:"10px",borderTopRightRadius:"10px"}}>
-                                                    BetterHelp
+                                                    MWellness
                                                 </TableCell>
                                                 <TableCell align="center" sx={{fontSize:"20px",  color: "white" }}>
                                                     In-office
@@ -223,7 +223,7 @@ const Frequently = () => {
                                                     <TableCell
                                                         // component="th"
                                                         scope="row"
-                                                        sx={{ color: "white" }}
+                                                        sx={{ color: "white", fontSize: 17 }}
                                                     >
                                                         {row.feature}
                                                         {row.info && (
@@ -348,7 +348,7 @@ const Frequently = () => {
               <Box
                   sx={{
                       position: "absolute",
-                      top: { md: "10%", xs: "20%" },
+                      top: { md: "14%", xs: "20%" },
                       left: "50%",
                       width: { md: "600px", xs: "90%" },
                       color: "white",

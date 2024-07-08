@@ -28,7 +28,7 @@ function Professional(props) {
                             <img src={professionalImg} alt="professional"/>
                         </Box>
                         <Box sx={{fontSize: {xs: "18px", md: "20px"}, color: 'liteBlack', my: "35px"}}>Tap into the
-                            world's largest network of credentialled and experienced therapists who can help you with a
+                            world's largest network of credentialed and experienced therapists who can help you with a
                             range of issues including depression, anxiety, relationships, trauma, grief, and more. With
                             our therapists, you get the same professionalism and quality you would expect from an
                             in-office therapist, but with the ability to communicate when and how you want.</Box>
