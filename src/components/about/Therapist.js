@@ -120,7 +120,7 @@ function Therapist(props) {
                             Our Therapists
                         </Typography>
                         <Typography variant={"subtitle1"}>
-                            BetterHelp offers access to registered, trained, and experienced Practitioner Psychologists,
+                            MWellness offers access to registered, trained, and experienced Practitioner Psychologists,
                             Counsellors, and similar applicable recognized professional certifications.
                         </Typography>
                     </Box>

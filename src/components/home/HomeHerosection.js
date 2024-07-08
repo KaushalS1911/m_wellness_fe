@@ -13,14 +13,14 @@ function HomeHerosection(props) {
     ];
     return (
         <>
-            <Box sx={{backgroundColor: "darkGreen", height: "98vh", position: "relative", color: 'white'}}>
+            <Box sx={{backgroundColor: "darkGreen", height: "100vh", position: "relative", color: 'white'}}>
                 <Box sx={{display: "flex", alignItems: "center", height: "100%"}}>
                     <Container>
                         <Box sx={{textAlign: "center"}}>
                             <Box sx={{mb: "40px"}}>
-                                <Box sx={{fontSize: {xs: "28px", sm: "38px", md: "48px"}}}>You deserve to be
+                                <Box sx={{fontSize: {xs: 28, sm: 38, md: 48}, letterSpacing: -1.5, fontWeight: 300}}>You deserve to be
                                     happy.</Box>
-                                <Box sx={{fontSize: {xs: "14px", sm: "20px"}, mt: "20px"}}>What type of therapy are you
+                                <Box sx={{fontSize: {xs: 14, sm: 22}, mt: 3 , letterSpacing: -0.5, fontWeight: 350}}>What type of therapy are you
                                     looking for?</Box>
                             </Box>
                             <Grid container spacing={{xs: 2, md: 3, lg: 5}}>

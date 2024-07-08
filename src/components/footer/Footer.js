@@ -181,7 +181,7 @@ function Footer(props) {
                             <Box className="box" sx={{my:{xs:"15px",md:'unset'}}}>Privacy Policy</Box>
                             <Box className="box" sx={{my:{xs:"15px",md:'unset'}}}>Sharing Setting</Box>
                             <Box className="box" sx={{my:{xs:"15px",md:'unset'}}}>Web Accessbility</Box>
-                            <Box className="box" sx={{my:{xs:"15px",md:'unset'}}}>© 2024 BetterHelp</Box>
+                            <Box className="box" sx={{my:{xs:"15px",md:'unset'}}}>© 2024 MWellness</Box>
                         </Box>
                     </Box>
                 </Box>

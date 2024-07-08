@@ -55,9 +55,9 @@ function HowItWorks() {
                                                 color: "4a4d4a",
                                             }}
                                         >
-                                            Answer a few questions to find a credentialled therapist
+                                            Answer a few questions to find a credentialed therapist
                                             who fits your needs and preferences. Tap into the largest
-                                            network of credentialled providers.
+                                            network of credentialed providers.
                                         </Typography>
                                     </Box>
                                 </Grid>
@@ -87,9 +87,9 @@ function HowItWorks() {
                                                 color: "4a4d4a",
                                             }}
                                         >
-                                            Answer a few questions to find a credentialled therapist
+                                            Answer a few questions to find a credentialed therapist
                                             who fits your needs and preferences. Tap into the largest
-                                            network of credentialled providers.
+                                            network of credentialed providers.
                                         </Typography>
                                     </Box>
                                 </Grid>
@@ -119,9 +119,9 @@ function HowItWorks() {
                                                 color: "4a4d4a",
                                             }}
                                         >
-                                            Answer a few questions to find a credentialled therapist
+                                            Answer a few questions to find a credentialed therapist
                                             who fits your needs and preferences. Tap into the largest
-                                            network of credentialled providers.
+                                            network of credentialed providers.
                                         </Typography>
                                     </Box>
                                 </Grid>

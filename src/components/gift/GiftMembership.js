@@ -43,7 +43,7 @@ const GiftMembership = () => {
                 <Typography variant="span" sx={{ color: "darkGreen" }}>
                   Give the gift
                 </Typography>{" "}
-                of a BetterHelp membership
+                of a MWellness membership
               </Box>
               <Grid
                 item
