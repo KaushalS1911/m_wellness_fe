@@ -36,7 +36,13 @@ function HitrustCertified() {
                     />
                   </Box>
                 </Grid>
-                <Grid item md={9} px={5} my={{ md: 0, xs: 3 }}>
+                <Grid
+                  item
+                  md={9}
+                  px={5}
+                  my={{ md: 0, xs: 3 }}
+                  className="overpass"
+                >
                   <Typography sx={{ fontSize: "24px", color: "white" }}>
                     Now more than ever it's crucially important to know who you
                     can trust.

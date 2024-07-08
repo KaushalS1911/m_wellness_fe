@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import divider3 from "../../assets/home/divider-main-3.png"
 import {
     Accordion,
@@ -147,83 +147,90 @@ const Frequently = () => {
   return (
     <>
 
-        <Box sx={{ backgroundColor: "#325343",pt:"120px",position:"relative" }}>
-            <Box sx={{position: "absolute", top: -14, width: "100%"}}>
-                <img src={divider3} alt="divider image" />
-            </Box>
-            <Box>
-                <Box sx={{ display: "flex", justifyContent: "center" }} pb={5}>
-                    <Typography className="overpass" sx={{ fontSize: "44px", color: "white" }}>
-                        <Typography variant="span" sx={{ color: "#A6DE9B" }}>
-                            M
-                        </Typography>
-                        Wellness vs. traditional in-office therapy
-                    </Typography>
+            <Box sx={{backgroundColor: "#325343", pt: "120px", position: "relative"}}>
+                <Box sx={{position: "absolute", top: -14, width: "100%"}}>
+                    <img src={divider3} alt="divider image"/>
                 </Box>
                 <Box>
-                    <Grid container display={"flex"} justifyContent={"center"}>
-                        <Grid item md={5}>
-                            <TableContainer >
-                                {/*{isMobile ? (*/}
-                                {/*    <Box sx={{color:"white"}}>*/}
-                                {/*        {rows.map((row) => (*/}
-                                {/*            <Box*/}
-                                {/*                key={row.feature}*/}
-                                {/*                sx={{*/}
-                                {/*                    padding: 2,*/}
-                                {/*                    borderBottom: "1px solid white",*/}
-                                {/*                }}*/}
-                                {/*            >*/}
-                                {/*                <Typography variant="h6">{row.feature}</Typography>*/}
-                                {/*                {row.info && (*/}
-                                {/*                    <Tooltip title={row.info}>*/}
-                                {/*                        <IconButton size="small">*/}
-                                {/*                            <InfoIcon fontSize="small" />*/}
-                                {/*                        </IconButton>*/}
-                                {/*                    </Tooltip>*/}
-                                {/*                )}*/}
-                                {/*                <Box*/}
-                                {/*                    sx={{*/}
-                                {/*                        display: "flex",*/}
-                                {/*                        justifyContent: "space-between",*/}
-                                {/*                        marginTop: 1,*/}
-                                {/*                    }}*/}
-                                {/*                >*/}
-                                {/*                    <Typography>MWellness</Typography>*/}
-                                {/*                    <Checkbox checked={row.betterHelp} disabled />*/}
-                                {/*                </Box>*/}
-                                {/*                <Box*/}
-                                {/*                    sx={{*/}
-                                {/*                        display: "flex",*/}
-                                {/*                        justifyContent: "space-between",*/}
-                                {/*                    }}*/}
-                                {/*                >*/}
-                                {/*                    <Typography>In-office</Typography>*/}
-                                {/*                    <Checkbox checked={row.inOffice} disabled />*/}
-                                {/*                </Box>*/}
-                                {/*            </Box>*/}
-                                {/*        ))}*/}
-                                {/*    </Box>*/}
-                                {/*) : (*/}
+                    <Box sx={{display: "flex", justifyContent: "center"}} pb={5}>
+                        <Typography className="overpass" sx={{fontSize: 48, fontWeight: 350, color: "white", fontFamily: "Overpass"}}>
+                            <Typography variant="span" sx={{color: "#A6DE9B"}}>
+                                m
+                            </Typography>
+                            wellness vs. traditional in-office therapy
+                        </Typography>
+                    </Box>
+                    <Box>
+                        <Grid container display={"flex"} justifyContent={"center"}>
+                            <Grid item md={5}>
+                                <TableContainer>
+                                    {/*{isMobile ? (*/}
+                                    {/*    <Box sx={{color:"white"}}>*/}
+                                    {/*        {rows.map((row) => (*/}
+                                    {/*            <Box*/}
+                                    {/*                key={row.feature}*/}
+                                    {/*                sx={{*/}
+                                    {/*                    padding: 2,*/}
+                                    {/*                    borderBottom: "1px solid white",*/}
+                                    {/*                }}*/}
+                                    {/*            >*/}
+                                    {/*                <Typography variant="h6">{row.feature}</Typography>*/}
+                                    {/*                {row.info && (*/}
+                                    {/*                    <Tooltip title={row.info}>*/}
+                                    {/*                        <IconButton size="small">*/}
+                                    {/*                            <InfoIcon fontSize="small" />*/}
+                                    {/*                        </IconButton>*/}
+                                    {/*                    </Tooltip>*/}
+                                    {/*                )}*/}
+                                    {/*                <Box*/}
+                                    {/*                    sx={{*/}
+                                    {/*                        display: "flex",*/}
+                                    {/*                        justifyContent: "space-between",*/}
+                                    {/*                        marginTop: 1,*/}
+                                    {/*                    }}*/}
+                                    {/*                >*/}
+                                    {/*                    <Typography>MWellness</Typography>*/}
+                                    {/*                    <Checkbox checked={row.betterHelp} disabled />*/}
+                                    {/*                </Box>*/}
+                                    {/*                <Box*/}
+                                    {/*                    sx={{*/}
+                                    {/*                        display: "flex",*/}
+                                    {/*                        justifyContent: "space-between",*/}
+                                    {/*                    }}*/}
+                                    {/*                >*/}
+                                    {/*                    <Typography>In-office</Typography>*/}
+                                    {/*                    <Checkbox checked={row.inOffice} disabled />*/}
+                                    {/*                </Box>*/}
+                                    {/*            </Box>*/}
+                                    {/*        ))}*/}
+                                    {/*    </Box>*/}
+                                    {/*) : (*/}
                                     <Table>
-                                        <TableHead sx={{ backgroundColor: "#325343" }}>
+                                        <TableHead sx={{backgroundColor: "#325343"}}>
                                             <TableRow>
-                                                <TableCell sx={{ color: "white" }}></TableCell>
-                                                <TableCell className="overpass" align="center" sx={{ fontSize:"20px", color: "white" ,backgroundColor:"green",borderTopLeftRadius:"10px",borderTopRightRadius:"10px"}}>
-                                                    MWellness
+                                                <TableCell sx={{color: "white"}}></TableCell>
+                                                <TableCell className="overpass" align="center" sx={{
+                                                    fontFamily: "Overpass",
+                                                    fontSize: 22,
+                                                    color: "white",
+                                                    backgroundColor: "green",
+                                                    borderTopLeftRadius: "10px",
+                                                    borderTopRightRadius: "10px"
+                                                }}>
+                                                    mwellness
                                                 </TableCell>
-                                                <TableCell className="overpass" align="center" sx={{fontSize:"20px",  color: "white" }}>
+                                                <TableCell className="overpass" align="center"
+                                                           sx={{fontSize: 22, color: "white", fontFamily: "Overpass"}}>
                                                     In-office
                                                 </TableCell>
                                             </TableRow>
                                         </TableHead>
-                                        <TableBody sx={{ backgroundColor: "#325343" }}>
+                                        <TableBody sx={{backgroundColor: "#325343"}}>
                                             {rows.map((row) => (
                                                 <TableRow key={row.feature}>
                                                     <TableCell
-                                                        // component="th"
                                                         scope="row"
-                                                        sx={{ color: "white", fontSize: 17 }}
+                                                        sx={{color: "white", fontFamily: "Overpass", fontSize: 18}}
                                                     >
                                                         {row.feature}
                                                         {row.info && (
@@ -231,7 +238,7 @@ const Frequently = () => {
                                                                 <IconButton size="small">
                                                                     <InfoIcon
                                                                         fontSize="small"
-                                                                        sx={{ color: "white" }}
+                                                                        sx={{color: "white"}}
                                                                     />
                                                                 </IconButton>
                                                             </Tooltip>
@@ -239,7 +246,7 @@ const Frequently = () => {
                                                     </TableCell>
                                                     <TableCell
                                                         align="center"
-                                                        sx={{ backgroundColor: "white" }}
+                                                        sx={{backgroundColor: "white"}}
                                                     >
                                                         {/* <Checkbox
                                 checked={row.betterHelp}
@@ -247,14 +254,14 @@ const Frequently = () => {
                               /> */}
                                                         <img
                                                             src={checkboxImg}
-                                                            style={{ objectFit: "contain", height: "35px" }}
+                                                            style={{objectFit: "contain", height: "35px"}}
                                                             alt="checkbox"
                                                         />
                                                     </TableCell>
                                                     <TableCell align="center">
                                                         <img
                                                             src={crossImg}
-                                                            style={{ objectFit: "contain", height: "45px" }}
+                                                            style={{objectFit: "contain", height: "45px"}}
                                                             alt="checkbox"
                                                         />
                                                         {/* <Checkbox checked={row.inOffice} disabled /> */}
@@ -263,262 +270,270 @@ const Frequently = () => {
                                             ))}
                                         </TableBody>
                                     </Table>
-                                {/*// )*/}
-                                {/*}*/}
-                            </TableContainer>
+                                    {/*// )*/}
+                                    {/*}*/}
+                                </TableContainer>
+                            </Grid>
                         </Grid>
-                    </Grid>
+                    </Box>
                 </Box>
             </Box>
-        </Box>
-      <Box
-        sx={{
-          // top: { sm: "-40px", xs: "-20px" },
-          // left: "0",
-          // width: "100%",
-          position: "relative",
-          backgroundColor: "darkGreen",
-            height:"800px"
-        }}
-      >
-        {/*<Container>*/}
-        {/*  <Box*/}
-        {/*    sx={{*/}
-        {/*      position: "absolute",*/}
-        {/*      top: "10%",*/}
-        {/*      left: "45%",*/}
-        {/*      width: {md:"600px",xs:"100%"},*/}
-        {/*      color: "white",*/}
-        {/*      transform: "translateX(-50%)",*/}
-        {/*      fontSize: "32px",*/}
-        {/*    }}*/}
-        {/*  >*/}
-        {/*    <Box sx={{ position: "relative" ,textAlign:"center"}}>*/}
-        {/*        Susan is amazing in her insights and conversational approach. I am so glad and blessed to have found her and started healing with her guidance.*/}
-        {/*      <Box sx={{ position: "absolute", top: "0", left: "-100px" }}>*/}
-        {/*        {" "}*/}
-        {/*        <img src={left} alt="left" />{" "}*/}
-        {/*      </Box>*/}
-        {/*      <Box sx={{ position: "absolute", top: "0", right: "-80px" }}>*/}
-        {/*        {" "}*/}
-        {/*        <img src={right} alt="right" />{" "}*/}
-        {/*      </Box>*/}
-        {/*      <Box*/}
-        {/*        sx={{*/}
-        {/*          display: "flex",*/}
-        {/*          justifyContent: "center",*/}
-        {/*          alignItems: "center",*/}
-        {/*            width: { md: "350px", xs: "250px" },*/}
-        {/*            mx:"auto",*/}
-        {/*            my:"10px"*/}
-        {/*        }}*/}
-        {/*      >*/}
-        {/*        <img*/}
-        {/*          src={image}*/}
-        {/*          alt="image"*/}
-        {/*        />*/}
-        {/*      </Box>*/}
-        {/*      <Box*/}
-        {/*        sx={{*/}
-        {/*          display: "flex",*/}
-        {/*          justifyContent: "center",*/}
-        {/*          alignItems: "center",*/}
-        {/*        }}*/}
-        {/*      >*/}
-        {/*        <Button*/}
-        {/*          variant="outlined"*/}
-        {/*          sx={{*/}
-        {/*            color: "white",*/}
-        {/*            padding: "10px 36px",*/}
-        {/*            borderColor: "white",*/}
-        {/*            borderRadius: "30px",*/}
-        {/*            "&:hover": {*/}
-        {/*              color: "lightGreen",*/}
-        {/*              borderColor: "lightGreen",*/}
-        {/*            },*/}
-        {/*          }}*/}
-        {/*        >*/}
-        {/*          More success stories*/}
-        {/*        </Button>*/}
-        {/*      </Box>*/}
-        {/*    </Box>*/}
-        {/*  </Box>*/}
-        {/*</Container>*/}
-          <Container>
-              <Box
-                  sx={{
-                      position: "absolute",
-                      top: { md: "14%", xs: "20%" },
-                      left: "50%",
-                      width: { md: "600px", xs: "90%" },
-                      color: "white",
-                      transform: "translateX(-50%)",
-                      fontSize: { md: "32px", xs: "24px" },
-                      textAlign: "center",
-                      px: { xs: 2, md: 0 },
-                  }}
-              >
-                  <Box className="overpass" sx={{ position: "relative", textAlign: "center"}}>
-                      Susan is amazing in her insights and conversational approach. I am so glad and blessed to have found her and started healing with her guidance.
-                      <Box sx={{ position: "absolute", top: "0", left: { md: "-100px", xs: "-5px" },height:{md:"40px",xs:"20px"} }}>
-                          <img src={left} alt="left" />
-                      </Box>
-                      <Box sx={{ position: "absolute", top: "0", right: { md: "-80px", xs: "-5px" },height:{md:"40px",xs:"20px"} }}>
-                          <img src={right} alt="right" />
-                      </Box>
-                      <Box
-                          sx={{
-                              display: "flex",
-                              justifyContent: "center",
-                              alignItems: "center",
-                              width: { md: "350px", xs: "250px" },
-                              mx: "auto",
-                              my: 2,
-                          }}
-                      >
-                          <img src={image} alt="image" style={{ width: "100%", height: "auto" }} />
-                      </Box>
-                      <Box
-                          sx={{
-                              display: "flex",
-                              justifyContent: "center",
-                              alignItems: "center",
-                          }}
-                      >
-                          <Button
-                              variant="outlined"
-                              className="overpass"
-                              sx={{
-                                  color: "white",
-                                  padding: { md: "10px 36px", xs: "8px 24px" },
-                                  borderColor: "white",
-                                  borderRadius: "30px",
-                                  "&:hover": {
-                                      color: "lightGreen",
-                                      borderColor: "lightGreen",
-                                  },
-                              }}
-                          >
-                              More success stories
-                          </Button>
-                      </Box>
-                  </Box>
-              </Box>
-          </Container>
-
-          <img src={divider} alt="divider image" />
-      </Box>
-
-      <Box sx={{ py: "30px",position:"relative", '&::before': {
-              content: '""',
-              height: '72px',
-              // zIndex: -1,
-              background: '#fffcf6',
-              borderRadius: '40% 40% 0 0 / 50% 50% 0 0',
-              position: 'absolute',
-              top: '-70px',
-              left: 0,
-              width:"100%",
-              // transform: 'scaleX(1.15)'
-      } }}>
-        <Container>
-          <Box sx={{ px: { lg: "160px", md: "50px" } }}>
             <Box
-              sx={{
-                fontSize: "36px",
-                color: "black",
-                margin: "40px 0 20px",
-                textAlign: "center",
-              }}
-              className="overpass"
-            >
-              Frequently asked questions
-            </Box>
-            {data.map((item, index) => (
-              <Accordion
-                key={index}
-                expanded={expanded === index}
-                onChange={handleExpansion(index)}
-                TransitionComponent={Fade}
-                transitionDuration={400}
                 sx={{
-                  marginBottom: "10px",
-                  backgroundColor: "liteCream",
-                  boxShadow: "unset",
-                  py: "6px",
-                  "& div": { paddingInline: "0px !important" },
-                  "& p": { fontSize: "20px" },
+                    // top: { sm: "-40px", xs: "-20px" },
+                    // left: "0",
+                    // width: "100%",
+                    position: "relative",
+                    backgroundColor: "darkGreen",
+                    height: "800px"
                 }}
-              >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls={`panel${index}-content`}
-                  id={`panel${index}-header`}
-                  sx={{
-                    minHeight: "48px",
-                    "& .MuiAccordionSummary-content": {
-                      margin: "12px 0",
-                    },
-                  }}
-                >
-                  <Typography>{item.title}</Typography>
-                </AccordionSummary>
-                <Collapse in={expanded === index}>
-                  <Box
-                    sx={{
-                      padding: "16px",
-                      backgroundColor: "liteCream",
-                      "& p": { fontSize: "16px", color: "liteBlack" },
-                    }}
-                  >
-                    <Typography>{item.desc}</Typography>
-                  </Box>
-                </Collapse>
-              </Accordion>
-            ))}
-          </Box>
-          <Box
-            sx={{
-              fontSize: "18px",
-              color: "green",
-              textDecoration: "underline",
-              textAlign: "center",
-              fontWeight: "600",
-              mt: "15px",
-              mb: "32px",
-            }}
-          >
-            More frequently asked questions
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Button
-                className="overpass"
-              sx={{
-                borderRadius: "30px",
-                backgroundColor: "lightGreen",
-                padding: "10px 36px",
-                color: "darkGreen",
-                textTransform: "initial",
-                fontSize: "20px",
-                "&:hover": {
-                  backgroundColor: "green",
-                  color: "white",
-                },
-              }}
             >
-              Get started
-            </Button>
-          </Box>
-        </Container>
-      </Box>
-    </>
-  );
+                {/*<Container>*/}
+                {/*  <Box*/}
+                {/*    sx={{*/}
+                {/*      position: "absolute",*/}
+                {/*      top: "10%",*/}
+                {/*      left: "45%",*/}
+                {/*      width: {md:"600px",xs:"100%"},*/}
+                {/*      color: "white",*/}
+                {/*      transform: "translateX(-50%)",*/}
+                {/*      fontSize: "32px",*/}
+                {/*    }}*/}
+                {/*  >*/}
+                {/*    <Box sx={{ position: "relative" ,textAlign:"center"}}>*/}
+                {/*        Susan is amazing in her insights and conversational approach. I am so glad and blessed to have found her and started healing with her guidance.*/}
+                {/*      <Box sx={{ position: "absolute", top: "0", left: "-100px" }}>*/}
+                {/*        {" "}*/}
+                {/*        <img src={left} alt="left" />{" "}*/}
+                {/*      </Box>*/}
+                {/*      <Box sx={{ position: "absolute", top: "0", right: "-80px" }}>*/}
+                {/*        {" "}*/}
+                {/*        <img src={right} alt="right" />{" "}*/}
+                {/*      </Box>*/}
+                {/*      <Box*/}
+                {/*        sx={{*/}
+                {/*          display: "flex",*/}
+                {/*          justifyContent: "center",*/}
+                {/*          alignItems: "center",*/}
+                {/*            width: { md: "350px", xs: "250px" },*/}
+                {/*            mx:"auto",*/}
+                {/*            my:"10px"*/}
+                {/*        }}*/}
+                {/*      >*/}
+                {/*        <img*/}
+                {/*          src={image}*/}
+                {/*          alt="image"*/}
+                {/*        />*/}
+                {/*      </Box>*/}
+                {/*      <Box*/}
+                {/*        sx={{*/}
+                {/*          display: "flex",*/}
+                {/*          justifyContent: "center",*/}
+                {/*          alignItems: "center",*/}
+                {/*        }}*/}
+                {/*      >*/}
+                {/*        <Button*/}
+                {/*          variant="outlined"*/}
+                {/*          sx={{*/}
+                {/*            color: "white",*/}
+                {/*            padding: "10px 36px",*/}
+                {/*            borderColor: "white",*/}
+                {/*            borderRadius: "30px",*/}
+                {/*            "&:hover": {*/}
+                {/*              color: "lightGreen",*/}
+                {/*              borderColor: "lightGreen",*/}
+                {/*            },*/}
+                {/*          }}*/}
+                {/*        >*/}
+                {/*          More success stories*/}
+                {/*        </Button>*/}
+                {/*      </Box>*/}
+                {/*    </Box>*/}
+                {/*  </Box>*/}
+                {/*</Container>*/}
+                <Container>
+                    <Box
+                        sx={{
+                            position: "absolute",
+                            top: {md: "14%", xs: "20%"},
+                            left: "50%",
+                            width: {md: "600px", xs: "90%"},
+                            color: "white",
+                            transform: "translateX(-50%)",
+                            fontSize: {md: "32px", xs: "24px"},
+                            textAlign: "center",
+                            px: {xs: 2, md: 0},
+                        }}
+                    >
+                        <Box className="overpass" sx={{position: "relative", textAlign: "center"}}>
+                            Susan is amazing in her insights and conversational approach. I am so glad and blessed to
+                            have found her and started healing with her guidance.
+                            <Box sx={{
+                                position: "absolute",
+                                top: "0",
+                                left: {md: "-100px", xs: "-5px"},
+                                height: {md: "40px", xs: "20px"}
+                            }}>
+                                <img src={left} alt="left"/>
+                            </Box>
+                            <Box sx={{
+                                position: "absolute",
+                                top: "0",
+                                right: {md: "-80px", xs: "-5px"},
+                                height: {md: "40px", xs: "20px"}
+                            }}>
+                                <img src={right} alt="right"/>
+                            </Box>
+                            <Box
+                                sx={{
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    width: {md: "350px", xs: "250px"},
+                                    mx: "auto",
+                                    my: 2,
+                                }}
+                            >
+                                <img src={image} alt="image" style={{width: "100%", height: "auto"}}/>
+                            </Box>
+                            <Button
+                                variant="outlined"
+                              className="overpass"
+                                sx={{
+                                    color: "white",
+                                    padding: {md: "12px 36px", xs: "8px 24px"},
+                                    borderColor: "white",
+                                    borderRadius: 30,
+                                    fontFamily: "Overpass",
+                                    "&:hover": {
+                                        color: "lightGreen",
+                                        borderColor: "lightGreen",
+                                    },
+                                }}
+                            >
+                                More success stories
+                            </Button>
+                        </Box>
+                    </Box>
+                </Container>
+
+                <img src={divider} alt="divider image"/>
+            </Box>
+
+            <Box sx={{
+                py: "30px", position: "relative", '&::before': {
+                    content: '""',
+                    height: '72px',
+                    // zIndex: -1,
+                    background: '#fffcf6',
+                    borderRadius: '40% 40% 0 0 / 50% 50% 0 0',
+                    position: 'absolute',
+                    top: '-70px',
+                    left: 0,
+                    width: "100%",
+                    // transform: 'scaleX(1.15)'
+                }
+            }}>
+                <Container>
+                    <Box sx={{px: {lg: "160px", md: "50px"}}}>
+                        <Box
+                            sx={{
+                                fontSize: "36px",
+                                color: "black",
+                                margin: "40px 0 20px",
+                                textAlign: "center",
+                            }}
+                        >
+                            Frequently asked questions
+                        </Box>
+                        {data.map((item, index) => (
+                            <Accordion
+                                key={index}
+                                expanded={expanded === index}
+                                onChange={handleExpansion(index)}
+                                TransitionComponent={Fade}
+                                transitionDuration={400}
+                                sx={{
+                                    marginBottom: "10px",
+                                    backgroundColor: "liteCream",
+                                    boxShadow: "unset",
+                                    fontFamily:"Overpass",
+                                    py: "6px",
+                                    "& div": {paddingInline: "0px !important"},
+                                    "& p": {fontSize: "20px"},
+                                }}
+                            >
+                                <AccordionSummary
+                                    expandIcon={<ExpandMoreIcon/>}
+                                    aria-controls={`panel${index}-content`}
+                                    id={`panel${index}-header`}
+                                    sx={{
+                                        fontFamily: "Overpass",
+                                        minHeight: "48px",
+                                        "& .MuiAccordionSummary-content": {
+                                            margin: "12px 0",
+                                        },
+                                    }}
+                                >
+                                    <Typography>{item.title}</Typography>
+                                </AccordionSummary>
+                                <Collapse in={expanded === index}>
+                                    <Box
+                                        sx={{
+                                            padding: "16px",
+                                            backgroundColor: "liteCream",
+                                            "& p": {fontSize: "16px", color: "liteBlack"},
+                                        }}
+                                    >
+                                        <Typography>{item.desc}</Typography>
+                                    </Box>
+                                </Collapse>
+                            </Accordion>
+                        ))}
+                    </Box>
+                    <Box
+                        sx={{
+                            fontSize: "18px",
+                            cursor: "pointer",
+                            color: "green",
+                            textDecoration: "underline",
+                            textAlign: "center",
+                            fontWeight: "600",
+                            mt: "15px",
+                            mb: "32px",
+                        }}
+                    >
+                        More frequently asked questions
+                    </Box>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                        }}
+                    >
+                        <Button
+                            sx={{
+                                borderRadius: "30px",
+                                backgroundColor: "lightGreen",
+                                padding: "10px 36px",
+                                color: "darkGreen",
+                                textTransform: "initial",
+                                fontWeight: 600,
+                                fontSize: "20px",
+                                "&:hover": {
+                                    backgroundColor: "green",
+                                    color: "white",
+                                },
+                            }}
+                        >
+                            Get started
+                        </Button>
+                    </Box>
+                </Container>
+            </Box>
+        </>
+    );
 };
 
 export default Frequently;

@@ -58,10 +58,10 @@ function Slider2() {
     <>
       <Box
         className={"businessSlider2"}
-        sx={{ backgroundColor: "#FFFFFF", py: "100px" }}
+        sx={{ backgroundColor: "#FFFFFF", py: "100px", position: "relative" }}
         pt={5}
       >
-        <Container sx={{ position: "relative" }}>
+        <Container>
           <Swiper
             ref={swiperRef}
             modules={[Pagination]}
@@ -163,9 +163,10 @@ function Slider2() {
                       }}
                     >
                       <Typography
+                        className="overpass"
                         sx={{
-                          fontSize: "16px",
-                          fontWeight: "500",
+                          fontSize: "18px",
+                          // fontWeight: "500",
                           color: "#397a4a",
                         }}
                       >

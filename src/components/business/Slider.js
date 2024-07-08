@@ -99,7 +99,7 @@ function Slider() {
           py={5}
           position={"relative"}
         >
-          <Container sx={{ position: "relative" }}>
+          <Container>
             <Swiper
               ref={swiperRef}
               modules={[Pagination]}

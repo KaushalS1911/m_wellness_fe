@@ -20,23 +20,23 @@ function Professional(props) {
             }
         }}>
             <Container>
-                <Grid container sx={{py: {xs: "50px", md: "100px"},pb: "250px !important"}}>
+                <Grid container sx={{py: {xs: "50px", md: "100px"}, pb: "250px !important"}}>
                     <Grid item xs={12} md={6}>
-                        <Box className="overpass" sx={{fontSize: {xs: "28px", sm: "38px", md: "48px"}, color: 'black', fontWeight: "400"}}>Professional
-                            and credentialled therapists who you can trust</Box>
+                        <Box className="overpass" sx={{fontSize: {xs: 28, sm: 38, md: 48}, letterSpacing: -1.5, fontWeight: 300}}>Professional
+                            and credentialed therapists who you can trust</Box>
                         <Box sx={{maxHeight: "100%", display: {md: "none", xs: "block"}}}>
                             <img src={professionalImg} alt="professional"/>
                         </Box>
-                        <Box sx={{fontSize: {xs: "18px", md: "20px"}, color: 'liteBlack', my: "35px"}}>Tap into the
+                        <Box sx={{fontSize: {xs: "18px", md: "20px"}, color: 'liteBlack', my: "35px", lineHeight: 1.5, fontWeight: 300 }}>Tap into the
                             world's largest network of credentialed and experienced therapists who can help you with a
                             range of issues including depression, anxiety, relationships, trauma, grief, and more. With
                             our therapists, you get the same professionalism and quality you would expect from an
                             in-office therapist, but with the ability to communicate when and how you want.</Box>
-                        <Box sx={{textAlign: {md:"start",xs:"center"}}}>
+                        <Box sx={{textAlign: {md: "start", xs: "center"}}}>
                             <Button
                                 className="overpass"
                                 sx={{
-                                    // fontWeight: "600",
+                                    // fontWeight: 600,
                                     backgroundColor: "liteGreen",
                                     py: "10px",
                                     px: {xs: "14px", md: "28px"},
@@ -62,7 +62,7 @@ function Professional(props) {
                 </Grid>
             </Container>
             <Box sx={{position: "absolute", bottom: "-10px", width: "100%"}}>
-                <img src={divider2} alt="divider image" />
+                <img src={divider2} alt="divider image"/>
             </Box>
         </Box>
     );
