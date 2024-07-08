@@ -120,11 +120,11 @@ function Therapist(props) {
                         justifyContent: "center",
                         alignItems: "center"
                     }}>
-                        <Typography variant={"h4"} className="overpass" sx={{color:"#252625"}}>
+                        <Typography variant="h4" className="overpass title" sx={{color:"#252625"}}>
                             Our Therapists
                         </Typography>
-                        <Typography variant={"subtitle1"}>
-                            MWellness offers access to registered, trained, and experienced Practitioner Psychologists,
+                        <Typography variant="subtitle1" className='overpass' fontSize={18} fontWeight={300} textAlign='center'>
+                            mwellness offers access to registered, trained, and experienced Practitioner Psychologists,
                             Counsellors, and similar applicable recognized professional certifications.
                         </Typography>
                     </Box>
