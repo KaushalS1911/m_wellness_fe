@@ -25,6 +25,7 @@ function HowItWorks() {
             <Box>
                 <Box display={"flex"} justifyContent={"center"}>
                     <Typography
+                        className="overpass"
                         my={5}
                         sx={{
                             fontSize: getTitleFontSize(),
@@ -85,7 +86,7 @@ function HowItWorks() {
                                 </Grid>
                                 <Grid item md={4} alignSelf={"center"} p={{xs: 5, md: 0}}>
                                     <Box>
-                                        <Typography style={{
+                                        <Typography className="overpass" style={{
                                             fontSize: 32,
                                             fontWeight: 350,
                                             letterSpacing: -0.8,
@@ -123,7 +124,7 @@ function HowItWorks() {
                                 </Grid>
                                 <Grid item md={4} alignSelf={"center"} p={{xs: 5, md: 0}}>
                                     <Box>
-                                        <Typography style={{
+                                        <Typography className="overpass" style={{
                                             fontSize: 32,
                                             fontWeight: 350,
                                             letterSpacing: -0.8,

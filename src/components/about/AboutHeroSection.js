@@ -10,7 +10,7 @@ function AboutHeroSection(props) {
             <Box sx={{display: "flex", alignItems: "center", height: "100%",justifyContent:"center",pb:{md:"100px",xs:"50px"}}}>
                 <Container>
                     <Box sx={{textAlign: "center"}}>
-                            <Box sx={{fontSize: {xs: 28, sm: 38, md: 44, color: "black"}}}>About us</Box>
+                            <Box sx={{fontSize: {xs: 28, sm: 38, md: 44, color: "#444444"}}} className="overpass">About us</Box>
                     </Box>
                 </Container>
             </Box>

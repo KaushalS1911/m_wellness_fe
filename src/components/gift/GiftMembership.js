@@ -39,6 +39,7 @@ const GiftMembership = () => {
                   fontSize: { md: "48px", xs: "32px" },
                   margin: {md:"48px 0 24px"},
                 }}
+                className="overpass"
               >
                 <Typography variant="span" sx={{ color: "darkGreen" }}>
                   Give the gift
@@ -75,6 +76,7 @@ const GiftMembership = () => {
               </Box>
               <Box>
                 <Button
+                    className="overpass"
                   variant="outlined"
                   sx={{
                     fontSize: "20px",

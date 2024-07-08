@@ -15,6 +15,7 @@ function Footer(props) {
                             py: "16px",
                             borderBottom: "2px solid #e7ece7 ",
                             color: "liteBlack",
+                            fontSize:"14px"
                         }}
                     >
                         <Box sx={{ display: "flex" }}>
@@ -175,6 +176,7 @@ function Footer(props) {
                                 alignItems: "center",
                                 py: "16px",
                                 color: "liteBlack",
+                                fontSize:"14px"
                             }}
                         >
                             <Box className="box" sx={{my:{xs:"15px",md:'unset'}}}>Terms & Conditions</Box>

@@ -22,7 +22,7 @@ function Professional(props) {
             <Container>
                 <Grid container sx={{py: {xs: "50px", md: "100px"}, pb: "250px !important"}}>
                     <Grid item xs={12} md={6}>
-                        <Box sx={{fontSize: {xs: 28, sm: 38, md: 48}, letterSpacing: -1.5, fontWeight: 300}}>Professional
+                        <Box className="overpass" sx={{fontSize: {xs: 28, sm: 38, md: 48}, letterSpacing: -1.5, fontWeight: 300}}>Professional
                             and credentialed therapists who you can trust</Box>
                         <Box sx={{maxHeight: "100%", display: {md: "none", xs: "block"}}}>
                             <img src={professionalImg} alt="professional"/>
@@ -34,8 +34,9 @@ function Professional(props) {
                             in-office therapist, but with the ability to communicate when and how you want.</Box>
                         <Box sx={{textAlign: {md: "start", xs: "center"}}}>
                             <Button
+                                className="overpass"
                                 sx={{
-                                    fontWeight: 600,
+                                    // fontWeight: 600,
                                     backgroundColor: "liteGreen",
                                     py: "10px",
                                     px: {xs: "14px", md: "28px"},

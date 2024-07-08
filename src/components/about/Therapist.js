@@ -107,6 +107,7 @@ const itemData = [
 function Therapist(props) {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+    const isXs = useMediaQuery(theme.breakpoints.down("sm"));
     return (
         <Box sx={{backgroundColor: "#FFFCF6"}}>
             <Container>
@@ -119,7 +120,7 @@ function Therapist(props) {
                         justifyContent: "center",
                         alignItems: "center"
                     }}>
-                        <Typography variant={"h4"}>
+                        <Typography variant={"h4"} className="overpass" sx={{color:"#252625"}}>
                             Our Therapists
                         </Typography>
                         <Typography variant={"subtitle1"}>
@@ -128,9 +129,9 @@ function Therapist(props) {
                         </Typography>
                     </Box>
                     <Box >
-                        <ImageList cols={isMobile ? 4 :8} rowHeight={146} >
+                        <ImageList cols={isMobile ? isXs ? 2 : 4 :8} rowHeight={146}  >
                             {itemData.map((item) => (
-                                <ImageListItem key={item.img}>
+                                <ImageListItem key={item.img} sx={{margin:0.5,borderRadius:"10px",overflow:"hidden"}}>
                                     <img
                                         srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                                         src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
@@ -142,6 +143,7 @@ function Therapist(props) {
                         </ImageList>
                         <Box sx={{display:"flex",justifyContent:"center",alignItems:"center",mt:"30px"}}>
                             <Button
+                                className="overpass"
                                 variant="outlined"
                                 sx={{
                                     fontSize: "20px",

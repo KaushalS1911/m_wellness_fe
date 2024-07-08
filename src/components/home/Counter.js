@@ -47,7 +47,7 @@ function Counter() {
                                     }}
                                 >
                                     {titleLines.map((line, index) => (
-                                        <Box key={index} sx={{ fontSize: { lg: 48, xs: 32 }, letterSpacing: -1.5, fontWeight: 300, color: index === 1 ? "green" : "black" }}>
+                                        <Box className="overpass" key={index} sx={{ fontSize: { lg: 48, xs: 32 }, letterSpacing: -1.5, fontWeight: 300, color: index === 1 ? "green" : "black" }}>
                                             {line}
                                         </Box>
                                     ))}
@@ -60,7 +60,7 @@ function Counter() {
                                     borderBottom: index !== stats.length - 1 ? "1px solid #c3c8c1" : "none",
                                     my: index !== 0 ? "20px" : "0"
                                 }}>
-                                    <Box sx={{ color: "green", fontWeight: 700, fontSize: { md: 32, xs: 24 }, letterSpacing: "-1.5px" }}>
+                                    <Box className="overpass" sx={{ color: "green", fontWeight: 700, fontSize: { md: 32, xs: 24 }, letterSpacing: "-1.5px" }}>
                                         {stat.value}
                                     </Box>
                                     <Box sx={{ fontSize: { md: 21, xs: 20 }, color: "liteBlack", my: "10px" }}>
