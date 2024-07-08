@@ -1,13 +1,24 @@
 import React from 'react';
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import divider1 from '../../assets/home/divider-main-1.png'
+import divider1 from '../../assets/about/divider-about.jpg'
 
 function AboutHeroSection2(props) {
     return (
         <div>
 
-            <Box sx={{backgroundColor: "darkGreen", height: "98vh", position: "relative"}}>
+            <Box sx={{backgroundColor: "darkGreen", minHeight: "53vh",height:"100%" ,position: "relative", "&::after" :{
+                content:"''",
+                    position:"absolute",
+                    top: {md:"-100px",xs:"-45px"},
+                    left:"0",
+                    backgroundColor:"darkGreen",
+                    width:"100%",
+                    height: {md:"100px",xs:"50px"},
+                    borderRadius:"50% 50% 0 0/50% 50% 0 0",
+
+            }
+            }}>
                 <Box sx={{display: "flex", alignItems: "center", height: "100%"}}>
                     <Container>
                         <Box sx={{textAlign: "center"}}>

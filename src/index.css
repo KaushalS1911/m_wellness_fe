@@ -47,3 +47,16 @@ img{
   outline: none;
   border: none;
 }
+.businessSlider .swiper-button-next:after,.businessSlider .swiper-button-prev:after,.aboutSlider .swiper-button-next:after,.aboutSlider .swiper-button-prev:after {
+  display: none !important;
+}
+.aboutSlider  .css-jdl63k-MuiButtonBase-root-MuiButton-root{
+  position: absolute;
+  top: 36%;
+  font-size: 32px;
+}
+.aboutSlider .css-db6xg3-MuiButtonBase-root-MuiButton-root{
+  position: absolute;
+  top: 36%;
+  font-size: 32px;
+}

@@ -2,7 +2,8 @@ import React from 'react';
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import {ImageList, ImageListItem} from "@mui/material";
+import {Button, ImageList, ImageListItem, useMediaQuery} from "@mui/material";
+import {useTheme} from "@mui/material/styles";
 
 const itemData = [
     {
@@ -104,6 +105,8 @@ const itemData = [
 ];
 
 function Therapist(props) {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     return (
         <Box sx={{backgroundColor: "#FFFCF6"}}>
             <Container>
@@ -125,7 +128,7 @@ function Therapist(props) {
                         </Typography>
                     </Box>
                     <Box >
-                        <ImageList cols={8} rowHeight={146}>
+                        <ImageList cols={isMobile ? 4 :8} rowHeight={146} >
                             {itemData.map((item) => (
                                 <ImageListItem key={item.img}>
                                     <img
@@ -137,6 +140,26 @@ function Therapist(props) {
                                 </ImageListItem>
                             ))}
                         </ImageList>
+                        <Box sx={{display:"flex",justifyContent:"center",alignItems:"center",mt:"30px"}}>
+                            <Button
+                                variant="outlined"
+                                sx={{
+                                    fontSize: "20px",
+                                    borderRadius: "30px",
+                                    color: "darkGreen",
+                                    borderColor: "darkGreen",
+                                    padding: "10px 36px",
+                                    textTransform: "inherit",
+                                    "&:hover": {
+                                        borderColor: "darkGreen",
+                                        backgroundColor: "#F5FBF4",
+                                    },
+                                    my: { xs: "40px", lg: "unset" },
+                                }}
+                            >
+                                Get Started
+                            </Button>
+                        </Box>
                     </Box>
                 </Box>
             </Container>

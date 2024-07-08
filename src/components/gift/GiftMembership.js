@@ -139,7 +139,7 @@ const GiftMembership = () => {
               >
                 <Box
                   sx={{
-                    fontSize: "14px",
+                    fontSize: "15px",
                     color: "liteBlack",
                     fontWeight: "700",
                       lineHeight:1.5
