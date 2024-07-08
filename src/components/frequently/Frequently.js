@@ -163,53 +163,53 @@ const Frequently = () => {
                 <Box>
                     <Grid container display={"flex"} justifyContent={"center"}>
                         <Grid item md={5}>
-                            <TableContainer component={Paper}>
-                                {isMobile ? (
-                                    <Box>
-                                        {rows.map((row) => (
-                                            <Box
-                                                key={row.feature}
-                                                sx={{
-                                                    padding: 2,
-                                                    borderBottom: "1px solid white",
-                                                }}
-                                            >
-                                                <Typography variant="h6">{row.feature}</Typography>
-                                                {row.info && (
-                                                    <Tooltip title={row.info}>
-                                                        <IconButton size="small">
-                                                            <InfoIcon fontSize="small" />
-                                                        </IconButton>
-                                                    </Tooltip>
-                                                )}
-                                                <Box
-                                                    sx={{
-                                                        display: "flex",
-                                                        justifyContent: "space-between",
-                                                        marginTop: 1,
-                                                    }}
-                                                >
-                                                    <Typography>BetterHelp</Typography>
-                                                    <Checkbox checked={row.betterHelp} disabled />
-                                                </Box>
-                                                <Box
-                                                    sx={{
-                                                        display: "flex",
-                                                        justifyContent: "space-between",
-                                                    }}
-                                                >
-                                                    <Typography>In-office</Typography>
-                                                    <Checkbox checked={row.inOffice} disabled />
-                                                </Box>
-                                            </Box>
-                                        ))}
-                                    </Box>
-                                ) : (
+                            <TableContainer >
+                                {/*{isMobile ? (*/}
+                                {/*    <Box sx={{color:"white"}}>*/}
+                                {/*        {rows.map((row) => (*/}
+                                {/*            <Box*/}
+                                {/*                key={row.feature}*/}
+                                {/*                sx={{*/}
+                                {/*                    padding: 2,*/}
+                                {/*                    borderBottom: "1px solid white",*/}
+                                {/*                }}*/}
+                                {/*            >*/}
+                                {/*                <Typography variant="h6">{row.feature}</Typography>*/}
+                                {/*                {row.info && (*/}
+                                {/*                    <Tooltip title={row.info}>*/}
+                                {/*                        <IconButton size="small">*/}
+                                {/*                            <InfoIcon fontSize="small" />*/}
+                                {/*                        </IconButton>*/}
+                                {/*                    </Tooltip>*/}
+                                {/*                )}*/}
+                                {/*                <Box*/}
+                                {/*                    sx={{*/}
+                                {/*                        display: "flex",*/}
+                                {/*                        justifyContent: "space-between",*/}
+                                {/*                        marginTop: 1,*/}
+                                {/*                    }}*/}
+                                {/*                >*/}
+                                {/*                    <Typography>BetterHelp</Typography>*/}
+                                {/*                    <Checkbox checked={row.betterHelp} disabled />*/}
+                                {/*                </Box>*/}
+                                {/*                <Box*/}
+                                {/*                    sx={{*/}
+                                {/*                        display: "flex",*/}
+                                {/*                        justifyContent: "space-between",*/}
+                                {/*                    }}*/}
+                                {/*                >*/}
+                                {/*                    <Typography>In-office</Typography>*/}
+                                {/*                    <Checkbox checked={row.inOffice} disabled />*/}
+                                {/*                </Box>*/}
+                                {/*            </Box>*/}
+                                {/*        ))}*/}
+                                {/*    </Box>*/}
+                                {/*) : (*/}
                                     <Table>
                                         <TableHead sx={{ backgroundColor: "#325343" }}>
                                             <TableRow>
                                                 <TableCell sx={{ color: "white" }}></TableCell>
-                                                <TableCell align="center" sx={{ fontSize:"20px", color: "white" ,backgroundColor:"green"}}>
+                                                <TableCell align="center" sx={{ fontSize:"20px", color: "white" ,backgroundColor:"green",borderTopLeftRadius:"10px",borderTopRightRadius:"10px"}}>
                                                     BetterHelp
                                                 </TableCell>
                                                 <TableCell align="center" sx={{fontSize:"20px",  color: "white" }}>
@@ -263,7 +263,8 @@ const Frequently = () => {
                                             ))}
                                         </TableBody>
                                     </Table>
-                                )}
+                                {/*// )*/}
+                                {/*}*/}
                             </TableContainer>
                         </Grid>
                     </Grid>
@@ -277,72 +278,134 @@ const Frequently = () => {
           // width: "100%",
           position: "relative",
           backgroundColor: "darkGreen",
+            height:"800px"
         }}
       >
-        <Container>
-          <Box
-            sx={{
-              position: "absolute",
-              top: "10%",
-              left: "45%",
-              width: "500px",
-              color: "white",
-              transform: "translateX(-50%)",
-              fontSize: "32px",
-            }}
-          >
-            <Box sx={{ position: "relative" }}>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid
-              <Box sx={{ position: "absolute", top: "0", left: "-100px" }}>
-                {" "}
-                <img src={left} alt="left" />{" "}
-              </Box>
-              <Box sx={{ position: "absolute", top: "0", right: "-100px" }}>
-                {" "}
-                <img src={right} alt="right" />{" "}
-              </Box>
+        {/*<Container>*/}
+        {/*  <Box*/}
+        {/*    sx={{*/}
+        {/*      position: "absolute",*/}
+        {/*      top: "10%",*/}
+        {/*      left: "45%",*/}
+        {/*      width: {md:"600px",xs:"100%"},*/}
+        {/*      color: "white",*/}
+        {/*      transform: "translateX(-50%)",*/}
+        {/*      fontSize: "32px",*/}
+        {/*    }}*/}
+        {/*  >*/}
+        {/*    <Box sx={{ position: "relative" ,textAlign:"center"}}>*/}
+        {/*        Susan is amazing in her insights and conversational approach. I am so glad and blessed to have found her and started healing with her guidance.*/}
+        {/*      <Box sx={{ position: "absolute", top: "0", left: "-100px" }}>*/}
+        {/*        {" "}*/}
+        {/*        <img src={left} alt="left" />{" "}*/}
+        {/*      </Box>*/}
+        {/*      <Box sx={{ position: "absolute", top: "0", right: "-80px" }}>*/}
+        {/*        {" "}*/}
+        {/*        <img src={right} alt="right" />{" "}*/}
+        {/*      </Box>*/}
+        {/*      <Box*/}
+        {/*        sx={{*/}
+        {/*          display: "flex",*/}
+        {/*          justifyContent: "center",*/}
+        {/*          alignItems: "center",*/}
+        {/*            width: { md: "350px", xs: "250px" },*/}
+        {/*            mx:"auto",*/}
+        {/*            my:"10px"*/}
+        {/*        }}*/}
+        {/*      >*/}
+        {/*        <img*/}
+        {/*          src={image}*/}
+        {/*          alt="image"*/}
+        {/*        />*/}
+        {/*      </Box>*/}
+        {/*      <Box*/}
+        {/*        sx={{*/}
+        {/*          display: "flex",*/}
+        {/*          justifyContent: "center",*/}
+        {/*          alignItems: "center",*/}
+        {/*        }}*/}
+        {/*      >*/}
+        {/*        <Button*/}
+        {/*          variant="outlined"*/}
+        {/*          sx={{*/}
+        {/*            color: "white",*/}
+        {/*            padding: "10px 36px",*/}
+        {/*            borderColor: "white",*/}
+        {/*            borderRadius: "30px",*/}
+        {/*            "&:hover": {*/}
+        {/*              color: "lightGreen",*/}
+        {/*              borderColor: "lightGreen",*/}
+        {/*            },*/}
+        {/*          }}*/}
+        {/*        >*/}
+        {/*          More success stories*/}
+        {/*        </Button>*/}
+        {/*      </Box>*/}
+        {/*    </Box>*/}
+        {/*  </Box>*/}
+        {/*</Container>*/}
+          <Container>
               <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <img
-                  src={image}
-                  alt="image"
-                  style={{
-                    width: { md: "400px", xs: "250px" },
-                  }}
-                />
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Button
-                  variant="outlined"
                   sx={{
-                    color: "white",
-                    padding: "10px 36px",
-                    borderColor: "white",
-                    borderRadius: "30px",
-                    "&:hover": {
-                      color: "lightGreen",
-                      borderColor: "lightGreen",
-                    },
+                      position: "absolute",
+                      top: { md: "10%", xs: "20%" },
+                      left: "50%",
+                      width: { md: "600px", xs: "90%" },
+                      color: "white",
+                      transform: "translateX(-50%)",
+                      fontSize: { md: "32px", xs: "24px" },
+                      textAlign: "center",
+                      px: { xs: 2, md: 0 },
                   }}
-                >
-                  More success stories
-                </Button>
+              >
+                  <Box sx={{ position: "relative", textAlign: "center"}}>
+                      Susan is amazing in her insights and conversational approach. I am so glad and blessed to have found her and started healing with her guidance.
+                      <Box sx={{ position: "absolute", top: "0", left: { md: "-100px", xs: "-5px" },height:{md:"40px",xs:"20px"} }}>
+                          <img src={left} alt="left" />
+                      </Box>
+                      <Box sx={{ position: "absolute", top: "0", right: { md: "-80px", xs: "-5px" },height:{md:"40px",xs:"20px"} }}>
+                          <img src={right} alt="right" />
+                      </Box>
+                      <Box
+                          sx={{
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              width: { md: "350px", xs: "250px" },
+                              mx: "auto",
+                              my: 2,
+                          }}
+                      >
+                          <img src={image} alt="image" style={{ width: "100%", height: "auto" }} />
+                      </Box>
+                      <Box
+                          sx={{
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                          }}
+                      >
+                          <Button
+                              variant="outlined"
+                              sx={{
+                                  color: "white",
+                                  padding: { md: "10px 36px", xs: "8px 24px" },
+                                  borderColor: "white",
+                                  borderRadius: "30px",
+                                  "&:hover": {
+                                      color: "lightGreen",
+                                      borderColor: "lightGreen",
+                                  },
+                              }}
+                          >
+                              More success stories
+                          </Button>
+                      </Box>
+                  </Box>
               </Box>
-            </Box>
-          </Box>
-        </Container>
-        <img src={divider} alt="divider image" />
+          </Container>
+
+          <img src={divider} alt="divider image" />
       </Box>
 
       <Box sx={{ py: "30px",position:"relative", '&::before': {

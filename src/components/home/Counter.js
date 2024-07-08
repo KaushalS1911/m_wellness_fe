@@ -15,9 +15,9 @@ function Counter() {
     ];
 
     return (
-        <Box sx={{ backgroundColor: "liteCream", pb: "140px" }}>
+        <Box sx={{ backgroundColor: "liteCream", pb: "140px",display:"flex",justifyContent:"center",alignItems:"center" }}>
             <Container>
-                <Box sx={{ py: "50px" }}>
+                <Box sx={{ py:"40px" }}>
                     <Grid container>
                         <Grid item md={6} xs={12}>
                             <Box

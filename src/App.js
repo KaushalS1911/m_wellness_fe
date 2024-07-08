@@ -9,9 +9,7 @@ function App(props) {
         <>
             <Header />
          <Home />
-            <Box sx={{ backgroundColor: "white" ,padding:"10px 0 40px"}}>
                 <Footer />
-            </Box>
         </>
     );
 }
