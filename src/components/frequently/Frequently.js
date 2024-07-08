@@ -153,7 +153,7 @@ const Frequently = () => {
             </Box>
             <Box>
                 <Box sx={{ display: "flex", justifyContent: "center" }} pb={5}>
-                    <Typography sx={{ fontSize: "44px", color: "white" }}>
+                    <Typography className="overpass" sx={{ fontSize: "44px", color: "white" }}>
                         <Typography variant="span" sx={{ color: "#A6DE9B" }}>
                             M
                         </Typography>
@@ -209,10 +209,10 @@ const Frequently = () => {
                                         <TableHead sx={{ backgroundColor: "#325343" }}>
                                             <TableRow>
                                                 <TableCell sx={{ color: "white" }}></TableCell>
-                                                <TableCell align="center" sx={{ fontSize:"20px", color: "white" ,backgroundColor:"green",borderTopLeftRadius:"10px",borderTopRightRadius:"10px"}}>
+                                                <TableCell className="overpass" align="center" sx={{ fontSize:"20px", color: "white" ,backgroundColor:"green",borderTopLeftRadius:"10px",borderTopRightRadius:"10px"}}>
                                                     MWellness
                                                 </TableCell>
-                                                <TableCell align="center" sx={{fontSize:"20px",  color: "white" }}>
+                                                <TableCell className="overpass" align="center" sx={{fontSize:"20px",  color: "white" }}>
                                                     In-office
                                                 </TableCell>
                                             </TableRow>
@@ -358,7 +358,7 @@ const Frequently = () => {
                       px: { xs: 2, md: 0 },
                   }}
               >
-                  <Box sx={{ position: "relative", textAlign: "center"}}>
+                  <Box className="overpass" sx={{ position: "relative", textAlign: "center"}}>
                       Susan is amazing in her insights and conversational approach. I am so glad and blessed to have found her and started healing with her guidance.
                       <Box sx={{ position: "absolute", top: "0", left: { md: "-100px", xs: "-5px" },height:{md:"40px",xs:"20px"} }}>
                           <img src={left} alt="left" />
@@ -387,6 +387,7 @@ const Frequently = () => {
                       >
                           <Button
                               variant="outlined"
+                              className="overpass"
                               sx={{
                                   color: "white",
                                   padding: { md: "10px 36px", xs: "8px 24px" },
@@ -429,6 +430,7 @@ const Frequently = () => {
                 margin: "40px 0 20px",
                 textAlign: "center",
               }}
+              className="overpass"
             >
               Frequently asked questions
             </Box>
@@ -496,13 +498,13 @@ const Frequently = () => {
             }}
           >
             <Button
+                className="overpass"
               sx={{
                 borderRadius: "30px",
                 backgroundColor: "lightGreen",
                 padding: "10px 36px",
                 color: "darkGreen",
                 textTransform: "initial",
-                fontWeight: "500",
                 fontSize: "20px",
                 "&:hover": {
                   backgroundColor: "green",

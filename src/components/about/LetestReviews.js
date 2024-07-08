@@ -9,7 +9,7 @@ import {Button} from "@mui/material";
 function LetestReviews() {
     return (
         <>
-            <Box sx={{pt:"96px"}}>
+            <Box sx={{pt:"96px",backgroundColor:"#FFFCF6"}}>
 
                 <Box sx={{backgroundColor: "darkGreen", height: "100%",minHeight:"60vh", position: "relative", "&::after" :{
                         content:"''",
@@ -26,7 +26,7 @@ function LetestReviews() {
                         <Container>
                             <Box >
                                 <Box sx={{mb: "40px"}}>
-                                    <Box sx={{fontSize:  "32px",mb:"30px", color: "#e9e9e9",textAlign:"center"}}>Our latest reviews </Box>
+                                    <Box sx={{fontSize:  "32px",mb:"30px", color: "#e9e9e9",textAlign:"center" }} className="overpass">Our latest reviews </Box>
                                     <Box sx={{display: "flex",justifyContent:"space-between",textAlign:"center",alignItems:{xs:"center",md:"start"},flexDirection:{xs:"column",md:"unset"}}}>
                                         <Box  sx={{width: {md:"300px"}}}>
                                             <Box >
@@ -71,10 +71,10 @@ function LetestReviews() {
                                         }}
                                     >
                                         <Button
+                                            className="overpass"
                                             variant="outlined"
                                             sx={{
                                                 color: "white",
-                                                fontWeight:"700",
                                                 padding: { md: "10px 36px", xs: "8px 24px" },
                                                 borderColor: "white",
                                                 borderRadius: "30px",

@@ -18,12 +18,12 @@ function HomeHerosection(props) {
                     <Container>
                         <Box sx={{textAlign: "center"}}>
                             <Box sx={{mb: "40px"}}>
-                                <Box sx={{fontSize: {xs: 28, sm: 38, md: 48}, letterSpacing: -1.5, fontWeight: 300}}>You deserve to be
+                                <Box sx={{fontSize: {xs: 28, sm: 38, md: 48}, letterSpacing: -1.5, fontWeight: 300}} className="overpass">You deserve to be
                                     happy.</Box>
                                 <Box sx={{fontSize: {xs: 14, sm: 22}, mt: 3 , letterSpacing: -0.5, fontWeight: 350}}>What type of therapy are you
                                     looking for?</Box>
                             </Box>
-                            <Grid container spacing={{xs: 2, md: 3, lg: 5}}>
+                            <Grid container spacing={{xs: 2, md: 3, lg: 5}} className="overpass">
                                 {happyImg.map((item, index) => (
                                     <Grid item xs={12} key={index} lg={4}>
                                         <Box sx={{

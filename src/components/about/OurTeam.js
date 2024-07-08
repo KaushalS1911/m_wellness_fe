@@ -34,7 +34,7 @@ function OurTeam() {
         <>
             <Box sx={{backgroundColor:"cream",pt:"90px",pb:{md:"0",xs:"50px"}}}>
                 <Container>
-                    <Box sx={{fontSize:"32px",color:"black",textAlign:"center",mb:"50px"}}>Our team</Box>
+                    <Box sx={{fontSize:"32px",color:"black",textAlign:"center",mb:"50px"}} className="overpass">Our team</Box>
                     <Box sx={{textAlign:"center",color:"black",px:{xs:"0",md:"180px"}}}>We are passionate and compassionate professionals, driven by the mission of helping more people live a better and happier life every day.
                         We are growing fast and always looking for new talent. If you love people and like challenges - come and join us!</Box>
                 </Container>
@@ -105,6 +105,7 @@ function OurTeam() {
                 <Container>
                     <Box sx={{display:"flex",justifyContent:"center",alignItems:"center",py:"40px",}}>
                         <Button
+                            className="overpass"
                             variant="outlined"
                             sx={{
                                 fontSize: "20px",
