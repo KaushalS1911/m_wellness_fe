@@ -44,7 +44,7 @@ function HeroSection() {
           <Grid item xl={7}>
             <Box sx={{ width: { md: "700px" }, padding: "0px 30px" }}>
               <Typography
-                className="overpass"
+                className="overpass title"
                 variant="h5"
                 pb={4}
                 sx={{

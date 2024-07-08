@@ -123,7 +123,7 @@ function Therapist(props) {
                         <Typography variant="h4" className="overpass title" sx={{color:"#252625"}}>
                             Our Therapists
                         </Typography>
-                        <Typography variant="subtitle1" className='overpass' fontSize={18} fontWeight={300} textAlign='center'>
+                        <Typography variant="subtitle1" className='title overpass' fontSize={18} fontWeight={300} textAlign='center'>
                             mwellness offers access to registered, trained, and experienced Practitioner Psychologists,
                             Counsellors, and similar applicable recognized professional certifications.
                         </Typography>

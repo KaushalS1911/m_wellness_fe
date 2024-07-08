@@ -23,7 +23,7 @@ function HomeHerosection(props) {
                                 <Box sx={{fontSize: {xs: 14, sm: 22}, mt: 3 , letterSpacing: -0.5, fontWeight: 350}}>What type of therapy are you
                                     looking for?</Box>
                             </Box>
-                            <Grid container spacing={{xs: 2, md: 3, lg: 5}} className="overpass">
+                            <Grid container spacing={{xs: 2, md: 3, lg: 5}} className="title overpass">
                                 {happyImg.map((item, index) => (
                                     <Grid item xs={12} key={index} lg={4}>
                                         <Box sx={{

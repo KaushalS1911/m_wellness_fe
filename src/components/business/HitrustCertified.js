@@ -41,7 +41,7 @@ function HitrustCertified() {
                   md={9}
                   px={5}
                   my={{ md: 0, xs: 3 }}
-                  className="overpass"
+                  className="title overpass"
                 >
                   <Typography sx={{ fontSize: "24px", color: "white" }}>
                     Now more than ever it's crucially important to know who you

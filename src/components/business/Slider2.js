@@ -163,7 +163,7 @@ function Slider2() {
                       }}
                     >
                       <Typography
-                        className="overpass"
+                        className="title overpass"
                         sx={{
                           fontSize: "18px",
                           // fontWeight: "500",

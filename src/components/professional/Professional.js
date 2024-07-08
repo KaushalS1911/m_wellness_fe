@@ -1,6 +1,6 @@
 import React from 'react';
 import {Box, Button, Container, Grid} from "@mui/material";
-import professionalImg from '../../assets/home/professional.jpg';
+import professionalImg from '../../assets/home/professional.png';
 import divider2 from '../../assets/home/divider-main-2.png';
 
 function Professional(props) {
@@ -22,7 +22,7 @@ function Professional(props) {
             <Container>
                 <Grid container sx={{py: {xs: "50px", md: "100px"}, pb: "250px !important"}}>
                     <Grid item xs={12} md={6}>
-                        <Box className="overpass" sx={{fontSize: {xs: 28, sm: 38, md: 48}, letterSpacing: -1.5, fontWeight: 300}}>Professional
+                        <Box className="title overpass" sx={{fontSize: {xs: 28, sm: 38, md: 48}, letterSpacing: -1.5, fontWeight: 300}}>Professional
                             and credentialed therapists who you can trust</Box>
                         <Box sx={{maxHeight: "100%", display: {md: "none", xs: "block"}}}>
                             <img src={professionalImg} alt="professional"/>

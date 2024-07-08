@@ -19,7 +19,7 @@ function ClinicalApproach() {
                 <Grid item lg={6} alignSelf={"center"} px={5}>
                   <Box>
                     <Typography
-                      className="overpass"
+                      className="overpass title"
                       mb={4}
                       sx={{ fontSize: "32px", color: "#444444" }}
                     >

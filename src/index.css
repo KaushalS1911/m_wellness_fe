@@ -131,7 +131,11 @@ img {
 }
 .overpass {
   font-family: "Overpass", sans-serif !important;
+  /*letter-spacing: -1px !important;*/
 }
 .title{
   letter-spacing: -1px !important;
+}
+.css-ahj2mt-MuiTypography-root {
+  font-family: Overpass, sans-serif !important;
 }

@@ -32,7 +32,7 @@ function StandardIndustry() {
                 >
                   <Box px={3}>
                     <Typography
-                      className="overpass"
+                      className="overpass title"
                       pt={3}
                       mb={3}
                       sx={{
@@ -63,7 +63,7 @@ function StandardIndustry() {
                     </Box>
                     <Box textAlign={"center"}>
                       <Typography
-                        className="overpass"
+                        className="overpass title"
                         sx={{
                           fontSize: "24px",
                           color: "#444444 ",
@@ -87,7 +87,7 @@ function StandardIndustry() {
                     </Box>
                     <Box textAlign={"center"}>
                       <Typography
-                        className="overpass"
+                        className="overpass title"
                         sx={{
                           fontSize: "24px",
                           color: "#444444 ",
@@ -110,7 +110,7 @@ function StandardIndustry() {
                     </Box>
                     <Box textAlign={"center"}>
                       <Typography
-                        className="overpass"
+                        className="overpass title"
                         sx={{
                           fontSize: "24px",
                           color: "#444444 ",

@@ -39,7 +39,7 @@ const GiftMembership = () => {
                   fontSize: { md: "48px", xs: "32px" },
                   margin: {md:"48px 0 24px"},
                 }}
-                className="overpass"
+                className="overpass title"
               >
                 <Typography variant="span" sx={{ color: "darkGreen" }}>
                   Give the gift

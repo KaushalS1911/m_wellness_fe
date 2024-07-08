@@ -153,7 +153,7 @@ const Frequently = () => {
                 </Box>
                 <Box>
                     <Box sx={{display: "flex", justifyContent: "center"}} pb={5}>
-                        <Typography className="overpass" sx={{fontSize: 48, fontWeight: 350, color: "white", fontFamily: "Overpass"}}>
+                        <Typography className="overpass title" sx={{fontSize: 48, fontWeight: 350, color: "white", fontFamily: "Overpass"}}>
                             <Typography variant="span" sx={{color: "#A6DE9B"}}>
                                 m
                             </Typography>
@@ -209,7 +209,7 @@ const Frequently = () => {
                                         <TableHead sx={{backgroundColor: "#325343"}}>
                                             <TableRow>
                                                 <TableCell sx={{color: "white"}}></TableCell>
-                                                <TableCell className="overpass" align="center" sx={{
+                                                <TableCell className="title overpass" align="center" sx={{
                                                     fontFamily: "Overpass",
                                                     fontSize: 22,
                                                     color: "white",
@@ -219,7 +219,7 @@ const Frequently = () => {
                                                 }}>
                                                     mwellness
                                                 </TableCell>
-                                                <TableCell className="overpass" align="center"
+                                                <TableCell className="title overpass" align="center"
                                                            sx={{fontSize: 22, color: "white", fontFamily: "Overpass"}}>
                                                     In-office
                                                 </TableCell>
@@ -365,7 +365,7 @@ const Frequently = () => {
                             px: {xs: 2, md: 0},
                         }}
                     >
-                        <Box className="overpass" sx={{position: "relative", textAlign: "center"}}>
+                        <Box className="overpass title" sx={{position: "relative", textAlign: "center"}}>
                             Susan is amazing in her insights and conversational approach. I am so glad and blessed to
                             have found her and started healing with her guidance.
                             <Box sx={{
@@ -513,13 +513,13 @@ const Frequently = () => {
                         }}
                     >
                         <Button
+                            className='overpass'
                             sx={{
                                 borderRadius: "30px",
                                 backgroundColor: "lightGreen",
                                 padding: "10px 36px",
                                 color: "darkGreen",
                                 textTransform: "initial",
-                                fontWeight: 600,
                                 fontSize: "20px",
                                 "&:hover": {
                                     backgroundColor: "green",
