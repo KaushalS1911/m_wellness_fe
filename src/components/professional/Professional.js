@@ -60,7 +60,7 @@ function Professional(props) {
                     </Grid>
                 </Grid>
             </Container>
-            <Box sx={{position: "absolute", bottom: "0px", width: "100%"}}>
+            <Box sx={{position: "absolute", bottom: "-10px", width: "100%"}}>
                 <img src={divider2} alt="divider image" />
             </Box>
         </Box>
