@@ -104,40 +104,40 @@ const itemData = [
 
 function Therapist(props) {
     return (
-        <Box>
+        <Box sx={{backgroundColor: "#FFFCF6"}}>
             <Container>
-                <Box sx={{
-                    width: "80%",
-                    py: 2,
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 2,
-                    justifyContent: "center",
-                    alignItems: "center"
-                }}>
-                    <Typography variant={"h4"}>
-                        Our Therapists
-                    </Typography>
-                    <Typography variant={"subtitle1"}>
-                        BetterHelp offers access to registered, trained, and experienced Practitioner Psychologists,
-                        Counsellors, and similar applicable recognized professional certifications.
-                    </Typography>
-                </Box>
-                <Box >
+                <Box sx={{display: "flex", justifyContent: "center", alignItems: "center", gap: 10, py: 10, flexDirection: "column"}}>
+                    <Box sx={{
+                        width: "80%",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 2,
+                        justifyContent: "center",
+                        alignItems: "center"
+                    }}>
+                        <Typography variant={"h4"}>
+                            Our Therapists
+                        </Typography>
+                        <Typography variant={"subtitle1"}>
+                            BetterHelp offers access to registered, trained, and experienced Practitioner Psychologists,
+                            Counsellors, and similar applicable recognized professional certifications.
+                        </Typography>
+                    </Box>
+                    <Box >
+                        <ImageList cols={7} rowHeight={164}>
+                            {itemData.map((item) => (
+                                <ImageListItem key={item.img}>
+                                    <img
+                                        srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                                        src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+                                        alt={item.title}
+                                        loading="lazy"
+                                    />
+                                </ImageListItem>
+                            ))}
+                        </ImageList>
 
-                    <ImageList cols={7} rowHeight={164}>
-                        {itemData.map((item) => (
-                            <ImageListItem key={item.img}>
-                                <img
-                                    srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                                    src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-                                    alt={item.title}
-                                    loading="lazy"
-                                />
-                            </ImageListItem>
-                        ))}
-                    </ImageList>
-
+                    </Box>
                 </Box>
             </Container>
         </Box>
