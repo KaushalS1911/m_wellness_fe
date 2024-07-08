@@ -80,10 +80,9 @@ function OurTeam() {
                         <Button
                             className="swiper-button-prev"
                             sx={{
-                                color: "white !important",
-                                transform: "translateX(5px)",
+                                color: "white",
+                                transform: "translateX(35px)",
                                 display: {xs: "none", sm: "block"},
-                                fontSize:"30px",
                             }}
                             onClick={handlePrev}
                         >
@@ -93,9 +92,8 @@ function OurTeam() {
                         <Button
                             className="swiper-button-next"
                             sx={{
-                                color: "white !important",
-                                fontSize:"30px",
-                                transform: "translateX(-5px)",
+                                color: "white",
+                                transform: "translateX(-35px)",
                                 display: {xs: "none", sm: "block"},
                             }}
                             onClick={handleNext}
