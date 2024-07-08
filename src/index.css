@@ -7,7 +7,7 @@
 }
 body {
   margin: 0;
-  font-family: "Overpass", sans-serif;
+  font-family: "Overpass", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

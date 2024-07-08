@@ -26,7 +26,8 @@ function Counter() {
                                     justifyContent: "center",
                                     alignItems: "center",
                                     marginBottom: { xs: "40px", md: "unset" },
-                                    width: "70%"
+                                    width: "70%",
+                                    mx: "auto"
                                 }}
                             >
                                 <Box

@@ -1,9 +1,18 @@
 import React from 'react';
 import logo from '../../assets/header/logo.png';
-import resLogo from '../../assets/header/resLogo.png';
-import {Box, Button, useMediaQuery, useTheme, IconButton, Drawer, List, ListItem, ListItemText} from "@mui/material";
+import {
+    Box,
+    Button,
+    useMediaQuery,
+    useTheme,
+    IconButton,
+    Drawer,
+    List,
+    ListItem,
+    ListItemText,
+} from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 const navigationItems = [
     {name: "Business", link: "#"},
@@ -46,7 +55,7 @@ function Header(props) {
             }}
           >
             <Box sx={{ width: "180px" }}>
-              <img src={logo} alt="logo" />
+                <Link to={'/'}><img src={logo} alt="logo" /></Link>
             </Box>
             {isLgScreen ? (
               <Box sx={{ color: "white" }}>
