@@ -48,7 +48,7 @@ function HitrustCertified() {
                     can trust.
                   </Typography>
                   <Typography sx={{ fontSize: "24px", color: "white" }}>
-                    BetterHelp.com is now HITRUST certified.
+                    Mwellness.com is now HITRUST certified.
                   </Typography>
                 </Grid>
               </Grid>

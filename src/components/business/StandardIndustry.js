@@ -98,7 +98,7 @@ function StandardIndustry() {
                         Security
                       </Typography>
                       <Typography sx={{ fontSize: "16px", color: "#4a4d4a" }}>
-                        BetterHelp is HITRUST Risk-based, 2-year (r2) Certified.
+                          Mwellness is HITRUST Risk-based, 2-year (r2) Certified.
                       </Typography>
                     </Box>
                   </Box>

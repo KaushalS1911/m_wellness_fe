@@ -28,13 +28,13 @@ const Textarea = styled(BaseTextareaAutosize)(({ theme }) => ({
 }));
 const contact = [
     { contact: "I am a registered client and I need support." },
-    { contact: "I am a current BetterHelp therapist and I need support." },
+    { contact: "I am a current Mwellness therapist and I need support." },
     { contact: "I am a therapist interested in joining or a current applicant." },
     { contact: "I have a question about the service." },
     { contact: "I have a billing related question." },
     { contact: "I have a press-related question." },
     { contact: "I have a business-related inquiry." },
-    { contact: "I'm interested in BetterHelp for my organization." },
+    { contact: "I'm interested in Mwellness for my organization." },
 ];
 function Contact() {
     return (
@@ -83,10 +83,10 @@ function Contact() {
                                 </Grid>
                                 <Grid xs={12} md={4}>
                                     <Box sx={{ margin: "20px", backgroundColor: "#F5FBF4", textAlign: "left", padding: "20px", fontFamily: "Overpass, sans-serif" }}>
-                                        <Typography sx={{ color: "#444444", fontFamily: "Overpass, sans-serif" }}>BetterHelp</Typography>
+                                        <Typography sx={{ color: "#444444", fontFamily: "Overpass, sans-serif" }}>Mwellness</Typography>
                                         <Typography sx={{ color: "#444444", fontFamily: "Overpass, sans-serif" }}>990 Villa Street,</Typography>
                                         <Typography sx={{ color: "#444444", fontFamily: "Overpass, sans-serif" }}>Mountain View, CA 94041</Typography>
-                                        <Typography sx={{ color: "#397A4A", fontWeight: "700", fontFamily: "Overpass, sans-serif" }}>contact@betterhelp.com</Typography>
+                                        <Typography sx={{ color: "#397A4A", fontWeight: "700", fontFamily: "Overpass, sans-serif" }}>contact@mwellness.com</Typography>
                                     </Box>
                                 </Grid>
                             </Grid>

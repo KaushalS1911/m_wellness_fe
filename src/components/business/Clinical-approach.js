@@ -34,7 +34,7 @@ function ClinicalApproach() {
                         fontWeight: "100",
                       }}
                     >
-                      Since 2013, BetterHelp has supported millions of clients
+                      Since 2013, Mwellness has supported millions of clients
                       and hundreds of organizations by providing
                       clinically-proven and evidence-based results for companies
                       seeking to improve employee wellbeing.
@@ -106,7 +106,7 @@ function ClinicalApproach() {
                         display={"inline-block"}
                         sx={{ fontSize: "18px", color: "#6d706c" }}
                       >
-                        * After 6 weeks of therapy on BetterHelp.
+                        * After 6 weeks of therapy on Mwellness.
                       </Typography>
                     </Box>
                   </Box>

@@ -36,8 +36,8 @@ const Frequently = () => {
   const handleExpansion = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
-    const createData = (feature, betterHelp, inOffice, info) => {
-        return { feature, betterHelp, inOffice, info };
+    const createData = (feature, Mwellness, inOffice, info) => {
+        return { feature, Mwellness, inOffice, info };
     };
     const rows = [
         createData(
@@ -190,7 +190,7 @@ const Frequently = () => {
                                     {/*                    }}*/}
                                     {/*                >*/}
                                     {/*                    <Typography>MWellness</Typography>*/}
-                                    {/*                    <Checkbox checked={row.betterHelp} disabled />*/}
+                                    {/*                    <Checkbox checked={row.Mwellness} disabled />*/}
                                     {/*                </Box>*/}
                                     {/*                <Box*/}
                                     {/*                    sx={{*/}
@@ -249,7 +249,7 @@ const Frequently = () => {
                                                         sx={{backgroundColor: "white"}}
                                                     >
                                                         {/* <Checkbox
-                                checked={row.betterHelp}
+                                checked={row.Mwellness}
                                 disabled
                               /> */}
                                                         <img

@@ -38,7 +38,7 @@ function Slider2() {
       tit: "Principal Employee",
     },
     {
-      dec: "Nikki is amazing. I didn't fully connect with my first therapist, so I switched, and I am so happy that I found someone who is right for me! I can fully be myself with her and that is very important for me. I am so thankful for her and for the BetterHelp platform overall.",
+      dec: "Nikki is amazing. I didn't fully connect with my first therapist, so I switched, and I am so happy that I found someone who is right for me! I can fully be myself with her and that is very important for me. I am so thankful for her and for the Mwellness platform overall.",
       tit: "Lowes Employee",
     },
     {
@@ -66,7 +66,7 @@ function Slider2() {
       tit: "Netflix Employee",
     },
     {
-      dec: "I started my Betterhelp journey with Michelle a couple of weeks ago and couldnt be happier with the support I have recieved. Michelle is already helping me to feel better and giving me action steps to move forward on my journey. I am feeling optimistic.",
+      dec: "I started my Mwellness journey with Michelle a couple of weeks ago and couldnt be happier with the support I have recieved. Michelle is already helping me to feel better and giving me action steps to move forward on my journey. I am feeling optimistic.",
       tit: "Ross Stores Employee",
     },
     {
