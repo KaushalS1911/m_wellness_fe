@@ -26,7 +26,7 @@ function LetestReviews() {
                         <Container>
                             <Box >
                                 <Box sx={{mb: "40px"}}>
-                                    <Box sx={{fontSize: {xs: "20px", sm: "25px", md: "32px"},mb:"30px", color: "#e9e9e9",textAlign:"center"}}>Our latest reviews </Box>
+                                    <Box sx={{fontSize:  "32px",mb:"30px", color: "#e9e9e9",textAlign:"center"}}>Our latest reviews </Box>
                                     <Box sx={{display: "flex",justifyContent:"space-between",textAlign:"center",alignItems:{xs:"center",md:"start"},flexDirection:{xs:"column",md:"unset"}}}>
                                         <Box  sx={{width: {md:"300px"}}}>
                                             <Box >

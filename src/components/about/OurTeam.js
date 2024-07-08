@@ -3,14 +3,21 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import {Navigation, Pagination} from "swiper/modules";
 import '../../../node_modules/swiper/swiper-bundle.min.css';
 import { useMediaQuery} from "@mui/material";
-import img1 from "../../assets/about/logo-1.png";
+import carousel1 from "../../assets/about/carousel-1.png";
+import carousel2 from "../../assets/about/carousel-2.png";
+import carousel3 from "../../assets/about/carousel-3.png";
+import carousel4 from "../../assets/about/carousel-4.png";
+import carousel5 from "../../assets/about/carousel-5.png";
+import carousel6 from "../../assets/about/carousel-6.png";
+import carousel7 from "../../assets/about/carousel-7.png";
+import carousel8 from "../../assets/about/carousel-8.png";
 import {useTheme} from "@mui/material/styles";
 import {Box, Button, Container, Grid, Typography} from "@mui/material";
 import sml from "../../assets/gift/sml-logo.png";
 
 function OurTeam() {
     const swiperRef = useRef(null);
-    const aboutSliderData = [img1,img1,img1,img1,img1,img1,img1,img1,img1,img1,img1,img1,img1,img1,img1,img1,img1,img1,img1,img1];
+    const aboutSliderData = [carousel1,carousel2,carousel3,carousel4,carousel5,carousel6,carousel7,carousel8];
 
     const handleNext = () => {
         if (swiperRef.current && swiperRef.current.swiper) {
@@ -33,68 +40,70 @@ function OurTeam() {
                 </Container>
 
 
-                    {/*<Box sx={{mt: "200px",position: "relative"}} className={"aboutSlider"}>*/}
-                    {/*    <Swiper*/}
-                    {/*        ref={swiperRef}*/}
-                    {/*        modules={[Pagination]}*/}
-                    {/*        navigation={{*/}
-                    {/*            nextEl: ".swiper-button-next",*/}
-                    {/*            prevEl: ".swiper-button-prev",*/}
-                    {/*        }}*/}
-                    {/*        pagination={false}*/}
-                    {/*        loop={true}*/}
-                    {/*        breakpoints={{*/}
-                    {/*            0: {*/}
-                    {/*                slidesPerView: 2,*/}
-                    {/*            },*/}
-                    {/*            640: {*/}
-                    {/*                slidesPerView: 3,*/}
-                    {/*            },*/}
-                    {/*            1024: {*/}
-                    {/*                slidesPerView: 4,*/}
-                    {/*            },*/}
-                    {/*        }}*/}
-                    {/*    >*/}
-                    {/*        {aboutSliderData.map((item, index) => (*/}
-                    {/*            <SwiperSlide*/}
-                    {/*                key={index}*/}
-                    {/*                sx={{*/}
-                    {/*                    display: "flex",*/}
-                    {/*                    justifyContent: "center",*/}
-                    {/*                    alignItems: "center",*/}
-                    {/*                }}*/}
-                    {/*            >*/}
-                    {/*                <Box sx={{height: {sm:"264px"}}}>*/}
-                    {/*                    <img src={img1} alt="companies"/>*/}
-                    {/*                </Box>*/}
-                    {/*            </SwiperSlide>*/}
-                    {/*        ))}*/}
-                    {/*    </Swiper>*/}
-                    {/*    <Button*/}
-                    {/*        className="swiper-button-prev"*/}
-                    {/*        sx={{*/}
-                    {/*            color: "white",*/}
-                    {/*            transform: "translateX(35px)",*/}
-                    {/*            display: {xs: "none", sm: "block"},*/}
-                    {/*        }}*/}
-                    {/*        onClick={handlePrev}*/}
-                    {/*    >*/}
-                    {/*        <i className="absolutely-centered fas fa-chevron-left fa-fw"*/}
-                    {/*           data-testid="previous-slide-button"></i>*/}
-                    {/*    </Button>*/}
-                    {/*    <Button*/}
-                    {/*        className="swiper-button-next"*/}
-                    {/*        sx={{*/}
-                    {/*            color: "white",*/}
-                    {/*            transform: "translateX(-35px)",*/}
-                    {/*            display: {xs: "none", sm: "block"},*/}
-                    {/*        }}*/}
-                    {/*        onClick={handleNext}*/}
-                    {/*    >*/}
-                    {/*        <i className="absolutely-centered fas fa-chevron-right fa-fw"*/}
-                    {/*           data-testid="next-slide-button"></i>*/}
-                    {/*    </Button>*/}
-                    {/*</Box>*/}
+                    <Box sx={{mt: "90px",position: "relative"}} className={"aboutSlider"}>
+                        <Swiper
+                            ref={swiperRef}
+                            modules={[Pagination]}
+                            navigation={{
+                                nextEl: ".swiper-button-next",
+                                prevEl: ".swiper-button-prev",
+                            }}
+                            pagination={false}
+                            loop={true}
+                            breakpoints={{
+                                0: {
+                                    slidesPerView: 2,
+                                },
+                                640: {
+                                    slidesPerView: 3,
+                                },
+                                1024: {
+                                    slidesPerView: 4,
+                                },
+                            }}
+                        >
+                            {aboutSliderData.map((item, index) => (
+                                <SwiperSlide
+                                    key={index}
+                                    sx={{
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                    }}
+                                >
+                                    <Box sx={{height: {sm:"264px"}}}>
+                                        <img src={item} alt="companies"/>
+                                    </Box>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                        <Button
+                            className="swiper-button-prev"
+                            sx={{
+                                color: "white !important",
+                                transform: "translateX(5px)",
+                                display: {xs: "none", sm: "block"},
+                                fontSize:"30px",
+                            }}
+                            onClick={handlePrev}
+                        >
+                            <i className="absolutely-centered fas fa-chevron-left fa-fw"
+                               data-testid="previous-slide-button"></i>
+                        </Button>
+                        <Button
+                            className="swiper-button-next"
+                            sx={{
+                                color: "white !important",
+                                fontSize:"30px",
+                                transform: "translateX(-5px)",
+                                display: {xs: "none", sm: "block"},
+                            }}
+                            onClick={handleNext}
+                        >
+                            <i className="absolutely-centered fas fa-chevron-right fa-fw"
+                               data-testid="next-slide-button"></i>
+                        </Button>
+                    </Box>
                 <Container>
                     <Box sx={{display:"flex",justifyContent:"center",alignItems:"center",py:"40px",}}>
                         <Button
@@ -113,7 +122,7 @@ function OurTeam() {
                                 my: { xs: "40px", lg: "unset" },
                             }}
                         >
-                            See more
+                            Join our team
                         </Button>
 
                     </Box>

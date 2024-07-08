@@ -13,13 +13,13 @@ export default function Socialimpact() {
 
                <Container>
                    <Box>
-                       <Box sx={{fontSize: { xs: "25px", md: "32px"},mb:"30px",textAlign:"center"}}>Our social impact</Box>
+                       <Box sx={{fontSize:  "32px",mb:"30px",textAlign:"center",pt:{md:"unset",xs:"30px"}}}>Our social impact</Box>
                        <Box sx={{display:"flex",justifyContent:"center",padding:"10px 0 50px",borderBottom:"1px solid #e7e7e7",alignItems:{xs:"center",md:"start"},flexDirection:{xs:"column",md:"unset"}}}>
-                           <Box sx={{textAlign:"center",width:"350px",mx:"30px"}}>
+                           <Box sx={{textAlign:"center",width: {md:"350px"},mx:"30px"}}>
                                <Box  sx={{ color: "green", fontWeight: "700", fontSize: { md: "32px", xs: "24px" }, letterSpacing: "-1.5px",my:"20px" }}>$65,697,925</Box>
                                <Box sx={{fontSize:"20px",color:"#444444"}}>Given in discounts and financial aid to cover therapy costs for low-income individuals</Box>
                            </Box>
-                           <Box sx={{textAlign:"center",width:"350px",mx:"30px"}}>
+                           <Box sx={{textAlign:"center",width: {md:"350px"},mx:"30px"}}>
                                <Box  sx={{ color: "green", fontWeight: "700", fontSize: { md: "32px", xs: "24px" }, letterSpacing: "-1.5px",my:"20px" }}>95,647</Box>
                                <Box sx={{fontSize:"20px",color:"#444444"}}>Free months of therapy donated to communities in need</Box>
                            </Box>
