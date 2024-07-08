@@ -7,7 +7,7 @@ function About(props) {
     return (
         <div>
             <AboutHeroSection/>
-            {/*<Therapist/>*/}
+            <Therapist/>
             <AboutHeroSection2/>
         </div>
     );
