@@ -18,10 +18,12 @@ function HomeHerosection(props) {
                     <Container>
                         <Box sx={{textAlign: "center"}}>
                             <Box sx={{mb: "40px"}}>
-                                <Box sx={{fontSize: {xs:"28px",sm:"38px" , md:"48px"}}}>You deserve to be happy.</Box>
-                                <Box sx={{fontSize: {xs:"14px",sm:"20px"}, mt: "20px"}}>What type of therapy are you looking for?</Box>
+                                <Box sx={{fontSize: {xs: "28px", sm: "38px", md: "48px"}}}>You deserve to be
+                                    happy.</Box>
+                                <Box sx={{fontSize: {xs: "14px", sm: "20px"}, mt: "20px"}}>What type of therapy are you
+                                    looking for?</Box>
                             </Box>
-                            <Grid container spacing={{xs: 2,md:3 ,lg: 5}}>
+                            <Grid container spacing={{xs: 2, md: 3, lg: 5}}>
                                 {happyImg.map((item, index) => (
                                     <Grid item xs={12} key={index} lg={4}>
                                         <Box sx={{
@@ -32,7 +34,11 @@ function HomeHerosection(props) {
                                             '&:hover .beHappyImg': {borderColor: "white !important"}
                                         }}>
                                             <Box sx={{position: "absolute", px: "30px", top: "30px"}}>
-                                                <Box sx={{color: "white", fontSize: "32px",textAlign: "start"}}>{item.title}</Box>
+                                                <Box sx={{
+                                                    color: "white",
+                                                    fontSize: "32px",
+                                                    textAlign: "start"
+                                                }}>{item.title}</Box>
                                                 <Box sx={{textAlign: "start", mt: "10px"}}>{item.subTitle}
                                                     <Typography className={"rightArr"} component={"span"} sx={{
                                                         ml: "10px",
@@ -48,7 +54,8 @@ function HomeHerosection(props) {
                                                 </Box>
                                             </Box>
                                             <Box sx={{height: "100%"}}>
-                                                <img className={"beHappyImg"} src={item.img} alt="You deserve to be happy"
+                                                <img className={"beHappyImg"} src={item.img}
+                                                     alt="You deserve to be happy"
                                                      style={{
                                                          backgroundColor: item.color,
                                                          borderRadius: "10px",

@@ -55,7 +55,7 @@ function Footer(props) {
                                     Careers
                                 </Box>
                                 <Box className="box" sx={{ my: { xs: "20px", lg: "unset" } }}>
-                                    Find aTherapist
+                                    FindaTherapist
                                 </Box>
                                 <Box className="box" sx={{ my: { xs: "20px", lg: "unset" } }}>
                                     Online Therapy
