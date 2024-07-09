@@ -75,9 +75,11 @@ function Footer(props) {
                   <Box className="box" sx={{ my: { xs: "20px", lg: "unset" } }}>
                     Online Therapy
                   </Box>
+                    <NavLink style={{ color: "unset" }} to={"/contact"}>
                   <Box className="box" sx={{ my: { xs: "20px", lg: "unset" } }}>
                     Contact
                   </Box>
+                    </NavLink>
                   <Box className="box" sx={{ my: { xs: "20px", lg: "unset" } }}>
                     For Therapists
                   </Box>

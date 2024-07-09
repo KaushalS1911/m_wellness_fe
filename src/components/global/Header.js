@@ -22,7 +22,7 @@ const navigationItems = [
   { name: "FAQ", link: "#" },
   { name: "Reviews", link: "#" },
   { name: "Therapist jobs", link: "#" },
-  { name: "Contact", link: "#" },
+  { name: "Contact", link: "/contact" },
 ];
 
 function Header(props) {
