@@ -8,10 +8,12 @@ import {
     RadioGroup,
     FormControlLabel,
     FormControl,
-    TextField,
+    TextField, Button,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { TextareaAutosize as BaseTextareaAutosize } from "@mui/base/TextareaAutosize";
+import React from "react";
+import {NavLink} from "react-router-dom";
 
 const Item = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(1),
@@ -137,6 +139,30 @@ function Contact() {
                                     sx={{ borderRadius: "6px", width: "100%" }}
                                 />
                                 <Textarea minRows={5} placeholder="Address" />
+                            </Box>
+                            <Box sx={{display:"flex",justifyContent:"end",alignItems:"center",pt:"40px",}}>
+                               <NavLink to={'/'}>
+                                   <Button
+                                       className="overpass"
+                                       variant="outlined"
+                                       sx={{
+                                           fontSize: "20px",
+                                           borderRadius: "30px",
+                                           color: "darkGreen",
+                                           borderColor: "darkGreen",
+                                           padding: "5px 36px",
+                                           textTransform: "inherit",
+                                           "&:hover": {
+                                               borderColor: "darkGreen",
+                                               backgroundColor: "#F5FBF4",
+                                           },
+                                           // my: { xs: "10px", lg: "unset" },
+                                       }}
+                                   >
+                                       Submit
+                                   </Button>
+                               </NavLink>
+
                             </Box>
                         </Grid>
                         <Grid item xs={12} md={4}>

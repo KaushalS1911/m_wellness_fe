@@ -65,7 +65,8 @@ img {
   border: 1px solid black;
 }
 .businessSlider .swiper-pagination-bullet-active,
-.businessSlider2 .swiper-pagination-bullet-active {
+.businessSlider2 .swiper-pagination-bullet-active,
+.reviewBoxes .swiper-pagination-bullet-active{
   background: #397a4a !important;
 }
 .businessSlider .swiper-wrapper {
@@ -116,7 +117,9 @@ img {
 .businessSlider .swiper-button-next:after,
 .businessSlider .swiper-button-prev:after,
 .aboutSlider .swiper-button-next:after,
-.aboutSlider .swiper-button-prev:after {
+.aboutSlider .swiper-button-prev:after,
+.reviewBoxes .swiper-button-next:after,
+.reviewBoxes .swiper-button-prev:after{
   display: none !important;
 }
 .aboutSlider .swiper-button-prev {
@@ -138,4 +141,39 @@ img {
 }
 .css-ahj2mt-MuiTypography-root {
   font-family: Overpass, sans-serif !important;
+}
+/******************review**********/
+.reviewBoxes .swiper-wrapper {
+  height: 250px !important;
+}
+.reviewBoxes .swiper{
+  padding: 0 50px;
+}
+.reviewBoxes .swiper-button-prev {
+  position: absolute;
+  top: 40%;
+  left: 0% !important;
+  font-size: 34px;
+  transform: translateY(-50%);
+}
+.reviewBoxes .swiper-button-next{
+  position: absolute;
+  top: 40%;
+  right: 0% !important;
+  font-size: 34px;
+  transform: translateY(-50%);
+}
+.css-114p2tk-MuiMobileStepper-dot{
+  width:50px !important;
+  height: 5px !important;
+  border-radius: unset !important;
+  background-color: #DCE2DA !important;
+
+}
+.css-26w9jf-MuiMobileStepper-dot{
+  width:50px !important;
+  border-radius: unset !important;
+  background-color: #325343 !important;
+  height: 5px !important;
+
 }

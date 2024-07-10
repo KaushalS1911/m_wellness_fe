@@ -107,6 +107,7 @@ function Header(props) {
                       </Button>
                     </ListItem>
                     <ListItem button>
+                        <NavLink to={'getStarted'}>
                       <Button
                         sx={{
                           fontWeight: "600",
@@ -121,8 +122,9 @@ function Header(props) {
                           width: "100%",
                         }}
                       >
-                        Start assessment
+                        Get started
                       </Button>
+                        </NavLink>
                     </ListItem>
                   </List>
                 </Box>
@@ -186,23 +188,25 @@ function Header(props) {
                 </Button>
               </Box>
               <Box>
-                <Button
-                  sx={{
-                    fontWeight: "600",
-                    background: "white",
-                    py: "5px",
-                    px: "16px",
-                    textTransform: "unset",
-                    fontSize: { lg: "16px", xs: "14px" },
-                    color: "green",
-                    borderRadius: "20px",
-                    "&:hover": {
-                      backgroundColor: "liteGreen",
-                    },
-                  }}
-                >
-                  Start assessment
-                </Button>
+               <NavLink to={'getStarted'}>
+                   <Button
+                       sx={{
+                           fontWeight: "600",
+                           background: "white",
+                           py: "5px",
+                           px: "16px",
+                           textTransform: "unset",
+                           fontSize: { lg: "16px", xs: "14px" },
+                           color: "green",
+                           borderRadius: "20px",
+                           "&:hover": {
+                               backgroundColor: "liteGreen",
+                           },
+                       }}
+                   >
+                       Get started
+                   </Button>
+               </NavLink>
               </Box>
             </Box>
           )}
