@@ -18,7 +18,7 @@ const navigationItems = [
   { name: "Business", link: "/business" },
   { name: "About", link: "/about" },
   { name: "Service", link: "#" },
-  { name: "Advice", link: "#" },
+  { name: "Advice", link: "/advice" },
   { name: "FAQ", link: "/faq" },
   { name: "Reviews", link: "#" },
   { name: "Therapist jobs", link: "#" },
@@ -92,7 +92,7 @@ function Header(props) {
                     <ListItem button>
                       <Button
                         sx={{
-                          fontWeight: "600",
+                          // fontWeight: "600",
                           border: "1px solid white",
                           py: "5px",
                           px: "16px",
@@ -110,7 +110,7 @@ function Header(props) {
                         <NavLink to={'getStarted'}>
                       <Button
                         sx={{
-                          fontWeight: "600",
+                          // fontWeight: "600",
                           border: "1px solid white",
                           background: "white",
                           py: "5px",
@@ -136,7 +136,7 @@ function Header(props) {
                 display: "flex",
                 alignItems: "center",
                 gap: { xs: "12px", lg: "18px" },
-                fontWeight: "600",
+                // fontWeight: "600",
                 color: "white",
                 fontSize: { lg: "16px", xs: "14px" },
               }}
@@ -170,7 +170,7 @@ function Header(props) {
               <Box>
                 <Button
                   sx={{
-                    fontWeight: "600",
+                    // fontWeight: "600",
                     border: "1px solid white",
                     py: "5px",
                     px: "16px",
@@ -191,7 +191,7 @@ function Header(props) {
                <NavLink to={'getStarted'}>
                    <Button
                        sx={{
-                           fontWeight: "600",
+                           // fontWeight: "600",
                            background: "white",
                            py: "5px",
                            px: "16px",

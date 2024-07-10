@@ -177,3 +177,8 @@ img {
   height: 5px !important;
 
 }
+#mainSwiper .swiper-wrapper {
+  height: 100% !important;
+  margin-block: 50px;
+
+}

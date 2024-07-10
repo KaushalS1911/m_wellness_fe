@@ -8,6 +8,7 @@ import { Route, Routes } from "react-router-dom";
 import Contact from "./components/contact/Contact";
 import GetStarted from "./pages/getStarted/GetStarted";
 import MainFaqs from "./pages/faqs/MainFaqs";
+import Advice from "./pages/advice/Advice";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="contact" element={<Contact />} />
         <Route path="getStarted" element={<GetStarted />} />
         <Route path="faq" element={<MainFaqs />} />
+        <Route path="advice" element={<Advice />} />
       </Routes>
       <Footer />
     </>
