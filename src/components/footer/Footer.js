@@ -49,9 +49,12 @@ function Footer(props) {
                     About
                   </Box>
                                   </NavLink>
+
+                    <NavLink to={"/faq"}>
                   <Box className="box" sx={{ my: { xs: "20px", lg: "unset" } }}>
                     FAQ
                   </Box>
+                    </NavLink>
                   <Box className="box" sx={{ my: { xs: "20px", lg: "unset" } }}>
                     Reviews
                   </Box>

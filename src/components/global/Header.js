@@ -19,7 +19,7 @@ const navigationItems = [
   { name: "About", link: "/about" },
   { name: "Service", link: "#" },
   { name: "Advice", link: "#" },
-  { name: "FAQ", link: "#" },
+  { name: "FAQ", link: "/faq" },
   { name: "Reviews", link: "#" },
   { name: "Therapist jobs", link: "#" },
   { name: "Contact", link: "/contact" },
