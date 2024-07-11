@@ -83,47 +83,88 @@ function Header(props) {
                 >
                   <List>
                     {navigationItems.map((item, index) => (
-                      <NavLink to={item.link}>
-                        <ListItem button key={index} sx={{ cursor: "pointer" }}>
+                      <NavLink style={{color:"unset"}} to={item.link}>
+                        <ListItem button key={index} sx={{ cursor: "pointer",color: "darkGreen", }}>
                           <ListItemText primary={item.name} />
                         </ListItem>
                       </NavLink>
                     ))}
                     <ListItem button>
-                      <Button
-                        sx={{
-                          // fontWeight: "600",
-                          border: "1px solid white",
-                          py: "5px",
-                          px: "16px",
-                          textTransform: "unset",
-                          fontSize: "17px",
-                          color: "white",
-                          borderRadius: "20px",
-                          width: "100%",
-                        }}
-                      >
-                        Login
-                      </Button>
+                      {/*<Button*/}
+                      {/*  sx={{*/}
+                      {/*    // fontWeight: "600",*/}
+                      {/*    border: "1px solid white",*/}
+                      {/*    py: "5px",*/}
+                      {/*    px: "16px",*/}
+                      {/*    textTransform: "unset",*/}
+                      {/*    fontSize: "17px",*/}
+                      {/*    color: "darkgreen",*/}
+                      {/*    borderRadius: "20px",*/}
+                      {/*    width: "100%",*/}
+                      {/*  }}*/}
+                      {/*>*/}
+                      {/*  */}
+                      {/*</Button>*/}
+                        <Button
+                            className="overpass"
+                            variant="outlined"
+                            sx={{
+                                fontSize: "20px",
+                                borderRadius: "30px",
+                                color: "darkGreen",
+                                borderColor: "darkGreen",
+                                padding: "5px 36px",
+                                textTransform: "inherit",
+                                "&:hover": {
+                                    borderColor: "darkGreen",
+                                    backgroundColor: "#F5FBF4",
+                                },
+                                // my: { xs: "40px", lg: "unset" },
+                                width:"100%",
+                            }}
+                        >
+                            Login
+                        </Button>
                     </ListItem>
                     <ListItem button>
-                        <NavLink to={'getStarted'}>
-                      <Button
-                        sx={{
-                          // fontWeight: "600",
-                          border: "1px solid white",
-                          background: "white",
-                          py: "5px",
-                          px: "16px",
-                          textTransform: "unset",
-                          fontSize: "17px",
-                          color: "green",
-                          borderRadius: "20px",
-                          width: "100%",
-                        }}
-                      >
-                        Get started
-                      </Button>
+                        <NavLink to={'getStarted'} style={{width:"100%"}}>
+                      {/*<Button*/}
+                      {/*    variant="outlined"*/}
+                      {/*  sx={{*/}
+                      {/*    // fontWeight: "600",*/}
+                      {/*    border: "1px solid white",*/}
+                      {/*    background: "white",*/}
+                      {/*    py: "5px",*/}
+                      {/*    px: "16px",*/}
+                      {/*    textTransform: "unset",*/}
+                      {/*    fontSize: "17px",*/}
+                      {/*    color: "green",*/}
+                      {/*    borderRadius: "20px",*/}
+                      {/*    width: "100%",*/}
+                      {/*  }}*/}
+                      {/*>*/}
+                      {/*  */}
+                      {/*</Button>*/}
+
+                            <Button
+                                className='overpass'
+                                variant="contained"
+                                sx={{
+                                    width:"100% !important",
+                                    borderRadius: "30px",
+                                    backgroundColor: "#A6DE9B",
+                                    padding: "8px 36px",
+                                    color: "darkGreen",
+                                    textTransform: "initial",
+                                    fontSize: "20px",
+                                    "&:hover": {
+                                        backgroundColor: "green",
+                                        color: "white",
+                                    },
+                                }}
+                            >
+                                Get started
+                            </Button>
                         </NavLink>
                     </ListItem>
                   </List>

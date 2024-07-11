@@ -127,7 +127,7 @@ function AdviceRecent(props) {
     ]
     return (
         <>
-<Box>
+<Box className={"container"}>
     <Container>
         <Grid container >
             <Grid xs={12} md={9} >

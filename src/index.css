@@ -164,7 +164,6 @@ img {
   transform: translateY(-50%);
 }
 .css-114p2tk-MuiMobileStepper-dot{
-
   width:50px !important;
   height: 5px !important;
   border-radius: unset !important;
@@ -182,4 +181,13 @@ img {
   height: 100% !important;
   margin-block: 50px;
 
+}
+.container {
+  -webkit-overflow-scrolling: touch; /* enables momentum scrolling */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
