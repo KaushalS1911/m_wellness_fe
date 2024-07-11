@@ -163,31 +163,18 @@ img {
   font-size: 34px;
   transform: translateY(-50%);
 }
-.css-114p2tk-MuiMobileStepper-dot{
-  width:50px !important;
-  height: 5px !important;
-  border-radius: unset !important;
-  background-color: #DCE2DA !important;
 
-}
-.css-26w9jf-MuiMobileStepper-dot{
-  width:50px !important;
-  border-radius: unset !important;
-  background-color: #325343 !important;
-  height: 5px !important;
-
-}
 #mainSwiper .swiper-wrapper {
   height: 100% !important;
   margin-block: 50px;
 
 }
 .container {
-  -webkit-overflow-scrolling: touch; /* enables momentum scrolling */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 ::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
+  display: none;
 }

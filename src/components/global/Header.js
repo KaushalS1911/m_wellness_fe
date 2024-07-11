@@ -105,26 +105,26 @@ function Header(props) {
                       {/*>*/}
                       {/*  */}
                       {/*</Button>*/}
-                        <Button
-                            className="overpass"
-                            variant="outlined"
-                            sx={{
-                                fontSize: "20px",
-                                borderRadius: "30px",
-                                color: "darkGreen",
-                                borderColor: "darkGreen",
-                                padding: "5px 36px",
-                                textTransform: "inherit",
-                                "&:hover": {
-                                    borderColor: "darkGreen",
-                                    backgroundColor: "#F5FBF4",
-                                },
-                                // my: { xs: "40px", lg: "unset" },
-                                width:"100%",
-                            }}
-                        >
-                            Login
-                        </Button>
+                      {/*  <Button*/}
+                      {/*      className="overpass"*/}
+                      {/*      variant="outlined"*/}
+                      {/*      sx={{*/}
+                      {/*          fontSize: "20px",*/}
+                      {/*          borderRadius: "30px",*/}
+                      {/*          color: "darkGreen",*/}
+                      {/*          borderColor: "darkGreen",*/}
+                      {/*          padding: "5px 36px",*/}
+                      {/*          textTransform: "inherit",*/}
+                      {/*          "&:hover": {*/}
+                      {/*              borderColor: "darkGreen",*/}
+                      {/*              backgroundColor: "#F5FBF4",*/}
+                      {/*          },*/}
+                      {/*          // my: { xs: "40px", lg: "unset" },*/}
+                      {/*          width:"100%",*/}
+                      {/*      }}*/}
+                      {/*  >*/}
+                      {/*      Login*/}
+                      {/*  </Button>*/}
                     </ListItem>
                     <ListItem button>
                         <NavLink to={'getStarted'} style={{width:"100%"}}>
@@ -208,26 +208,26 @@ function Header(props) {
                   </Box>
                 </NavLink>
               ))}
-              <Box>
-                <Button
-                  sx={{
-                    // fontWeight: "600",
-                    border: "1px solid white",
-                    py: "5px",
-                    px: "16px",
-                    textTransform: "unset",
-                    fontSize: { lg: "16px", xs: "14px" },
-                    color: "white",
-                    borderRadius: "20px",
-                    "&:hover": {
-                      color: "liteGreen",
-                      borderColor: "liteGreen",
-                    },
-                  }}
-                >
-                  Login
-                </Button>
-              </Box>
+              {/*<Box>*/}
+              {/*  <Button*/}
+              {/*    sx={{*/}
+              {/*      // fontWeight: "600",*/}
+              {/*      border: "1px solid white",*/}
+              {/*      py: "5px",*/}
+              {/*      px: "16px",*/}
+              {/*      textTransform: "unset",*/}
+              {/*      fontSize: { lg: "16px", xs: "14px" },*/}
+              {/*      color: "white",*/}
+              {/*      borderRadius: "20px",*/}
+              {/*      "&:hover": {*/}
+              {/*        color: "liteGreen",*/}
+              {/*        borderColor: "liteGreen",*/}
+              {/*      },*/}
+              {/*    }}*/}
+              {/*  >*/}
+              {/*    Login*/}
+              {/*  </Button>*/}
+              {/*</Box>*/}
               <Box>
                <NavLink to={'getStarted'}>
                    <Button
