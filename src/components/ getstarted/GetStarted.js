@@ -250,22 +250,16 @@ function GetStarted(props) {
 
     return (
         <>
-            <Box sx={{ width: '100%',pt:"150px",backgroundColor:"#FFFCF6",pb:"5px" }}>
+            <Box  sx={{ width: '100%',pt:"150px",backgroundColor:"#FFFCF6",pb:"5px" }}>
               <Container>
                   <MobileStepper
+                      className="main"
                       variant="dots"
                       steps={5}
                       position="static"
                       activeStep={activeStep}
                       sx={{ width:"100%", flexGrow: 1,backgroundColor:"#FFFCF6",display:"flex",justifyContent:"center" ,mb:"20px" }}
-                      // nextButton={
-                      //     <Button size="small" onClick={handleNext} disabled={activeStep === 5}>
-                      //         Next
-                      //
-                      //     </Button>
-                      // }
-
-                  />
+                                      />
                   <Box>
                       <Box sx={{fontSize:"46px",color:"#444444",textAlign:'center'}} className="overpass">
                           Help us match you to the <Typography variant="span" sx={{color:"green"}}> right therapist</Typography>
