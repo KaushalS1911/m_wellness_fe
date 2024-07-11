@@ -27,18 +27,18 @@ function AdviceSignUp(props) {
                         <Container>
                             <Box >
                                 <Box >
-                                    <Box sx={{fontSize:  "32px", color: "#e9e9e9",textAlign:"center" }} className="overpass">
+                                    <Box sx={{fontSize: {sm:"32px",xs:"24px"}, color: "#e9e9e9",textAlign:"center" }} className="overpass">
                                         Helpful mental health resources delivered to your inbox</Box>
 
                                     <Box
                                         sx={{
-                                            display: "flex",
+                                            display: {sm:"flex"},
                                             justifyContent: "center",
                                             alignItems: "center",
                                             mt:"30px"
                                         }}
                                     >
-                                        <TextField id="outlined-basic"  label="Email" variant="outlined" sx={{backgroundColor:"white",color:"white",borderRadius:"5px",maxWidth:"320px",width:"100%"}} />
+                                        <TextField id="outlined-basic"  label="Email" variant="outlined" sx={{backgroundColor:"white",color:"white",borderRadius:"5px",width: {xs:"100%",sm:"320px"}}} />
                                         <Button
                                             className="overpass"
                                             variant="outlined"
@@ -53,7 +53,8 @@ function AdviceSignUp(props) {
                                                     borderColor: "liteGreen",
                                                 },
                                                 textTransform:"inherit",
-                                                marginLeft:"15px"
+                                                margin: {sm:"0 0 0 15px",xs:"20px 0 0 0"},
+                                                width:{xs:"100%",sm:"unset"}
                                             }}
                                         >
                                             Sign up

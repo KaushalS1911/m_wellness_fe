@@ -130,7 +130,7 @@ function AdviceRecent(props) {
 <Box>
     <Container>
         <Grid container >
-            <Grid xs={9} >
+            <Grid xs={12} md={9} >
             <Grid xs={12}>
                 <Box sx={{fontSize:"24px",color:"#444444",display:"flex",alignItems:"center"}}>
                     <Box ><img src={clock} alt="clock image" style={{height:"50px",width:"50px",objectFit:"contain",marginRight:"20px"}} /></Box>
@@ -139,10 +139,10 @@ function AdviceRecent(props) {
                     </Box>
                 </Box>
             </Grid>
-                <Box sx={{display:"flex"}}>
+                <Box sx={{display:"flex",overflowX:"scroll"}}>
                     {row1?.map((item) =>(
                         <Grid xs={4} sx={{
-                            minWidth:"270px",
+                            minWidth: {xs:"270px",md:"unset"},
                             cursor:"pointer",
                             "&:hover": {
                                 "& .bhover": {
@@ -175,14 +175,14 @@ function AdviceRecent(props) {
                 <Box sx={{fontSize:"24px",color:"#444444",display:"flex",alignItems:"center",margin:"30px 0 10px 0"}}>
                     <Box ><img src={heart} alt="clock image" style={{height:"40px",width:"40px",objectFit:"contain",marginRight:"20px"}} /></Box>
                     <Box>
-                        Recent
+                        Popular
                     </Box>
                 </Box>
             </Grid>
-                <Box sx={{display:"flex"}}>
+                <Box sx={{display:"flex",overflowX:"scroll"}}>
                     {row2?.map((item) =>(
                         <Grid xs={4} sx={{
-                            minWidth:"270px",
+                            minWidth: {xs:"270px",md:"unset"},
                             cursor:"pointer",
                             "&:hover": {
                                 "& .bimg": {
@@ -219,19 +219,20 @@ function AdviceRecent(props) {
                         <Box sx={{fontSize:"24px",color:"#444444",py:"30px"}}>Depression</Box>
                         <Grid container>
                             {row3?.map((data) => (
-                                <Grid xs={6} p={1}>
-                                    <Box sx={{backgroundColor:"#F5F7F5",cursor:"pointer",
+                                <Grid xs={12} lg={6} p={1}>
+                                    <Box sx={{backgroundColor:"#F5F7F5",cursor:"pointer",display:"flex",padding:"16px",borderRadius:"10px",
                                         "&:hover": {
                                             "& .bimg": {
                                                 transform:"scale(1.1)"
-                                            },},display:"flex",padding:"16px",borderRadius:"10px"
+                                            }
+                                            },
                                     }}>
-                                        <Box sx={{borderRadius:"10px",overflow:"hidden",height:"120px",width:"120px"}}><img src={data?.img} style={{ width: '100%' }} className="bimg" alt="card-1" /></Box>
+                                        <Box><Box sx={{borderRadius:"10px",overflow:"hidden",height:"120px",width:"120px"}}><img src={data?.img}  className="bimg" alt="card-1" /></Box></Box>
                                         <Box sx={{marginLeft:"10px"}}>
-                                            <Box sx={{fontSize:"15px",color:"black",my:"10px",cursor:"pointer",width:"230px"}}>
+                                            <Box sx={{fontSize:"15px",color:"black",my:"10px",cursor:"pointer",width: {lg:"230px"}}}>
                                                 {data?.title}
                                             </Box>
-                                            <Box sx={{fontSize:"12px" ,color:"liteBlack",cursor:"pointer",width:"230px"}}>
+                                            <Box sx={{fontSize:"12px" ,color:"liteBlack",cursor:"pointer",width: {lg:"230px"}}}>
                                                 {data?.dec}
                                             </Box>
                                         </Box>
@@ -254,7 +255,8 @@ function AdviceRecent(props) {
                                                 borderColor: "darkGreen",
                                                 backgroundColor: "#F5FBF4",
                                             },
-                                            my: { xs: "40px", lg: "unset" },
+                                            margin: { xs: "5px 0 30px", lg: "unset" },
+                                            width:{xs:"100%",md:"unset"}
                                         }}
                                     >
                                         See more
@@ -267,19 +269,20 @@ function AdviceRecent(props) {
                         <Box sx={{fontSize:"24px",color:"#444444",py:"30px"}}>Anxiety</Box>
                         <Grid container>
                             {row4?.map((data) => (
-                                <Grid xs={6} p={1}>
-                                    <Box sx={{backgroundColor:"#F5F7F5",cursor:"pointer",
+                                <Grid xs={12} lg={6} p={1}>
+                                    <Box sx={{backgroundColor:"#F5F7F5",cursor:"pointer",display:"flex",padding:"16px",borderRadius:"10px",
                                         "&:hover": {
                                             "& .bimg": {
                                                 transform:"scale(1.1)"
-                                            },},display:"flex",padding:"16px",borderRadius:"10px"
+                                            }
+                                        },
                                     }}>
-                                        <Box sx={{borderRadius:"10px",overflow:"hidden",height:"120px",width:"120px"}}><img src={data?.img} style={{ width: '100%' }} className="bimg" alt="card-1" /></Box>
+                                        <Box><Box sx={{borderRadius:"10px",overflow:"hidden",height:"120px",width:"120px"}}><img src={data?.img}  className="bimg" alt="card-1" /></Box></Box>
                                         <Box sx={{marginLeft:"10px"}}>
-                                            <Box sx={{fontSize:"15px",color:"black",my:"10px",cursor:"pointer",width:"230px"}}>
+                                            <Box sx={{fontSize:"15px",color:"black",my:"10px",cursor:"pointer",width: {lg:"230px"}}}>
                                                 {data?.title}
                                             </Box>
-                                            <Box sx={{fontSize:"12px" ,color:"liteBlack",cursor:"pointer",width:"230px"}}>
+                                            <Box sx={{fontSize:"12px" ,color:"liteBlack",cursor:"pointer",width: {lg:"230px"}}}>
                                                 {data?.dec}
                                             </Box>
                                         </Box>
@@ -302,7 +305,8 @@ function AdviceRecent(props) {
                                                 borderColor: "darkGreen",
                                                 backgroundColor: "#F5FBF4",
                                             },
-                                            my: { xs: "40px", lg: "unset" },
+                                            margin: { xs: "5px 0 30px", lg: "unset" },
+                                            width:{xs:"100%",md:"unset"}
                                         }}
                                     >
                                         See more
@@ -315,19 +319,20 @@ function AdviceRecent(props) {
                         <Box sx={{fontSize:"24px",color:"#444444",py:"30px"}}>Therapy</Box>
                         <Grid container>
                             {row5?.map((data) => (
-                                <Grid xs={6} p={1}>
-                                    <Box sx={{backgroundColor:"#F5F7F5",cursor:"pointer",
+                                <Grid xs={12} lg={6} p={1}>
+                                    <Box sx={{backgroundColor:"#F5F7F5",cursor:"pointer",display:"flex",padding:"16px",borderRadius:"10px",
                                         "&:hover": {
                                             "& .bimg": {
                                                 transform:"scale(1.1)"
-                                            },},display:"flex",padding:"16px",borderRadius:"10px"
+                                            }
+                                        },
                                     }}>
-                                        <Box sx={{borderRadius:"10px",overflow:"hidden",height:"120px",width:"120px"}}><img src={data?.img} style={{ width: '100%' }} className="bimg" alt="card-1" /></Box>
+                                        <Box><Box sx={{borderRadius:"10px",overflow:"hidden",height:"120px",width:"120px"}}><img src={data?.img}  className="bimg" alt="card-1" /></Box></Box>
                                         <Box sx={{marginLeft:"10px"}}>
-                                            <Box sx={{fontSize:"15px",color:"black",my:"10px",cursor:"pointer",width:"230px"}}>
+                                            <Box sx={{fontSize:"15px",color:"black",my:"10px",cursor:"pointer",width: {lg:"230px"}}}>
                                                 {data?.title}
                                             </Box>
-                                            <Box sx={{fontSize:"12px" ,color:"liteBlack",cursor:"pointer",width:"230px"}}>
+                                            <Box sx={{fontSize:"12px" ,color:"liteBlack",cursor:"pointer",width: {lg:"230px"}}}>
                                                 {data?.dec}
                                             </Box>
                                         </Box>
@@ -350,7 +355,8 @@ function AdviceRecent(props) {
                                                 borderColor: "darkGreen",
                                                 backgroundColor: "#F5FBF4",
                                             },
-                                            my: { xs: "40px", lg: "unset" },
+                                            margin: { xs: "5px 0 30px", lg: "unset" },
+                                            width:{xs:"100%",md:"unset"}
                                         }}
                                     >
                                         See more
@@ -364,7 +370,7 @@ function AdviceRecent(props) {
 
 
 
-            <Grid xs={3} sx={{display:"flex",justifyContent:"center"}}>
+            <Grid xs={3}  sx={{display: {md:"flex",xs:"none"},justifyContent:"center",}}>
                 <Box sx={{mx:"20px"}}>
                    <Box sx={{mt:"55px"}}> <TextField
                        variant="outlined"
@@ -378,7 +384,7 @@ function AdviceRecent(props) {
                        }}
                    />
                    </Box>
-                       <Box sx={{height:"260px",width:"260px",my:"20px"}}><img src={hand} alt="hand" /></Box>
+                       <Box sx={{height: {lg:"260px",xs:"200px"},width: {lg:"260px",xs:"200px"},my:"20px"}}><img src={hand} alt="hand" /></Box>
                     <Box sx={{textAlign:"center",color:"black",lineHeight:1.6}}>Get the support you need from one of our therapists</Box>
                     <Box
                         sx={{mt:"20px"}}

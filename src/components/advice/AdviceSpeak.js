@@ -6,7 +6,7 @@ import {
     Box,
     Button,
     Collapse,
-    Container, Grid,
+    Container, Divider, Grid,
     Typography
 } from "@mui/material";
 import Fade from "@mui/material/Fade";
@@ -23,7 +23,7 @@ function AdviceSpeak(props) {
         <>
             <Box sx={{py:"50px"}}>
                 <Container >
-                    <Box sx={{color:"liteBlack",fontSize:"42px"}}>
+                    <Box sx={{color:"liteBlack",fontSize: {sm:"42px",xs:"32px"}}}>
                         For additional help and support with your concerns
                     </Box>
                     <Box sx={{textAlign: {md: "start", xs: "center"},display:"flex",justifyContent:"center",my:"20px"}}>
@@ -42,6 +42,7 @@ function AdviceSpeak(props) {
                                     backgroundColor: "green",
                                     color: "white",
                                 },
+                                width:{xs:"100%",sm:"unset"}
                             }}
                         >
                             Speak with a licensed therapist
@@ -68,10 +69,10 @@ function AdviceSpeak(props) {
                             id="panel1-header"
                             sx={{
                                 fontFamily: "Overpass",
-                                minHeight: "48px",
-                                "& .MuiAccordionSummary-content": {
-                                    margin: "12px 0",
-                                },
+                                // minHeight: "48px",
+                                // "& .MuiAccordionSummary-content": {
+                                //     margin: "12px 0",
+                                // },
                             }}
                         >
                             <Typography>Continue reading</Typography>
@@ -80,7 +81,7 @@ function AdviceSpeak(props) {
                             <Collapse in={expanded === 'panel1'}>
                                 <Box
                                     sx={{
-                                        padding: "16px",
+                                        // padding: "16px",
                                         "& p": { fontSize: "16px", color: "liteBlack" },
                                     }}
                                 >

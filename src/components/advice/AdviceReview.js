@@ -58,22 +58,22 @@ function AdviceReview(props) {
     return (
         <>
             <Box sx={{position:"relative",mt:"60px",backgroundColor:"cream"}}>
-                <Box sx={{ position: "absolute", top: "-80px", width: "100%", }}>
+                <Box sx={{ position: "absolute", top: {md:"-8%",xs:"-5%"}, width: "100%",height:"100px" }}>
                     <img src={image1} alt={image1} />
                 </Box>
                 <Container >
-                    <Box sx={{fontSize:{xs:"28px",md:"42px",color:"#444444"},textAlign:"center"}}>
+                    <Box sx={{fontSize:{xs:"28px",md:"42px",color:"#444444"},textAlign:"center",position:"relative",zIndex:11,}}>
                         The review process
                     </Box>
                     <Box>
                         <Grid container>
                             {paint?.map((data) =>(
                                 <Grid xs={12} md={4} px={{md:10}}>
-                                    <Box sx={{display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"column",py:"30px"}}>
-                                        <Box sx={{width:"161px",height:"128px"}}>
+                                    <Box sx={{display:"flex",justifyContent: {md:"center"},alignItems:"center",flexDirection: {md:"column"},py:"30px"}}>
+                                        <Box><Box sx={{width:"161px",height:"128px"}}>
                                             <img src={data?.img} alt="paint 1" style={{objectFit:"contain"}}/>
-                                        </Box>
-                                        <Box sx={{textAlign:"center",color:"liteBlack",py:"20px"}}>
+                                        </Box></Box>
+                                        <Box sx={{textAlign: {md:"center"},color:"liteBlack",py:"20px",marginLeft: {xs:"20px",md:"unset"}}}>
                                             {data?.desc}
                                         </Box>
                                     </Box>
@@ -90,10 +90,10 @@ function AdviceReview(props) {
                             </Box>
                             <Grid container my={4}>
                                 {meet?.map((data) => (
-                                    <Grid md={2} xs={6} sx={{"&:hover":{
+                                    <Grid lg={2} sm={4} xs={6} sx={{"&:hover":{
                                             "& .img":{
                                                 transform:"scale(1.1)"                                    }
-                                        }}}>
+                                        },mb:{xs:"15px",lg:"unset"}}}>
                                         <Box sx={{display:"flex",justifyContent:"center",alignItems:"center",cursor:"pointer"}}>
                                             <Box sx={{height:"128px",width:"128px",borderRadius:"50%",overflow:"hidden"}}><img className={"img"} src={data?.img} alt="team-1" /></Box>
                                         </Box>
@@ -121,6 +121,7 @@ function AdviceReview(props) {
                                                     backgroundColor: "#F5FBF4",
                                                 },
                                                 my: { xs: "40px", lg: "unset" },
+                                                width:{xs:"100%",sm:"unset"}
                                             }}
                                         >
                                             See all
