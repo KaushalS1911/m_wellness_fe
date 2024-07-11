@@ -258,7 +258,17 @@ function GetStarted(props) {
                       steps={5}
                       position="static"
                       activeStep={activeStep}
-                      sx={{ width:"100%", flexGrow: 1,backgroundColor:"#FFFCF6",display:"flex",justifyContent:"center" ,mb:"20px" }}
+                      sx={{ width:"100%", flexGrow: 1,backgroundColor:"#FFFCF6",display:"flex",justifyContent:"center" ,mb:"20px" ,"& .css-114p2tk-MuiMobileStepper-dot":{
+                          width:"50px !important",
+                          height: "5px !important",
+                          borderRadius: "unset !important",
+                          backgroundColor: "#DCE2DA !important",
+                          },"& .css-26w9jf-MuiMobileStepper-dot":{
+                              width:"50px !important",
+                              borderRadius: "unset !important",
+                          backgroundColor: "#325343 !important",
+                          height: "5px !important",
+                          }}}
                                       />
                   <Box>
                       <Box sx={{fontSize:"46px",color:"#444444",textAlign:'center'}} className="overpass">
