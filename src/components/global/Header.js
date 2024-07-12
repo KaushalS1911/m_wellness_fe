@@ -15,14 +15,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { NavLink, Link } from 'react-router-dom';
 
 const navigationItems = [
-  { name: "Business", link: "/business" },
-  { name: "About", link: "/about" },
-  // { name: "Service", link: "#" },
-  { name: "Advice", link: "/advice" },
-  { name: "FAQ", link: "/faq" },
+  // { name: "Business", link: "/business" },
+  // { name: "About", link: "/about" },
+  // // { name: "Service", link: "#" },
+  // { name: "Advice", link: "/advice" },
+  // { name: "FAQ", link: "/faq" },
   // { name: "Reviews", link: "#" },
   // { name: "Therapist jobs", link: "#" },
-  { name: "Contact", link: "/contact" },
+  // { name: "Contact", link: "/contact" },
 ];
 
 function Header(props) {
@@ -163,7 +163,7 @@ function Header(props) {
                                     },
                                 }}
                             >
-                                Assessment
+                                Start Assessment
                             </Button>
                         </NavLink>
                     </ListItem>
@@ -245,7 +245,7 @@ function Header(props) {
                            },
                        }}
                    >
-                       Get assessment
+                      Start Assessment
                    </Button>
                </NavLink>
               </Box>

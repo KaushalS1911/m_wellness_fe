@@ -30,54 +30,32 @@ function LookingFor({
                         therapyQuestion,
                         processMessage,
                         therapyTypes,
-                        handleNext,
                         link,
                         submit,
-                        mainHandleNext,
-                        last,
-                        handleClean
+                        points,
+                        handlePoints,
+                        points1
                     }) {
-    const [points, setPoints] = useState(0)
+    // const [points, setPoints] = useState(0)
+    // const [points1, setPoints1] = useState([])
     const [open, setOpen] = React.useState(false);
     const navigate = useNavigate()
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    const [disable, setDisable] = useState(false)
-    const handlePoints = (e) => {
-        const string = e.target.value
-        const data = string.substr(0, 1)
-        if (data == "A") {
-            setPoints(points + 3)
-        } else if (data == "B") {
-            setPoints(points + 2)
-        } else if (data == "C") {
-            setPoints(points + 1)
-        } else {
-            setPoints(points + 0)
-        }
+    const [disable, setDisable] = useState(points1?.length == 19 ? true : false)
 
-        if (mainHandleNext) {
-            mainHandleNext()
-        }
-        if (handleNext) {
-            handleNext()
-        }
-        if (last) {
-            setDisable(true)
-
-        }
-    }
     const handleSubmit = () => {
         handleOpen()
     }
-    const TherapyButton = ({fullWidth, children, onClick, value}) => (
+    const TherapyButton = ({fullWidth, children, onClick, value,disabled}) => (
         <Grid item xs={12} >
             <Button
                 style={{display: "flex", justifyContent: "flex-start"}}
                 value={value}
                 fullWidth={fullWidth}
                 onClick={onClick}
-                disabled={disable}
+                disabled={true}
+                disabled={disabled}
                 sx={{
                     backgroundColor: "#A6DE9B",
                     color: "#325343",
@@ -121,6 +99,7 @@ function LookingFor({
                                 fullWidth
                                 onClick={(e) => handlePoints(e)}
                                 value={therapy?.label}
+                                disabled={disable}
                             >
                                 {therapy?.label}
                             </TherapyButton>
@@ -223,8 +202,8 @@ function LookingFor({
                             <Button
                                 className="overpass"
                                 onClick={() => {
-                                    setPoints(0)
-                                    navigate(`/getStarted/${points}`)
+                                    // setPoints(0)
+                                    points && navigate(`/getStarted/${points}`)
                                 }}
                                 sx={{
                                     backgroundColor: "#219f2175",
@@ -245,8 +224,9 @@ function LookingFor({
                             </Button>
                         </Box>
                         <Box  onClick={() => {
-                            setPoints(0)
-                            navigate(`/getStarted/${points}`)
+                            // setPoints(0)
+                                    points && navigate(`/getStarted/${points}`)
+                            // navigate(`/getStarted/${points}`)
                         }} sx={{textDecoration:"underline",my:"20px",textAlign:"center",color:"darkgreen",cursor:"pointer"}}>NO THANKS SHOW ME MY RESULT</Box>
                     </Box>
                 </Modal>
