@@ -66,7 +66,7 @@ img {
 }
 .businessSlider .swiper-pagination-bullet-active,
 .businessSlider2 .swiper-pagination-bullet-active,
-.reviewBoxes .swiper-pagination-bullet-active{
+.reviewBoxes .swiper-pagination-bullet-active {
   background: #397a4a !important;
 }
 .businessSlider .swiper-wrapper {
@@ -119,7 +119,7 @@ img {
 .aboutSlider .swiper-button-next:after,
 .aboutSlider .swiper-button-prev:after,
 .reviewBoxes .swiper-button-next:after,
-.reviewBoxes .swiper-button-prev:after{
+.reviewBoxes .swiper-button-prev:after {
   display: none !important;
 }
 .aboutSlider .swiper-button-prev {
@@ -136,7 +136,7 @@ img {
   font-family: "Overpass", sans-serif !important;
   /*letter-spacing: -1px !important;*/
 }
-.title{
+.title {
   letter-spacing: -1px !important;
 }
 .css-ahj2mt-MuiTypography-root {
@@ -146,7 +146,7 @@ img {
 .reviewBoxes .swiper-wrapper {
   height: 250px !important;
 }
-.reviewBoxes .swiper{
+.reviewBoxes .swiper {
   padding: 0 50px;
 }
 .reviewBoxes .swiper-button-prev {
@@ -156,7 +156,7 @@ img {
   font-size: 34px;
   transform: translateY(-50%);
 }
-.reviewBoxes .swiper-button-next{
+.reviewBoxes .swiper-button-next {
   position: absolute;
   top: 40%;
   right: 0% !important;
@@ -167,7 +167,6 @@ img {
 #mainSwiper .swiper-wrapper {
   height: 100% !important;
   margin-block: 50px;
-
 }
 .container {
   -webkit-overflow-scrolling: touch;
@@ -178,17 +177,19 @@ img {
 ::-webkit-scrollbar {
   display: none;
 }
-.main .css-114p2tk-MuiMobileStepper-dot{
-  width:50px !important;
+
+
+
+
+.main .css-114p2tk-MuiMobileStepper-dot {
+  width: 50px !important;
   height: 5px !important;
   border-radius: unset !important;
-  background-color: #DCE2DA !important;
-
+  background-color: #dce2da !important;
 }
-.main .css-26w9jf-MuiMobileStepper-dot{
-  width:50px !important;
+.main .css-26w9jf-MuiMobileStepper-dot {
+  width: 50px !important;
   border-radius: unset !important;
   background-color: #325343 !important;
   height: 5px !important;
-
 }
