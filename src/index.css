@@ -178,17 +178,17 @@ img {
 ::-webkit-scrollbar {
   display: none;
 }
-/*.main .css-114p2tk-MuiMobileStepper-dot{*/
-/*  width:50px !important;*/
-/*  height: 5px !important;*/
-/*  border-radius: unset !important;*/
-/*  background-color: #DCE2DA !important;*/
+.main .css-114p2tk-MuiMobileStepper-dot{
+  width:50px !important;
+  height: 5px !important;
+  border-radius: unset !important;
+  background-color: #DCE2DA !important;
 
-/*}*/
-/*.main .css-26w9jf-MuiMobileStepper-dot{*/
-/*  width:50px !important;*/
-/*  border-radius: unset !important;*/
-/*  background-color: #325343 !important;*/
-/*  height: 5px !important;*/
+}
+.main .css-26w9jf-MuiMobileStepper-dot{
+  width:50px !important;
+  border-radius: unset !important;
+  background-color: #325343 !important;
+  height: 5px !important;
 
-/*}*/
+}
