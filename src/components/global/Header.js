@@ -163,7 +163,7 @@ function Header(props) {
                                     },
                                 }}
                             >
-                                Get started
+                                Get assessment
                             </Button>
                         </NavLink>
                     </ListItem>
@@ -245,7 +245,7 @@ function Header(props) {
                            },
                        }}
                    >
-                       Get started
+                       Get assessment
                    </Button>
                </NavLink>
               </Box>

@@ -9,6 +9,7 @@ import Contact from "./components/contact/Contact";
 import GetStarted from "./pages/getStarted/GetStarted";
 import MainFaqs from "./pages/faqs/MainFaqs";
 import Advice from "./pages/advice/Advice";
+import PointTable from "./pages/PointTable";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/getStarted/:id" element={<PointTable />} />
         <Route path="about" element={<About />} />
         <Route path="business" element={<BusinessPage />} />
         <Route path="contact" element={<Contact />} />
