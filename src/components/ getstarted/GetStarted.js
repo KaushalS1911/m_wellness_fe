@@ -158,19 +158,19 @@ import {Button, Container, MobileStepper, Typography} from "@mui/material";
 
 const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
 
-function GetStarted(props) {
+function GetStarted2(props) {
 
-    const [age, setAge] = useState([])
     const [points1, setPoints1] = useState([])
     const [activeStep, setActiveStep] = React.useState(0);
-    const [disabaled,setDisabled] = useState(false)
+    const [disabaled, setDisabled] = useState(false)
+    const [dash, setDash] = useState([])
     const [mainActiveStep, setMainActiveStep] = React.useState(0);
     const handleNext = () => {
-        if(points1?.length !== 20){
+        if (points1?.length !== 20) {
 
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-        }else{
-            setActiveStep((prevActiveStep => prevActiveStep ))
+            setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        } else {
+            setActiveStep((prevActiveStep => prevActiveStep))
         }
     };
 
@@ -178,7 +178,7 @@ function GetStarted(props) {
         return prev + next
     }, 0)
 
-    const handlePoints = (e,dat) => {
+    const handlePoints = (e, dat) => {
         const string = e.target.value
         const data = string.substr(0, 1)
         if (data == "A") {
@@ -195,9 +195,9 @@ function GetStarted(props) {
             points1.push(0)
         }
 
-        // if (mainHandleNext) {
-        mainHandleNext()
-        // }
+        if (activeStep === 3 || activeStep === 7 || activeStep === 11 || activeStep ===15 ) {
+            mainHandleNext()
+        }
         // if (handleNext) {
         handleNext()
         // }
@@ -213,38 +213,37 @@ function GetStarted(props) {
     };
     const mainHandleNext = () => {
 
-       // if(activeStep === 18){
-           // alert()
-           // setMainActiveStep((prevActiveStep) => prevActiveStep );
-       // }else{
-           setMainActiveStep((prevActiveStep) => prevActiveStep + 1);
-       }
+        // if(activeStep === 18){
+        // alert()
+        // setMainActiveStep((prevActiveStep) => prevActiveStep );
+        // }else{
+        setMainActiveStep((prevActiveStep) => prevActiveStep + 1);
+    }
 
     // };
     const handleBack = () => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
-           setMainActiveStep((prevActiveStep) => prevActiveStep - 1);
+        // setMainActiveStep((prevActiveStep) => prevActiveStep - 1);
         points1.pop()
     };
-    useEffect(() => {
-        for (let i = 13; i <= 99; i++) {
-            age.push(i);
-        }
-    }, [])
 
-    const mainStepContent = (step) => {
-        switch (true) {
-            case step >= 0 && step < 4 :
-                return ("Stress Management");
-            case step >= 4 && step < 8:
-                return ("Emotional Resilience");
-            case step >= 8 && step < 12:
-                return ("Decision-Making");
-            case step >= 12 && step < 16:
+
+    const mainStepContent = (step) =>{
+        switch(step){
+            case 0:
+                return("Stress Management");
+            case 1:
+                return("Emotional Resilience");
+            case 2 :
+                return("Decision-Making");
+            case 3:
                 return ("Motivation and Commitment");
-            case step >= 16 && step <= 20:
+            case 4:
                 return ("Interpersonal Skills");
-
+            // case 6:
+            //     return ("");
+            // case 7:
+            //     return ("");
         }
     }
     const getStepContent = (step) => {
@@ -635,4 +634,4 @@ function GetStarted(props) {
     );
 }
 
-export default GetStarted;
+export default GetStarted2;
