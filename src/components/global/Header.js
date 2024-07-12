@@ -163,7 +163,7 @@ function Header(props) {
                                     },
                                 }}
                             >
-                                Get assessment
+                                Assessment
                             </Button>
                         </NavLink>
                     </ListItem>
