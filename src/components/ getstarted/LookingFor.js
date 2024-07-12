@@ -42,7 +42,10 @@ function LookingFor({
     const navigate = useNavigate()
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    const [disable, setDisable] = useState(points1?.length == 19 ? true : false)
+    const dis = points1?.length
+    const [disable, setDisable] = useState(dis === 20 ? true : false)
+    console.log(points1)
+    // console.log(,"leng")
 
     const handleSubmit = () => {
         handleOpen()
@@ -54,7 +57,7 @@ function LookingFor({
                 value={value}
                 fullWidth={fullWidth}
                 onClick={onClick}
-                disabled={true}
+                // disabled={true}
                 disabled={disabled}
                 sx={{
                     backgroundColor: "#A6DE9B",
@@ -99,7 +102,7 @@ function LookingFor({
                                 fullWidth
                                 onClick={(e) => handlePoints(e)}
                                 value={therapy?.label}
-                                disabled={disable}
+                                disabled={points1?.length === 20 ? true : false }
                             >
                                 {therapy?.label}
                             </TherapyButton>

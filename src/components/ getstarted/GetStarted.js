@@ -530,6 +530,7 @@ function GetStarted(props) {
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
+                        points1={points1}
                     />
                 );
             case 18:
@@ -545,6 +546,7 @@ function GetStarted(props) {
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
+                        points1={points1}
                     />
                 );
             case 19:
