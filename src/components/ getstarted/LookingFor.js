@@ -36,16 +36,12 @@ function LookingFor({
                         handlePoints,
                         points1
                     }) {
-    // const [points, setPoints] = useState(0)
-    // const [points1, setPoints1] = useState([])
+
     const [open, setOpen] = React.useState(false);
     const navigate = useNavigate()
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    const dis = points1?.length
-    const [disable, setDisable] = useState(dis === 20 ? true : false)
-    console.log(points1)
-    // console.log(,"leng")
+
 
     const handleSubmit = () => {
         handleOpen()
