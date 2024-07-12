@@ -14,17 +14,16 @@ import {NavLink} from "react-router-dom";
 
 const style = {
     borderRadius: '10px',
-    width: '80%',
-    maxWidth: '500px',
+    width: '90%',
+    maxWidth:'500px',
     bgcolor: 'background.paper',
     boxShadow: 24,
     pb: 4,
-    // pt:0,
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    overflow:"hidden"
+    overflow:"hidden",
 };
 
 function LookingFor({
@@ -191,7 +190,7 @@ function LookingFor({
                 >
                     <Box sx={style}>
                         <Typography id="keep-mounted-modal-title" variant="h5"
-                                    sx={{fontWeight: "600", fontSize: "21px",textAlign:"center",py:3,backgroundColor:"#DEF9C4"}} className={"overpass title"}
+                                    sx={{fontWeight: "600", fontSize: "21px",textAlign:"center",py:3,backgroundColor:"darkGreen",color:"white"}} className={"overpass title"}
                                     component="h2">
                            Great! You have answered all the questions.
                         </Typography><Typography id="keep-mounted-modal-title"
@@ -199,9 +198,21 @@ function LookingFor({
                                     component="h2">
                            Enter your email below to get a copy of your result
                          </Typography>
-                        <Box sx={{display: "flex", justifyContent: "center"}}>
+                        <Box sx={{display: "flex", justifyContent: "center",px:1}}>
 
-                            <TextField id="outlined-basic" label="Enter email address" variant="outlined" sx={{width:"400px",borderRadius:"10px"}}/>
+                            <TextField id="outlined-basic" label="Enter email address" variant="outlined" sx={{width:"400px",borderRadius:"10px" ,'& .MuiOutlinedInput-root': {
+
+                                    '&.Mui-focused fieldset': {
+                                        borderColor: 'green',
+                                    },
+                                },
+                                '& .MuiInputLabel-root.Mui-focused': {
+                                    color: 'green',
+                                },
+                                '& .MuiInputLabel-root.MuiFormLabel-filled': {
+                                    color: 'green',
+                                }
+                            }}/>
                         </Box>
                         <Typography id="keep-mounted-modal-description" sx={{mt: 2, fontSize: "17px",px:4}}
                                     className={"overpass"}>
@@ -216,7 +227,7 @@ function LookingFor({
                                     navigate(`/getStarted/${points}`)
                                 }}
                                 sx={{
-                                    backgroundColor: "#A0937D",
+                                    backgroundColor: "#219f2175",
                                     py: "10px",
                                     px: "28px",
                                     textTransform: "unset",
@@ -236,7 +247,7 @@ function LookingFor({
                         <Box  onClick={() => {
                             setPoints(0)
                             navigate(`/getStarted/${points}`)
-                        }} sx={{textDecoration:"underline",my:"20px",textAlign:"center",color:"orangered",cursor:"pointer"}}>NO THANKS SHOW ME MY RESULT</Box>
+                        }} sx={{textDecoration:"underline",my:"20px",textAlign:"center",color:"darkgreen",cursor:"pointer"}}>NO THANKS SHOW ME MY RESULT</Box>
                     </Box>
                 </Modal>
             </CardContent>

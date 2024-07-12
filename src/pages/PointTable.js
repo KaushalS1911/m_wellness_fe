@@ -54,7 +54,7 @@ function PointTable(props) {
 
     return (
         <>
-            <Box sx={{my: '150px'}}>
+            <Box sx={{mt: 20 ,mb:5}}>
                 <Container>
                     <Box
                         sx={{fontSize: '28px', fontWeight: '700', textAlign: 'center'}}
@@ -77,6 +77,9 @@ function PointTable(props) {
                                     transform: 'translate(0px, 0px)',
                                     fontWeight:700
                                 },
+                                "& .css-b9rdri-MuiGauge-referenceArc":{
+                                    fill:"#325343 !important"
+                                }
                             }}
                             text={id}
                         />
