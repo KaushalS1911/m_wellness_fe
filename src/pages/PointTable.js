@@ -60,7 +60,7 @@ function PointTable(props) {
                         sx={{fontSize: '28px', fontWeight: '700', textAlign: 'center'}}
                         className="overpass title"
                     >
-                        Am I sad or depressed?
+                       Assessment Score
                     </Box>
                     <Box sx={{textAlign: 'center', color: 'gray'}}>
                         Here are your results
@@ -85,8 +85,8 @@ function PointTable(props) {
                         />
                     </Box>
                     <Box sx={{display: "flex", justifyContent: "center"}}>
-                        <Box sx={{textAlign: "center", width: "250px", fontSize: "18px"}} className={"overpass"}>Moderate
-                            levels of symptoms seen in depression</Box>
+                        <Box sx={{textAlign: "center", width: "250px", fontSize: "18px"}} className={"overpass"}>
+                            Interpretation and feedback based on your inputs</Box>
                     </Box>
 
                     <Box sx={{display: "flex", justifyContent: "center"}}>
