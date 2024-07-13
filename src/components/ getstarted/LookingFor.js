@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import {useNavigate} from "react-router-dom"
-import {NavLink} from "react-router-dom";
 
 
 const style = {
@@ -41,7 +40,6 @@ function LookingFor({
     const navigate = useNavigate()
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-
 
     const handleSubmit = () => {
         handleOpen()
@@ -96,7 +94,7 @@ function LookingFor({
                                 sx={{textTransform: "unset"}}
                                 key={index}
                                 fullWidth
-                                onClick={(e) => handlePoints(e)}
+                                onClick={(e) => handlePoints(e,"valu")}
                                 value={therapy?.label}
                                 disabled={points1?.length === 20 ? true : false }
                             >
@@ -135,7 +133,7 @@ function LookingFor({
                     </Box>
                 )}
                 {submit && <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
-                    {/*<NavLink to={'/'}>*/}
+
                     <Button
                         className="overpass"
                         onClick={handleSubmit}
@@ -156,7 +154,6 @@ function LookingFor({
                     >
                         Submit
                     </Button>
-                    {/*</NavLink>*/}
                 </Box>}
 
                 <Modal
@@ -194,14 +191,12 @@ function LookingFor({
                         </Box>
                         <Typography id="keep-mounted-modal-description" sx={{mt: 2, fontSize: "17px",px:4}}
                                     className={"overpass"}>
-                            {/*{desc(points)?.desc}*/}
                             The information you share with us is 100% confidentiol. Your details will not be misused or shared with anybody else
                         </Typography>
                         <Box sx={{display:"flex",justifyContent:"center"}}>
                             <Button
                                 className="overpass"
                                 onClick={() => {
-                                    // setPoints(0)
                                     points && navigate(`/getStarted/${points}`)
                                 }}
                                 sx={{
@@ -223,9 +218,7 @@ function LookingFor({
                             </Button>
                         </Box>
                         <Box  onClick={() => {
-                            // setPoints(0)
                                     points && navigate(`/getStarted/${points}`)
-                            // navigate(`/getStarted/${points}`)
                         }} sx={{textDecoration:"underline",my:"20px",textAlign:"center",color:"darkgreen",cursor:"pointer"}}>NO THANKS SHOW ME MY RESULT</Box>
                     </Box>
                 </Modal>

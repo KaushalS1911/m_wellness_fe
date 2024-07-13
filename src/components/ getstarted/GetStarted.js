@@ -1,172 +1,16 @@
-// import React from 'react';
-// import {Box, Button, Container, Grid, Typography} from "@mui/material";
-// import img1 from "../../assets/getstarted/professional.svg"
-// import img2 from '../../assets/getstarted/pro-2.svg'
-// import img3 from '../../assets/getstarted/pro-3.svg'
-// import img4 from '../../assets/getstarted/pro-4.svg'
-// import divider1 from "../../assets/getstarted/divider-get.jpg";
-// import people from '../../assets/getstarted/people.png'
-// import sml from "../../assets/gift/sml-logo.png";
-// function GetStarted(props) {
-//     return (
-//         <Box sx={{position:"relative",mt:"200px",backgroundColor:"#FFFCF6",padding:"100px 0 20px 0"}}>
-//             <Container>
-//                 <Box>
-//                     <Grid container spacing={3}>
-//                         <Grid item lg={3} md={6} xs={12}>
-//                             <Box sx={{height:"64px",width:"64px",borderRadius:"50%",overflow:"hidden"}}>
-//                                 <img src={img1} alt="side image 1" />
-//
-//                             </Box>
-//                             <Box sx={{fontSize:"20px",mt:"10px"}}>
-//                                 <Typography variant='div' sx={{color:"black"}}>It's</Typography>
-//                                 <Typography variant='div' sx={{display:"block",color:"green"}}>Professional.</Typography>
-//                             </Box>
-//                             <Box sx={{fontSize:"16px",color:"#4A4D4A",mt:"20px"}}>
-//                                 All therapists are licensed, accredited professionals. BetterHelp allows you to connect with them in a safe and convenient online environment.
-//                             </Box>
-//                         </Grid><Grid item lg={3} md={6} xs={12}>
-//                             <Box sx={{height:"64px",width:"64px",borderRadius:"50%",overflow:"hidden"}}>
-//                                 <img src={img2} alt="side image 1" />
-//
-//                             </Box>
-//                             <Box sx={{fontSize:"20px",mt:"10px"}}>
-//                                 <Typography variant='div' sx={{color:"black"}}>It's</Typography>
-//                                 <Typography variant='div' sx={{display:"block",color:"green"}}>Affordable.</Typography>
-//                             </Box>
-//                             <Box sx={{fontSize:"16px",color:"#4A4D4A",mt:"20px"}}>
-//                                 Pay a low flat fee for both live sessions as well as messaging with your therapist. Therapy doesn't have to be expensive.
-//                             </Box>
-//                         </Grid><Grid item lg={3} md={6} xs={12}>
-//                             <Box sx={{height:"64px",width:"64px",borderRadius:"50%",overflow:"hidden"}}>
-//                                 <img src={img3} alt="side image 1" />
-//
-//                             </Box>
-//                             <Box sx={{fontSize:"20px",mt:"10px"}}>
-//                                 <Typography variant='div' sx={{color:"black"}}>It's</Typography>
-//                                 <Typography variant='div' sx={{display:"block",color:"green"}}>Convenient.</Typography>
-//                             </Box>
-//                             <Box sx={{fontSize:"16px",color:"#4A4D4A",mt:"20px"}}>
-//                                 Do it at your own time and at your own pace. Communicate with your therapist as often as you want and whenever you feel it's needed.
-//                             </Box>
-//                         </Grid><Grid item lg={3} md={6} xs={12}>
-//                             <Box sx={{height:"64px",width:"64px",borderRadius:"50%",overflow:"hidden"}}>
-//                                 <img src={img4} alt="side image 1" />
-//
-//                             </Box>
-//                             <Box sx={{fontSize:"20px",mt:"10px"}}>
-//                                 <Typography variant='div' sx={{color:"black"}}>It's</Typography>
-//                                 <Typography variant='div' sx={{display:"block",color:"green"}}>Effective.</Typography>
-//                             </Box>
-//                             <Box sx={{fontSize:"16px",color:"#4A4D4A",mt:"20px"}}>
-//                                 Thousands of people have benefited from therapy (just check out their reviews!) With BetterHelp, you can switch therapists at any point if you don't feel you are getting enough benefit.
-//                             </Box>
-//                         </Grid>
-//                        <Box sx={{display: {md:"flex"},alignItems:"center",margin:"56px 0 0 "}}>
-//                            <Grid>
-//                                <Box sx={{fontSize:"32px",color:"#444444",textAlign:{xs:"center",md:"unset"}}} className="overpass">
-//                                    Join over 4,800,000 people who decided to <Typography variant="span" sx={{color:"green"}}>get help and get happy</Typography> with BetterHelp.
-//                                    <Box sx={{my:"20px"}}>
-//                                        <Button
-//                                            className="overpass"
-//                                            sx={{
-//                                                backgroundColor: "liteGreen",
-//                                                py: "10px",
-//                                                px: "28px",
-//                                                textTransform: "unset",
-//                                                fontSize: "20px",
-//                                                color: "green",
-//                                                borderRadius: "30px",
-//                                                "&:hover": {
-//                                                    backgroundColor: "green",
-//                                                    color: "white",
-//                                                },
-//                                            }}
-//                                        >
-//                                            Get Started
-//                                        </Button>
-//                                    </Box>
-//                                </Box>
-//                            </Grid>
-//                            <Grid sx={{display:"flex",justifyContent:"center",alignItems:"center"}}>
-//                                <Box sx={{width: {md:"485px",xs:"315px"},height: {md:"478px",xs:"325px"},overflow:"hidden",borderRadius:"10px",borderTopLeftRadius:"240px"}}>
-//                                    <img src={people} alt="" />
-//                                </Box>
-//                            </Grid>
-//                        </Box>
-//                     </Grid>
-//                 </Box>
-//                 <Grid container>
-//                     <Grid xs={12} md={6} mt={{ md: "15px", xs: "0px" }}>
-//                         <Box
-//                             sx={{
-//                                 display: "flex",
-//                                 justifyContent: "space-between",
-//                                 alignItems: "center",
-//                                 py: "20px",
-//                             }}
-//                         >
-//                             <Box
-//                                 sx={{
-//                                     fontSize: "15px",
-//                                     color: "liteBlack",
-//                                     fontWeight: "700",
-//                                     lineHeight:1.5
-//                                 }}
-//                             >
-//                                 If you are in a crisis or any other person may be in danger -
-//                                 don't use this site. <br />
-//                                 <Typography
-//                                     variant="span"
-//                                     sx={{ color: "green", textDecoration: "underline" }}
-//                                 >
-//                                     These resources
-//                                 </Typography>{" "}
-//                                 can provide you with immediate help.
-//                             </Box>
-//                         </Box>
-//                     </Grid>
-//                     <Grid xs={12} md={6} mt={{ md: "15px", xs: "32px" }}>
-//                         <Box
-//                             sx={{
-//                                 display: "flex",
-//                                 justifyContent: {md:"end"},
-//                                 alignItems: "center",
-//                                 py: {md:"20px"},
-//                                 opacity: ".5",
-//                             }}
-//                         >
-//                             <Box sx={{ height: "40px", width: "115px" }}>
-//                                 <img src={sml} alt="small logo" />
-//                             </Box>
-//                         </Box>
-//                     </Grid>
-//                 </Grid>
-//             </Container>
-//             <Box sx={{position: "absolute", top: {md:"-50px",xs:"-10px"},height:"80px", width: "100%"}}><img src={divider1}
-//                                                                                                                 alt="design image"/></Box>
-//         </Box>
-//     );
-// }
-//
-// export default GetStarted;
-
 import React, {useEffect, useState} from 'react';
 import Box from '@mui/material/Box';
 import LookingFor from "./LookingFor";
 import {Button, Container, MobileStepper, Typography} from "@mui/material";
 
-const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
 
 function GetStarted2(props) {
 
     const [points1, setPoints1] = useState([])
     const [activeStep, setActiveStep] = React.useState(0);
-    const [disabaled, setDisabled] = useState(false)
-    const [dash, setDash] = useState([])
     const [mainActiveStep, setMainActiveStep] = React.useState(0);
     const handleNext = () => {
-        if (points1?.length !== 20) {
+        if (points1?.length !== 19) {
 
             setActiveStep((prevActiveStep) => prevActiveStep + 1);
         } else {
@@ -181,31 +25,27 @@ function GetStarted2(props) {
     const handlePoints = (e, dat) => {
         const string = e.target.value
         const data = string.substr(0, 1)
-        if (data == "A") {
-            // setPoints(points + 3)
-            points1.push(3)
-        } else if (data == "B") {
-            // setPoints(points + 2)
-            points1.push(2)
-        } else if (data == "C") {
-            // setPoints(points + 1)
-            points1.push(1)
+        let pointsToAdd = 0;
+
+        if (data === "A") {
+            pointsToAdd = 3;
+        } else if (data === "B") {
+            pointsToAdd = 2;
+        } else if (data === "C") {
+            pointsToAdd = 1;
         } else {
-            // setPoints(points + 0)
-            points1.push(0)
+            pointsToAdd = 0;
         }
 
-        if (activeStep === 3 || activeStep === 7 || activeStep === 11 || activeStep ===15 ) {
-            mainHandleNext()
+        setPoints1(prevPoints => [...prevPoints, pointsToAdd]);
+
+        if (activeStep === 3 || activeStep === 7 || activeStep === 11 || activeStep === 15) {
+            mainHandleNext();
         }
-        // if (handleNext) {
-        handleNext()
-        // }
-        // if (last) {
-        //     setDisable(true)
-        //
-        // }
+
+        handleNext();
     }
+
     const handleClean = () => {
         setActiveStep(0);
         setMainActiveStep(0);
@@ -213,37 +53,33 @@ function GetStarted2(props) {
     };
     const mainHandleNext = () => {
 
-        // if(activeStep === 18){
-        // alert()
-        // setMainActiveStep((prevActiveStep) => prevActiveStep );
-        // }else{
+
         setMainActiveStep((prevActiveStep) => prevActiveStep + 1);
     }
 
-    // };
+
     const handleBack = () => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
-        // setMainActiveStep((prevActiveStep) => prevActiveStep - 1);
-        points1.pop()
+        if (activeStep === 3 || activeStep === 7 || activeStep === 11 || activeStep === 15) {
+            setMainActiveStep((prevActiveStep) => prevActiveStep - 1);
+        }
+       points1.splice(-2)
+
     };
 
-
-    const mainStepContent = (step) =>{
-        switch(step){
+    const mainStepContent = (step) => {
+        switch (step) {
             case 0:
-                return("Stress Management");
+                return ("Stress Management");
             case 1:
-                return("Emotional Resilience");
+                return ("Emotional Resilience");
             case 2 :
-                return("Decision-Making");
+                return ("Decision-Making");
             case 3:
                 return ("Motivation and Commitment");
             case 4:
                 return ("Interpersonal Skills");
-            // case 6:
-            //     return ("");
-            // case 7:
-            //     return ("");
+
         }
     }
     const getStepContent = (step) => {
@@ -256,7 +92,7 @@ function GetStarted2(props) {
                         {label: "C) Struggle to maintain composure"},
                         {label: "D) Avoid the situation altogether"},
                     ]}
-                        // processMessage={"Let's walk through the process of finding the best therapist for you! We'll start off with some basic questions."}
+
                                 therapyQuestion={"1. How do you typically handle high-pressure situations?"}
                                 handleNext={handleNext}
                                 handlePoints={handlePoints}
@@ -274,13 +110,12 @@ function GetStarted2(props) {
                             {label: "C) Randomly"},
                             {label: "D) Often get overwhelmed and delay decision-making"},
                         ]}
-                        // link={"More options"}
-                        // processMessage={"Gender plays an important role in shaping personal identity and experiences. This information will help your therapist create a more personalized approach."}
+
                         therapyQuestion={"2. When faced with multiple deadlines, how do you prioritize tasks?"}
                         points={points}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
-                        // mainHandleNext={mainHandleNext}
+
                     />
                 );
             case 2:
@@ -292,8 +127,7 @@ function GetStarted2(props) {
                             {label: "C) Rarely, only when exhausted"},
                             {label: "D) Never, I just push through"},
                         ]}
-                        // link={"More options"}
-                        // processMessage={"Your answer will help us match you to a suitable therapist as well as help your therapist create a treatment plan that respects your identity and experiences."}
+
                         therapyQuestion={"3. How often do you take breaks to manage stress during study sessions?"}
                         points={points}
                         handleNext={handleNext}
@@ -309,8 +143,7 @@ function GetStarted2(props) {
                             {label: "C) Ignoring it and hoping it goes away"},
                             {label: "D) Procrastinating or avoiding study"},
                         ]}
-                        // link={"More options"}
-                        // processMessage={"Your answer will help us match you to a suitable therapist as well as help your therapist create a treatment plan that respects your identity and experiences."}
+
                         therapyQuestion={"4. What techniques do you use to cope with exam-related anxiety?"}
                         points={points}
                         handleNext={handleNext}
@@ -563,10 +396,9 @@ function GetStarted2(props) {
                         points={points}
                         handleClean={handleClean}
                         handlePoints={handlePoints}
-                        // disable2={true}
-                        disabaled={disabaled}
+
                         points1={points1}
-                        // handleNext={handleNext}
+
                     />
                 );
             default:
