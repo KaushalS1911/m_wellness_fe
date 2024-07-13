@@ -21,7 +21,7 @@ function GetStarted2(props) {
     const points = points1.reduce((prev, next) => {
         return prev + next
     }, 0)
-
+    console.log(points1)
     const handlePoints = (e, dat) => {
         const string = e.target.value
         const data = string.substr(0, 1)
@@ -63,7 +63,12 @@ function GetStarted2(props) {
         if (activeStep === 3 || activeStep === 7 || activeStep === 11 || activeStep === 15) {
             setMainActiveStep((prevActiveStep) => prevActiveStep - 1);
         }
-       points1.splice(-2)
+        if (activeStep === 19) {
+            points1.splice(-2)
+
+        } else {
+           points1.splice(-1)
+        }
 
     };
 
