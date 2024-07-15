@@ -193,3 +193,6 @@ img {
   background-color: #325343 !important;
   height: 5px !important;
 }
+.listStyle li{
+  list-style-type: unset !important;
+}

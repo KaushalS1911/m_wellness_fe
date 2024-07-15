@@ -229,7 +229,7 @@ function Header(props) {
               {/*  </Button>*/}
               {/*</Box>*/}
               <Box>
-               <NavLink to={'getStarted'}>
+               <NavLink to={'getStarted-home'}>
                    <Button
                        sx={{
                            // fontWeight: "600",

@@ -14,7 +14,7 @@ import {useNavigate} from "react-router-dom"
 const style = {
     borderRadius: '10px',
     width: '90%',
-    maxWidth:'500px',
+    maxWidth: '500px',
     bgcolor: 'background.paper',
     boxShadow: 24,
     pb: 4,
@@ -22,7 +22,7 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    overflow:"hidden",
+    overflow: "hidden",
 };
 
 function LookingFor({
@@ -40,12 +40,11 @@ function LookingFor({
     const navigate = useNavigate()
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-
     const handleSubmit = () => {
         handleOpen()
     }
-    const TherapyButton = ({fullWidth, children, onClick, value,disabled}) => (
-        <Grid item xs={12} >
+    const TherapyButton = ({fullWidth, children, onClick, value, disabled}) => (
+        <Grid item xs={12}>
             <Button
                 style={{display: "flex", justifyContent: "flex-start"}}
                 value={value}
@@ -74,7 +73,6 @@ function LookingFor({
     );
 
 
-
     return (
         <Card style={{maxWidth: 700, margin: "50px auto", padding: "20px"}}>
             <CardContent>
@@ -94,9 +92,9 @@ function LookingFor({
                                 sx={{textTransform: "unset"}}
                                 key={index}
                                 fullWidth
-                                onClick={(e) => handlePoints(e,"valu")}
+                                onClick={(e) => handlePoints(e, "valu")}
                                 value={therapy?.label}
-                                disabled={points1?.length === 20 ? true : false }
+                                disabled={points1?.length === 20 ? true : false}
                             >
                                 {therapy?.label}
                             </TherapyButton>
@@ -165,17 +163,26 @@ function LookingFor({
                 >
                     <Box sx={style}>
                         <Typography id="keep-mounted-modal-title" variant="h5"
-                                    sx={{fontWeight: "600", fontSize: "21px",textAlign:"center",py:3,backgroundColor:"darkGreen",color:"white"}} className={"overpass title"}
+                                    sx={{
+                                        fontWeight: "600",
+                                        fontSize: "21px",
+                                        textAlign: "center",
+                                        py: 3,
+                                        backgroundColor: "darkGreen",
+                                        color: "white"
+                                    }} className={"overpass title"}
                                     component="h2">
-                           Great! You have answered all the questions.
+                            Great! You have answered all the questions.
                         </Typography><Typography id="keep-mounted-modal-title"
-                                    sx={{ fontSize: "18px",textAlign:"center",my:3}} className={"overpass "}
-                                    component="h2">
-                           Enter your email below to get a copy of your result
-                         </Typography>
-                        <Box sx={{display: "flex", justifyContent: "center",px:1}}>
+                                                 sx={{fontSize: "18px", textAlign: "center", my: 3}}
+                                                 className={"overpass "}
+                                                 component="h2">
+                        Enter your email below to get a copy of your result
+                    </Typography>
+                        <Box sx={{display: "flex", justifyContent: "center", px: 1}}>
 
-                            <TextField id="outlined-basic" label="Enter email address" variant="outlined" sx={{width:"400px",borderRadius:"10px" ,'& .MuiOutlinedInput-root': {
+                            <TextField id="outlined-basic" label="Enter email address" variant="outlined" sx={{
+                                width: "400px", borderRadius: "10px", '& .MuiOutlinedInput-root': {
 
                                     '&.Mui-focused fieldset': {
                                         borderColor: 'green',
@@ -189,11 +196,12 @@ function LookingFor({
                                 }
                             }}/>
                         </Box>
-                        <Typography id="keep-mounted-modal-description" sx={{mt: 2, fontSize: "17px",px:4}}
+                        <Typography id="keep-mounted-modal-description" sx={{mt: 2, fontSize: "17px", px: 4}}
                                     className={"overpass"}>
-                            The information you share with us is 100% confidentiol. Your details will not be misused or shared with anybody else
+                            The information you share with us is 100% confidentiol. Your details will not be misused or
+                            shared with anybody else
                         </Typography>
-                        <Box sx={{display:"flex",justifyContent:"center"}}>
+                        <Box sx={{display: "flex", justifyContent: "center"}}>
                             <Button
                                 className="overpass"
                                 onClick={() => {
@@ -217,9 +225,15 @@ function LookingFor({
                                 Sure show me my results
                             </Button>
                         </Box>
-                        <Box  onClick={() => {
-                                    points && navigate(`/getStarted/${points}`)
-                        }} sx={{textDecoration:"underline",my:"20px",textAlign:"center",color:"darkgreen",cursor:"pointer"}}>NO THANKS SHOW ME MY RESULT</Box>
+                        <Box onClick={() => {
+                            points && navigate(`/getStarted/${points}`)
+                        }} sx={{
+                            textDecoration: "underline",
+                            my: "20px",
+                            textAlign: "center",
+                            color: "darkgreen",
+                            cursor: "pointer"
+                        }}>NO THANKS SHOW ME MY RESULT</Box>
                     </Box>
                 </Modal>
             </CardContent>

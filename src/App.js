@@ -10,6 +10,9 @@ import GetStarted from "./pages/getStarted/GetStarted";
 import MainFaqs from "./pages/faqs/MainFaqs";
 import Advice from "./pages/advice/Advice";
 import PointTable from "./pages/PointTable";
+import GetStartedHome from "./pages/getStarted/getStartedHome/GetStartedHome";
+import GetStartedForm from "./pages/getStarted/getStartedForm/GetStartedForm";
+import StartAssessment from "./pages/getStarted/startAssessment/StartAssessment";
 
 function App() {
   return (
@@ -17,15 +20,19 @@ function App() {
       <Header />
       <Routes>
         {/*<Route path="/" element={<Home />} />*/}
-        <Route path="/" element={<GetStarted />} />
+        <Route path="/" element={<GetStartedHome />} />
         <Route path="/getStarted/:id" element={<PointTable />} />
         {/*<Route path="about" element={<About />} />*/}
         {/*<Route path="business" element={<BusinessPage />} />*/}
         {/*<Route path="contact" element={<Contact />} />*/}
         <Route path="getStarted" element={<GetStarted />} />
+        <Route path="getStarted-home" element={<GetStartedHome />} />
+        <Route path="assessment-form" element={<GetStartedForm />} />
+        <Route path="assessment" element={<StartAssessment />} />
         {/*<Route path="faq" element={<MainFaqs />} />*/}
         {/*<Route path="advice" element={<Advice />} />*/}
       </Routes>
+
       <Footer />
     </>
   );
