@@ -205,7 +205,7 @@ function LookingFor({
                             <Button
                                 className="overpass"
                                 onClick={() => {
-                                    points && navigate(`/getStarted/${points}`)
+                                    points && navigate(`/assessment/${points}`)
                                 }}
                                 sx={{
                                     backgroundColor: "#219f2175",
@@ -226,7 +226,7 @@ function LookingFor({
                             </Button>
                         </Box>
                         <Box onClick={() => {
-                            points && navigate(`/getStarted/${points}`)
+                            points && navigate(`/assessment/${points}`)
                         }} sx={{
                             textDecoration: "underline",
                             my: "20px",

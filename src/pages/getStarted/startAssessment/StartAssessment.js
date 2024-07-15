@@ -39,7 +39,7 @@ function StartAssessment(props) {
 
                                 <Button
                                     className="overpass"
-                                    onClick={() => navigate("/getStarted")}
+                                    onClick={() => navigate("/assessment")}
                                     sx={{
                                         backgroundColor: "#A6DE9B",
                                         py: "5px",

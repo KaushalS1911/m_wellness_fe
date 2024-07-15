@@ -21,14 +21,14 @@ function App() {
       <Routes>
         {/*<Route path="/" element={<Home />} />*/}
         <Route path="/" element={<GetStartedHome />} />
-        <Route path="/getStarted/:id" element={<PointTable />} />
+        <Route path="/assessment/:id" element={<PointTable />} />
         {/*<Route path="about" element={<About />} />*/}
         {/*<Route path="business" element={<BusinessPage />} />*/}
         {/*<Route path="contact" element={<Contact />} />*/}
-        <Route path="getStarted" element={<GetStarted />} />
-        <Route path="getStarted-home" element={<GetStartedHome />} />
+        <Route path="assessment" element={<GetStarted />} />
+        <Route path="consent-form" element={<GetStartedHome />} />
         <Route path="assessment-form" element={<GetStartedForm />} />
-        <Route path="assessment" element={<StartAssessment />} />
+        <Route path="start-assessment" element={<StartAssessment />} />
 
         {/*<Route path="faq" element={<MainFaqs />} />*/}
         {/*<Route path="advice" element={<Advice />} />*/}

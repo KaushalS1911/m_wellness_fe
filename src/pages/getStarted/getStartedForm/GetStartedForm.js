@@ -139,7 +139,7 @@ function GetStartedForm(props) {
 
                                 <Button
                                     className="overpass"
-                                    onClick={() => navigate("/assessment")}
+                                    onClick={() => navigate("/start-assessment")}
                                     sx={{
                                         backgroundColor: "#A6DE9B",
                                         py: "5px",

@@ -790,7 +790,7 @@ function GetStarted2(props) {
                     <Box>
                         <Box sx={{fontSize: "46px", color: "#444444", textAlign: 'center'}} className="overpass">
                             {/*Help us match you to the <Typography variant="span" sx={{color:"green"}}> right therapist</Typography>*/}
-                        {language === "english" ? mainEnglishStepContent(mainActiveStep) : mainHindiStepContent(mainActiveStep)}
+                        {language === "hindi" ?  mainHindiStepContent(mainActiveStep) : mainEnglishStepContent(mainActiveStep)}
                         </Box>
                         <Box sx={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                             {language == "english" && <Box sx={{textAlign: "center", mt: "20px", width: {md: "850px"}}}>
@@ -802,7 +802,7 @@ function GetStarted2(props) {
                     </Box>
 
                     <React.Fragment>
-                        <Box>{language === "english" ? getEnglishStepContent(activeStep) : getHindiStepContent(activeStep)}</Box>
+                        <Box>{language === "hindi" ? getHindiStepContent(activeStep) : getEnglishStepContent(activeStep)}</Box>
 
                     </React.Fragment>
 

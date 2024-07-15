@@ -125,7 +125,7 @@ function PointTable(props) {
                             padding: "20px",
                             borderRadius: "15px"
                         }}>
-                            {language == "english" ?  descEng(id).desc :descHindi(id).desc }
+                            {language == "hindi" ? descHindi(id).desc : descEng(id).desc }
                         </Box>
                     </Box>
 
