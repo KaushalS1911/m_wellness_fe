@@ -29,6 +29,7 @@ function App() {
         <Route path="getStarted-home" element={<GetStartedHome />} />
         <Route path="assessment-form" element={<GetStartedForm />} />
         <Route path="assessment" element={<StartAssessment />} />
+
         {/*<Route path="faq" element={<MainFaqs />} />*/}
         {/*<Route path="advice" element={<Advice />} />*/}
       </Routes>

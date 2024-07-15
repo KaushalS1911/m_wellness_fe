@@ -20,6 +20,7 @@ function GetStartedHome(props) {
 
     const handleChange = (e) =>{
         setLanguage(e.target.checked)
+        sessionStorage.setItem("language",e.target.value)
     }
     return (
         <>
