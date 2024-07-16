@@ -24,7 +24,7 @@ function GetStartedHome(props) {
     }
     return (
         <>
-            <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: "200px"}}>
+            <Box sx={{width: '100%', pt: "100px", backgroundColor: "#FFFCF6", pb: "100px"}}>
                 <Container>
                     {/*<Box onClick={}*/}
                     {/*     sx={{cursor: "pointer", fontSize: "18px", display: activeStep !== 0 ? "block" : "none"}}>*/}
@@ -134,7 +134,7 @@ function GetStartedHome(props) {
             </Box>
 
             {/*<Box sx={{mt:"200px"}}>*/}
-            <GetStartedReview/>
+            {/*<GetStartedReview/>*/}
             {/*</Box>*/}
         </>
     );

@@ -13,6 +13,7 @@ import PointTable from "./pages/PointTable";
 import GetStartedHome from "./pages/getStarted/getStartedHome/GetStartedHome";
 import GetStartedForm from "./pages/getStarted/getStartedForm/GetStartedForm";
 import StartAssessment from "./pages/getStarted/startAssessment/StartAssessment";
+import {Box} from "@mui/material";
 
 function App() {
   return (
@@ -34,7 +35,8 @@ function App() {
         {/*<Route path="advice" element={<Advice />} />*/}
       </Routes>
 
-      <Footer />
+      {/*<Footer />*/}
+        <Box sx={{fontSize:"20px",py:2,textAlign:"center",fontWeight:"600",mt:{xs:2,md:4}}} className={"overpass"}>If you are in a crisis or any other person may be in danger - don't use this site.</Box>
     </>
   );
 }

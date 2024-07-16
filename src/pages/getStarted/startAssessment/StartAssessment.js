@@ -9,14 +9,14 @@ function StartAssessment(props) {
     const navigate = useNavigate()
     return (
         <>
-            <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: "200px"}}>
+            <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: "100px"}}>
                 <Container>
 
 
 
                     <Box sx={{display: "flex", justifyContent: "center", mt: 5}}>
                         <Box sx={{
-                            width: "600px",
+                            width: {md:"600px",xs:"100%"},
                             backgroundColor: "#FFFFFF",
                             // height: "400px",
                             padding: "40px",
@@ -70,7 +70,7 @@ function StartAssessment(props) {
                 </Container>
             </Box>
 
-            <GetStartedReview/>
+            {/*<GetStartedReview/>*/}
         </>
     );
 }

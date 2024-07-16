@@ -48,7 +48,7 @@ function GetStartedForm(props) {
         };
     return (
         <>
-            <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: "200px"}}>
+            <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: "100px"}}>
                 <Container>
 
                     <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">
@@ -167,7 +167,7 @@ function GetStartedForm(props) {
                 </Container>
             </Box>
 
-            <GetStartedReview/>
+            {/*<GetStartedReview/>*/}
         </>
     );
 }
