@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import LookingFor from "./LookingFor";
 import {Button, Container, MobileStepper, Typography} from "@mui/material";
 
-
+import WestIcon from '@mui/icons-material/West';
 function GetStarted2(props) {
 
     const [points1, setPoints1] = useState([])
@@ -60,15 +60,17 @@ function GetStarted2(props) {
 
 
     const handleBack = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep - 1);
-        if (activeStep === 3 || activeStep === 7 || activeStep === 11 || activeStep === 15) {
-            setMainActiveStep((prevActiveStep) => prevActiveStep - 1);
-        }
-        if (activeStep === 19) {
-            points1.splice(-2)
+        if(activeStep !==0){
+            setActiveStep((prevActiveStep) => prevActiveStep - 1);
+            if (activeStep === 3 || activeStep === 7 || activeStep === 11 || activeStep === 15) {
+                setMainActiveStep((prevActiveStep) => prevActiveStep - 1);
+            }
+            if (activeStep === 19) {
+                points1.splice(-2)
 
-        } else {
-           points1.splice(-1)
+            } else {
+                points1.splice(-1)
+            }
         }
 
     };
@@ -119,6 +121,7 @@ function GetStarted2(props) {
                                 handleNext={handleNext}
                                 handlePoints={handlePoints}
                                 points={points}
+                                handleBack={handleBack}
 
 
                     />
@@ -134,6 +137,7 @@ function GetStarted2(props) {
                         ]}
 
                         therapyQuestion={"2. When faced with multiple deadlines, how do you prioritize tasks?"}
+                        handleBack={handleBack}
                         points={points}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
@@ -151,6 +155,7 @@ function GetStarted2(props) {
                         ]}
 
                         therapyQuestion={"3. How often do you take breaks to manage stress during study sessions?"}
+                        handleBack={handleBack}
                         points={points}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
@@ -167,6 +172,7 @@ function GetStarted2(props) {
                         ]}
 
                         therapyQuestion={"4. What techniques do you use to cope with exam-related anxiety?"}
+                        handleBack={handleBack}
                         points={points}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
@@ -183,6 +189,7 @@ function GetStarted2(props) {
                             {label: "D) Consider giving up"},
                         ]}
                         therapyQuestion={"5. How do you react to failure or setbacks?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -198,6 +205,7 @@ function GetStarted2(props) {
                             {label: "D) Negatively, feeling discouraged"},
                         ]}
                         therapyQuestion={"6. When you receive criticism, how do you respond?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -213,6 +221,7 @@ function GetStarted2(props) {
                             {label: "D) Let it affect my motivation and productivity"},
                         ]}
                         therapyQuestion={"7. How do you deal with feelings of frustration during your preparation?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -228,6 +237,7 @@ function GetStarted2(props) {
                             {label: "D) Never, I don't think about my emotions much"},
                         ]}
                         therapyQuestion={"8. How often do you reflect on your emotional responses to situations?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         mainHandleNext={mainHandleNext}
                         points={points}
@@ -244,6 +254,7 @@ function GetStarted2(props) {
                             {label: "D) Postpone the decision until more information is available"},
                         ]}
                         therapyQuestion={"9. How do you make decisions when you have insufficient information?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -259,6 +270,7 @@ function GetStarted2(props) {
                             {label: "D) Avoiding conflict"},
                         ]}
                         therapyQuestion={"10. When making a tough decision, what is your primary consideration?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -274,6 +286,7 @@ function GetStarted2(props) {
                             {label: "D) Often unsure and second-guess myself"},
                         ]}
                         therapyQuestion={"11. How confident are you in your decision-making abilities?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -289,6 +302,7 @@ function GetStarted2(props) {
                             {label: "D) Blame external factors"},
                         ]}
                         therapyQuestion={"12. How do you handle situations where you have made a wrong decision?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -305,6 +319,7 @@ function GetStarted2(props) {
                             {label: "D) Pressure from family or peers"},
                         ]}
                         therapyQuestion={"13. What motivates you to pursue a career in the IAS?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -320,6 +335,7 @@ function GetStarted2(props) {
                             {label: "D) Struggle to stay motivated"},
                         ]}
                         therapyQuestion={"14. How do you keep yourself motivated during tough times?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -335,6 +351,7 @@ function GetStarted2(props) {
                             {label: "D) Often find myself distracted and unable to focus"},
                         ]}
                         therapyQuestion={"15. How do you handle distractions while studying?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -350,6 +367,7 @@ function GetStarted2(props) {
                             {label: "D) Struggle to maintain a consistent routine"},
                         ]}
                         therapyQuestion={"16. How committed are you to your preparation routine?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         mainHandleNext={mainHandleNext}
                         points={points}
@@ -366,6 +384,7 @@ function GetStarted2(props) {
                             {label: "D) Get frustrated and let emotions take over"},
                         ]}
                         therapyQuestion={"17. How do you handle conflicts or disagreements with others?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -381,6 +400,7 @@ function GetStarted2(props) {
                             {label: "D) Never, I rely on self-assessment"},
                         ]}
                         therapyQuestion={"18. How often do you seek feedback from others about your performance?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -397,6 +417,7 @@ function GetStarted2(props) {
                             {label: "D) Prefer to study alone and avoid group sessions"},
                         ]}
                         therapyQuestion={"19. How do you contribute to group study sessions or discussions?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -413,6 +434,7 @@ function GetStarted2(props) {
                             {label: "D) Observer, letting others take the lead"},
                         ]}
                         therapyQuestion={"20. When working with others, what role do you typically take?"}
+                        handleBack={handleBack}
                         submit={true}
                         last={true}
                         points={points}
@@ -443,6 +465,7 @@ function GetStarted2(props) {
                                 handleNext={handleNext}
                                 handlePoints={handlePoints}
                                 points={points}
+                                handleBack={handleBack}
 
 
                     />
@@ -458,6 +481,7 @@ function GetStarted2(props) {
                         ]}
 
                         therapyQuestion={"2. जब आपके पास कई समय-सीमाएं होती हैं, तो आप कार्यों को कैसे प्राथमिकता देते हैं?"}
+                        handleBack={handleBack}
                         points={points}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
@@ -475,6 +499,7 @@ function GetStarted2(props) {
                         ]}
 
                         therapyQuestion={"3. पढ़ाई के दौरान तनाव प्रबंधन के लिए आप कितनी बार ब्रेक लेते हैं?"}
+                        handleBack={handleBack}
                         points={points}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
@@ -491,6 +516,7 @@ function GetStarted2(props) {
                         ]}
 
                         therapyQuestion={"4. परीक्षा से संबंधित चिंता का सामना करने के लिए आप कौन सी तकनीकें उपयोग करते हैं?"}
+                        handleBack={handleBack}
                         points={points}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
@@ -507,6 +533,7 @@ function GetStarted2(props) {
                             {label: "D) हार मानने का विचार करते हैं"},
                         ]}
                         therapyQuestion={"5. असफलता या प्रतिकूल परिस्थितियों का सामना कैसे करते हैं?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -522,6 +549,7 @@ function GetStarted2(props) {
                             {label: "D) नकारात्मक रूप से, हतोत्साहित हो जाते हैं"},
                         ]}
                         therapyQuestion={"6. जब आपको आलोचना मिलती है, तो आप कैसे प्रतिक्रिया करते हैं?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -537,6 +565,7 @@ function GetStarted2(props) {
                             {label: "D) इससे मेरी प्रेरणा और उत्पादकता पर प्रभाव पड़ता है"},
                         ]}
                         therapyQuestion={"7. अपनी तैयारी के दौरान निराशा की भावनाओं का आप कैसे सामना करते हैं?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -552,6 +581,7 @@ function GetStarted2(props) {
                             {label: "D) कभी नहीं, मैं अपनी भावनाओं के बारे में नहीं सोचता"},
                         ]}
                         therapyQuestion={"8. आप कितनी बार अपनी भावनात्मक प्रतिक्रियाओं पर विचार करते हैं?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         mainHandleNext={mainHandleNext}
                         points={points}
@@ -568,6 +598,7 @@ function GetStarted2(props) {
                             {label: "D) निर्णय को तब तक टालते हैं जब तक कि अधिक जानकारी उपलब्ध नहीं हो जाती"},
                         ]}
                         therapyQuestion={"9. जब आपके पास पर्याप्त जानकारी नहीं होती है, तो आप कैसे निर्णय लेते हैं?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -583,6 +614,7 @@ function GetStarted2(props) {
                             {label: "D) संघर्ष से बचना"},
                         ]}
                         therapyQuestion={"10. कठिन निर्णय लेते समय आपका मुख्य विचार क्या होता है?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -598,6 +630,7 @@ function GetStarted2(props) {
                             {label: "D) अक्सर अनिश्चित और पुनर्विचार करते हैं"},
                         ]}
                         therapyQuestion={"11. आप अपनी निर्णय लेने की क्षमता पर कितना विश्वास रखते हैं?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -613,6 +646,7 @@ function GetStarted2(props) {
                             {label: "D) बाहरी कारकों को दोष देते हैं"},
                         ]}
                         therapyQuestion={"12. जब आप गलत निर्णय लेते हैं, तो आप कैसे संभालते हैं?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -629,6 +663,7 @@ function GetStarted2(props) {
                             {label: "D) परिवार या साथियों का दबाव"},
                         ]}
                         therapyQuestion={"13. आपको अपने चुने हुए करियर मार्ग को अपनाने के लिए क्या प्रेरित करता है?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -644,6 +679,7 @@ function GetStarted2(props) {
                             {label: "D) प्रेरित रहने के लिए संघर्ष करते हैं"},
                         ]}
                         therapyQuestion={"14. कठिन समय में खुद को प्रेरित रखने के लिए आप क्या करते हैं?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -659,6 +695,7 @@ function GetStarted2(props) {
                             {label: "D) अक्सर ध्यान भंग में फंस जाते हैं और ध्यान केंद्रित करने में असमर्थ रहते हैं"},
                         ]}
                         therapyQuestion={"15. पढ़ाई के दौरान आप ध्यान भंग करने का कैसे सामना करते हैं??"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -674,6 +711,7 @@ function GetStarted2(props) {
                             {label: "D) निरंतर दिनचर्या बनाए रखने में संघर्ष करते हैं"},
                         ]}
                         therapyQuestion={"16. आप अपनी तैयारी की दिनचर्या के प्रति कितने प्रतिबद्ध हैं?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         mainHandleNext={mainHandleNext}
                         points={points}
@@ -690,6 +728,7 @@ function GetStarted2(props) {
                             {label: "D) निराश हो जाते हैं और भावनाओं को हावी होने देते हैं"},
                         ]}
                         therapyQuestion={"17. आप दूसरों के साथ मतभेद या विवाद को कैसे संभालते हैं?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -705,6 +744,7 @@ function GetStarted2(props) {
                             {label: "D) कभी नहीं, मैं आत्म-मूल्यांकन पर निर्भर करता हूँ"},
                         ]}
                         therapyQuestion={"18. आप कितनी बार दूसरों से अपनी प्रदर्शन के बारे में प्रतिक्रिया मांगते हैं?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -721,6 +761,7 @@ function GetStarted2(props) {
                             {label: "D) अकेले पढ़ाई करना पसंद करते हैं और समूह सत्रों से बचते हैं"},
                         ]}
                         therapyQuestion={"19. समूह अध्ययन सत्रों या चर्चाओं में आप कैसे योगदान करते हैं?"}
+                        handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
@@ -737,6 +778,7 @@ function GetStarted2(props) {
                             {label: "D) पर्यवेक्षक, दूसरों को नेतृत्व करने देते हैं"},
                         ]}
                         therapyQuestion={"20. दूसरों के साथ काम करते समय आप सामान्यतः कौन-सी भूमिका निभाते हैं?"}
+                        handleBack={handleBack}
                         submit={true}
                         last={true}
                         points={points}
@@ -756,10 +798,7 @@ function GetStarted2(props) {
         <>
             <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: "5px"}}>
                 <Container>
-                    <Box onClick={handleBack}
-                         sx={{cursor: "pointer", fontSize: "18px", display: activeStep !== 0 ? "block" : "none"}}>
-                        <i className="fa-solid fa-arrow-left" style={{marginRight: 8}}></i>Back
-                    </Box>
+
                     <MobileStepper
                         className="main"
                         variant="dots"

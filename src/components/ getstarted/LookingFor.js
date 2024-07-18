@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import {useNavigate} from "react-router-dom"
+import WestIcon from "@mui/icons-material/West";
 
 
 const style = {
@@ -33,7 +34,9 @@ function LookingFor({
                         submit,
                         points,
                         handlePoints,
-                        points1
+                        points1,
+                        handleBack
+
                     }) {
 
     const [open, setOpen] = React.useState(false);
@@ -74,7 +77,7 @@ function LookingFor({
 
 
     return (
-        <Card style={{maxWidth: 700, margin: "50px auto", padding: "20px"}}>
+        <Card style={{maxWidth: 700, margin: "50px auto", padding: "20px 20px 0"}}>
             <CardContent>
                 <Typography
                     variant="h6"
@@ -102,6 +105,10 @@ function LookingFor({
 
                     </Grid>
                 </Box>
+                        <Box onClick={handleBack}
+                             sx={{cursor: "pointer", fontSize: "18px", display:  "flex" ,alignItems:"center",mt:2}}>
+                            <WestIcon sx={{marginRight:1}} />Back
+                        </Box>
                 <Box>
                     <Box sx={{
                         color: "green",
