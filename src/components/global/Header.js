@@ -60,7 +60,7 @@ function Header(props) {
             </Box>
           </NavLink>
           {isLgScreen ? (
-            <Box sx={{ color: "white" }}>
+            <Box sx={{ color: "black" }}>
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
