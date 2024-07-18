@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Box from "@mui/material/Box";
 import {
     Button,
@@ -16,6 +16,7 @@ import {useNavigate} from "react-router-dom";
 
 function GetStartedForm(props) {
     const navigate = useNavigate()
+    const [age,setAge] = useState([])
     const organizations = [
         { value: 'optum', label: 'Optum' },
         { value: 'teamhealth', label: 'Teamhealth' },
@@ -24,6 +25,9 @@ function GetStartedForm(props) {
         { value: 'Nhs', label: 'Nhs' },
     ];
 
+      for (let i=16;i<=100;i++){
+          age.push(i)
+      }
 
         const [formValues, setFormValues] = React.useState({
             organization: '',
@@ -32,6 +36,7 @@ function GetStartedForm(props) {
             phone: '',
             gender: false,
             age: '',
+            email:'',
         });
 
         const handleChange = (event) => {
@@ -86,6 +91,15 @@ function GetStartedForm(props) {
                                 </Select>
                             </FormControl>
 
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Admission ID"
+                                    name="admissionId"
+                                    value={formValues.admissionId}
+                                    onChange={handleChange}
+                                />
+
                             <TextField
                                 fullWidth
                                 margin="normal"
@@ -95,14 +109,7 @@ function GetStartedForm(props) {
                                 onChange={handleChange}
                             />
 
-                            <TextField
-                                fullWidth
-                                margin="normal"
-                                label="Admission ID"
-                                name="admissionId"
-                                value={formValues.admissionId}
-                                onChange={handleChange}
-                            />
+
 
                             <TextField
                                 fullWidth
@@ -112,9 +119,46 @@ function GetStartedForm(props) {
                                 value={formValues.phone}
                                 onChange={handleChange}
                             />
+                                <TextField
+                                fullWidth
+                                margin="normal"
+                                label="Email"
+                                name="email"
+                                value={formValues.email}
+                                onChange={handleChange}
+                            />
 
-                                <Box display="flex" alignItems="center" margin="normal">
-                                    <FormLabel component="legend" style={{ marginRight: '1rem' }}>Gender :</FormLabel>
+
+                                <FormControl fullWidth margin="normal">
+                                    <InputLabel  sx={{
+                                        backgroundColor: formValues.organization ? 'white' : 'white',
+                                        px: 1,
+                                        '&.Mui-focused': {
+                                            backgroundColor: 'white',
+                                        },
+                                    }}>Age</InputLabel>
+                                    <Select
+                                        name="age"
+                                        value={formValues.age}
+                                        onChange={handleChange}
+                                    >
+                                        {age.map((option) => (
+                                            <MenuItem key={option} value={option} >
+                                                {option}
+                                            </MenuItem>
+                                        ))}
+                                    </Select>
+                                </FormControl>
+                            {/*<TextField*/}
+                            {/*    fullWidth*/}
+                            {/*    margin="normal"*/}
+                            {/*    label="Age"*/}
+                            {/*    name="age"*/}
+                            {/*    value={formValues.age}*/}
+                            {/*    onChange={handleChange}*/}
+                            {/*/>*/}
+                                <Box display={{sm: "flex"}} mt={{xs:2,sm:"unset"}} alignItems="center" margin="normal">
+                                    <FormLabel component="legend" sx={{ marginRight: '1rem'}}>Gender :</FormLabel>
                                     <RadioGroup
                                         name="gender"
                                         value={formValues.gender}
@@ -126,15 +170,6 @@ function GetStartedForm(props) {
                                         <FormControlLabel sx={{color:"#00000099"}} value="other" control={<Radio />} label="Other" />
                                     </RadioGroup>
                                 </Box>
-
-                            <TextField
-                                fullWidth
-                                margin="normal"
-                                label="Age"
-                                name="age"
-                                value={formValues.age}
-                                onChange={handleChange}
-                            />
                             <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
 
                                 <Button

@@ -15,7 +15,7 @@ import GetStartedForm from "./pages/getStarted/getStartedForm/GetStartedForm";
 import StartAssessment from "./pages/getStarted/startAssessment/StartAssessment";
 import {Box} from "@mui/material";
 
-function App() {
+export default function App() {
   return (
     <>
       <Header />
@@ -36,9 +36,8 @@ function App() {
       </Routes>
 
       {/*<Footer />*/}
-        <Box sx={{fontSize:"20px",py:2,textAlign:"center",fontWeight:"600",mt:{xs:2,md:4}}} className={"overpass"}>If you are in a crisis or any other person may be in danger - don't use this site.</Box>
+        <Box sx={{fontSize:"20px",py:5,textAlign:"center",fontWeight:"600",px:3}} className={"overpass"}>If you are in a crisis or any other person may be in danger - don't use this site.</Box>
     </>
   );
 }
 
-export default App;

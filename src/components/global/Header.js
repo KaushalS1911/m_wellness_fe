@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../assets/header/logo.png';
+import logo from '../../assets/header/logo-dark.png';
 import {
     Box,
     Button,
@@ -39,7 +39,7 @@ function Header(props) {
     <>
       <Box
         sx={{
-          backgroundColor: "darkGreen",
+          backgroundColor: "#fff",
           p: "16px",
           position: "fixed",
           top: "0",
@@ -148,7 +148,7 @@ function Header(props) {
 
                             <Button
                                 className='overpass'
-                                variant="contained"
+                                variant="outlined"
                                 sx={{
                                     width:"100% !important",
                                     borderRadius: "30px",
@@ -160,7 +160,9 @@ function Header(props) {
                                     "&:hover": {
                                         backgroundColor: "green",
                                         color: "white",
+                                    borderColor:"green",
                                     },
+                                    borderColor:"green",
                                 }}
                             >
                                 Start Assessment
@@ -231,6 +233,7 @@ function Header(props) {
               <Box>
                <NavLink to={'consent-form'}>
                    <Button
+                       variant={"outlined"}
                        sx={{
                            // fontWeight: "600",
                            background: "white",
@@ -242,7 +245,9 @@ function Header(props) {
                            borderRadius: "20px",
                            "&:hover": {
                                backgroundColor: "liteGreen",
+                           borderColor:"liteGreen"
                            },
+                           borderColor:"green"
                        }}
                    >
                       Start Assessment

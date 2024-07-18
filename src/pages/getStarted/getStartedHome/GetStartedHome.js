@@ -64,7 +64,7 @@ function GetStartedHome(props) {
 
                             </Box>
 
-                            <Box display="flex" alignItems="center" margin="normal" my={3} sx={{fontWeight:700}} className={"overpass"}>
+                            <Box display={{sm:"flex"}} alignItems="center" margin="normal" my={3} sx={{fontWeight:700}} className={"overpass"}>
                                 <FormLabel  sx={{ marginRight: '1rem',color:"black" }} className={"overpass"}>Language :</FormLabel>
                                 <RadioGroup
                                     name="gender"
@@ -82,7 +82,7 @@ function GetStartedHome(props) {
                                     I accept the terms and conditions outlined above.
                                 </Box>
                             </Box>
-                            <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
+                            <Box sx={{mt: "20px", display: {sm:"flex"}, justifyContent: "end"}}>
 
                                 <Button
                                     className="overpass"
@@ -99,7 +99,8 @@ function GetStartedHome(props) {
                                             backgroundColor: "darkGreen",
                                             color: "white",
                                         },
-                                        mt: "10px",marginRight:1
+                                        mt: "10px",marginRight:1,
+                                        width:{xs:"100%",sm:"unset"}
                                     }}
                                 >
                                     Cancel
@@ -120,7 +121,8 @@ function GetStartedHome(props) {
                                             backgroundColor: "darkGreen",
                                             color: "white",
                                         },
-                                        mt: "10px"
+                                        mt: "10px",
+                                        width:{xs:"100%",sm:"unset"}
                                     }}
                                 >
                                     I Agree
