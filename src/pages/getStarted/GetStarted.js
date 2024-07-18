@@ -9,7 +9,7 @@ function GetStarted(props) {
     return (
 <>
             <GetStarted2  />
-    <GetStartedReview />
+    {/*<GetStartedReview />*/}
 </>
     );
 }
