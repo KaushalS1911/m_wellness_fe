@@ -105,10 +105,31 @@ function LookingFor({
 
                     </Grid>
                 </Box>
-                        <Box onClick={handleBack}
-                             sx={{cursor: "pointer", fontSize: "18px", display:  "flex" ,alignItems:"center",mt:2}}>
-                            <WestIcon sx={{marginRight:1}} />Back
-                        </Box>
+                {/*<Button*/}
+                {/*    className="overpass"*/}
+                {/*    onClick={handleBack}*/}
+                {/*    sx={{*/}
+                {/*        backgroundColor: "darkGreen",*/}
+                {/*        py: "5px",*/}
+                {/*        px: "28px",*/}
+                {/*        textTransform: "unset",*/}
+                {/*        fontSize: "20px",*/}
+                {/*        color: "white",*/}
+                {/*        borderRadius: "30px",*/}
+                {/*        "&:hover": {*/}
+                {/*            backgroundColor: "green",*/}
+                {/*            color: "white",*/}
+                {/*        },*/}
+                {/*        mt: "10px"*/}
+                {/*    }}*/}
+                {/*>*/}
+                {/*    Back*/}
+                {/*</Button>*/}
+                        {/*<Button variant={"contained"} sx={{}} onClick={handleBack}*/}
+                        {/*     sx={{cursor: "pointer", fontSize: "18px", display:  "flex" ,alignItems:"center",mt:2}}>*/}
+                        {/*    /!*<WestIcon sx={{marginRight:1}} />*!/*/}
+                        {/*    Back*/}
+                        {/*</Button>*/}
                 <Box>
                     <Box sx={{
                         color: "green",
@@ -137,29 +158,53 @@ function LookingFor({
                         </Typography>
                     </Box>
                 )}
-                {submit && <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
+               <Box sx={{display:"flex",justifyContent:"space-between"}}>
+                   <Box sx={{mt: "20px", display: "flex", justifyContent: "start"}}>
+                       <Button
+                           className="overpass"
+                           onClick={handleBack}
+                           sx={{
+                               backgroundColor: "darkGreen",
+                               py: "5px",
+                               px: "28px",
+                               textTransform: "unset",
+                               fontSize: "20px",
+                               color: "white",
+                               borderRadius: "30px",
+                               "&:hover": {
+                                   backgroundColor: "green",
+                                   color: "white",
+                               },
+                               mt: "10px"
+                           }}
+                       >
+                           Back
+                       </Button>
+                   </Box>
+                   {submit && <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
 
-                    <Button
-                        className="overpass"
-                        onClick={handleSubmit}
-                        sx={{
-                            backgroundColor: "darkGreen",
-                            py: "5px",
-                            px: "28px",
-                            textTransform: "unset",
-                            fontSize: "20px",
-                            color: "white",
-                            borderRadius: "30px",
-                            "&:hover": {
-                                backgroundColor: "green",
-                                color: "white",
-                            },
-                            mt: "10px"
-                        }}
-                    >
-                        Submit
-                    </Button>
-                </Box>}
+                       <Button
+                           className="overpass"
+                           onClick={handleSubmit}
+                           sx={{
+                               backgroundColor: "darkGreen",
+                               py: "5px",
+                               px: "28px",
+                               textTransform: "unset",
+                               fontSize: "20px",
+                               color: "white",
+                               borderRadius: "30px",
+                               "&:hover": {
+                                   backgroundColor: "green",
+                                   color: "white",
+                               },
+                               mt: "10px"
+                           }}
+                       >
+                           Submit
+                       </Button>
+                   </Box>}
+               </Box>
 
                 <Modal
                     keepMounted
