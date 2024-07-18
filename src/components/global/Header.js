@@ -160,9 +160,9 @@ function Header(props) {
                                     "&:hover": {
                                         backgroundColor: "green",
                                         color: "white",
-                                    borderColor:"green",
+                                        border:"2px solid green !important"
                                     },
-                                    borderColor:"green",
+                                    border:"2px solid green",
                                 }}
                             >
                                 Start Assessment
@@ -241,13 +241,14 @@ function Header(props) {
                            px: "16px",
                            textTransform: "unset",
                            fontSize: { lg: "16px", xs: "14px" },
+                           fontWeight:"600",
                            color: "green",
                            borderRadius: "20px",
                            "&:hover": {
                                backgroundColor: "liteGreen",
-                           borderColor:"liteGreen"
+                           border:"2px solid #a6de9b !important"
                            },
-                           borderColor:"green"
+                           border:"2px solid green"
                        }}
                    >
                       Start Assessment
