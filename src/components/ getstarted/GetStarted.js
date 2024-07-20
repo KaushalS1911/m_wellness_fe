@@ -4,15 +4,15 @@ import LookingFor from "./LookingFor";
 import {Button, Container, MobileStepper, Typography} from "@mui/material";
 
 import WestIcon from '@mui/icons-material/West';
-function GetStarted2(props) {
+function GetStarted2() {
 
     const [points1, setPoints1] = useState([])
     const [activeStep, setActiveStep] = React.useState(0);
     const [mainActiveStep, setMainActiveStep] = React.useState(0);
     const language = sessionStorage.getItem("language")
     const handleNext = () => {
+            window.scrollTo(0, 0);
         if (points1?.length !== 19) {
-
             setActiveStep((prevActiveStep) => prevActiveStep + 1);
         } else {
             setActiveStep((prevActiveStep => prevActiveStep))
