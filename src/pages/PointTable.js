@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Box, Container} from '@mui/material';
 import {Gauge, gaugeClasses} from '@mui/x-charts';
 import {useParams} from "react-router-dom"
+import Typography from "@mui/material/Typography";
 
 function PointTable(props) {
     const [points, setPoints] = useState(75);
@@ -113,7 +114,7 @@ function PointTable(props) {
                         />
                     </Box>
                     <Box sx={{display: "flex", justifyContent: "center"}}>
-                        <Box sx={{textAlign: "center", width: "250px", fontSize: "18px"}} className={"overpass"}>
+                        <Box sx={{textAlign: "center", width: "250px", fontSize: "18px",letterSpacing: -0.25}} className={"overpass"} >
                             Interpretation and feedback based on your inputs</Box>
                     </Box>
 
@@ -125,7 +126,14 @@ function PointTable(props) {
                             padding: "20px",
                             borderRadius: "15px"
                         }}>
-                            {language == "hindi" ? descHindi(id).desc : descEng(id).desc }
+                            {language === "hindi" ? <>
+                                <Typography> नमस्ते
+                                </Typography><Typography sx={{my: 2}}> आपके द्वारा दिए गए उत्तरों के आधार पर हम आपके साथ फीडबैक साझा कर रहे हैं।
+                                </Typography> {descHindi(id).desc}</> : <>
+                                <Typography> Namaste,
+                                </Typography> <Typography sx={{my:2}}> Basis the answers provided by you, we are sharing the feedback with you.
+                                </Typography>
+                                {descEng(id).desc}</>}
                         </Box>
                     </Box>
 

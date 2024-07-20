@@ -831,13 +831,13 @@ function GetStarted2() {
                             {/*Help us match you to the <Typography variant="span" sx={{color:"green"}}> right therapist</Typography>*/}
                         {language === "hindi" ?  mainHindiStepContent(mainActiveStep) : mainEnglishStepContent(mainActiveStep)}
                         </Box>
-                        <Box sx={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-                            {language === "english" && <Box sx={{textAlign: "center", mt: "20px", width: {md: "850px"}}}>
-                                It's important to have a therapist who you can establish a personal connection with. The
-                                following questions are designed to help match you to a licensed therapist based on your
-                                needs and personal preferences.
-                            </Box>}
-                        </Box>
+                        {/*<Box sx={{display: "flex", justifyContent: "center", alignItems: "center"}}>*/}
+                        {/*    {language === "english" && <Box sx={{textAlign: "center", mt: "20px", width: {md: "850px"}}}>*/}
+                        {/*        It's important to have a therapist who you can establish a personal connection with. The*/}
+                        {/*        following questions are designed to help match you to a licensed therapist based on your*/}
+                        {/*        needs and personal preferences.*/}
+                        {/*    </Box>}*/}
+                        {/*</Box>*/}
                     </Box>
 
                     <React.Fragment>
