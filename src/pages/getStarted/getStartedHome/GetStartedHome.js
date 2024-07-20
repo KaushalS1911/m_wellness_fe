@@ -24,7 +24,7 @@ function GetStartedHome(props) {
     }
     return (
         <>
-            <Box sx={{width: '100%', pt: "100px", backgroundColor: "#FFFCF6", pb: "100px",height:"85vh"}}>
+            <Box sx={{width: '100%', pt: "130px", backgroundColor: "#FFFCF6", pb: "120px",height:"91vh",}}>
                 <Container>
                     {/*<Box onClick={}*/}
                     {/*     sx={{cursor: "pointer", fontSize: "18px", display: activeStep !== 0 ? "block" : "none"}}>*/}
@@ -44,6 +44,9 @@ function GetStartedHome(props) {
                     {/*</Box>*/}
 
 
+                        <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">
+                            Emotional Wellness Basic Screening Test- Adults
+                        </Box>
                     <Box sx={{display: "flex", justifyContent: "center", mt: 5}}>
                         <Box sx={{
                             width: "700px",
@@ -52,10 +55,10 @@ function GetStartedHome(props) {
                             padding: "30px",
                             boxShadow: 2
                         }}>
-                            <Box sx={{fontSize: "32px", color: "#444444",letterSpacing:-1.5}} className="overpass">
-                                Emotional Wellness Basic Screening Test- Adults
-                                {/*{mainStepContent(mainActiveStep)}*/}
-                            </Box>
+                            {/*<Box sx={{fontSize: "32px", color: "#444444",letterSpacing:-1.5}} className="overpass">*/}
+                            {/*    Emotional Wellness Basic Screening Test- Adults*/}
+                            {/*    /!*{mainStepContent(mainActiveStep)}*!/*/}
+                            {/*</Box>*/}
                             <Box sx={{ mt: "32px", width: {md: "100%"},fontSize: "20px",letterSpacing:1}}>
                                 The form is initial data for Annual health & Performance Evaluation carried by Mahadevasth Technologies Pvt Ltd in association with your organisation.
                             </Box>

@@ -36,7 +36,7 @@ export default function App() {
       </Routes>
 
       {/*<Footer />*/}
-        <Box sx={{fontSize:"20px",py:5,textAlign:"center",fontWeight:"600",px:3}} className={"overpass"}>Mahadevasth Technologies or any of their employees and associates are not into providing any Suicide Prevention. For any such emergency or help, kindly connect with National Suicide Helpline/TeleManas: 1-800-8914416</Box>
+        <Box sx={{fontSize:"20px",py:5,textAlign:"center",fontWeight:"600",px:5}} className={"overpass"}>Mahadevasth Technologies or any of their employees and associates are not into providing any Suicide Prevention. For any such emergency or help, kindly connect with National Suicide Helpline/TeleManas: 1-800-8914416</Box>
     </>
   );
 }
