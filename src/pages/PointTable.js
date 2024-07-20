@@ -127,7 +127,7 @@ function PointTable(props) {
                             borderRadius: "15px"
                         }}>
                             {language === "hindi" ? <>
-                                <Typography> नमस्ते
+                                <Typography> नमस्ते,
                                 </Typography><Typography sx={{my: 2}}> आपके द्वारा दिए गए उत्तरों के आधार पर हम आपके साथ फीडबैक साझा कर रहे हैं।
                                 </Typography> {descHindi(id).desc}</> : <>
                                 <Typography> Namaste,
