@@ -23,7 +23,7 @@ function StartAssessment(props) {
                             boxShadow: 2
                         }}>
                             <Box sx={{fontSize: "28px", color: "#444444"}} className="overpass">
-                                Things to Remember Before You Start The Test
+                                Things to remember before you start the test
                                 {/*{mainStepContent(mainActiveStep)}*/}
                             </Box>
                             <Box sx={{my:4,lineHeight:2}} className={"listStyle"}>
@@ -32,7 +32,7 @@ function StartAssessment(props) {
                                 <li>Choose the response that you relate to the most</li>
                                 <li>There are no right or wrong answers to the questions</li>
                             </Box>
-                            <Box sx={{display:"flex",alignItems:"center",justifyContent:"center"}}><AccessTimeIcon sx={{marginRight:1}} /> Estimated time required:5 mins</Box>
+                            <Box sx={{display:"flex",alignItems:"center",justifyContent:"center"}}><AccessTimeIcon sx={{marginRight:1}} /> Estimated time required: 5 mins</Box>
 
 
                             <Box sx={{mt: "20px", display: "flex", justifyContent: "center"}}>
@@ -59,10 +59,10 @@ function StartAssessment(props) {
                                 </Button>
 
                             </Box>
-                            <Box sx={{display:"flex",justifyContent:"space-between",alignItems:"center",border:"1px solid #4a4d4a59",padding:3,borderRadius:"15px",mt:3}}>
-                                    <Box sx={{width:"300px"}}>Dose someone you care about show signs of OCD?</Box>
-                                <Box sx={{textDecoration:"underline",color:"darkGreen",letterSpacing:"1.2px"}} className={"overpass"}>SHARE THIS QUIZ</Box>
-                            </Box>
+                            {/*<Box sx={{display:"flex",justifyContent:"space-between",alignItems:"center",border:"1px solid #4a4d4a59",padding:3,borderRadius:"15px",mt:3}}>*/}
+                            {/*        <Box sx={{width:"300px"}}>Dose someone you care about show signs of OCD?</Box>*/}
+                            {/*    <Box sx={{textDecoration:"underline",color:"darkGreen",letterSpacing:"1.2px"}} className={"overpass"}>SHARE THIS QUIZ</Box>*/}
+                            {/*</Box>*/}
                         </Box>
                     </Box>
 

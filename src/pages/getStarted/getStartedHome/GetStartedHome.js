@@ -45,7 +45,7 @@ function GetStartedHome(props) {
 
 
                         <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">
-                            Emotional Wellness Basic Screening Test- Adults
+                            Emotional Wellness Basic Screening Test
                         </Box>
                     <Box sx={{display: "flex", justifyContent: "center", mt: 5}}>
                         <Box sx={{
