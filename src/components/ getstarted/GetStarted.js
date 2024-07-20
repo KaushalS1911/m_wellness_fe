@@ -22,7 +22,6 @@ function GetStarted2(props) {
     const points = points1.reduce((prev, next) => {
         return prev + next
     }, 0)
-    console.log(points1)
     const handlePoints = (e, dat) => {
         const string = e.target.value
         const data = string.substr(0, 1)
@@ -832,7 +831,7 @@ function GetStarted2(props) {
                         {language === "hindi" ?  mainHindiStepContent(mainActiveStep) : mainEnglishStepContent(mainActiveStep)}
                         </Box>
                         <Box sx={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-                            {language == "english" && <Box sx={{textAlign: "center", mt: "20px", width: {md: "850px"}}}>
+                            {language === "english" && <Box sx={{textAlign: "center", mt: "20px", width: {md: "850px"}}}>
                                 It's important to have a therapist who you can establish a personal connection with. The
                                 following questions are designed to help match you to a licensed therapist based on your
                                 needs and personal preferences.

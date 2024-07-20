@@ -24,7 +24,7 @@ function GetStartedHome(props) {
     }
     return (
         <>
-            <Box sx={{width: '100%', pt: "130px", backgroundColor: "#FFFCF6", pb: "120px",height:"91vh",}}>
+            <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: "60px"}}>
                 <Container>
                     {/*<Box onClick={}*/}
                     {/*     sx={{cursor: "pointer", fontSize: "18px", display: activeStep !== 0 ? "block" : "none"}}>*/}
@@ -59,10 +59,10 @@ function GetStartedHome(props) {
                             {/*    Emotional Wellness Basic Screening Test- Adults*/}
                             {/*    /!*{mainStepContent(mainActiveStep)}*!/*/}
                             {/*</Box>*/}
-                            <Box sx={{ mt: "32px", width: {md: "100%"},fontSize: "20px",letterSpacing:1}}>
+                            <Box sx={{ mt: 2, width: {md: "100%"},fontSize: "20px",letterSpacing:-0.5}}>
                                 The form is initial data for Annual health & Performance Evaluation carried by Mahadevasth Technologies Pvt Ltd in association with your organisation.
                             </Box>
-                            <Box sx={{fontSize: "20px", color: "black",letterSpacing:1,mt:2}}>
+                            <Box sx={{fontSize: "20px", color: "black",letterSpacing:-0.5,mt:2}}>
                                 Emotional wellness is crucial for maintaining overall well-being and navigating life's challenges effectively. This basic screening test aims to provide individuals with an initial assessment of their emotional well-being. While not a diagnostic tool, it can offer insights into areas that may require attention or improvement.
 
                             </Box>
@@ -79,7 +79,7 @@ function GetStartedHome(props) {
                                     <FormControlLabel value="hindi" control={<Radio />} label="Hindi" />
                                 </RadioGroup>
                             </Box>
-                            <Box sx={{display:"flex",alignItems:"center"}}>
+                            <Box sx={{display:"flex", alignItems:"center"}}>
                                 <Checkbox  onChange={(e) => setCheck(e.target.checked)} />
                                 <Box className={"overpass"}>
                                     I accept the terms and conditions outlined above.
