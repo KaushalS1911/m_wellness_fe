@@ -6,15 +6,15 @@ import Typography from "@mui/material/Typography";
 
 function PointTable(props) {
     const [points, setPoints] = useState(75);
-    const language = sessionStorage.getItem("language")
-    const {id} = useParams()
+    const language = sessionStorage.getItem("language");
+    const {id} = useParams();
     const settings = {
         width: 350,
         height: 200,
         // value: 60,
     };
 
-    const per = ((id * 100) / 60).toFixed(0)
+    const per = ((id * 100) / 60).toFixed(0);
 
     const descEng = (data) => {
         switch (true) {

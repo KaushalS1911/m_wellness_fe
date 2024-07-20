@@ -167,7 +167,6 @@ function GetStartedForm(props) {
                                     >
                                         <FormControlLabel sx={{color:"#00000099"}} value="male" control={<Radio />} label="Male" />
                                         <FormControlLabel sx={{color:"#00000099"}} value="female" control={<Radio />} label="Female" />
-                                        <FormControlLabel sx={{color:"#00000099"}} value="other" control={<Radio />} label="Other" />
                                     </RadioGroup>
                                 </Box>
                             <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
