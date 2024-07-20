@@ -59,6 +59,7 @@ function GetStarted2() {
 
 
     const handleBack = () => {
+        window.scrollTo(0, 0);
         if(activeStep !==0){
             setActiveStep((prevActiveStep) => prevActiveStep - 1);
             if (activeStep === 3 || activeStep === 7 || activeStep === 11 || activeStep === 15) {
