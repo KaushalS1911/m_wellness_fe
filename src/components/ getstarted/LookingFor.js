@@ -46,6 +46,7 @@ function LookingFor({
     const handleSubmit = () => {
         handleOpen()
     }
+    console.log(points,"fjfjfj")
     const TherapyButton = ({fullWidth, children, onClick, value, disabled}) => (
         <Grid item xs={12}>
             <Button
@@ -159,7 +160,7 @@ function LookingFor({
                     </Box>
                 )}
                <Box sx={{display:"flex",justifyContent:"space-between"}}>
-                   <Box sx={{mt: "20px", display: "flex", justifyContent: "start"}}>
+                   <Box sx={{mt: "20px", display:points===0? "none" : "flex", justifyContent: "start",}}>
                        <Button
                            className="overpass"
                            onClick={handleBack}
