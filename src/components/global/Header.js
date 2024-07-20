@@ -127,7 +127,7 @@ function Header(props) {
                       {/*  </Button>*/}
                     </ListItem>
                     <ListItem button>
-                        <NavLink to={'getStarted'} style={{width:"100%"}}>
+                        <NavLink to={'consent-form'} style={{width:"100%"}}>
                       {/*<Button*/}
                       {/*    variant="outlined"*/}
                       {/*  sx={{*/}
@@ -153,7 +153,7 @@ function Header(props) {
                                     width:"100% !important",
                                     borderRadius: "30px",
                                     backgroundColor: "#A6DE9B",
-                                    padding: "8px 36px",
+                                    padding: "8px",
                                     color: "darkGreen",
                                     textTransform: "initial",
                                     fontSize: "20px",
