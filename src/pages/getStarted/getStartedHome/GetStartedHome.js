@@ -24,7 +24,7 @@ function GetStartedHome(props) {
     }
     return (
         <>
-            <Box sx={{width: '100%', pt: "100px", backgroundColor: "#FFFCF6", pb: "100px"}}>
+            <Box sx={{width: '100%', pt: "100px", backgroundColor: "#FFFCF6", pb: "100px",height:"85vh"}}>
                 <Container>
                     {/*<Box onClick={}*/}
                     {/*     sx={{cursor: "pointer", fontSize: "18px", display: activeStep !== 0 ? "block" : "none"}}>*/}
@@ -53,14 +53,14 @@ function GetStartedHome(props) {
                             boxShadow: 2
                         }}>
                             <Box sx={{fontSize: "32px", color: "#444444",letterSpacing:-1.5}} className="overpass">
-                                If you are in a crisis or any other person may be in danger - don't use this site.
+                                Emotional Wellness Basic Screening Test- Adults
                                 {/*{mainStepContent(mainActiveStep)}*/}
                             </Box>
                             <Box sx={{ mt: "32px", width: {md: "100%"},fontSize: "20px",letterSpacing:1}}>
-                                We do not handle medical or psychological emergencies and are not equipped to provide support in crisis situations, including when someone is experiencing thoughts of self-harm, suicide, or severe clinical disorders and other psychotic conditions.
+                                The form is initial data for Annual health & Performance Evaluation carried by Mahadevasth Technologies Pvt Ltd in association with your organisation.
                             </Box>
                             <Box sx={{fontSize: "20px", color: "black",letterSpacing:1,mt:2}}>
-                                If you are experiencing any of these issues, we strongly urge you to seek help at the nearest hospital or emergency.
+                                Emotional wellness is crucial for maintaining overall well-being and navigating life's challenges effectively. This basic screening test aims to provide individuals with an initial assessment of their emotional well-being. While not a diagnostic tool, it can offer insights into areas that may require attention or improvement.
 
                             </Box>
 
