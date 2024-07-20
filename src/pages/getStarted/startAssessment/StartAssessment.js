@@ -9,7 +9,7 @@ function StartAssessment(props) {
     const navigate = useNavigate()
     return (
         <>
-            <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: "100px"}}>
+            <Box sx={{width: '100%', pt: {md:"150px",xs:"100px"}, backgroundColor: "#FFFCF6", pb: {md:"100px",xs:"50px"}}}>
                 <Container>
 
 
@@ -19,7 +19,7 @@ function StartAssessment(props) {
                             width: {md:"600px",xs:"100%"},
                             backgroundColor: "#FFFFFF",
                             // height: "400px",
-                            padding: "40px",
+                            padding: {md:"40px",xs:"30px 20px"},
                             boxShadow: 2
                         }}>
                             <Box sx={{fontSize: "28px", color: "#444444"}} className="overpass">

@@ -49,7 +49,7 @@ function LookingFor({
     const TherapyButton = ({fullWidth, children, onClick, value, disabled}) => (
         <Grid item xs={12}>
             <Button
-                style={{display: "flex", justifyContent: "flex-start"}}
+                style={{display: "flex", justifyContent: "flex-start ",textAlign:"start"}}
                 value={value}
                 fullWidth={fullWidth}
                 onClick={onClick}
@@ -61,7 +61,7 @@ function LookingFor({
                     fontSize: "16px",
                     fontWeight: "500",
                     borderRadius: "50px",
-                    padding: "10px 24px",
+                    padding: "10px 24px ",
                     "&:hover": {
                         backgroundColor: "#325343",
                         color: "white",
@@ -77,7 +77,7 @@ function LookingFor({
 
 
     return (
-        <Card style={{maxWidth: 700, margin: "50px auto", padding: "20px 20px 0"}}>
+        <Card style={{maxWidth: 700, margin: "50px auto", padding: {md:"20px 20px 0",xs:"20px 0 0"}}}>
             <CardContent>
                 <Typography
                     variant="h6"

@@ -53,7 +53,7 @@ function GetStartedForm(props) {
         };
     return (
         <>
-            <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: "100px"}}>
+            <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: {md:"100px",xs:"80px"}}}>
                 <Container>
 
                     <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">

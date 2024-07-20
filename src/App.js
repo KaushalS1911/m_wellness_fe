@@ -1,10 +1,10 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Home from "./pages/home/Home";
 import Header from "./components/global/Header";
 import Footer from "./components/footer/Footer";
 import About from "./pages/About";
 import BusinessPage from "./pages/BusinessPage";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes,useLocation } from "react-router-dom";
 import Contact from "./components/contact/Contact";
 import GetStarted from "./pages/getStarted/GetStarted";
 import MainFaqs from "./pages/faqs/MainFaqs";
@@ -16,9 +16,17 @@ import StartAssessment from "./pages/getStarted/startAssessment/StartAssessment"
 import {Box} from "@mui/material";
 
 export default function App() {
+    function ScrollToTop() {
+        const { pathname } = useLocation();
+        useEffect(() => {
+            window.scrollTo(0, 0);
+        }, [pathname]);
+        return null;
+    }
   return (
     <>
       <Header />
+        <ScrollToTop />
       <Routes>
         {/*<Route path="/" element={<Home />} />*/}
         <Route path="/" element={<GetStartedHome />} />
@@ -36,7 +44,7 @@ export default function App() {
       </Routes>
 
       {/*<Footer />*/}
-        <Box sx={{fontSize:"20px",py:5,textAlign:"center",fontWeight:"600",px:5}} className={"overpass"}>Mahadevasth Technologies or any of their employees and associates are not into providing any Suicide Prevention. For any such emergency or help, kindly connect with National Suicide Helpline/TeleManas: 1-800-8914416</Box>
+        <Box sx={{fontSize:"20px",py:5,textAlign:"center",fontWeight:"600",px: {md:5,xs:1}}} className={"overpass"}>Mahadevasth Technologies or any of their employees and associates are not into providing any Suicide Prevention. For any such emergency or help, kindly connect with National Suicide Helpline/TeleManas: 1-800-8914416</Box>
     </>
   );
 }
