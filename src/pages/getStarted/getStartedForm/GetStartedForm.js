@@ -304,7 +304,7 @@ function GetStartedForm(props) {
             admissionId: Yup.string().required('Admission ID is required'),
             phone: Yup.string().required('Phone is required'),
             // gender: Yup.string().required('Gender is required'),
-            // age: Yup.number().required('Age is required'),
+                   // age: Yup.number().required('Age is required'),
             // email: Yup.string().email('Invalid email address').required('Email is required'),
         }),
         onSubmit: (values) => {
@@ -315,6 +315,8 @@ function GetStartedForm(props) {
                     name: values.fullName,
                     phone: values.phone
                 }).then((res) => {
+                    console.log(res?.data?.status)
+                    if(res?.data?.status == "200"){
                     toast.success('Data uploaded successfully', {
                         position: "top-right",
                         autoClose: 5000,
@@ -324,10 +326,36 @@ function GetStartedForm(props) {
                         draggable: true,
                         progress: undefined,
                         theme: "light",
-                    });
-                    sessionStorage.setItem("student", JSON.stringify(res?.data?.data));
+                                            });
+
                     navigate("/start-assessment");
-                }).catch((err) => console.log(err));
+                    }
+                    else {
+                        toast.error('Student record not found', {
+                            position: "top-right",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                        });
+                    }
+                    sessionStorage.setItem("student", JSON.stringify(res?.data?.data));
+                }).catch((err) => {
+                    toast.error('Something want wrong', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                    console.log(err)
+                });
             } catch (err) {
                 console.log(err);
             }

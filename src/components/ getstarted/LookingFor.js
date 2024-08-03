@@ -49,14 +49,17 @@ function LookingFor({
     console.log(apiOptions)
     const handleSubmit = () => {
         const data = JSON.parse(sessionStorage.getItem("student"))
+        const language = sessionStorage.getItem("language")
         console.log(data)
+        console.log(language)
         try {
             axios.post("http://ec2-54-173-125-80.compute-1.amazonaws.com:8080/mahadevasth/assessment", {
-                student_id: data[0]?.id,
+                student_id: data[0]?.admission_id,
                 assessment_id: 1,
                 responses: apiOptions,
                 score: points,
-                created_at: moment(new Date()).format("YYYY-MM-DD HH:mm:ss")
+                created_at: moment(new Date()).format("YYYY-MM-DD HH:mm:ss"),
+                assessment_language:language
             })
         } catch (err) {
             console.log(err)
