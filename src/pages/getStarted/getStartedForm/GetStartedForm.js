@@ -263,6 +263,8 @@ import {
     Radio,
     RadioGroup,
     Select,
+    Modal,
+    Typography,
     TextField
 } from "@mui/material";
 import { ToastContainer, toast } from 'react-toastify';
@@ -276,7 +278,8 @@ function GetStartedForm(props) {
     const navigate = useNavigate();
     const [age, setAge] = useState([]);
     const [organization, setOrganization] = useState([]);
-
+    const [open, setOpen] = useState(false);
+    const [message,setMessage] = useState("")
     useEffect(() => {
         const ages = [];
         for (let i = 16; i <= 100; i++) {
@@ -314,45 +317,53 @@ function GetStartedForm(props) {
                     admission_id: values.admissionId,
                     name: values.fullName,
                     phone: values.phone
-                }).then((res) => {
+                }).then(async (res) => {
                     if(res?.data?.status == "200"){
-                    toast.success('Data uploaded successfully', {
-                        position: "top-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                                            });
+                    //     await setOpen(true)
+                    //     setMessage("Data uploaded successfully")
+                    //     setTimeout(() => {
+                            navigate("/start-assessment");
+                    //     }, 3000);
+                    // toast.success('Data uploaded successfully', {
+                    //     position: "top-center",
+                    //     autoClose: 5000,
+                    //     hideProgressBar: false,
+                    //     closeOnClick: true,
+                    //     pauseOnHover: true,
+                    //     draggable: true,
+                    //     progress: undefined,
+                    //     theme: "light",
+                    //                         });
 
-                    navigate("/start-assessment");
                     }
                     else {
-                        toast.error('Student record not found', {
-                            position: "top-center",
-                            autoClose: 5000,
-                            hideProgressBar: false,
-                            closeOnClick: true,
-                            pauseOnHover: true,
-                            draggable: true,
-                            progress: undefined,
-                            theme: "light",
-                        });
+                        setMessage("Student record not found")
+                        setOpen(true)
+                        // toast.error('Student record not found', {
+                        //     position: "top-center",
+                        //     autoClose: 5000,
+                        //     hideProgressBar: false,
+                        //     closeOnClick: true,
+                        //     pauseOnHover: true,
+                        //     draggable: true,
+                        //     progress: undefined,
+                        //     theme: "light",
+                        // });
                     }
                     sessionStorage.setItem("student", JSON.stringify(res?.data?.data));
                 }).catch((err) => {
-                    toast.error('Something want wrong', {
-                        position: "top-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                    });
+                    // toast.error('Something want wrong', {
+                    //     position: "top-center",
+                    //     autoClose: 5000,
+                    //     hideProgressBar: false,
+                    //     closeOnClick: true,
+                    //     pauseOnHover: true,
+                    //     draggable: true,
+                    //     progress: undefined,
+                    //     theme: "light",
+                    // });
+                    setMessage("Something want wrong")
+                    setOpen(true)
                     console.log(err)
                 });
             } catch (err) {
@@ -360,6 +371,7 @@ function GetStartedForm(props) {
             }
         },
     });
+    const handleClose = () => setOpen(false);
 
     return (
         <>
@@ -525,6 +537,59 @@ function GetStartedForm(props) {
                         </Box>
                     </Box>
                 </Container>
+                <Modal
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="keep-mounted-modal-title"
+                    aria-describedby="keep-mounted-modal-description"
+                >
+                    <Box
+                        sx={{
+                            borderRadius: '10px',
+                            width: '90%',
+                            maxWidth: '500px',
+                            bgcolor: 'background.paper',
+                            boxShadow: 24,
+                            pb: 2,
+                            pt: 1,
+                            position: 'absolute',
+                            top: '50%',
+                            left: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            overflow: "hidden",
+                            outline: 'none',
+                        }}
+                    >
+                        <Typography id="modal-title" variant="h6" component="h2" sx={{paddingLeft:2,paddingTop:2}}>
+                            {message}
+                        </Typography>
+                        {/*<Typography id="modal-description" sx={{ mt: 2 }}>*/}
+                        {/*    This is a responsive modal without a border. Resize the window to see the responsiveness.*/}
+                        {/*</Typography>*/}
+
+                        <Box sx={{display:"flex",justifyContent:"flex-end"}}><Button
+                            className="overpass"
+                            onClick={() => setOpen(false)}
+                            sx={{
+                                backgroundColor: "darkGreen",
+                                py: "2px",
+                                px: "28px",
+                                textTransform: "unset",
+                                fontSize: "20px",
+                                color: "white",
+                                borderRadius: "10px",
+                                "&:hover": {
+                                    backgroundColor: "green",
+                                    color: "white",
+                                },
+                                mt: "10px",
+                                marginRight:2
+                            }}
+                        >
+                            OK
+                        </Button></Box>
+                    </Box>
+                </Modal>
             </Box>
         </>
     );

@@ -61,11 +61,11 @@ function LookingFor({
                 score: points,
                 created_at: moment(new Date()).format("YYYY-MM-DD HH:mm:ss"),
                 assessment_language:language
-            })
+            }).then((res) => navigate(`/assessment/${points}`))
         } catch (err) {
             console.log(err)
         }
-        handleOpen()
+        // handleOpen()
     }
     const TherapyButton = ({fullWidth, children, onClick, value, disabled}) => (
         <Grid item xs={12}>
