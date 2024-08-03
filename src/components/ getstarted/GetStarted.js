@@ -4,14 +4,16 @@ import LookingFor from "./LookingFor";
 import {Button, Container, MobileStepper, Typography} from "@mui/material";
 
 import WestIcon from '@mui/icons-material/West';
+
 function GetStarted2() {
 
     const [points1, setPoints1] = useState([])
     const [activeStep, setActiveStep] = React.useState(0);
     const [mainActiveStep, setMainActiveStep] = React.useState(0);
+    const [options, setOptions] = useState([])
     const language = sessionStorage.getItem("language")
     const handleNext = () => {
-            window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
         if (points1?.length !== 19) {
             setActiveStep((prevActiveStep) => prevActiveStep + 1);
         } else {
@@ -25,6 +27,8 @@ function GetStarted2() {
     const handlePoints = (e, dat) => {
         const string = e.target.value
         const data = string.substr(0, 1)
+        const option = string.slice(3)
+        options.push(option)
         let pointsToAdd = 0;
 
         if (data === "A") {
@@ -57,19 +61,20 @@ function GetStarted2() {
         setMainActiveStep((prevActiveStep) => prevActiveStep + 1);
     }
 
-
     const handleBack = () => {
         window.scrollTo(0, 0);
-        if(activeStep !==0){
+        if (activeStep !== 0) {
             setActiveStep((prevActiveStep) => prevActiveStep - 1);
             if (activeStep === 3 || activeStep === 7 || activeStep === 11 || activeStep === 15) {
                 setMainActiveStep((prevActiveStep) => prevActiveStep - 1);
             }
             if (activeStep === 19) {
                 points1.splice(-2)
+                options.splice(-2)
 
             } else {
                 points1.splice(-1)
+                options.splice(-1)
             }
         }
 
@@ -422,6 +427,7 @@ function GetStarted2() {
                         handlePoints={handlePoints}
                         points={points}
                         points1={points1}
+
                     />
                 );
             case 19:
@@ -440,7 +446,7 @@ function GetStarted2() {
                         points={points}
                         handleClean={handleClean}
                         handlePoints={handlePoints}
-
+                        apiOptions={options}
                         points1={points1}
 
                     />
@@ -784,7 +790,7 @@ function GetStarted2() {
                         points={points}
                         handleClean={handleClean}
                         handlePoints={handlePoints}
-
+                        apiOptions={options}
                         points1={points1}
 
                     />
@@ -829,10 +835,11 @@ function GetStarted2() {
                     <Box>
                         <Box sx={{fontSize: "46px", color: "#444444", textAlign: 'center'}} className="overpass">
                             {/*Help us match you to the <Typography variant="span" sx={{color:"green"}}> right therapist</Typography>*/}
-                        {language === "hindi" ?  mainHindiStepContent(mainActiveStep) : mainEnglishStepContent(mainActiveStep)}
+                            {language === "hindi" ? mainHindiStepContent(mainActiveStep) : mainEnglishStepContent(mainActiveStep)}
                         </Box>
                         <Box sx={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-                            {language === "english" && <Box sx={{textAlign: "center", mt: "20px", width: {md: "850px"}}}>
+                            {language === "english" &&
+                            <Box sx={{textAlign: "center", mt: "20px", width: {md: "850px"}}}>
                                 It's important to have a therapist who you can establish a personal connection with. The
                                 following questions are designed to help match you to a licensed therapist based on your
                                 needs and personal preferences.

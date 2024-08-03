@@ -11,54 +11,83 @@ import {
     Select,
     TextField
 } from "@mui/material";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import GetStartedReview from "../../../components/ getstarted/GetStartedReview";
 import {useNavigate} from "react-router-dom";
+import axios from "axios";
 
 function GetStartedForm(props) {
     const navigate = useNavigate()
-    const [age,setAge] = useState([])
+    const [age, setAge] = useState([])
+    const [organization, setOrganization] = useState([])
+
+
     const organizations = [
-        { value: 'optum', label: 'Optum' },
-        { value: 'teamhealth', label: 'Teamhealth' },
-        { value: 'labcorp', label: 'Labcorp' },
-        { value: 'omega', label: 'Omega' },
-        { value: 'Nhs', label: 'Nhs' },
+        {value: 'optum', label: 'Optum'},
+        {value: 'teamhealth', label: 'Teamhealth'},
+        {value: 'labcorp', label: 'Labcorp'},
+        {value: 'omega', label: 'Omega'},
+        {value: 'Nhs', label: 'Nhs'},
     ];
 
-      for (let i=16;i<=100;i++){
-          age.push(i)
-      }
+    useEffect(() => {
+        for (let i = 16; i <= 100; i++) {
+            age.push(i)
+        }
+        axios.get("http://ec2-54-173-125-80.compute-1.amazonaws.com:8080/mahadevasth/organization").then((res) => setOrganization(res?.data?.data)).catch((err) => console.log(err))
+    }, [])
 
-        const [formValues, setFormValues] = React.useState({
-            organization: '',
-            fullName: '',
-            admissionId: '',
-            phone: '',
-            gender: false,
-            age: '',
-            email:'',
+
+    const [formValues, setFormValues] = React.useState({
+        organization: '',
+        fullName: '',
+        admissionId: '',
+        phone: '',
+        gender: false,
+        age: '',
+        email: '',
+    });
+    const handleChange = (event) => {
+        const {name, value, type, checked} = event.target;
+        setFormValues({
+            ...formValues,
+            [name]: type === 'checkbox' ? checked : value,
         });
+    };
 
-        const handleChange = (event) => {
-            const { name, value, type, checked } = event.target;
-            setFormValues({
-                ...formValues,
-                [name]: type === 'checkbox' ? checked : value,
-            });
-        };
-
-        const handleSubmit = (event) => {
-            event.preventDefault();
-            console.log(formValues);
-        };
+    const handleSubmit = (event) => {
+        console.log({organization_id:formValues?.organization,admission_id:formValues?.admissionId,name:formValues?.fullName,phone:formValues?.phone});
+        event.preventDefault();
+        try{
+            axios.post("http://ec2-54-173-125-80.compute-1.amazonaws.com:8080/mahadevasth/organization/student/validate",
+                {organization_id:formValues?.organization,admission_id:formValues?.admissionId,name:formValues?.fullName,phone:formValues?.phone}).then((res) => {
+    toast.success('Data uploaded successfully', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+    });
+    sessionStorage.setItem("student",JSON.stringify(res?.data?.data))
+        navigate("/start-assessment")
+            }).catch((err) => console.log(err))
+        }catch (err){
+            console.log(err)
+        }
+    };
     return (
         <>
-            <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: {md:"100px",xs:"80px"}}}>
+            <ToastContainer />
+            <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: {md: "100px", xs: "80px"}}}>
                 <Container>
 
                     <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">
                         Assessment Form
-                            </Box>
+                    </Box>
 
                     <Box sx={{display: "flex", justifyContent: "center", mt: 5}}>
                         <Box sx={{
@@ -70,26 +99,26 @@ function GetStartedForm(props) {
 
                         }} className={"overpass"}>
                             <form onSubmit={handleSubmit}>
-                            <FormControl fullWidth margin="normal">
-                                <InputLabel  sx={{
-                                    backgroundColor: formValues.organization ? 'white' : 'white',
-                                    px: 1,
-                                    '&.Mui-focused': {
-                                        backgroundColor: 'white',
-                                    },
-                                }}>Organization</InputLabel>
-                                <Select
-                                    name="organization"
-                                    value={formValues.organization}
-                                    onChange={handleChange}
-                                >
-                                    {organizations.map((option) => (
-                                        <MenuItem key={option.value} value={option.value}>
-                                            {option.label}
-                                        </MenuItem>
-                                    ))}
-                                </Select>
-                            </FormControl>
+                                <FormControl fullWidth margin="normal">
+                                    <InputLabel sx={{
+                                        backgroundColor: formValues.organization ? 'white' : 'white',
+                                        px: 1,
+                                        '&.Mui-focused': {
+                                            backgroundColor: 'white',
+                                        },
+                                    }}>Organization</InputLabel>
+                                    <Select
+                                        name="organization"
+                                        value={formValues.organization}
+                                        onChange={handleChange}
+                                    >
+                                        {organization.map((option) => (
+                                            <MenuItem key={option?.id} value={option?.id}>
+                                                {option?.name}
+                                            </MenuItem>
+                                        ))}
+                                    </Select>
+                                </FormControl>
 
                                 <TextField
                                     fullWidth
@@ -100,37 +129,36 @@ function GetStartedForm(props) {
                                     onChange={handleChange}
                                 />
 
-                            <TextField
-                                fullWidth
-                                margin="normal"
-                                label="Full Name"
-                                name="fullName"
-                                value={formValues.fullName}
-                                onChange={handleChange}
-                            />
-
-
-
-                            <TextField
-                                fullWidth
-                                margin="normal"
-                                label="Phone"
-                                name="phone"
-                                value={formValues.phone}
-                                onChange={handleChange}
-                            />
                                 <TextField
-                                fullWidth
-                                margin="normal"
-                                label="Email"
-                                name="email"
-                                value={formValues.email}
-                                onChange={handleChange}
-                            />
+                                    fullWidth
+                                    margin="normal"
+                                    label="Full Name"
+                                    name="fullName"
+                                    value={formValues.fullName}
+                                    onChange={handleChange}
+                                />
+
+
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Phone"
+                                    name="phone"
+                                    value={formValues.phone}
+                                    onChange={handleChange}
+                                />
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Email"
+                                    name="email"
+                                    value={formValues.email}
+                                    onChange={handleChange}
+                                />
 
 
                                 <FormControl fullWidth margin="normal">
-                                    <InputLabel  sx={{
+                                    <InputLabel sx={{
                                         backgroundColor: formValues.organization ? 'white' : 'white',
                                         px: 1,
                                         '&.Mui-focused': {
@@ -143,58 +171,63 @@ function GetStartedForm(props) {
                                         onChange={handleChange}
                                     >
                                         {age.map((option) => (
-                                            <MenuItem key={option} value={option} >
+                                            <MenuItem key={option} value={option}>
                                                 {option}
                                             </MenuItem>
                                         ))}
                                     </Select>
                                 </FormControl>
-                            {/*<TextField*/}
-                            {/*    fullWidth*/}
-                            {/*    margin="normal"*/}
-                            {/*    label="Age"*/}
-                            {/*    name="age"*/}
-                            {/*    value={formValues.age}*/}
-                            {/*    onChange={handleChange}*/}
-                            {/*/>*/}
-                                <Box display={{sm: "flex"}} mt={{xs:2,sm:"unset"}} alignItems="center" margin="normal">
-                                    <FormLabel component="legend" sx={{ marginRight: '1rem'}}>Gender :</FormLabel>
+                                {/*<TextField*/}
+                                {/*    fullWidth*/}
+                                {/*    margin="normal"*/}
+                                {/*    label="Age"*/}
+                                {/*    name="age"*/}
+                                {/*    value={formValues.age}*/}
+                                {/*    onChange={handleChange}*/}
+                                {/*/>*/}
+                                <Box display={{sm: "flex"}} mt={{xs: 2, sm: "unset"}} alignItems="center"
+                                     margin="normal">
+                                    <FormLabel component="legend" sx={{marginRight: '1rem'}}>Gender :</FormLabel>
                                     <RadioGroup
                                         name="gender"
                                         value={formValues.gender}
                                         onChange={handleChange}
                                         row
                                     >
-                                        <FormControlLabel sx={{color:"#00000099"}} value="male" control={<Radio />} label="Male" />
-                                        <FormControlLabel sx={{color:"#00000099"}} value="female" control={<Radio />} label="Female" />
-                                        <FormControlLabel sx={{color:"#00000099"}} value="other" control={<Radio />} label="Other" />
+                                        <FormControlLabel sx={{color: "#00000099"}} value="male" control={<Radio/>}
+                                                          label="Male"/>
+                                        <FormControlLabel sx={{color: "#00000099"}} value="female" control={<Radio/>}
+                                                          label="Female"/>
+                                        <FormControlLabel sx={{color: "#00000099"}} value="other" control={<Radio/>}
+                                                          label="Other"/>
                                     </RadioGroup>
                                 </Box>
-                            <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
+                                <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
 
-                                <Button
-                                    className="overpass"
-                                    onClick={() => navigate("/start-assessment")}
-                                    sx={{
-                                        backgroundColor: "#A6DE9B",
-                                        py: "5px",
-                                        px: "28px",
-                                        textTransform: "unset",
-                                        fontSize: "20px",
-                                        color: "#325343",
-                                        borderRadius: "30px",
-                                        "&:hover": {
-                                            backgroundColor: "darkGreen",
-                                            color: "white",
-                                        },
-                                        mt: "10px",marginRight:1
-                                    }}
-                                >
-                                    Submit
-                                </Button>
+                                    <Button
+                                        className="overpass"
+                                        type={"submit"}
+                                        // onClick={() => navigate("/start-assessment")}
+                                        sx={{
+                                            backgroundColor: "#A6DE9B",
+                                            py: "5px",
+                                            px: "28px",
+                                            textTransform: "unset",
+                                            fontSize: "20px",
+                                            color: "#325343",
+                                            borderRadius: "30px",
+                                            "&:hover": {
+                                                backgroundColor: "darkGreen",
+                                                color: "white",
+                                            },
+                                            mt: "10px", marginRight: 1
+                                        }}
+                                    >
+                                        Submit
+                                    </Button>
 
-                            </Box>
-                        </form>
+                                </Box>
+                            </form>
                         </Box>
                     </Box>
 

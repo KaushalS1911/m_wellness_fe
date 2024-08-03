@@ -10,6 +10,8 @@ import {
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import {useNavigate} from "react-router-dom"
 import WestIcon from "@mui/icons-material/West";
+import axios from "axios";
+import moment from "moment";
 
 
 const style = {
@@ -35,7 +37,8 @@ function LookingFor({
                         points,
                         handlePoints,
                         points1,
-                        handleBack
+                        handleBack,
+                        apiOptions
 
                     }) {
 
@@ -43,10 +46,17 @@ function LookingFor({
     const navigate = useNavigate()
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    console.log(apiOptions)
     const handleSubmit = () => {
+const data = JSON.parse(sessionStorage.getItem("student"))
+        console.log(data)
+        try {
+            axios.post("http://ec2-54-173-125-80.compute-1.amazonaws.com:8080/mahadevasth/assessment",{student_id:data[0]?.id,assessment_id:1,responses:apiOptions,score:points,created_at: moment(new Date()).format("YYYY-MM-DD HH:mm:ss")})
+        }catch (err){
+            console.log(err)
+        }
         handleOpen()
     }
-    console.log(points,"fjfjfj")
     const TherapyButton = ({fullWidth, children, onClick, value, disabled}) => (
         <Grid item xs={12}>
             <Button
