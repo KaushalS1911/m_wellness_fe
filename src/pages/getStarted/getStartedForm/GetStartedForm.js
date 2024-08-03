@@ -1,116 +1,373 @@
-import React, {useEffect, useState} from 'react';
-import Box from "@mui/material/Box";
+// import React, {useEffect, useState} from 'react';
+// import Box from "@mui/material/Box";
+// import {
+//     Button,
+//     Checkbox,
+//     Container,
+//     FormControl,
+//     FormControlLabel, FormLabel,
+//     InputLabel,
+//     MenuItem, Radio, RadioGroup,
+//     Select,
+//     TextField
+// } from "@mui/material";
+// import {ToastContainer, toast} from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+// import GetStartedReview from "../../../components/ getstarted/GetStartedReview";
+// import {useNavigate} from "react-router-dom";
+// import axios from "axios";
+//
+// function GetStartedForm(props) {
+//     const navigate = useNavigate()
+//     const [age, setAge] = useState([])
+//     const [organization, setOrganization] = useState([])
+//
+//
+//     const organizations = [
+//         {value: 'optum', label: 'Optum'},
+//         {value: 'teamhealth', label: 'Teamhealth'},
+//         {value: 'labcorp', label: 'Labcorp'},
+//         {value: 'omega', label: 'Omega'},
+//         {value: 'Nhs', label: 'Nhs'},
+//     ];
+//
+//     useEffect(() => {
+//         for (let i = 16; i <= 100; i++) {
+//             age.push(i)
+//         }
+//         axios.get("http://ec2-54-173-125-80.compute-1.amazonaws.com:8080/mahadevasth/organization").then((res) => setOrganization(res?.data?.data)).catch((err) => console.log(err))
+//     }, [])
+//
+//
+//     const [formValues, setFormValues] = React.useState({
+//         organization: '',
+//         fullName: '',
+//         admissionId: '',
+//         phone: '',
+//         gender: false,
+//         age: '',
+//         email: '',
+//     });
+//     const handleChange = (event) => {
+//         const {name, value, type, checked} = event.target;
+//         setFormValues({
+//             ...formValues,
+//             [name]: type === 'checkbox' ? checked : value,
+//         });
+//     };
+//
+//     const handleSubmit = (event) => {
+//         console.log({
+//             organization_id: formValues?.organization,
+//             admission_id: formValues?.admissionId,
+//             name: formValues?.fullName,
+//             phone: formValues?.phone
+//         });
+//         try {
+//             axios.post("http://ec2-54-173-125-80.compute-1.amazonaws.com:8080/mahadevasth/organization/student/validate",
+//                 {
+//                     organization_id: formValues?.organization,
+//                     admission_id: formValues?.admissionId,
+//                     name: formValues?.fullName,
+//                     phone: formValues?.phone
+//                 }).then((res) => {
+//                 toast.success('Data uploaded successfully', {
+//                     position: "top-right",
+//                     autoClose: 5000,
+//                     hideProgressBar: false,
+//                     closeOnClick: true,
+//                     pauseOnHover: true,
+//                     draggable: true,
+//                     progress: undefined,
+//                     theme: "light",
+//                 });
+//                 sessionStorage.setItem("student", JSON.stringify(res?.data?.data))
+//                 navigate("/start-assessment")
+//             }).catch((err) => console.log(err))
+//         } catch (err) {
+//             console.log(err)
+//         }
+//     };
+//     return (
+//         <>
+//             <ToastContainer/>
+//             <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: {md: "100px", xs: "80px"}}}>
+//                 <Container>
+//
+//                     <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">
+//                         Assessment Form
+//                     </Box>
+//
+//                     <Box sx={{display: "flex", justifyContent: "center", mt: 5}}>
+//                         <Box sx={{
+//                             width: "700px",
+//                             backgroundColor: "#FFFFFF",
+//                             // height: "400px",
+//                             padding: "50px 30px 30px",
+//                             boxShadow: 2,
+//
+//                         }} className={"overpass"}>
+//                             <form onSubmit={handleSubmit}>
+//                                 <FormControl fullWidth margin="normal">
+//                                     <InputLabel sx={{
+//                                         backgroundColor: formValues.organization ? 'white' : 'white',
+//                                         px: 1,
+//                                         '&.Mui-focused': {
+//                                             backgroundColor: 'white',
+//                                         },
+//                                     }}>Organization</InputLabel>
+//                                     <Select
+//                                         name="organization"
+//                                         value={formValues.organization}
+//                                         onChange={handleChange}
+//                                     >
+//                                         {organization.map((option) => (
+//                                             <MenuItem key={option?.id} value={option?.id}>
+//                                                 {option?.name}
+//                                             </MenuItem>
+//                                         ))}
+//                                     </Select>
+//                                 </FormControl>
+//
+//                                 <TextField
+//                                     fullWidth
+//                                     margin="normal"
+//                                     label="Admission ID"
+//                                     name="admissionId"
+//                                     value={formValues.admissionId}
+//                                     onChange={handleChange}
+//                                 />
+//
+//                                 <TextField
+//                                     fullWidth
+//                                     margin="normal"
+//                                     label="Full Name"
+//                                     name="fullName"
+//                                     value={formValues.fullName}
+//                                     onChange={handleChange}
+//                                 />
+//
+//
+//                                 <TextField
+//                                     fullWidth
+//                                     margin="normal"
+//                                     label="Phone"
+//                                     name="phone"
+//                                     value={formValues.phone}
+//                                     onChange={handleChange}
+//                                 />
+//                                 <TextField
+//                                     fullWidth
+//                                     margin="normal"
+//                                     label="Email"
+//                                     name="email"
+//                                     value={formValues.email}
+//                                     onChange={handleChange}
+//                                 />
+//
+//
+//                                 <FormControl fullWidth margin="normal">
+//                                     <InputLabel sx={{
+//                                         backgroundColor: formValues.organization ? 'white' : 'white',
+//                                         px: 1,
+//                                         '&.Mui-focused': {
+//                                             backgroundColor: 'white',
+//                                         },
+//                                     }}>Age</InputLabel>
+//                                     <Select
+//                                         name="age"
+//                                         value={formValues.age}
+//                                         onChange={handleChange}
+//                                     >
+//                                         {age.map((option) => (
+//                                             <MenuItem key={option} value={option}>
+//                                                 {option}
+//                                             </MenuItem>
+//                                         ))}
+//                                     </Select>
+//                                 </FormControl>
+//                                 {/*<TextField*/}
+//                                 {/*    fullWidth*/}
+//                                 {/*    margin="normal"*/}
+//                                 {/*    label="Age"*/}
+//                                 {/*    name="age"*/}
+//                                 {/*    value={formValues.age}*/}
+//                                 {/*    onChange={handleChange}*/}
+//                                 {/*/>*/}
+//                                 <Box display={{sm: "flex"}} mt={{xs: 2, sm: "unset"}} alignItems="center"
+//                                      margin="normal">
+//                                     <FormLabel component="legend" sx={{marginRight: '1rem'}}>Gender :</FormLabel>
+//                                     <RadioGroup
+//                                         name="gender"
+//                                         value={formValues.gender}
+//                                         onChange={handleChange}
+//                                         row
+//                                     >
+//                                         <FormControlLabel sx={{color: "#00000099"}} value="male" control={<Radio/>}
+//                                                           label="Male"/>
+//                                         <FormControlLabel sx={{color: "#00000099"}} value="female" control={<Radio/>}
+//                                                           label="Female"/>
+//                                         <FormControlLabel sx={{color: "#00000099"}} value="other" control={<Radio/>}
+//                                                           label="Other"/>
+//                                     </RadioGroup>
+//                                 </Box>
+//                                 <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
+//
+//                                     <Button
+//                                         className="overpass"
+//                                         onClick={() => navigate("/start-assessment")}
+//                                         sx={{
+//                                             backgroundColor: "#A6DE9B",
+//                                             py: "5px",
+//                                             px: "28px",
+//                                             textTransform: "unset",
+//                                             fontSize: "20px",
+//                                             color: "#325343",
+//                                             borderRadius: "30px",
+//                                             "&:hover": {
+//                                                 backgroundColor: "darkGreen",
+//                                                 color: "white",
+//                                             },
+//                                             mt: "10px", marginRight: 1
+//                                         }}
+//                                     >
+//                                         Submit
+//                                     </Button>
+//
+//                                 </Box>
+//                             </form>
+//                         </Box>
+//                     </Box>
+//
+//
+//                 </Container>
+//             </Box>
+//
+//             {/*<GetStartedReview/>*/}
+//         </>
+//     );
+// }
+//
+// export default GetStartedForm;
+
+import React, { useEffect, useState } from 'react';
 import {
+    Box,
     Button,
-    Checkbox,
     Container,
     FormControl,
-    FormControlLabel, FormLabel,
+    FormControlLabel,
+    FormLabel,
     InputLabel,
-    MenuItem, Radio, RadioGroup,
+    MenuItem,
+    Radio,
+    RadioGroup,
     Select,
     TextField
 } from "@mui/material";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import GetStartedReview from "../../../components/ getstarted/GetStartedReview";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 function GetStartedForm(props) {
-    const navigate = useNavigate()
-    const [age, setAge] = useState([])
-    const [organization, setOrganization] = useState([])
-
-
-    const organizations = [
-        {value: 'optum', label: 'Optum'},
-        {value: 'teamhealth', label: 'Teamhealth'},
-        {value: 'labcorp', label: 'Labcorp'},
-        {value: 'omega', label: 'Omega'},
-        {value: 'Nhs', label: 'Nhs'},
-    ];
+    const navigate = useNavigate();
+    const [age, setAge] = useState([]);
+    const [organization, setOrganization] = useState([]);
 
     useEffect(() => {
+        const ages = [];
         for (let i = 16; i <= 100; i++) {
-            age.push(i)
+            ages.push(i);
         }
-        axios.get("http://ec2-54-173-125-80.compute-1.amazonaws.com:8080/mahadevasth/organization").then((res) => setOrganization(res?.data?.data)).catch((err) => console.log(err))
-    }, [])
+        setAge(ages);
+        axios.get("http://ec2-54-173-125-80.compute-1.amazonaws.com:8080/mahadevasth/organization")
+            .then((res) => setOrganization(res?.data?.data))
+            .catch((err) => console.log(err));
+    }, []);
 
-
-    const [formValues, setFormValues] = React.useState({
-        organization: '',
-        fullName: '',
-        admissionId: '',
-        phone: '',
-        gender: false,
-        age: '',
-        email: '',
+    const formik = useFormik({
+        initialValues: {
+            organization: '',
+            fullName: '',
+            admissionId: '',
+            phone: '',
+            gender: '',
+            age: '',
+            email: '',
+        },
+        validationSchema: Yup.object({
+            organization: Yup.string().required('Organization is required'),
+            fullName: Yup.string().required('Full name is required'),
+            admissionId: Yup.string().required('Admission ID is required'),
+            phone: Yup.string().required('Phone is required'),
+            // gender: Yup.string().required('Gender is required'),
+            // age: Yup.number().required('Age is required'),
+            // email: Yup.string().email('Invalid email address').required('Email is required'),
+        }),
+        onSubmit: (values) => {
+            try {
+                axios.post("http://ec2-54-173-125-80.compute-1.amazonaws.com:8080/mahadevasth/organization/student/validate", {
+                    organization_id: values.organization,
+                    admission_id: values.admissionId,
+                    name: values.fullName,
+                    phone: values.phone
+                }).then((res) => {
+                    toast.success('Data uploaded successfully', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                    sessionStorage.setItem("student", JSON.stringify(res?.data?.data));
+                    navigate("/start-assessment");
+                }).catch((err) => console.log(err));
+            } catch (err) {
+                console.log(err);
+            }
+        },
     });
-    const handleChange = (event) => {
-        const {name, value, type, checked} = event.target;
-        setFormValues({
-            ...formValues,
-            [name]: type === 'checkbox' ? checked : value,
-        });
-    };
 
-    const handleSubmit = (event) => {
-        console.log({organization_id:formValues?.organization,admission_id:formValues?.admissionId,name:formValues?.fullName,phone:formValues?.phone});
-        event.preventDefault();
-        try{
-            axios.post("http://ec2-54-173-125-80.compute-1.amazonaws.com:8080/mahadevasth/organization/student/validate",
-                {organization_id:formValues?.organization,admission_id:formValues?.admissionId,name:formValues?.fullName,phone:formValues?.phone}).then((res) => {
-    toast.success('Data uploaded successfully', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-    });
-    sessionStorage.setItem("student",JSON.stringify(res?.data?.data))
-        navigate("/start-assessment")
-            }).catch((err) => console.log(err))
-        }catch (err){
-            console.log(err)
-        }
-    };
     return (
         <>
             <ToastContainer />
-            <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: {md: "100px", xs: "80px"}}}>
+            <Box sx={{ width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: { md: "100px", xs: "80px" } }}>
                 <Container>
-
-                    <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">
+                    <Box sx={{ fontSize: "32px", color: "#444444", textAlign: 'center' }} className="overpass">
                         Assessment Form
                     </Box>
 
-                    <Box sx={{display: "flex", justifyContent: "center", mt: 5}}>
+                    <Box sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
                         <Box sx={{
                             width: "700px",
                             backgroundColor: "#FFFFFF",
-                            // height: "400px",
                             padding: "50px 30px 30px",
                             boxShadow: 2,
-
                         }} className={"overpass"}>
-                            <form onSubmit={handleSubmit}>
+                            <form onSubmit={formik.handleSubmit}>
                                 <FormControl fullWidth margin="normal">
-                                    <InputLabel sx={{
-                                        backgroundColor: formValues.organization ? 'white' : 'white',
-                                        px: 1,
-                                        '&.Mui-focused': {
-                                            backgroundColor: 'white',
-                                        },
-                                    }}>Organization</InputLabel>
+                                    <InputLabel
+                                        sx={{
+                                            backgroundColor: formik.values.organization ? 'white' : 'white',
+                                            px: 1,
+                                            '&.Mui-focused': {
+                                                backgroundColor: 'white',
+                                            },
+                                        }}
+                                    >
+                                        Organization
+                                    </InputLabel>
                                     <Select
                                         name="organization"
-                                        value={formValues.organization}
-                                        onChange={handleChange}
+                                        value={formik.values.organization}
+                                        onChange={formik.handleChange}
+                                        error={formik.touched.organization && Boolean(formik.errors.organization)}
                                     >
                                         {organization.map((option) => (
                                             <MenuItem key={option?.id} value={option?.id}>
@@ -118,6 +375,9 @@ function GetStartedForm(props) {
                                             </MenuItem>
                                         ))}
                                     </Select>
+                                    {formik.touched.organization && formik.errors.organization ? (
+                                        <div>{formik.errors.organization}</div>
+                                    ) : null}
                                 </FormControl>
 
                                 <TextField
@@ -125,113 +385,120 @@ function GetStartedForm(props) {
                                     margin="normal"
                                     label="Admission ID"
                                     name="admissionId"
-                                    value={formValues.admissionId}
-                                    onChange={handleChange}
+                                    value={formik.values.admissionId}
+                                    onChange={formik.handleChange}
+                                    error={formik.touched.admissionId && Boolean(formik.errors.admissionId)}
+                                    helperText={formik.touched.admissionId && formik.errors.admissionId}
                                 />
 
-                            <TextField
-                                fullWidth
-                                margin="normal"
-                                label="Full Name"
-                                name="fullName"
-                                value={formValues.fullName}
-                                onChange={handleChange}
-                            />
-
-
-
-                            <TextField
-                                fullWidth
-                                margin="normal"
-                                label="Phone"
-                                name="phone"
-                                value={formValues.phone}
-                                onChange={handleChange}
-                            />
                                 <TextField
-                                fullWidth
-                                margin="normal"
-                                label="Email"
-                                name="email"
-                                value={formValues.email}
-                                onChange={handleChange}
-                            />
+                                    fullWidth
+                                    margin="normal"
+                                    label="Full Name"
+                                    name="fullName"
+                                    value={formik.values.fullName}
+                                    onChange={formik.handleChange}
+                                    error={formik.touched.fullName && Boolean(formik.errors.fullName)}
+                                    helperText={formik.touched.fullName && formik.errors.fullName}
+                                />
 
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Phone"
+                                    name="phone"
+                                    value={formik.values.phone}
+                                    onChange={formik.handleChange}
+                                    error={formik.touched.phone && Boolean(formik.errors.phone)}
+                                    helperText={formik.touched.phone && formik.errors.phone}
+                                />
+
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Email"
+                                    name="email"
+                                    value={formik.values.email}
+                                    onChange={formik.handleChange}
+                                    error={formik.touched.email && Boolean(formik.errors.email)}
+                                    helperText={formik.touched.email && formik.errors.email}
+                                />
 
                                 <FormControl fullWidth margin="normal">
-                                    <InputLabel  sx={{
-                                        backgroundColor: formValues.organization ? 'white' : 'white',
-                                        px: 1,
-                                        '&.Mui-focused': {
-                                            backgroundColor: 'white',
-                                        },
-                                    }}>Age</InputLabel>
+                                    <InputLabel
+                                        sx={{
+                                            backgroundColor: formik.values.age ? 'white' : 'white',
+                                            px: 1,
+                                            '&.Mui-focused': {
+                                                backgroundColor: 'white',
+                                            },
+                                        }}
+                                    >
+                                        Age
+                                    </InputLabel>
                                     <Select
                                         name="age"
-                                        value={formValues.age}
-                                        onChange={handleChange}
+                                        value={formik.values.age}
+                                        onChange={formik.handleChange}
+                                        error={formik.touched.age && Boolean(formik.errors.age)}
                                     >
                                         {age.map((option) => (
-                                            <MenuItem key={option} value={option} >
+                                            <MenuItem key={option} value={option}>
                                                 {option}
                                             </MenuItem>
                                         ))}
                                     </Select>
+                                    {formik.touched.age && formik.errors.age ? (
+                                        <div>{formik.errors.age}</div>
+                                    ) : null}
                                 </FormControl>
-                            {/*<TextField*/}
-                            {/*    fullWidth*/}
-                            {/*    margin="normal"*/}
-                            {/*    label="Age"*/}
-                            {/*    name="age"*/}
-                            {/*    value={formValues.age}*/}
-                            {/*    onChange={handleChange}*/}
-                            {/*/>*/}
-                                <Box display={{sm: "flex"}} mt={{xs:2,sm:"unset"}} alignItems="center" margin="normal">
-                                    <FormLabel component="legend" sx={{ marginRight: '1rem'}}>Gender :</FormLabel>
+
+                                <Box display={{ sm: "flex" }} mt={{ xs: 2, sm: "unset" }} alignItems="center" margin="normal">
+                                    <FormLabel component="legend" sx={{ marginRight: '1rem' }}>Gender :</FormLabel>
                                     <RadioGroup
                                         name="gender"
-                                        value={formValues.gender}
-                                        onChange={handleChange}
+                                        value={formik.values.gender}
+                                        onChange={formik.handleChange}
                                         row
+                                        error={formik.touched.gender && Boolean(formik.errors.gender)}
                                     >
-                                        <FormControlLabel sx={{color:"#00000099"}} value="male" control={<Radio />} label="Male" />
-                                        <FormControlLabel sx={{color:"#00000099"}} value="female" control={<Radio />} label="Female" />
-                                        <FormControlLabel sx={{color:"#00000099"}} value="other" control={<Radio />} label="Other" />
+                                        <FormControlLabel sx={{ color: "#00000099" }} value="male" control={<Radio />} label="Male" />
+                                        <FormControlLabel sx={{ color: "#00000099" }} value="female" control={<Radio />} label="Female" />
+                                        <FormControlLabel sx={{ color: "#00000099" }} value="other" control={<Radio />} label="Other" />
                                     </RadioGroup>
+                                    {formik.touched.gender && formik.errors.gender ? (
+                                        <div>{formik.errors.gender}</div>
+                                    ) : null}
                                 </Box>
-                            <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
 
-                                <Button
-                                    className="overpass"
-                                    onClick={() => navigate("/start-assessment")}
-                                    sx={{
-                                        backgroundColor: "#A6DE9B",
-                                        py: "5px",
-                                        px: "28px",
-                                        textTransform: "unset",
-                                        fontSize: "20px",
-                                        color: "#325343",
-                                        borderRadius: "30px",
-                                        "&:hover": {
-                                            backgroundColor: "darkGreen",
-                                            color: "white",
-                                        },
-                                        mt: "10px",marginRight:1
-                                    }}
-                                >
-                                    Submit
-                                </Button>
-
-                            </Box>
-                        </form>
+                                <Box sx={{ mt: "20px", display: "flex", justifyContent: "end" }}>
+                                    <Button
+                                        className="overpass"
+                                        type="submit"
+                                        sx={{
+                                            backgroundColor: "#A6DE9B",
+                                            py: "5px",
+                                            px: "28px",
+                                            textTransform: "unset",
+                                            fontSize: "20px",
+                                            color: "#325343",
+                                            borderRadius: "30px",
+                                            "&:hover": {
+                                                backgroundColor: "darkGreen",
+                                                color: "white",
+                                            },
+                                            mt: "10px",
+                                            marginRight: 1,
+                                        }}
+                                    >
+                                        Submit
+                                    </Button>
+                                </Box>
+                            </form>
                         </Box>
                     </Box>
-
-
                 </Container>
             </Box>
-
-            {/*<GetStartedReview/>*/}
         </>
     );
 }

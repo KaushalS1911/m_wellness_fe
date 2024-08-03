@@ -48,11 +48,17 @@ function LookingFor({
     const handleClose = () => setOpen(false);
     console.log(apiOptions)
     const handleSubmit = () => {
-const data = JSON.parse(sessionStorage.getItem("student"))
+        const data = JSON.parse(sessionStorage.getItem("student"))
         console.log(data)
         try {
-            axios.post("http://ec2-54-173-125-80.compute-1.amazonaws.com:8080/mahadevasth/assessment",{student_id:data[0]?.id,assessment_id:1,responses:apiOptions,score:points,created_at: moment(new Date()).format("YYYY-MM-DD HH:mm:ss")})
-        }catch (err){
+            axios.post("http://ec2-54-173-125-80.compute-1.amazonaws.com:8080/mahadevasth/assessment", {
+                student_id: data[0]?.id,
+                assessment_id: 1,
+                responses: apiOptions,
+                score: points,
+                created_at: moment(new Date()).format("YYYY-MM-DD HH:mm:ss")
+            })
+        } catch (err) {
             console.log(err)
         }
         handleOpen()
@@ -60,7 +66,7 @@ const data = JSON.parse(sessionStorage.getItem("student"))
     const TherapyButton = ({fullWidth, children, onClick, value, disabled}) => (
         <Grid item xs={12}>
             <Button
-                style={{display: "flex", justifyContent: "flex-start ",textAlign:"start"}}
+                style={{display: "flex", justifyContent: "flex-start ", textAlign: "start"}}
                 value={value}
                 fullWidth={fullWidth}
                 onClick={onClick}
@@ -88,7 +94,7 @@ const data = JSON.parse(sessionStorage.getItem("student"))
 
 
     return (
-        <Card style={{maxWidth: 700, margin: "50px auto", padding: {md:"20px 20px 0",xs:"20px 0 0"}}}>
+        <Card style={{maxWidth: 700, margin: "50px auto", padding: {md: "20px 20px 0", xs: "20px 0 0"}}}>
             <CardContent>
                 <Typography
                     variant="h6"
@@ -136,11 +142,11 @@ const data = JSON.parse(sessionStorage.getItem("student"))
                 {/*>*/}
                 {/*    Back*/}
                 {/*</Button>*/}
-                        {/*<Button variant={"contained"} sx={{}} onClick={handleBack}*/}
-                        {/*     sx={{cursor: "pointer", fontSize: "18px", display:  "flex" ,alignItems:"center",mt:2}}>*/}
-                        {/*    /!*<WestIcon sx={{marginRight:1}} />*!/*/}
-                        {/*    Back*/}
-                        {/*</Button>*/}
+                {/*<Button variant={"contained"} sx={{}} onClick={handleBack}*/}
+                {/*     sx={{cursor: "pointer", fontSize: "18px", display:  "flex" ,alignItems:"center",mt:2}}>*/}
+                {/*    /!*<WestIcon sx={{marginRight:1}} />*!/*/}
+                {/*    Back*/}
+                {/*</Button>*/}
                 <Box>
                     <Box sx={{
                         color: "green",
@@ -169,53 +175,53 @@ const data = JSON.parse(sessionStorage.getItem("student"))
                         </Typography>
                     </Box>
                 )}
-               <Box sx={{display:"flex",justifyContent:"space-between"}}>
-                   <Box sx={{mt: "20px", display:points===0? "none" : "flex", justifyContent: "start",}}>
-                       <Button
-                           className="overpass"
-                           onClick={handleBack}
-                           sx={{
-                               backgroundColor: "darkGreen",
-                               py: "5px",
-                               px: "28px",
-                               textTransform: "unset",
-                               fontSize: "20px",
-                               color: "white",
-                               borderRadius: "30px",
-                               "&:hover": {
-                                   backgroundColor: "green",
-                                   color: "white",
-                               },
-                               mt: "10px"
-                           }}
-                       >
-                           Back
-                       </Button>
-                   </Box>
-                   {submit && <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
+                <Box sx={{display: "flex", justifyContent: "space-between"}}>
+                    <Box sx={{mt: "20px", display: points === 0 ? "none" : "flex", justifyContent: "start",}}>
+                        <Button
+                            className="overpass"
+                            onClick={handleBack}
+                            sx={{
+                                backgroundColor: "darkGreen",
+                                py: "5px",
+                                px: "28px",
+                                textTransform: "unset",
+                                fontSize: "20px",
+                                color: "white",
+                                borderRadius: "30px",
+                                "&:hover": {
+                                    backgroundColor: "green",
+                                    color: "white",
+                                },
+                                mt: "10px"
+                            }}
+                        >
+                            Back
+                        </Button>
+                    </Box>
+                    {submit && <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
 
-                       <Button
-                           className="overpass"
-                           onClick={handleSubmit}
-                           sx={{
-                               backgroundColor: "darkGreen",
-                               py: "5px",
-                               px: "28px",
-                               textTransform: "unset",
-                               fontSize: "20px",
-                               color: "white",
-                               borderRadius: "30px",
-                               "&:hover": {
-                                   backgroundColor: "green",
-                                   color: "white",
-                               },
-                               mt: "10px"
-                           }}
-                       >
-                           Submit
-                       </Button>
-                   </Box>}
-               </Box>
+                        <Button
+                            className="overpass"
+                            onClick={handleSubmit}
+                            sx={{
+                                backgroundColor: "darkGreen",
+                                py: "5px",
+                                px: "28px",
+                                textTransform: "unset",
+                                fontSize: "20px",
+                                color: "white",
+                                borderRadius: "30px",
+                                "&:hover": {
+                                    backgroundColor: "green",
+                                    color: "white",
+                                },
+                                mt: "10px"
+                            }}
+                        >
+                            Submit
+                        </Button>
+                    </Box>}
+                </Box>
 
                 <Modal
                     keepMounted
