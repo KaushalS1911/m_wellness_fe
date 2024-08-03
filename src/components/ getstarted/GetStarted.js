@@ -4,7 +4,6 @@ import LookingFor from "./LookingFor";
 import {Button, Container, MobileStepper, Typography} from "@mui/material";
 
 import WestIcon from '@mui/icons-material/West';
-
 function GetStarted2() {
 
     const [points1, setPoints1] = useState([])
@@ -835,11 +834,10 @@ function GetStarted2() {
                     <Box>
                         <Box sx={{fontSize: "46px", color: "#444444", textAlign: 'center'}} className="overpass">
                             {/*Help us match you to the <Typography variant="span" sx={{color:"green"}}> right therapist</Typography>*/}
-                            {language === "hindi" ? mainHindiStepContent(mainActiveStep) : mainEnglishStepContent(mainActiveStep)}
+                        {language === "hindi" ?  mainHindiStepContent(mainActiveStep) : mainEnglishStepContent(mainActiveStep)}
                         </Box>
                         <Box sx={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-                            {language === "english" &&
-                            <Box sx={{textAlign: "center", mt: "20px", width: {md: "850px"}}}>
+                            {language === "english" && <Box sx={{textAlign: "center", mt: "20px", width: {md: "850px"}}}>
                                 It's important to have a therapist who you can establish a personal connection with. The
                                 following questions are designed to help match you to a licensed therapist based on your
                                 needs and personal preferences.

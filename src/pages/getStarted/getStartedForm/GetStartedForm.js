@@ -129,36 +129,37 @@ function GetStartedForm(props) {
                                     onChange={handleChange}
                                 />
 
-                                <TextField
-                                    fullWidth
-                                    margin="normal"
-                                    label="Full Name"
-                                    name="fullName"
-                                    value={formValues.fullName}
-                                    onChange={handleChange}
-                                />
+                            <TextField
+                                fullWidth
+                                margin="normal"
+                                label="Full Name"
+                                name="fullName"
+                                value={formValues.fullName}
+                                onChange={handleChange}
+                            />
 
 
+
+                            <TextField
+                                fullWidth
+                                margin="normal"
+                                label="Phone"
+                                name="phone"
+                                value={formValues.phone}
+                                onChange={handleChange}
+                            />
                                 <TextField
-                                    fullWidth
-                                    margin="normal"
-                                    label="Phone"
-                                    name="phone"
-                                    value={formValues.phone}
-                                    onChange={handleChange}
-                                />
-                                <TextField
-                                    fullWidth
-                                    margin="normal"
-                                    label="Email"
-                                    name="email"
-                                    value={formValues.email}
-                                    onChange={handleChange}
-                                />
+                                fullWidth
+                                margin="normal"
+                                label="Email"
+                                name="email"
+                                value={formValues.email}
+                                onChange={handleChange}
+                            />
 
 
                                 <FormControl fullWidth margin="normal">
-                                    <InputLabel sx={{
+                                    <InputLabel  sx={{
                                         backgroundColor: formValues.organization ? 'white' : 'white',
                                         px: 1,
                                         '&.Mui-focused': {
@@ -171,63 +172,58 @@ function GetStartedForm(props) {
                                         onChange={handleChange}
                                     >
                                         {age.map((option) => (
-                                            <MenuItem key={option} value={option}>
+                                            <MenuItem key={option} value={option} >
                                                 {option}
                                             </MenuItem>
                                         ))}
                                     </Select>
                                 </FormControl>
-                                {/*<TextField*/}
-                                {/*    fullWidth*/}
-                                {/*    margin="normal"*/}
-                                {/*    label="Age"*/}
-                                {/*    name="age"*/}
-                                {/*    value={formValues.age}*/}
-                                {/*    onChange={handleChange}*/}
-                                {/*/>*/}
-                                <Box display={{sm: "flex"}} mt={{xs: 2, sm: "unset"}} alignItems="center"
-                                     margin="normal">
-                                    <FormLabel component="legend" sx={{marginRight: '1rem'}}>Gender :</FormLabel>
+                            {/*<TextField*/}
+                            {/*    fullWidth*/}
+                            {/*    margin="normal"*/}
+                            {/*    label="Age"*/}
+                            {/*    name="age"*/}
+                            {/*    value={formValues.age}*/}
+                            {/*    onChange={handleChange}*/}
+                            {/*/>*/}
+                                <Box display={{sm: "flex"}} mt={{xs:2,sm:"unset"}} alignItems="center" margin="normal">
+                                    <FormLabel component="legend" sx={{ marginRight: '1rem'}}>Gender :</FormLabel>
                                     <RadioGroup
                                         name="gender"
                                         value={formValues.gender}
                                         onChange={handleChange}
                                         row
                                     >
-                                        <FormControlLabel sx={{color: "#00000099"}} value="male" control={<Radio/>}
-                                                          label="Male"/>
-                                        <FormControlLabel sx={{color: "#00000099"}} value="female" control={<Radio/>}
-                                                          label="Female"/>
-                                        <FormControlLabel sx={{color: "#00000099"}} value="other" control={<Radio/>}
-                                                          label="Other"/>
+                                        <FormControlLabel sx={{color:"#00000099"}} value="male" control={<Radio />} label="Male" />
+                                        <FormControlLabel sx={{color:"#00000099"}} value="female" control={<Radio />} label="Female" />
+                                        <FormControlLabel sx={{color:"#00000099"}} value="other" control={<Radio />} label="Other" />
                                     </RadioGroup>
                                 </Box>
-                                <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
+                            <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
 
-                                    <Button
-                                        className="overpass"
-                                        type={"submit"}
-                                        // onClick={() => navigate("/start-assessment")}
-                                        sx={{
-                                            backgroundColor: "#A6DE9B",
-                                            py: "5px",
-                                            px: "28px",
-                                            textTransform: "unset",
-                                            fontSize: "20px",
-                                            color: "#325343",
-                                            borderRadius: "30px",
-                                            "&:hover": {
-                                                backgroundColor: "darkGreen",
-                                                color: "white",
-                                            },
-                                            mt: "10px", marginRight: 1
-                                        }}
-                                    >
-                                        Submit
-                                    </Button>
+                                <Button
+                                    className="overpass"
+                                    onClick={() => navigate("/start-assessment")}
+                                    sx={{
+                                        backgroundColor: "#A6DE9B",
+                                        py: "5px",
+                                        px: "28px",
+                                        textTransform: "unset",
+                                        fontSize: "20px",
+                                        color: "#325343",
+                                        borderRadius: "30px",
+                                        "&:hover": {
+                                            backgroundColor: "darkGreen",
+                                            color: "white",
+                                        },
+                                        mt: "10px",marginRight:1
+                                    }}
+                                >
+                                    Submit
+                                </Button>
 
-                                </Box>
-                            </form>
+                            </Box>
+                        </form>
                         </Box>
                     </Box>
 
