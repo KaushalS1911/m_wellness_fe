@@ -46,12 +46,13 @@ function LookingFor({
     const navigate = useNavigate()
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    console.log(apiOptions)
+    const [email, setEmail] = useState('');
+    const [error, setError] = useState(false);
+    const [helperText, setHelperText] = useState('');
     const handleSubmit = () => {
         const data = JSON.parse(sessionStorage.getItem("student"))
         const language = sessionStorage.getItem("language")
-        console.log(data)
-        console.log(language)
+
         try {
             axios.post("http://ec2-54-173-125-80.compute-1.amazonaws.com:8080/mahadevasth/assessment", {
                 student_id: data[0]?.admission_id,
@@ -94,8 +95,21 @@ function LookingFor({
             </Button>
         </Grid>
     );
-
-
+    const handleChange = (event) => {
+        const { value } = event.target;
+        setEmail(value);
+        validateEmail(value);
+    };
+    const validateEmail = (value) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailRegex.test(value)) {
+            setError(false);
+            setHelperText('');
+        } else {
+            setError(true);
+            setHelperText('Please enter a valid email address');
+        }
+    };
     return (
         <Card style={{maxWidth: 700, margin: "50px auto", padding: {md: "20px 20px 0", xs: "20px 0 0"}}}>
             <CardContent>
@@ -253,20 +267,30 @@ function LookingFor({
                     </Typography>
                         <Box sx={{display: "flex", justifyContent: "center", px: 1}}>
 
-                            <TextField id="outlined-basic" label="Enter email address" variant="outlined" sx={{
-                                width: "400px", borderRadius: "10px", '& .MuiOutlinedInput-root': {
-
-                                    '&.Mui-focused fieldset': {
-                                        borderColor: 'green',
+                            <TextField
+                                id="outlined-basic"
+                                label="Enter email address"
+                                variant="outlined"
+                                value={email}
+                                onChange={handleChange}
+                                error={error}
+                                helperText={helperText}
+                                sx={{
+                                    width: "400px",
+                                    borderRadius: "10px",
+                                    '& .MuiOutlinedInput-root': {
+                                        '&.Mui-focused fieldset': {
+                                            borderColor: 'green',
+                                        },
                                     },
-                                },
-                                '& .MuiInputLabel-root.Mui-focused': {
-                                    color: 'green',
-                                },
-                                '& .MuiInputLabel-root.MuiFormLabel-filled': {
-                                    color: 'green',
-                                }
-                            }}/>
+                                    '& .MuiInputLabel-root.Mui-focused': {
+                                        color: 'green',
+                                    },
+                                    '& .MuiInputLabel-root.MuiFormLabel-filled': {
+                                        color: 'green',
+                                    },
+                                }}
+                            />
                         </Box>
                         <Typography id="keep-mounted-modal-description" sx={{mt: 2, fontSize: "17px", px: 4}}
                                     className={"overpass"}>

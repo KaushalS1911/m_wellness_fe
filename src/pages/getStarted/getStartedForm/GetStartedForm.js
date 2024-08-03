@@ -303,9 +303,9 @@ function GetStartedForm(props) {
             fullName: Yup.string().required('Full name is required'),
             admissionId: Yup.string().required('Admission ID is required'),
             phone: Yup.string().required('Phone is required'),
-            // gender: Yup.string().required('Gender is required'),
-                   // age: Yup.number().required('Age is required'),
-            // email: Yup.string().email('Invalid email address').required('Email is required'),
+            gender: Yup.string().required('Gender is required'),
+                   age: Yup.number().required('Age is required'),
+            email: Yup.string().email('Invalid email address').required('Email is required'),
         }),
         onSubmit: (values) => {
             try {
@@ -315,10 +315,9 @@ function GetStartedForm(props) {
                     name: values.fullName,
                     phone: values.phone
                 }).then((res) => {
-                    console.log(res?.data?.status)
                     if(res?.data?.status == "200"){
                     toast.success('Data uploaded successfully', {
-                        position: "top-right",
+                        position: "top-center",
                         autoClose: 5000,
                         hideProgressBar: false,
                         closeOnClick: true,
@@ -332,7 +331,7 @@ function GetStartedForm(props) {
                     }
                     else {
                         toast.error('Student record not found', {
-                            position: "top-right",
+                            position: "top-center",
                             autoClose: 5000,
                             hideProgressBar: false,
                             closeOnClick: true,
@@ -345,7 +344,7 @@ function GetStartedForm(props) {
                     sessionStorage.setItem("student", JSON.stringify(res?.data?.data));
                 }).catch((err) => {
                     toast.error('Something want wrong', {
-                        position: "top-right",
+                        position: "top-center",
                         autoClose: 5000,
                         hideProgressBar: false,
                         closeOnClick: true,
@@ -404,7 +403,7 @@ function GetStartedForm(props) {
                                         ))}
                                     </Select>
                                     {formik.touched.organization && formik.errors.organization ? (
-                                        <div>{formik.errors.organization}</div>
+                                        <div style={{color:"red"}}>{formik.errors.organization}</div>
                                     ) : null}
                                 </FormControl>
 
@@ -477,7 +476,7 @@ function GetStartedForm(props) {
                                         ))}
                                     </Select>
                                     {formik.touched.age && formik.errors.age ? (
-                                        <div>{formik.errors.age}</div>
+                                        <div style={{color:"red"}}>{formik.errors.age}</div>
                                     ) : null}
                                 </FormControl>
 
@@ -494,10 +493,10 @@ function GetStartedForm(props) {
                                         <FormControlLabel sx={{ color: "#00000099" }} value="female" control={<Radio />} label="Female" />
                                         <FormControlLabel sx={{ color: "#00000099" }} value="other" control={<Radio />} label="Other" />
                                     </RadioGroup>
-                                    {formik.touched.gender && formik.errors.gender ? (
-                                        <div>{formik.errors.gender}</div>
-                                    ) : null}
                                 </Box>
+                                    {formik.touched.gender && formik.errors.gender ? (
+                                        <div style={{color:"red"}}>{formik.errors.gender}</div>
+                                    ) : null}
 
                                 <Box sx={{ mt: "20px", display: "flex", justifyContent: "end" }}>
                                     <Button
