@@ -26,6 +26,28 @@ function GetStartedHome(props) {
         <>
             <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: "60px"}}>
                 <Container>
+                <Box sx={{mt: "20px", display:"flex", justifyContent: "start"}}>
+                    <Button
+                        className="overpass"
+                        onClick={() => navigate("/")}
+                        sx={{
+                            backgroundColor: "darkGreen",
+                            py: "5px",
+                            px: "28px",
+                            textTransform: "unset",
+                            fontSize: "20px",
+                            color: "white",
+                            borderRadius: "30px",
+                            "&:hover": {
+                                backgroundColor: "green",
+                                color: "white",
+                            },
+                            mt: "10px"
+                        }}
+                    >
+                        Back
+                    </Button>
+                </Box>
                     {/*<Box onClick={}*/}
                     {/*     sx={{cursor: "pointer", fontSize: "18px", display: activeStep !== 0 ? "block" : "none"}}>*/}
                     {/*    <i className="fa-solid fa-arrow-left" style={{marginRight: 8}}></i>Back*/}
