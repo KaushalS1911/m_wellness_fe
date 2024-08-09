@@ -54,7 +54,7 @@ function LookingFor({
         const language = sessionStorage.getItem("language")
 
         try {
-            axios.post("http://ec2-54-173-125-80.compute-1.amazonaws.com:8080/mahadevasth/assessment", {
+            axios.post("https://interactapiverse.com/mahadevasth/assessment", {
                 student_id: data[0]?.admission_id,
                 assessment_id: 1,
                 responses: apiOptions,

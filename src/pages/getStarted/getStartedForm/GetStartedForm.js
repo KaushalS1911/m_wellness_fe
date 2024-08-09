@@ -286,7 +286,7 @@ function GetStartedForm(props) {
             ages.push(i);
         }
         setAge(ages);
-        axios.get("http://ec2-54-173-125-80.compute-1.amazonaws.com:8080/mahadevasth/organization")
+        axios.get("https://interactapiverse.com/mahadevasth/organization")
             .then((res) => setOrganization(res?.data?.data))
             .catch((err) => console.log(err));
     }, []);
@@ -312,7 +312,7 @@ function GetStartedForm(props) {
         }),
         onSubmit: (values) => {
             try {
-                axios.post("http://ec2-54-173-125-80.compute-1.amazonaws.com:8080/mahadevasth/organization/student/validate", {
+                axios.post("https://interactapiverse.com/mahadevasth/organization/student/validate", {
                     organization_id: values.organization,
                     admission_id: values.admissionId,
                     name: values.fullName,

@@ -127,7 +127,7 @@ function Header(props) {
                       {/*  </Button>*/}
                     </ListItem>
                     <ListItem button>
-                        <NavLink to={'consent-form'} style={{width:"100%"}}>
+                        <NavLink to={'/'} style={{width:"100%"}}>
                       {/*<Button*/}
                       {/*    variant="outlined"*/}
                       {/*  sx={{*/}
@@ -231,7 +231,7 @@ function Header(props) {
               {/*  </Button>*/}
               {/*</Box>*/}
               <Box>
-               <NavLink to={'consent-form'}>
+               <NavLink to={'/'}>
                    <Button
                        variant={"outlined"}
                        sx={{

@@ -28,7 +28,7 @@ function MentalHealthAssessment(props) {
                            padding: "24px"
                        }}>
                            <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass">
-                               SHAPE K-12 Assessment Test
+                               Exam Stress Gauage Test (18-21)
                            </Box>
                            <Box sx={{fontSize: "18px", color: "#444444", mt: 4}}>
                                The Adult ADHD Self-Report Scale (ASRS-v1.1) Symptom Checklist was developed in conjunction
@@ -64,7 +64,7 @@ function MentalHealthAssessment(props) {
                            padding: "24px"
                        }}>
                            <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass">
-                               Exam Stress Gauage Test (18-21)
+                               SHAPE K-12 Assessment Test
                            </Box>
                            <Box sx={{fontSize: "18px", color: "#444444", mt: 4}}>
                                OCD, or Obsessive Compulsive Disorder, is a common mental health concern that many people struggle with. However, it

@@ -68,7 +68,7 @@ const ad= sessionStorage.getItem("data")
 
 
                         <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">
-                            {ad ? "SHAPE K-12 Assessment Test" : "Exam Stress Gauage Test (18-21)"}
+                            {ad ? "Exam Stress Gauage Test (18-21)" :"SHAPE K-12 Assessment Test"}
                         </Box>
                     <Box sx={{display: "flex", justifyContent: "center", mt: 5}}>
                         <Box sx={{
