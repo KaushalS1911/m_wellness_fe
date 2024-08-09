@@ -12,7 +12,7 @@ function MentalHealthAssessment(props) {
 
             <Container>
                 <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass">
-                    Mental Health Assessments
+                    Assessments
                 </Box>
                 <Box sx={{fontSize: "18px", color: "#444444", mt: 4}}>
                     Gain insight into your mental and emotional health and find ways to support yourself

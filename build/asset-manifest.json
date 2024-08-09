@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.6ae4638b.css",
-    "main.js": "/static/js/main.b0794d98.js",
+    "main.js": "/static/js/main.46a94182.js",
     "static/media/bg-gradient-texture.png": "/static/media/bg-gradient-texture.9738b78b326169e4f539.png",
     "static/media/carousel-4.png": "/static/media/carousel-4.9e37585991f42d7ecc27.png",
     "static/media/carousel-6.png": "/static/media/carousel-6.22d3b5d4a0216b95d50f.png",
@@ -53,13 +53,13 @@
     "static/media/logo-2.png": "/static/media/logo-2.defafd572e64e531fb6c.png",
     "static/media/depression-1.jpg": "/static/media/depression-1.b26d6a4c697d81932d5f.jpg",
     "static/media/card-1.jpg": "/static/media/card-1.661f3f71f00349fa3301.jpg",
-    "static/media/paint-3.svg": "/static/media/paint-3.1086708fbdb6f41183f3fe0186848a7b.svg",
+    "static/media/paint-3.svg": "/static/media/paint-3.4a56a2d7e67d5e69337d033083880077.svg",
     "static/media/logo-3.png": "/static/media/logo-3.7fb26f9e3c4f3faad202.png",
     "static/media/home2.jpeg": "/static/media/home2.e3b9eeb8d306681dbec5.jpeg",
     "static/media/asset 20.png": "/static/media/asset 20.0c331755fb3017400eeb.png",
     "static/media/depression-2.jpg": "/static/media/depression-2.6d821d3226e68dacf8be.jpg",
     "static/media/depression-6.jpeg": "/static/media/depression-6.cd77cf1444e19a71d6cf.jpeg",
-    "static/media/paint-1.svg": "/static/media/paint-1.624fb031a66ff1b125879abf04c17caf.svg",
+    "static/media/paint-1.svg": "/static/media/paint-1.39acda2fbe23f3731e4a2550e1f9177d.svg",
     "static/media/asset 5.png": "/static/media/asset 5.29cd38f0eb4ac01c1a3c.png",
     "static/media/asset 21.png": "/static/media/asset 21.b70d0718c03cda3c23a2.png",
     "static/media/asset 27.png": "/static/media/asset 27.780b8dfb4d1fc376f10e.png",
@@ -75,9 +75,9 @@
     "static/media/depression-11.jpg": "/static/media/depression-11.ae2e2893b6bdeb8dd9cb.jpg",
     "static/media/Slideshow-2.jpg": "/static/media/Slideshow-2.3b4239012d85c5a00d24.jpg",
     "static/media/depression-5.jpg": "/static/media/depression-5.373da9dffcc1b68d7b13.jpg",
+    "static/media/paint-2.svg": "/static/media/paint-2.edb7181a7ab0fbaa6d1c37dea1145d3a.svg",
     "static/media/asset 16.png": "/static/media/asset 16.0cd6489a1d629accef98.png",
     "static/media/asset 15.png": "/static/media/asset 15.10cee46fbec28dac94fe.png",
-    "static/media/paint-2.svg": "/static/media/paint-2.81b04970e28a2c0b89248191651c733e.svg",
     "static/media/asset 34.png": "/static/media/asset 34.acd3335a3e6fe11a8b59.png",
     "static/media/slide-5.jpg": "/static/media/slide-5.b946e661d405d3c8d485.jpg",
     "static/media/l-2.jpg": "/static/media/l-2.62dacdcf5966f78398c7.jpg",
@@ -108,10 +108,10 @@
     "static/media/quote-right.svg": "/static/media/quote-right.95983c60418de02595e060196be66aa1.svg",
     "static/media/line-squiggle.svg": "/static/media/line-squiggle.a3c4eefc9983f6bd40fc99a662a352b2.svg",
     "main.6ae4638b.css.map": "/static/css/main.6ae4638b.css.map",
-    "main.b0794d98.js.map": "/static/js/main.b0794d98.js.map"
+    "main.46a94182.js.map": "/static/js/main.46a94182.js.map"
   },
   "entrypoints": [
     "static/css/main.6ae4638b.css",
-    "static/js/main.b0794d98.js"
+    "static/js/main.46a94182.js"
   ]
 }
