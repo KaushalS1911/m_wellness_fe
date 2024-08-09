@@ -17,7 +17,8 @@ function GetStartedHome(props) {
     const [check,setCheck] = useState()
     const [language,setLanguage] = useState()
     const navigate = useNavigate()
-
+const ad= sessionStorage.getItem("data")
+    console.log(ad)
     const handleChange = (e) =>{
         setLanguage(e.target.checked)
         sessionStorage.setItem("language",e.target.value)
@@ -67,7 +68,7 @@ function GetStartedHome(props) {
 
 
                         <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">
-                            Emotional Wellness Basic Screening Test
+                            {ad ? "SHAPE K-12 Assessment Test" : "Exam Stress Gauage Test (18-21)"}
                         </Box>
                     <Box sx={{display: "flex", justifyContent: "center", mt: 5}}>
                         <Box sx={{

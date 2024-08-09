@@ -28,7 +28,7 @@ function MentalHealthAssessment(props) {
                            padding: "24px"
                        }}>
                            <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass">
-                               Adult ADHD Self-Report Scale
+                               SHAPE K-12 Assessment Test
                            </Box>
                            <Box sx={{fontSize: "18px", color: "#444444", mt: 4}}>
                                The Adult ADHD Self-Report Scale (ASRS-v1.1) Symptom Checklist was developed in conjunction
@@ -44,7 +44,10 @@ function MentalHealthAssessment(props) {
                                            <CalendarTodayIcon /> <Box sx={{marginLeft:1}}>5 mins quiz</Box>
                                            {/*<i className="fa-regular fa-calendar" ></i>*/}
                                        </Box>
-                                       <Box sx={{color:"darkGreen" ,mt:4,textDecoration:"underline",fontWeight:600,cursor:"pointer"}} onClick={() => navigate("/emotional")}>
+                                       <Box sx={{color:"darkGreen" ,mt:4,textDecoration:"underline",fontWeight:600,cursor:"pointer"}} onClick={() => {
+                                           sessionStorage.setItem("data","hello")
+                                           navigate("/emotional")
+                                       }}>
                                            TAKE ASSESSMENT
                                        </Box>
                                    </Box>
@@ -61,7 +64,7 @@ function MentalHealthAssessment(props) {
                            padding: "24px"
                        }}>
                            <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass">
-                               How severe are my OCD symptoms?
+                               Exam Stress Gauage Test (18-21)
                            </Box>
                            <Box sx={{fontSize: "18px", color: "#444444", mt: 4}}>
                                OCD, or Obsessive Compulsive Disorder, is a common mental health concern that many people struggle with. However, it
@@ -76,7 +79,10 @@ function MentalHealthAssessment(props) {
                                            <CalendarTodayIcon /> <Box sx={{marginLeft:1}}>5 mins quiz</Box>
                                            {/*<i className="fa-regular fa-calendar" ></i>*/}
                                        </Box>
-                                       <Box sx={{color:"darkGreen" ,mt:4,textDecoration:"underline",fontWeight:600,cursor:"pointer"}} onClick={() => navigate("/emotional")}>
+                                       <Box sx={{color:"darkGreen" ,mt:4,textDecoration:"underline",fontWeight:600,cursor:"pointer"}} onClick={() => {
+                                           sessionStorage.clear()
+                                           navigate("/emotional")
+                                       }}>
                                            TAKE ASSESSMENT
                                        </Box>
                                    </Box>
