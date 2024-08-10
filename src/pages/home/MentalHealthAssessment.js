@@ -81,7 +81,8 @@ function MentalHealthAssessment(props) {
                                        </Box>
                                        <Box sx={{color:"darkGreen" ,mt:4,textDecoration:"underline",fontWeight:600,cursor:"pointer"}} onClick={() => {
                                            sessionStorage.clear()
-                                           navigate("/emotional")
+                                           navigate("/shape-form")
+
                                        }}>
                                            TAKE ASSESSMENT
                                        </Box>

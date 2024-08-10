@@ -15,6 +15,9 @@ import GetStartedForm from "./pages/getStarted/getStartedForm/GetStartedForm";
 import StartAssessment from "./pages/getStarted/startAssessment/StartAssessment";
 import {Box} from "@mui/material";
 import MentalHealthAssessment from "./pages/home/MentalHealthAssessment";
+import ShapAssessment from "./pages/shape-assessment/ShapAssessment";
+import FamilyInfo from "./pages/shape-assessment/FamilyInfo";
+import ShapAssementStape from "./pages/shape-assessment/ShapAssementStape";
 
 export default function App() {
     function ScrollToTop() {
@@ -28,11 +31,17 @@ export default function App() {
     <>
       <Header />
         <ScrollToTop />
+        {/*<ShapAssementStape />*/}
+
+        {/*<FamilyInfo />*/}
       <Routes>
         {/*<Route path="/" element={<Home />} />*/}
         <Route path="/" element={<MentalHealthAssessment />} />
         <Route path="/emotional" element={<GetStartedHome />} />
         <Route path="/assessment/:id" element={<PointTable />} />
+        <Route path="/shape-form" element={<ShapAssessment />} />
+        <Route path="/shape-femaly" element={<FamilyInfo />} />
+        <Route path="/shape-assessment" element={<ShapAssementStape />} />
         {/*<Route path="about" element={<About />} />*/}
         {/*<Route path="business" element={<BusinessPage />} />*/}
         {/*<Route path="contact" element={<Contact />} />*/}
