@@ -127,7 +127,7 @@ function Header(props) {
                       {/*  </Button>*/}
                     </ListItem>
                     <ListItem button>
-                        <NavLink to={'/'} style={{width:"100%"}}>
+                        <NavLink to={'/psyconnect-drishti'} style={{width:"100%"}}>
                       {/*<Button*/}
                       {/*    variant="outlined"*/}
                       {/*  sx={{*/}
@@ -165,7 +165,7 @@ function Header(props) {
                                     border:"2px solid green",
                                 }}
                             >
-                                Start Assessment
+                                PsyConnect-Drishti
                             </Button>
                         </NavLink>
                     </ListItem>
@@ -231,7 +231,7 @@ function Header(props) {
               {/*  </Button>*/}
               {/*</Box>*/}
               <Box>
-               <NavLink to={'/'}>
+               <NavLink to={'/psyconnect-drishti'}>
                    <Button
                        variant={"outlined"}
                        sx={{
@@ -251,7 +251,7 @@ function Header(props) {
                            border:"2px solid green"
                        }}
                    >
-                      Start Assessment
+                      PsyConnect-Drishti
                    </Button>
                </NavLink>
               </Box>

@@ -14,10 +14,12 @@ import GetStartedHome from "./pages/getStarted/getStartedHome/GetStartedHome";
 import GetStartedForm from "./pages/getStarted/getStartedForm/GetStartedForm";
 import StartAssessment from "./pages/getStarted/startAssessment/StartAssessment";
 import {Box} from "@mui/material";
-import MentalHealthAssessment from "./pages/home/MentalHealthAssessment";
 import ShapAssessment from "./pages/shape-assessment/ShapAssessment";
 import FamilyInfo from "./pages/shape-assessment/FamilyInfo";
 import ShapAssementStape from "./pages/shape-assessment/ShapAssementStape";
+import PsyConnectDrishti from "./pages/psyconnect-drishti button/PsyConnect-Drishti";
+import MentalHealthAssessment from "./pages/home/MentalHealthAssessment";
+import PsyConnectDrishtiForm from "./pages/psyconnect-drishti button/PsyConnectDrishtiForm";
 
 export default function App() {
     function ScrollToTop() {
@@ -37,6 +39,8 @@ export default function App() {
       <Routes>
         {/*<Route path="/" element={<Home />} />*/}
         <Route path="/" element={<MentalHealthAssessment />} />
+        <Route path="/psyconnect-drishti" element={<PsyConnectDrishti />} />
+        <Route path="/psyconnect-drishti-form" element={<PsyConnectDrishtiForm />} />
         <Route path="/emotional" element={<GetStartedHome />} />
         <Route path="/assessment/:id" element={<PointTable />} />
         <Route path="/shape-form" element={<ShapAssessment />} />

@@ -24,24 +24,24 @@ function ShapAssementStape(props) {
     }, 0)
     const handlePoints = (e, dat) => {
         const string = e.target.value
-        const data = string.substr(0, 1)
-        const option = string.slice(3)
-        options.push(option)
+        // const data = string.substr(0, 1)
+        // const option = string.slice(3)
+        options.push(string)
         let pointsToAdd = 0;
 
-        if (data === "A") {
+        if (string === "A") {
             pointsToAdd = 3;
-        } else if (data === "B") {
+        } else if (string === "B") {
             pointsToAdd = 2;
-        } else if (data === "C") {
+        } else if (string === "C") {
             pointsToAdd = 1;
         } else {
-            pointsToAdd = 0;
+            pointsToAdd = 1;
         }
 
         setPoints1(prevPoints => [...prevPoints, pointsToAdd]);
 
-        if (activeStep === 3 || activeStep === 7 || activeStep === 11 || activeStep === 15) {
+        if (activeStep === 4 || activeStep === 7 || activeStep === 12 || activeStep === 16 || activeStep === 21  || activeStep === 26) {
             mainHandleNext();
         }
 
@@ -63,7 +63,7 @@ function ShapAssementStape(props) {
         window.scrollTo(0, 0);
         if (activeStep !== 0) {
             setActiveStep((prevActiveStep) => prevActiveStep - 1);
-            if (activeStep === 3 || activeStep === 7 || activeStep === 11 || activeStep === 15) {
+            if (activeStep === 4 || activeStep === 7 || activeStep === 12 || activeStep === 16 || activeStep === 21  || activeStep === 26) {
                 setMainActiveStep((prevActiveStep) => prevActiveStep - 1);
             }
             if (activeStep === 32) {
@@ -658,13 +658,13 @@ function ShapAssementStape(props) {
     };
     return (
         <>
-            <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: "5px"}}>
+            <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6",minHeight:"87vh",height:"100%", pb: "5px"}}>
                 <Container>
 
                     <MobileStepper
                         className="main"
                         variant="dots"
-                        steps={5}
+                        steps={7}
                         position="static"
                         activeStep={mainActiveStep}
                         sx={{

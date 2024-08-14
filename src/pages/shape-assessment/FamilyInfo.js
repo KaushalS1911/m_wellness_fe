@@ -1,20 +1,61 @@
 import React from 'react';
-import {ToastContainer} from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import {
     Box,
     Button,
     Container,
-    FormControl, FormControlLabel,
+    FormControl,
+    FormControlLabel,
+    FormHelperText,
     FormLabel,
     InputLabel,
-    MenuItem, Radio,
+    MenuItem,
+    Radio,
     RadioGroup,
     Select,
     TextField
 } from "@mui/material";
-import {useNavigate} from "react-router-dom";
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import { useNavigate } from "react-router-dom";
+
 function FamilyInfo() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const validationSchema = Yup.object({
+        familyType: Yup.string().required('Family Type is required'),
+        singleParentReason: Yup.string().required('Reason is required'),
+        motherAge: Yup.number().required('Mother Age is required').min(18, 'Age must be at least 18'),
+        fatherAge: Yup.number().required('Father Age is required').min(18, 'Age must be at least 18'),
+        singleChild: Yup.boolean().required('Single Child Required'),
+        sibling:Yup.number().required('Number of Siblings is required'),
+        transferableJob: Yup.boolean().required('Required'),
+        frequent: Yup.string().required('Frequent is the new transfer is required'),
+        workingParent: Yup.string().required('Working Parent is required'),
+        whatsappNumber: Yup.string().required('Whatsapp Number is required'),
+        emailId: Yup.string().required('Email is required'),
+    });
+
+    const formik = useFormik({
+        initialValues: {
+            familyType: '',
+            singleParentReason: '',
+            motherAge: '',
+            fatherAge: '',
+            singleChild: '',
+            sibling: '',
+            transferableJob: '',
+            workingParent: '',
+            frequent:"",
+            whatsappNumber: '',
+            emailId: ''
+        },
+        validationSchema: validationSchema,
+        onSubmit: (values) => {
+            console.log(values);
+            navigate("/shape-assessment");
+        },
+    });
     return (
         <>
             <ToastContainer />
@@ -26,230 +67,285 @@ function FamilyInfo() {
 
                     <Box sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
                         <Box sx={{
-                            width: "700px",
+                            width: "100%",
+                            maxWidth: "700px",
                             backgroundColor: "#FFFFFF",
                             padding: "50px 30px 30px",
                             boxShadow: 2,
                         }} className={"overpass"}>
-                            <form>
-
-
-                                <FormControl fullWidth margin="normal">
-                                    <InputLabel
-                                        sx={{
-                                            backgroundColor:  'white',
-                                            px: 1,
-                                            '&.Mui-focused': {
-                                                backgroundColor: 'white',
-                                            },
-                                        }}
-                                    >
-                                        Family Type
-                                    </InputLabel>
+                            <form onSubmit={formik.handleSubmit}>
+                                <FormControl
+                                    fullWidth
+                                    margin="normal"
+                                    error={formik.touched.familyType && Boolean(formik.errors.familyType)}
+                                >
+                                    <InputLabel>Family Type</InputLabel>
                                     <Select
-                                        name="age"
-                                        // value={formik.values.age}
-                                        // onChange={formik.handleChange}
-                                        // error={formik.touched.age && Boolean(formik.errors.age)}
+                                        id="familyType"
+                                        name="familyType"
+                                        value={formik.values.familyType}
+                                        onChange={formik.handleChange}
                                     >
-                                        {["Joint","Nuclear","Single Parent"].map((option) => (
+                                        {["Joint", "Nuclear", "Single Parent"].map((option) => (
                                             <MenuItem key={option} value={option}>
                                                 {option}
                                             </MenuItem>
                                         ))}
                                     </Select>
-                                    {/*{formik.touched.age && formik.errors.age ? (*/}
-                                    {/*    <div style={{color:"red"}}>{formik.errors.age}</div>*/}
-                                    {/*) : null}*/}
+                                    <FormHelperText>{formik.touched.familyType && formik.errors.familyType}</FormHelperText>
                                 </FormControl>
-                                <FormControl fullWidth margin="normal">
-                                    <InputLabel
-                                        sx={{
-                                            backgroundColor:  'white',
-                                            px: 1,
-                                            '&.Mui-focused': {
-                                                backgroundColor: 'white',
-                                            },
-                                        }}
-                                    >
-                                        Reason for Being Single Parent
-                                    </InputLabel>
+
+                                <FormControl
+                                    fullWidth
+                                    margin="normal"
+                                    error={formik.touched.singleParentReason && Boolean(formik.errors.singleParentReason)}
+                                >
+                                    <InputLabel>Reason for Being Single Parent</InputLabel>
                                     <Select
-                                        name="age"
-                                        // value={formik.values.age}
-                                        // onChange={formik.handleChange}
-                                        // error={formik.touched.age && Boolean(formik.errors.age)}
+                                        id="singleParentReason"
+                                        name="singleParentReason"
+                                        value={formik.values.singleParentReason}
+                                        onChange={formik.handleChange}
                                     >
-                                        {["Widow","Widower","Divorced"].map((option) => (
+                                        {["Widow", "Widower", "Divorced"].map((option) => (
                                             <MenuItem key={option} value={option}>
                                                 {option}
                                             </MenuItem>
                                         ))}
                                     </Select>
-                                    {/*{formik.touched.age && formik.errors.age ? (*/}
-                                    {/*    <div style={{color:"red"}}>{formik.errors.age}</div>*/}
-                                    {/*) : null}*/}
+                                    <FormHelperText>{formik.touched.singleParentReason && formik.errors.singleParentReason}</FormHelperText>
                                 </FormControl>
+
                                 <TextField
                                     fullWidth
                                     margin="normal"
+                                    id="motherAge"
+                                    name="motherAge"
                                     label="Mother Age"
-                                    name="fullName"
-                                    // value={formik.values.fullName}
-                                    // onChange={formik.handleChange}
-                                    // error={formik.touched.fullName && Boolean(formik.errors.fullName)}
-                                    // helperText={formik.touched.fullName && formik.errors.fullName}
+                                    value={formik.values.motherAge}
+                                    onChange={formik.handleChange}
+                                    error={formik.touched.motherAge && Boolean(formik.errors.motherAge)}
+                                    helperText={formik.touched.motherAge && formik.errors.motherAge}
                                 />
+
                                 <TextField
                                     fullWidth
                                     margin="normal"
+                                    id="fatherAge"
+                                    name="fatherAge"
                                     label="Father Age"
-                                    name="admissionId"
-                                    // value={formik.values.admissionId}
-                                    // onChange={formik.handleChange}
-                                    // error={formik.touched.admissionId && Boolean(formik.errors.admissionId)}
-                                    // helperText={formik.touched.admissionId && formik.errors.admissionId}
-                                />
-
-                                <TextField
+                                    value={formik.values.fatherAge}
+                                    onChange={formik.handleChange}
+                                    error={formik.touched.fatherAge && Boolean(formik.errors.fatherAge)}
+                                    helperText={formik.touched.fatherAge && formik.errors.fatherAge}
+                                />    <TextField
                                     fullWidth
                                     margin="normal"
-                                    label="Whether Single Childn"
-                                    name="phone"
-                                    // value={formik.values.phone}
-                                    // onChange={formik.handleChange}
-                                    // error={formik.touched.phone && Boolean(formik.errors.phone)}
-                                    // helperText={formik.touched.phone && formik.errors.phone}
-                                />
-
-                                <TextField
+                                    id="fatherAge"
+                                    name="singleChild"
+                                    label="Whether Single Child"
+                                    value={formik.values.singleChild}
+                                    onChange={formik.handleChange}
+                                    error={formik.touched.singleChild && Boolean(formik.errors.singleChild)}
+                                    helperText={formik.touched.singleChild && formik.errors.singleChild}
+                                />    <TextField
                                     fullWidth
                                     margin="normal"
+                                    id="fatherAge"
+                                    name="sibling"
                                     label="If No, Number of Siblings"
-                                    name="email"
-                                    // value={formik.values.email}
-                                    // onChange={formik.handleChange}
-                                    // error={formik.touched.email && Boolean(formik.errors.email)}
-                                    // helperText={formik.touched.email && formik.errors.email}
-                                />  <TextField
-                                fullWidth
-                                margin="normal"
-                                label="Whether Parents into transferable Job"
-                                name="email"
-                                // value={formik.values.email}
-                                // onChange={formik.handleChange}
-                                // error={formik.touched.email && Boolean(formik.errors.email)}
-                                // helperText={formik.touched.email && formik.errors.email}
-                            />
-                                <FormControl fullWidth margin="normal">
-                                    <InputLabel
-                                        sx={{
-                                            backgroundColor:  'white',
-                                            px: 1,
-                                            '&.Mui-focused': {
-                                                backgroundColor: 'white',
-                                            },
-                                        }}
-                                    >
-                                        Reason for Being Single Parent
-                                    </InputLabel>
-                                    <Select
-                                        name="age"
-                                        // value={formik.values.age}
-                                        // onChange={formik.handleChange}
-                                        // error={formik.touched.age && Boolean(formik.errors.age)}
-                                    >
-                                        {["Less than a Year","2-5 Years","Not Systematic(Can happen anytime)"].map((option) => (
-                                            <MenuItem key={option} value={option}>
-                                                {option}
-                                            </MenuItem>
-                                        ))}
-                                    </Select>
-                                    {/*{formik.touched.age && formik.errors.age ? (*/}
-                                    {/*    <div style={{color:"red"}}>{formik.errors.age}</div>*/}
-                                    {/*) : null}*/}
-                                </FormControl>
-                                <FormControl fullWidth margin="normal">
-                                    <InputLabel
-                                        sx={{
-                                            backgroundColor:  'white',
-                                            px: 1,
-                                            '&.Mui-focused': {
-                                                backgroundColor: 'white',
-                                            },
-                                        }}
-                                    >
-                                        Whatsapp Number of
-                                    </InputLabel>
-                                    <Select
-                                        name="age"
-                                        // value={formik.values.age}
-                                        // onChange={formik.handleChange}
-                                        // error={formik.touched.age && Boolean(formik.errors.age)}
-                                    >
-                                        {["Father","Mother"].map((option) => (
-                                            <MenuItem key={option} value={option}>
-                                                {option}
-                                            </MenuItem>
-                                        ))}
-                                    </Select>
-                                    {/*{formik.touched.age && formik.errors.age ? (*/}
-                                    {/*    <div style={{color:"red"}}>{formik.errors.age}</div>*/}
-                                    {/*) : null}*/}
-                                </FormControl>
-                                <FormControl fullWidth margin="normal">
-                                    <InputLabel
-                                        sx={{
-                                            backgroundColor:  'white',
-                                            px: 1,
-                                            '&.Mui-focused': {
-                                                backgroundColor: 'white',
-                                            },
-                                        }}
-                                    >
-                                        Email Id
-                                    </InputLabel>
-                                    <Select
-                                        name="age"
-                                        // value={formik.values.age}
-                                        // onChange={formik.handleChange}
-                                        // error={formik.touched.age && Boolean(formik.errors.age)}
-                                    >
-                                        {["Father","Mother"].map((option) => (
-                                            <MenuItem key={option} value={option}>
-                                                {option}
-                                            </MenuItem>
-                                        ))}
-                                    </Select>
-                                    {/*{formik.touched.age && formik.errors.age ? (*/}
-                                    {/*    <div style={{color:"red"}}>{formik.errors.age}</div>*/}
-                                    {/*) : null}*/}
-                                </FormControl>
+                                    value={formik.values.sibling}
+                                    onChange={formik.handleChange}
+                                    error={formik.touched.sibling && Boolean(formik.errors.sibling)}
+                                    helperText={formik.touched.sibling && formik.errors.sibling}
+                                />
 
-                                <Box display={{ sm: "flex" }} mt={{ xs: 2, sm: "unset" }} alignItems="center" margin="normal">
-                                    <FormLabel component="legend" sx={{ marginRight: '1rem' }}>Who is the working parent :</FormLabel>
-                                    <RadioGroup
-                                        name="gender"
-                                        // value={formik.values.gender}
-                                        // onChange={formik.handleChange}
-                                        row
-                                        // error={formik.touched.gender && Boolean(formik.errors.gender)}
+                                {/*<FormControl*/}
+                                {/*    fullWidth*/}
+                                {/*    margin="normal"*/}
+                                {/*    error={formik.touched.singleChild && Boolean(formik.errors.singleChild)}*/}
+                                {/*>*/}
+                                {/*    <InputLabel>Whether Single Child</InputLabel>*/}
+                                {/*    <Select*/}
+                                {/*        id="singleChild"*/}
+                                {/*        name="singleChild"*/}
+                                {/*        value={formik.values.singleChild}*/}
+                                {/*        onChange={formik.handleChange}*/}
+                                {/*    >*/}
+                                {/*        {["Yes", "No"].map((option) => (*/}
+                                {/*            <MenuItem key={option} value={option}>*/}
+                                {/*                {option}*/}
+                                {/*            </MenuItem>*/}
+                                {/*        ))}*/}
+                                {/*    </Select>*/}
+                                {/*    <FormHelperText>{formik.touched.singleChild && formik.errors.singleChild}</FormHelperText>*/}
+                                {/*</FormControl>*/}
+
+                                {/*{formik.values.singleChild === "No" && (*/}
+                                {/*    <TextField*/}
+                                {/*        fullWidth*/}
+                                {/*        margin="normal"*/}
+                                {/*        id="siblingsCount"*/}
+                                {/*        name="sibling"*/}
+                                {/*        label="Number of Siblings"*/}
+                                {/*        value={formik.values.sibling}*/}
+                                {/*        onChange={formik.handleChange}*/}
+                                {/*        error={formik.touched.sibling && Boolean(formik.errors.sibling)}*/}
+                                {/*        helperText={formik.touched.sibling && formik.errors.sibling}*/}
+                                {/*    />*/}
+                                {/*)}*/}
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    id="fatherAge"
+                                    name="transferableJob"
+                                    label="Whether Parents into Transferable Job"
+                                    value={formik.values.transferableJob}
+                                    onChange={formik.handleChange}
+                                    error={formik.touched.transferableJob && Boolean(formik.errors.transferableJob)}
+                                    helperText={formik.touched.transferableJob && formik.errors.transferableJob}
+                                />
+                                {/*<FormControl*/}
+                                {/*    fullWidth*/}
+                                {/*    margin="normal"*/}
+                                {/*    error={formik.touched.transferableJob && Boolean(formik.errors.transferableJob)}*/}
+                                {/*>*/}
+                                {/*    <InputLabel>Whether Parents into Transferable Job</InputLabel>*/}
+                                {/*    <Select*/}
+                                {/*        id="transferableJob"*/}
+                                {/*        name="transferableJob"*/}
+                                {/*        value={formik.values.transferableJob}*/}
+                                {/*        onChange={formik.handleChange}*/}
+                                {/*    >*/}
+                                {/*        {["Yes", "No"].map((option) => (*/}
+                                {/*            <MenuItem key={option} value={option}>*/}
+                                {/*                {option}*/}
+                                {/*            </MenuItem>*/}
+                                {/*        ))}*/}
+                                {/*    </Select>*/}
+                                {/*    <FormHelperText>{formik.touched.transferableJob && formik.errors.transferableJob}</FormHelperText>*/}
+                                {/*</FormControl>*/}
+
+                                {/*{formik.values.transferableJob === "Yes" && (*/}
+                                {/*    <FormControl*/}
+                                {/*        fullWidth*/}
+                                {/*        margin="normal"*/}
+                                {/*        error={formik.touched.transferableJobReason && Boolean(formik.errors.transferableJobReason)}*/}
+                                {/*    >*/}
+                                {/*        <InputLabel>How Frequent is the new transfer</InputLabel>*/}
+                                {/*        <Select*/}
+                                {/*            id="transferableJobReason"*/}
+                                {/*            name="transferableJobReason"*/}
+                                {/*            value={formik.values.transferableJobReason}*/}
+                                {/*            onChange={formik.handleChange}*/}
+                                {/*        >*/}
+                                {/*            {["Less than a Year", "2-5 Years", "Not Systematic (Can happen anytime)"].map((option) => (*/}
+                                {/*                <MenuItem key={option} value={option}>*/}
+                                {/*                    {option}*/}
+                                {/*                </MenuItem>*/}
+                                {/*            ))}*/}
+                                {/*        </Select>*/}
+                                {/*        <FormHelperText>{formik.touched.transferableJobReason && formik.errors.transferableJobReason}</FormHelperText>*/}
+                                {/*    </FormControl>*/}
+                                {/*)}*/}
+
+                                <FormControl
+                                    fullWidth
+                                    margin="normal"
+                                    error={formik.touched.frequent && Boolean(formik.errors.frequent)}
+                                >
+                                    <InputLabel>How Frequent is the new transfer</InputLabel>
+                                    <Select
+                                        id="frequent"
+                                        name="frequent"
+                                        value={formik.values.frequent}
+                                        onChange={formik.handleChange}
                                     >
-                                        <FormControlLabel sx={{ color: "#00000099" }} value="male" control={<Radio />} label="Mother" />
-                                        <FormControlLabel sx={{ color: "#00000099" }} value="female" control={<Radio />} label="Father" />
-                                        <FormControlLabel sx={{ color: "#00000099" }} value="other" control={<Radio />} label="Both" />
-                                        <FormControlLabel sx={{ color: "#00000099" }} value="none" control={<Radio />} label="None" />
+                                        {["Less than a Year", "2-5 Years","Not Systematic(Can happen anytime)"].map((option) => (
+                                            <MenuItem key={option} value={option}>
+                                                {option}
+                                            </MenuItem>
+                                        ))}
+                                    </Select>
+                                    <FormHelperText>{formik.touched.frequent && formik.errors.frequent}</FormHelperText>
+                                </FormControl>
+                                <FormControl
+                                    fullWidth
+                                    margin="normal"
+                                    error={formik.touched.whatsappNumber && Boolean(formik.errors.whatsappNumber)}
+                                >
+                                    <InputLabel>WhatsApp Number of</InputLabel>
+                                    <Select
+                                        id="whatsappNumber"
+                                        name="whatsappNumber"
+                                        value={formik.values.whatsappNumber}
+                                        onChange={formik.handleChange}
+                                    >
+                                        {["Father", "Mother"].map((option) => (
+                                            <MenuItem key={option} value={option}>
+                                                {option}
+                                            </MenuItem>
+                                        ))}
+                                    </Select>
+                                    <FormHelperText>{formik.touched.whatsappNumber && formik.errors.whatsappNumber}</FormHelperText>
+                                </FormControl>
+                                <FormControl
+                                    fullWidth
+                                    margin="normal"
+                                    error={formik.touched.emailId && Boolean(formik.errors.emailId)}
+                                >
+                                    <InputLabel>Email ID</InputLabel>
+                                    <Select
+                                        id="emailId"
+                                        name="emailId"
+                                        value={formik.values.emailId}
+                                        onChange={formik.handleChange}
+                                    >
+                                        {["Father", "Mother"].map((option) => (
+                                            <MenuItem key={option} value={option}>
+                                                {option}
+                                            </MenuItem>
+                                        ))}
+                                    </Select>
+                                    <FormHelperText>{formik.touched.emailId && formik.errors.emailId}</FormHelperText>
+                                </FormControl>
+                                <Box display={{ sm: "flex" }} mt={{ xs: 2, sm: "unset" }} alignItems="center" margin="normal">
+                                    <FormLabel component="legend" sx={{ marginRight: '1rem' }}>Who is the Working Parent:</FormLabel>
+                                    <RadioGroup
+                                        name="workingParent"
+                                        value={formik.values.workingParent}
+                                        onChange={formik.handleChange}
+                                        row
+                                        error={formik.touched.workingParent && Boolean(formik.errors.workingParent)}
+                                    >
+                                        <FormControlLabel sx={{ color: "#00000099" }} value="Mother" control={<Radio />} label="Mother" />
+                                        <FormControlLabel sx={{ color: "#00000099" }} value="Father" control={<Radio />} label="Father" />
+                                        <FormControlLabel sx={{ color: "#00000099" }} value="Both" control={<Radio />} label="Both" />
+                                        <FormControlLabel sx={{ color: "#00000099" }} value="None" control={<Radio />} label="None" />
                                     </RadioGroup>
                                 </Box>
-
-
-
+                                <FormHelperText sx={{color:"#d32f2f"}}>
+                                    {formik.touched.workingParent && formik.errors.workingParent}
+                                </FormHelperText>
+                                    {/*{formik.touched.workingParent && formik.errors.workingParent && (*/}
+                                    {/*    <div style={{ color: "red" }}>{formik.errors.workingParent}</div>*/}
+                                    {/*)}*/}
+                                {/*<TextField*/}
+                                {/*    fullWidth*/}
+                                {/*    margin="normal"*/}
+                                {/*    id="emailId"*/}
+                                {/*    name="emailId"*/}
+                                {/*    label="Email ID"*/}
+                                {/*    value={formik.values.emailId}*/}
+                                {/*    onChange={formik.handleChange}*/}
+                                {/*    error={formik.touched.emailId && Boolean(formik.errors.emailId)}*/}
+                                {/*    helperText={formik.touched.emailId && formik.errors.emailId}*/}
+                                {/*/>*/}
 
                                 <Box sx={{ mt: "20px", display: "flex", justifyContent: "end" }}>
                                     <Button
                                         className="overpass"
                                         type="submit"
-                                        onClick={() => navigate("/shape-assessment")}
                                         sx={{
                                             backgroundColor: "#A6DE9B",
                                             py: "5px",
@@ -260,7 +356,7 @@ function FamilyInfo() {
                                             borderRadius: "30px",
                                             "&:hover": {
                                                 backgroundColor: "darkGreen",
-                                                color: "white",
+                                                color: "#fff",
                                             },
                                             mt: "10px",
                                             marginRight: 1,

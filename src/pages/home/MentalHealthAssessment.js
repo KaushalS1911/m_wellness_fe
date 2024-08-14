@@ -5,7 +5,7 @@ import home2 from "../../assets/home/home2.jpeg"
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import {useNavigate} from "react-router-dom";
 
-function MentalHealthAssessment(props) {
+export default function MentalHealthAssessment(props) {
     const navigate = useNavigate()
     return (
         <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: "60px",minHeight:"88vh",height:"100%",display:"flex",justifyContent:"center",alignItems:"center"}}>
@@ -97,4 +97,3 @@ function MentalHealthAssessment(props) {
     );
 }
 
-export default MentalHealthAssessment;

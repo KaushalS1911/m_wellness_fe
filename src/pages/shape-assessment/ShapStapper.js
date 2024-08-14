@@ -16,7 +16,7 @@ const style = {
     overflow: "hidden",
 };
 
-function ShapStapper({therapyQuestion,
+function    ShapStapper({therapyQuestion,
                          processMessage,
                          therapyTypes,
                          link,
@@ -83,7 +83,7 @@ function ShapStapper({therapyQuestion,
                                     fullWidth
                                     onClick={(e) => handlePoints(e, "valu")}
                                     value={therapy?.label}
-                                    disabled={points1?.length === 32 ? true : false}
+                                    disabled={apiOptions?.length === 33 ? true : false}
                                 >
                                     {therapy?.label}
                                 </TherapyButton>
