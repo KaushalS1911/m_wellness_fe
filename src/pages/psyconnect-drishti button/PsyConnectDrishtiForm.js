@@ -50,7 +50,7 @@ export default function PsyConnectDrishtiForm(props) {
         discuss: [],
         problem: '',
         startTime: dayjs().hour(9).minute(0),
-        endTime: dayjs().hour(21).minute(0)
+        // endTime: dayjs().hour(21).minute(0)
     }
     const formik = useFormik({
         initialValues: defaultValues,
@@ -62,16 +62,26 @@ export default function PsyConnectDrishtiForm(props) {
             addmissionNumber: Yup.string().required('Admission number is required'),
             contact: Yup.string()
                 .required('Contact number is required')
-                .matches(/^\d{10}$/, 'Contact number must be exactly 10 digits'),
+                .min(10, 'Contact number must be exactly 10 digits')
+                .max(10, 'Contact number must be exactly 10 digits')
+                .matches(/^\d+$/, 'Contact number must be numeric'),
             problem: Yup.string().required('Please explain your problem'),
-            startTime: Yup.date().nullable().required('Start time is required'),
-            endTime: Yup.date()
+            // startTime: Yup.date().nullable().required('Start time is required'),
+            startTime: Yup.date()
                 .nullable()
                 .required('End time is required')
                 .test(
-                    'is-before-9pm',
-                    'End time must be before 9 PM',
-                    (value) => !value || moment(value).isBefore(moment().hour(21).minute(1).second(0))
+                    'is-within-range',
+                    'End time must be between 9 AM and 9 PM',
+                    (value) => {
+                        if (!value) return false;
+
+                        const selectedTime = moment(value);
+                        const start = moment().hour(9).minute(0).second(0);
+                        const end = moment().hour(21).minute(0).second(0);
+
+                        return selectedTime.isBetween(start, end, 'minute', '[]');
+                    }
                 ),
             email: Yup.string().email('Invalid email address').required('Email is required'),
             discuss: Yup.array().min(1, 'Please select topics to discuss').required('Please select topics to discuss'),
@@ -312,9 +322,11 @@ export default function PsyConnectDrishtiForm(props) {
                                 <FormLabel sx={{my: 2}} component="legend">Preferred time to Call (Between Morning 9
                                     till Evening 9)</FormLabel>
                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                    <Box display="flex" justifyContent="space-evenly" mt={2}>
+                                    <Box display="flex" justifyContent="space-evenly" mt={2} width={"100%"}>
+                                        <Box mx={2} width={"100%"}>
                                         <TimePicker
                                             label="Start Time"
+                                            sx={{width:"100%"}}
                                             value={formik.values.startTime}
                                             onChange={(value) => formik.setFieldValue('startTime', value)}
                                             renderInput={(params) => (
@@ -331,31 +343,30 @@ export default function PsyConnectDrishtiForm(props) {
                                                 seconds: renderTimeViewClock,
                                             }}
                                         />
-                                        <Box mx={2}>
-                                            <TimePicker
-                                                label="End Time"
-                                                value={formik.values.endTime}
-                                                onChange={(value) => formik.setFieldValue('endTime', value)}
-                                                renderInput={(params) => (
-                                                    <TextField
-                                                        {...params}
-                                                        fullWidth
-                                                        error={formik.touched.endTime && Boolean(formik.errors.endTime)}
-                                                        helperText={formik.touched.endTime && formik.errors.endTime}
-                                                    />
-                                                )}
-                                                viewRenderers={{
-                                                    hours: renderTimeViewClock,
-                                                    minutes: renderTimeViewClock,
-                                                    seconds: renderTimeViewClock,
-                                                }}
-                                            />
-                                            {formik.touched.endTime && formik.errors.endTime ? (
+                                            {/*<TimePicker*/}
+                                            {/*    label="End Time"*/}
+                                            {/*    value={formik.values.endTime}*/}
+                                            {/*    onChange={(value) => formik.setFieldValue('endTime', value)}*/}
+                                            {/*    renderInput={(params) => (*/}
+                                            {/*        <TextField*/}
+                                            {/*            {...params}*/}
+                                            {/*            fullWidth*/}
+                                            {/*            error={formik.touched.endTime && Boolean(formik.errors.endTime)}*/}
+                                            {/*            helperText={formik.touched.endTime && formik.errors.endTime}*/}
+                                            {/*        />*/}
+                                            {/*    )}*/}
+                                            {/*    viewRenderers={{*/}
+                                            {/*        hours: renderTimeViewClock,*/}
+                                            {/*        minutes: renderTimeViewClock,*/}
+                                            {/*        seconds: renderTimeViewClock,*/}
+                                            {/*    }}*/}
+                                            {/*/>*/}
+                                            {formik.touched.startTime && formik.errors.startTime ? (
                                                 <FormHelperText sx={{
                                                     color: "#d32f2f",
                                                     fontSize: "13px",
                                                     fontWeight: 400
-                                                }}>{formik.errors.endTime}</FormHelperText>
+                                                }}>{formik.errors.startTime}</FormHelperText>
                                             ) : null}
                                         </Box>
                                     </Box>
