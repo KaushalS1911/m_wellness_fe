@@ -9,7 +9,7 @@ import {
     FormHelperText,
     FormLabel,
     InputLabel,
-    MenuItem,
+    MenuItem, OutlinedInput,
     Radio,
     RadioGroup,
     Select,
@@ -81,6 +81,7 @@ function FamilyInfo() {
                                 >
                                     <InputLabel>Family Type</InputLabel>
                                     <Select
+                                        input={<OutlinedInput label="Family Type"/>}
                                         id="familyType"
                                         name="familyType"
                                         value={formik.values.familyType}
@@ -102,6 +103,7 @@ function FamilyInfo() {
                                 >
                                     <InputLabel>Reason for Being Single Parent</InputLabel>
                                     <Select
+                                        input={<OutlinedInput label="Reason for Being Single Parent"/>}
                                         id="singleParentReason"
                                         name="singleParentReason"
                                         value={formik.values.singleParentReason}
@@ -139,26 +141,26 @@ function FamilyInfo() {
                                     error={formik.touched.fatherAge && Boolean(formik.errors.fatherAge)}
                                     helperText={formik.touched.fatherAge && formik.errors.fatherAge}
                                 />    <TextField
-                                    fullWidth
-                                    margin="normal"
-                                    id="fatherAge"
-                                    name="singleChild"
-                                    label="Whether Single Child"
-                                    value={formik.values.singleChild}
-                                    onChange={formik.handleChange}
-                                    error={formik.touched.singleChild && Boolean(formik.errors.singleChild)}
-                                    helperText={formik.touched.singleChild && formik.errors.singleChild}
-                                />    <TextField
-                                    fullWidth
-                                    margin="normal"
-                                    id="fatherAge"
-                                    name="sibling"
-                                    label="If No, Number of Siblings"
-                                    value={formik.values.sibling}
-                                    onChange={formik.handleChange}
-                                    error={formik.touched.sibling && Boolean(formik.errors.sibling)}
-                                    helperText={formik.touched.sibling && formik.errors.sibling}
-                                />
+                                fullWidth
+                                margin="normal"
+                                id="fatherAge"
+                                name="singleChild"
+                                label="Whether Single Child"
+                                value={formik.values.singleChild}
+                                onChange={formik.handleChange}
+                                error={formik.touched.singleChild && Boolean(formik.errors.singleChild)}
+                                helperText={formik.touched.singleChild && formik.errors.singleChild}
+                            />    <TextField
+                                fullWidth
+                                margin="normal"
+                                id="fatherAge"
+                                name="sibling"
+                                label="If No, Number of Siblings"
+                                value={formik.values.sibling}
+                                onChange={formik.handleChange}
+                                error={formik.touched.sibling && Boolean(formik.errors.sibling)}
+                                helperText={formik.touched.sibling && formik.errors.sibling}
+                            />
 
                                 {/*<FormControl*/}
                                 {/*    fullWidth*/}
@@ -256,6 +258,7 @@ function FamilyInfo() {
                                 >
                                     <InputLabel>How Frequent is the new transfer</InputLabel>
                                     <Select
+                                        input={<OutlinedInput label="How Frequent is the new transfer"/>}
                                         id="frequent"
                                         name="frequent"
                                         value={formik.values.frequent}
@@ -276,6 +279,7 @@ function FamilyInfo() {
                                 >
                                     <InputLabel>WhatsApp Number of</InputLabel>
                                     <Select
+                                        input={<OutlinedInput label="WhatsApp Number of"/>}
                                         id="whatsappNumber"
                                         name="whatsappNumber"
                                         value={formik.values.whatsappNumber}
@@ -296,6 +300,7 @@ function FamilyInfo() {
                                 >
                                     <InputLabel>Email ID</InputLabel>
                                     <Select
+                                        input={<OutlinedInput label="Email ID"/>}
                                         id="emailId"
                                         name="emailId"
                                         value={formik.values.emailId}
@@ -327,9 +332,9 @@ function FamilyInfo() {
                                 <FormHelperText sx={{color:"#d32f2f"}}>
                                     {formik.touched.workingParent && formik.errors.workingParent}
                                 </FormHelperText>
-                                    {/*{formik.touched.workingParent && formik.errors.workingParent && (*/}
-                                    {/*    <div style={{ color: "red" }}>{formik.errors.workingParent}</div>*/}
-                                    {/*)}*/}
+                                {/*{formik.touched.workingParent && formik.errors.workingParent && (*/}
+                                {/*    <div style={{ color: "red" }}>{formik.errors.workingParent}</div>*/}
+                                {/*)}*/}
                                 {/*<TextField*/}
                                 {/*    fullWidth*/}
                                 {/*    margin="normal"*/}

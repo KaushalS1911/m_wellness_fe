@@ -110,10 +110,10 @@
 //                             <form onSubmit={handleSubmit}>
 //                                 <FormControl fullWidth margin="normal">
 //                                     <InputLabel sx={{
-//                                         backgroundColor: formValues.organization ? 'white' : 'white',
+//                                         backgroundColor: formValues.organization ? '#fff' : '#fff',
 //                                         px: 1,
 //                                         '&.Mui-focused': {
-//                                             backgroundColor: 'white',
+//                                             backgroundColor: '#fff',
 //                                         },
 //                                     }}>Organization</InputLabel>
 //                                     <Select
@@ -168,10 +168,10 @@
 //
 //                                 <FormControl fullWidth margin="normal">
 //                                     <InputLabel sx={{
-//                                         backgroundColor: formValues.organization ? 'white' : 'white',
+//                                         backgroundColor: formValues.organization ? '#fff' : '#fff',
 //                                         px: 1,
 //                                         '&.Mui-focused': {
-//                                             backgroundColor: 'white',
+//                                             backgroundColor: '#fff',
 //                                         },
 //                                     }}>Age</InputLabel>
 //                                     <Select
@@ -226,7 +226,7 @@
 //                                             borderRadius: "30px",
 //                                             "&:hover": {
 //                                                 backgroundColor: "darkGreen",
-//                                                 color: "white",
+//                                                 color: "#fff",
 //                                             },
 //                                             mt: "10px", marginRight: 1
 //                                         }}
@@ -265,7 +265,7 @@ import {
     Select,
     Modal,
     Typography,
-    TextField
+    TextField, OutlinedInput
 } from "@mui/material";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -393,16 +393,17 @@ function GetStartedForm(props) {
                                 <FormControl fullWidth margin="normal">
                                     <InputLabel
                                         sx={{
-                                            backgroundColor: formik.values.organization ? 'white' : 'white',
+                                            backgroundColor: formik.values.organization ? '#fff' : '#fff',
                                             px: 1,
                                             '&.Mui-focused': {
-                                                backgroundColor: 'white',
+                                                backgroundColor: '#fff',
                                             },
                                         }}
                                     >
                                         Organization
                                     </InputLabel>
                                     <Select
+                                        input={<OutlinedInput label="Organization"/>}
                                         name="organization"
                                         value={formik.values.organization}
                                         onChange={formik.handleChange}
@@ -466,10 +467,10 @@ function GetStartedForm(props) {
                                 <FormControl fullWidth margin="normal">
                                     <InputLabel
                                         sx={{
-                                            backgroundColor: formik.values.age ? 'white' : 'white',
+                                            backgroundColor: formik.values.age ? '#fff' : '#fff',
                                             px: 1,
                                             '&.Mui-focused': {
-                                                backgroundColor: 'white',
+                                                backgroundColor: '#fff',
                                             },
                                         }}
                                     >
@@ -524,7 +525,7 @@ function GetStartedForm(props) {
                                             borderRadius: "30px",
                                             "&:hover": {
                                                 backgroundColor: "darkGreen",
-                                                color: "white",
+                                                color: "#fff",
                                             },
                                             mt: "10px",
                                             marginRight: 1,
@@ -576,11 +577,11 @@ function GetStartedForm(props) {
                                 px: "28px",
                                 textTransform: "unset",
                                 fontSize: "20px",
-                                color: "white",
+                                color: "#fff",
                                 borderRadius: "10px",
                                 "&:hover": {
                                     backgroundColor: "green",
-                                    color: "white",
+                                    color: "#fff",
                                 },
                                 mt: "10px",
                                 marginRight:2

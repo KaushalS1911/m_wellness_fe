@@ -17,15 +17,15 @@ const style = {
 };
 
 function    ShapStapper({therapyQuestion,
-                         processMessage,
-                         therapyTypes,
-                         link,
-                         submit,
-                         points,
-                         handlePoints,
-                         points1,
-                         handleBack,
-                         apiOptions}) {
+                            processMessage,
+                            therapyTypes,
+                            link,
+                            submit,
+                            points,
+                            handlePoints,
+                            points1,
+                            handleBack,
+                            apiOptions}) {
     const [open, setOpen] = React.useState(false);
     const navigate = useNavigate()
     const handleOpen = () => setOpen(true);
@@ -33,6 +33,9 @@ function    ShapStapper({therapyQuestion,
     const [email, setEmail] = useState('');
     const [error, setError] = useState(false);
     const [helperText, setHelperText] = useState('');
+    const  handleSubmit=  () =>{
+        console.log(apiOptions)
+    }
     const TherapyButton = ({fullWidth, children, onClick, value, disabled}) => (
         <Grid item xs={12}>
             <Button
@@ -172,6 +175,7 @@ function    ShapStapper({therapyQuestion,
                             <Button
                                 className="overpass"
                                 // onClick={handleSubmit}
+                                onClick={handleSubmit}
                                 sx={{
                                     backgroundColor: "darkGreen",
                                     py: "5px",

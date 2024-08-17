@@ -8,7 +8,7 @@ import {
     FormControl, FormControlLabel, FormGroup, FormHelperText,
     FormLabel,
     InputLabel,
-    MenuItem, Radio,
+    MenuItem, OutlinedInput, Radio,
     RadioGroup,
     Select,
     TextField
@@ -19,7 +19,7 @@ import { renderTimeViewClock } from '@mui/x-date-pickers/timeViewRenderers';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 // import {LocalizationProvider, TimePicker} from "@mui/x-date-pickers";
 // import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-
+import dayjs from 'dayjs';
 export default function PsyConnectDrishtiForm(props) {
     const navigate = useNavigate();
     const [age, setAge] = useState([]);
@@ -42,22 +42,25 @@ export default function PsyConnectDrishtiForm(props) {
             email: '',
             discuss: [],
             problem:'',
-            time:null
+            startTime: dayjs().hour(9).minute(0),
+            endTime: dayjs().hour(21).minute(0)
         },
         validationSchema: Yup.object({
             name: Yup.string().required('Name is required'),
             age: Yup.number().required('Age is required'),
             gender: Yup.string().required('Gender is required'),
             branch: Yup.string().required('Branch is required'),
-            admissionNumber: Yup.string().required('Admission number is required'),
-            contact: Yup.string().required('Contact number is required'),
+            addmissionNumber: Yup.string().required('Admission number is required'),
+            contact: Yup.string()
+                .required('Contact number is required')
+                .matches(/^\d{10}$/, 'Contact number must be exactly 10 digits'),
             problem: Yup.string().required('Please explain your problem'),
-            time: Yup.date().nullable().required('Time is required'),
+            startTime: Yup.date().nullable().required('Start time is required'),
+            endTime: Yup.date().nullable().required('End time is required'),
             email: Yup.string().email('Invalid email address').required('Email is required'),
             discuss: Yup.array().min(1, 'Please select topics to discuss').required('Please select topics to discuss'),
         }),
         onSubmit: (values) => {
-            alert("jj")
             console.log(values)
         }})
     const branch = ["Karol Bagh","Nehru Vihar","Jaipur","Prayagraj","Lucknow","Indor"]
@@ -100,10 +103,10 @@ export default function PsyConnectDrishtiForm(props) {
                                 <FormControl fullWidth margin="normal">
                                     <InputLabel
                                         sx={{
-                                            backgroundColor: formik.values.age ? 'white' : 'white',
+                                            backgroundColor: formik.values.age ? '#fff' : '#fff',
                                             px: 1,
                                             '&.Mui-focused': {
-                                                backgroundColor: 'white',
+                                                backgroundColor: '#fff',
                                             },
                                         }}
                                     >
@@ -111,6 +114,7 @@ export default function PsyConnectDrishtiForm(props) {
                                     </InputLabel>
                                     <Select
                                         name="age"
+                                        input={<OutlinedInput label="Age"/>}
                                         value={formik.values.age}
                                         onChange={formik.handleChange}
                                         error={formik.touched.age && Boolean(formik.errors.age)}
@@ -122,7 +126,7 @@ export default function PsyConnectDrishtiForm(props) {
                                         ))}
                                     </Select>
                                     {formik.touched.age && formik.errors.age ? (
-                                        <div style={{color:"red"}}>{formik.errors.age}</div>
+                                        <div style={{color:"#d32f2f",fontSize:"13px",fontWeight:400}}>{formik.errors.age}</div>
                                     ) : null}
                                 </FormControl>
 
@@ -141,21 +145,22 @@ export default function PsyConnectDrishtiForm(props) {
                                     </RadioGroup>
                                 </Box>
                                 {formik.touched.gender && formik.errors.gender ? (
-                                    <div style={{color:"red"}}>{formik.errors.gender}</div>
+                                    <div style={{color:"#d32f2f",fontSize:"13px",fontWeight:400}}>{formik.errors.gender}</div>
                                 ) : null}
                                 <FormControl fullWidth margin="normal">
                                     <InputLabel
                                         sx={{
-                                            backgroundColor: formik.values.age ? 'white' : 'white',
+                                            backgroundColor: formik.values.age ? '#fff' : '#fff',
                                             px: 1,
                                             '&.Mui-focused': {
-                                                backgroundColor: 'white',
+                                                backgroundColor: '#fff',
                                             },
                                         }}
                                     >
                                         Drishti IAS Branch
                                     </InputLabel>
                                     <Select
+                                        input={<OutlinedInput label="Drishti IAS Branch"/>}
                                         name="branch"
                                         value={formik.values.branch}
                                         onChange={formik.handleChange}
@@ -168,7 +173,7 @@ export default function PsyConnectDrishtiForm(props) {
                                         ))}
                                     </Select>
                                     {formik.touched.branch && formik.errors.branch ? (
-                                        <div style={{color:"red"}}>{formik.errors.branch}</div>
+                                        <div style={{color:"#d32f2f",fontSize:"13px",fontWeight:400}}>{formik.errors.branch}</div>
                                     ) : null}
                                 </FormControl>
                                 <TextField
@@ -232,6 +237,8 @@ export default function PsyConnectDrishtiForm(props) {
                                 </FormControl>
                                 <TextField
                                     fullWidth
+                                    multiline={true}
+                                    rows={4}
                                     margin="normal"
                                     label="Briefly explain your problem"
                                     name="problem"
@@ -240,26 +247,47 @@ export default function PsyConnectDrishtiForm(props) {
                                     error={formik.touched.problem && Boolean(formik.errors.problem)}
                                     helperText={formik.touched.problem && formik.errors.problem}
                                 />
+                                <FormLabel sx={{my:2}} component="legend">Preferred time to Call (Between Morning 9 till Evening 9)</FormLabel>
                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                    <TimePicker
-                                        sx={{width:"100%",mt:2}}
-                                        label="Preferred time to Call (Between Morning 9 till Evening 9)"
-                                        value={formik.values.time}
-                                        onChange={(value) => formik.setFieldValue('time', value)}
-                                        renderInput={(params) => (
-                                            <TextField
-                                                {...params}
-                                                fullWidth
-                                                error={formik.touched.time && Boolean(formik.errors.time)}
-                                                helperText={formik.touched.time && formik.errors.time}
-                                            />
-                                        )}
-                                        viewRenderers={{
-                                            hours: renderTimeViewClock,
-                                            minutes: renderTimeViewClock,
-                                            seconds: renderTimeViewClock,
-                                        }}
-                                    />
+                                    <Box display="flex" justifyContent="space-evenly" mt={2}>
+                                        <TimePicker
+                                            label="Start Time"
+                                            value={formik.values.startTime}
+                                            onChange={(value) => formik.setFieldValue('startTime', value)}
+                                            renderInput={(params) => (
+                                                <TextField
+                                                    {...params}
+                                                    fullWidth
+                                                    error={formik.touched.startTime && Boolean(formik.errors.startTime)}
+                                                    helperText={formik.touched.startTime && formik.errors.startTime}
+                                                />
+                                            )}
+                                            viewRenderers={{
+                                                hours: renderTimeViewClock,
+                                                minutes: renderTimeViewClock,
+                                                seconds: renderTimeViewClock,
+                                            }}
+                                        />
+                                        <Box mx={2}></Box>
+                                        <TimePicker
+                                            label="End Time"
+                                            value={formik.values.endTime}
+                                            onChange={(value) => formik.setFieldValue('endTime', value)}
+                                            renderInput={(params) => (
+                                                <TextField
+                                                    {...params}
+                                                    fullWidth
+                                                    error={formik.touched.endTime && Boolean(formik.errors.endTime)}
+                                                    helperText={formik.touched.endTime && formik.errors.endTime}
+                                                />
+                                            )}
+                                            viewRenderers={{
+                                                hours: renderTimeViewClock,
+                                                minutes: renderTimeViewClock,
+                                                seconds: renderTimeViewClock,
+                                            }}
+                                        />
+                                    </Box>
                                 </LocalizationProvider>
                                 <Box sx={{ mt: "20px", display: "flex", justifyContent: "end" }}>
                                     <Button
@@ -291,4 +319,3 @@ export default function PsyConnectDrishtiForm(props) {
         </>
     );
 }
-
