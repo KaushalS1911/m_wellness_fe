@@ -33,7 +33,6 @@ function Header(props) {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [location.pathname]);
-    console.log(location)
     const handleDrawerToggle = () => {
         setDrawerOpen(!drawerOpen);
     };
