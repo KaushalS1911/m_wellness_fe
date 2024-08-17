@@ -69,10 +69,10 @@ export default function PsyConnectDrishtiForm(props) {
             // startTime: Yup.date().nullable().required('Start time is required'),
             startTime: Yup.date()
                 .nullable()
-                .required('Start time is required')
+                .required('Call time is required')
                 .test(
                     'is-within-range',
-                    'Start time must be between 9 AM and 9 PM',
+                    'Call time must be between 9 AM to 9 PM',
                     (value) => {
                         if (!value) return false;
 
@@ -325,7 +325,7 @@ export default function PsyConnectDrishtiForm(props) {
                                     <Box display="flex" justifyContent="space-evenly" mt={2} width={"100%"}>
                                         <Box mx={2} width={"100%"}>
                                         <TimePicker
-                                            label="Start Time"
+                                            label="Call Time"
                                             sx={{width:"100%"}}
                                             value={formik.values.startTime}
                                             onChange={(value) => formik.setFieldValue('startTime', value)}
