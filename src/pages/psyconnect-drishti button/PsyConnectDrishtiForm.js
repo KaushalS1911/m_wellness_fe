@@ -69,10 +69,10 @@ export default function PsyConnectDrishtiForm(props) {
             // startTime: Yup.date().nullable().required('Start time is required'),
             startTime: Yup.date()
                 .nullable()
-                .required('End time is required')
+                .required('Start time is required')
                 .test(
                     'is-within-range',
-                    'End time must be between 9 AM and 9 PM',
+                    'Start time must be between 9 AM and 9 PM',
                     (value) => {
                         if (!value) return false;
 
