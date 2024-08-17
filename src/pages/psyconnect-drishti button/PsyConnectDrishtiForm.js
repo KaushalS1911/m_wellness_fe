@@ -421,7 +421,7 @@ export default function PsyConnectDrishtiForm(props) {
                         }}
                     >
                         <Typography id="modal-title" variant="h6" component="h2" sx={{paddingLeft: 2, paddingTop: 2}}>
-                            {error ? "Student result not created" : "Thank you for applying we will contact you soon"}
+                            {error ? "Something went wrong, student record not created" : "Thank you for contacting us. We will get back to you soon"}
                         </Typography>
                         {/*<Typography id="modal-description" sx={{ mt: 2 }}>*/}
                         {/*    This is a responsive modal without a border. Resize the window to see the responsiveness.*/}
