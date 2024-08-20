@@ -49,7 +49,7 @@ function ShapAssessment(props) {
         validationSchema: validationSchema,
         onSubmit: (values) => {
             console.log(values);
-            navigate("/shape-femaly");
+            navigate("/shape-family");
         },
     });
 

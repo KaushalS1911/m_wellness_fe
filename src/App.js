@@ -44,7 +44,7 @@ export default function App() {
         <Route path="/emotional" element={<GetStartedHome />} />
         <Route path="/assessment/:id" element={<PointTable />} />
         <Route path="/shape-form" element={<ShapAssessment />} />
-        <Route path="/shape-femaly" element={<FamilyInfo />} />
+        <Route path="/shape-family" element={<FamilyInfo />} />
         <Route path="/shape-assessment" element={<ShapAssementStape />} />
         {/*<Route path="about" element={<About />} />*/}
         {/*<Route path="business" element={<BusinessPage />} />*/}
