@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.bb5d31e0.css",
-    "main.js": "/static/js/main.67a00be8.js",
+    "main.css": "/static/css/main.6ae4638b.css",
+    "main.js": "/static/js/main.abbbf008.js",
     "static/media/bg-gradient-texture.png": "/static/media/bg-gradient-texture.9738b78b326169e4f539.png",
     "static/media/carousel-4.png": "/static/media/carousel-4.9e37585991f42d7ecc27.png",
     "static/media/carousel-6.png": "/static/media/carousel-6.22d3b5d4a0216b95d50f.png",
@@ -107,11 +107,11 @@
     "static/media/quote-left.svg": "/static/media/quote-left.b61b5ea8cc2c7b106976b529fa757541.svg",
     "static/media/quote-right.svg": "/static/media/quote-right.95983c60418de02595e060196be66aa1.svg",
     "static/media/line-squiggle.svg": "/static/media/line-squiggle.a3c4eefc9983f6bd40fc99a662a352b2.svg",
-    "main.bb5d31e0.css.map": "/static/css/main.bb5d31e0.css.map",
-    "main.67a00be8.js.map": "/static/js/main.67a00be8.js.map"
+    "main.6ae4638b.css.map": "/static/css/main.6ae4638b.css.map",
+    "main.abbbf008.js.map": "/static/js/main.abbbf008.js.map"
   },
   "entrypoints": [
-    "static/css/main.bb5d31e0.css",
-    "static/js/main.67a00be8.js"
+    "static/css/main.6ae4638b.css",
+    "static/js/main.abbbf008.js"
   ]
 }
