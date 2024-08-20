@@ -65,7 +65,7 @@ const [workingParent,setWorkingParent] = useState('')
         validationSchema: validationSchema,
         onSubmit: (values) => {
             console.log(values);
-            // navigate("/shape-assessment");
+            navigate("/shape-assessment");
         },
     });
     return (
