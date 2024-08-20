@@ -27,17 +27,22 @@ const [whether,setWhether] = useState('')
 const [workingParent,setWorkingParent] = useState('')
     const validationSchema = Yup.object({
         familyType: Yup.string().required('Family Type is required'),
-        singleParentReason: Yup.string().required('Reason is required'),
+        // singleParentReason: Yup.string().required('Reason is required'),
         motherAge: Yup.number().required('Mother Age is required').min(18, 'Age must be at least 18'),
         fatherAge: Yup.number().required('Father Age is required').min(18, 'Age must be at least 18'),
         singleChild: Yup.string().required('Single Child Required'),
-        sibling:Yup.string().required('Number of Siblings is required'),
+        // sibling:Yup.string().required('Number of Siblings is required'),
         transferableJob: Yup.string().required('This Field is Required'),
-        frequent: Yup.string().required('Frequent is the new transfer is required'),
+        // frequent: Yup.string().required('Frequent is the new transfer is required'),
         workingParent: Yup.string().required('Working Parent is required'),
-        whatsappNumber: Yup.string().required('Whatsapp Number is required'),
+        whatsappNumber: Yup.string()
+            .required('Whatsapp number is required')
+            .min(10, 'Whatsapp number must be exactly 10 digits')
+            .max(10, 'Whatsapp number must be exactly 10 digits')
+            .matches(/^\d+$/, 'Whatsapp number must be numeric'),
+        // whatsappNumber: Yup.string().required('Whatsapp Number is required'),
         whatsappNumber1: Yup.string().required('Please select either \'Father\' or \'Mother\' before proceeding.'),
-        emailId: Yup.string().required('Email is required'),
+        emailId: Yup.string().email("Email format is required").required('Email is required'),
         emailId1: Yup.string().required('Please select either \'Father\' or \'Mother\' before proceeding.'),
     });
 
@@ -60,7 +65,7 @@ const [workingParent,setWorkingParent] = useState('')
         validationSchema: validationSchema,
         onSubmit: (values) => {
             console.log(values);
-            navigate("/shape-assessment");
+            // navigate("/shape-assessment");
         },
     });
     return (
