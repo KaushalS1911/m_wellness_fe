@@ -55,42 +55,42 @@ export default function MentalHealthAssessment(props) {
                            </Box>
                        </Box>
                    </Box>
-                   <Box sx={{mt: 5}}>
-                       <Box sx={{
-                           minHeight: "422px",
-                           width: {sm:"400px",xs:"100%"},
-                           backgroundColor: "#fff",
-                           borderRadius: 8,
-                           padding: "24px"
-                       }}>
-                           <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass">
-                               SHAPE K-12 Assessment Test
-                           </Box>
-                           <Box sx={{fontSize: "18px", color: "#444444", mt: 4}}>
-                               OCD, or Obsessive Compulsive Disorder, is a common mental health concern that many people struggle with. However, it
-                           </Box>
-                           <Box sx={{display: {sm:"flex"}, justifyContent: "space-between", mt: 7}}>
-                               <Box sx={{height: "140px", width: "140px", borderRadius: 5, overflow: "hidden"}}>
-                                   <img src={home2} alt="first"/>
-                               </Box>
-                               <Box sx={{display:"flex",alignItems:"end"}}>
-                                   <Box>
-                                       <Box sx={{color:"#a7a7a7",display:"flex",alignItems:"center"}}>
-                                           <CalendarTodayIcon /> <Box sx={{marginLeft:1}}>5 mins quiz</Box>
-                                           {/*<i className="fa-regular fa-calendar" ></i>*/}
-                                       </Box>
-                                       <Box sx={{color:"darkGreen" ,mt:4,textDecoration:"underline",fontWeight:600,cursor:"pointer"}} onClick={() => {
-                                           sessionStorage.clear()
-                                           navigate("/shape-form")
+                   {/*<Box sx={{mt: 5}}>*/}
+                   {/*    <Box sx={{*/}
+                   {/*        minHeight: "422px",*/}
+                   {/*        width: {sm:"400px",xs:"100%"},*/}
+                   {/*        backgroundColor: "#fff",*/}
+                   {/*        borderRadius: 8,*/}
+                   {/*        padding: "24px"*/}
+                   {/*    }}>*/}
+                   {/*        <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass">*/}
+                   {/*            SHAPE K-12 Assessment Test*/}
+                   {/*        </Box>*/}
+                   {/*        <Box sx={{fontSize: "18px", color: "#444444", mt: 4}}>*/}
+                   {/*            OCD, or Obsessive Compulsive Disorder, is a common mental health concern that many people struggle with. However, it*/}
+                   {/*        </Box>*/}
+                   {/*        <Box sx={{display: {sm:"flex"}, justifyContent: "space-between", mt: 7}}>*/}
+                   {/*            <Box sx={{height: "140px", width: "140px", borderRadius: 5, overflow: "hidden"}}>*/}
+                   {/*                <img src={home2} alt="first"/>*/}
+                   {/*            </Box>*/}
+                   {/*            <Box sx={{display:"flex",alignItems:"end"}}>*/}
+                   {/*                <Box>*/}
+                   {/*                    <Box sx={{color:"#a7a7a7",display:"flex",alignItems:"center"}}>*/}
+                   {/*                        <CalendarTodayIcon /> <Box sx={{marginLeft:1}}>5 mins quiz</Box>*/}
+                   {/*                        /!*<i className="fa-regular fa-calendar" ></i>*!/*/}
+                   {/*                    </Box>*/}
+                   {/*                    <Box sx={{color:"darkGreen" ,mt:4,textDecoration:"underline",fontWeight:600,cursor:"pointer"}} onClick={() => {*/}
+                   {/*                        sessionStorage.clear()*/}
+                   {/*                        navigate("/shape-form")*/}
 
-                                       }}>
-                                           TAKE ASSESSMENT
-                                       </Box>
-                                   </Box>
-                               </Box>
-                           </Box>
-                       </Box>
-                   </Box>
+                   {/*                    }}>*/}
+                   {/*                        TAKE ASSESSMENT*/}
+                   {/*                    </Box>*/}
+                   {/*                </Box>*/}
+                   {/*            </Box>*/}
+                   {/*        </Box>*/}
+                   {/*    </Box>*/}
+                   {/*</Box>*/}
                </Box>
             </Container>
         </Box>

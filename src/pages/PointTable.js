@@ -124,7 +124,8 @@ function PointTable(props) {
                             backgroundColor: "#397a4a4a",
                             my: "30px",
                             padding: "20px",
-                            borderRadius: "15px"
+                            borderRadius: "15px",
+                            textAlign:"justify"
                         }}>
                             {language === "hindi" ? <>
                                 <Typography> नमस्ते,
