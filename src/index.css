@@ -196,3 +196,6 @@ img {
 .listStyle li{
   list-style-type: unset !important;
 }
+.MuiGauge-root .MuiGauge-valueArc {
+  fill: #FF8A2D !important;
+}

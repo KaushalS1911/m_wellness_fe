@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Box, Container} from '@mui/material';
+import {Box, Container, GlobalStyles} from '@mui/material';
 import {Gauge, gaugeClasses} from '@mui/x-charts';
 import {useParams} from "react-router-dom"
 import Typography from "@mui/material/Typography";
@@ -100,17 +100,15 @@ function PointTable(props) {
                             value={per}
                             startAngle={-110}
                             endAngle={110}
+                            text={id}
                             sx={{
                                 [`& .${gaugeClasses.valueText}`]: {
                                     fontSize: 40,
                                     transform: 'translate(0px, 0px)',
-                                    fontWeight: 700
+                                    fontWeight: 700,
+                                    color: 'red',
                                 },
-                                "& .css-b9rdri-MuiGauge-referenceArc": {
-                                    fill: "#325343 !important"
-                                }
                             }}
-                            text={id}
                         />
                     </Box>
                     <Box sx={{display: "flex", justifyContent: "center"}}>
