@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import {Box, Container, GlobalStyles} from '@mui/material';
+import {Box, Card, Container, GlobalStyles} from '@mui/material';
 import {Gauge, gaugeClasses} from '@mui/x-charts';
 import {useParams} from "react-router-dom"
 import Typography from "@mui/material/Typography";
-
+import background from "../assets/score/pexels-photo-5699431-1-1024x682.jpeg.jpg"
 function PointTable(props) {
     const [points, setPoints] = useState(75);
     const language = sessionStorage.getItem("language");
@@ -20,12 +20,12 @@ function PointTable(props) {
         switch (true) {
             case data >= 50 && data <= 60 :
                 return {
-                    desc: "You have demonstrated excellent stress management, emotional resilience, and decision - making skills, which are crucial for your exam preparation.Your ability to stay calm under pressure and maintain a positive mindset is commendable, and these traits will serve you well not only in your exams but also in your future career.Keep up the good work, continue refining your skills, and remember that consistent effort and self - belief are key to achieving your goals.With your determination and resilience, you are well-equipped to overcome any challenges that come your way.",
+                    desc: "You have demonstrated excellent stress management, emotional resilience, and decision making skills, which are crucial for your exam preparation.Your ability to stay calm under pressure and maintain a positive mindset is commendable, and these traits will serve you well not only in your exams but also in your future career.Keep up the good work, continue refining your skills, and remember that consistent effort and self - belief are key to achieving your goals.With your determination and resilience, you are well-equipped to overcome any challenges that come your way.",
                     color: "#325343"
                 }
             case data >= 40 && data <= 49 :
                 return {
-                    desc: "You have demonstrated good skills and behaviors, but there are some areas that could benefit from improvement.Focus on enhancing your stress management techniques and decision-making strategies to be fully prepared for the challenges ahead.Developing a robust set of stress management skills will help you stay calm and focused under pressure, while refining your decision-making strategies will ensure you can navigate complex situations with confidence. By addressing these areas, you'll be better equipped to tackle any obstacles and achieve your goals more effectively.",
+                    desc: "You have demonstrated good skills and behaviors, but there are some areas that could benefit from improvement.Focus on enhancing your stress management techniques and decision making strategies to be fully prepared for the challenges ahead.Developing a robust set of stress management skills will help you stay calm and focused under pressure, while refining your decision-making strategies will ensure you can navigate complex situations with confidence. By addressing these areas, you'll be better equipped to tackle any obstacles and achieve your goals more effectively.",
                     color: "green"
                 };
             case data >= 30 && data <= 39 :
@@ -80,62 +80,86 @@ function PointTable(props) {
 
         }
     }
+    // 508D4E
+    // 1A5319
 
     return (
         <>
-            <Box sx={{mt: 20, mb: 5}}>
+            <Box sx={{pt: 20, mb: 5, background: `linear-gradient(
+            rgba(000, 0, 0, 0.5), 
+            rgba(000, 0, 0, 0.5) 
+          ), url(${background})`,backgroundSize:"cover",backgroundRepeat:"no-repeat"}}>
                 <Container>
-                    <Box
-                        sx={{fontSize: '28px', fontWeight: '700', textAlign: 'center'}}
-                        className="overpass title"
-                    >
-                        Assessment Score
-                    </Box>
-                    <Box sx={{textAlign: 'center', color: 'gray'}}>
-                        Here are your results
-                    </Box>
-                    <Box sx={{display: "flex", justifyContent: "center", my: 3}}>
-                        <Gauge
-                            {...settings}
-                            value={per}
-                            startAngle={-110}
-                            endAngle={110}
-                            text={id}
-                            sx={{
-                                [`& .${gaugeClasses.valueText}`]: {
-                                    fontSize: 40,
-                                    transform: 'translate(0px, 0px)',
-                                    fontWeight: 700,
-                                    color: 'red',
-                                },
-                            }}
-                        />
-                    </Box>
-                    <Box sx={{display: "flex", justifyContent: "center"}}>
-                        <Box sx={{textAlign: "center", width: "250px", fontSize: "18px",letterSpacing: -0.25}} className={"overpass"} >
-                            Interpretation and feedback based on your inputs</Box>
-                    </Box>
+                  <Box sx={{display:"flex",justifyContent:"center",alignItems:"center",width:"100%"}}>
+                      <Box sx={{
+                          backgroundColor: "#fff",
+                          width: {sm:"550px",xs:"100%"},
+                          my: "30px",
+                          borderRadius: "15px",
+                          padding: "40px 30px",
+                      }}>
+                          <Box
+                              sx={{fontSize: '28px', fontWeight: '700', textAlign: 'center'}}
+                              className="overpass title"
+                          >
+                              Assessment Score
+                          </Box>
+                          <Box sx={{textAlign: 'center', color: 'gray'}}>
+                              Here are your results
+                          </Box>
+                          <Box sx={{display: "flex", justifyContent: "center", my: 3}}>
+                              <Gauge
+                                  {...settings}
+                                  value={per}
+                                  startAngle={-110}
+                                  endAngle={110}
+                                  text={id}
+                                  sx={{
+                                      [`& .${gaugeClasses.valueText}`]: {
+                                          fontSize: 40,
+                                          transform: 'translate(0px, 0px)',
+                                          fontWeight: 700,
+                                          color: 'red',
+                                      },
+                                      "&.MuiGauge-root .MuiGauge-valueArc" :{
+                                          fill: id >= 50 ? "#1A5319" :id >= 40 ? "#508D4E" :id >= 30 ? "#FFB200" :id >= 20 ? "#EB5B00" :"#C80036"
+                                      },
+                                      "&.css-nxtzjj" :{
+                                          fill: id >= 50 ? "" :""
+                                      }
+                                  }}
+                              />
+                          </Box>
+                          <Box sx={{display: "flex", justifyContent: "center"}}>
+                              <Box sx={{textAlign: "center", width: "250px", fontSize: "18px",letterSpacing: -0.25}} className={"overpass"} >
+                                  Interpretation and feedback based on your inputs</Box>
+                          </Box>
 
-                    <Box sx={{display: "flex", justifyContent: "center"}}>
-                        <Box sx={{
-                            width: {sm:"500px",xs:"100%"},
-                            backgroundColor: "#397a4a4a",
-                            my: "30px",
-                            padding: "20px",
-                            borderRadius: "15px",
-                            textAlign:"justify"
-                        }}>
-                            {language === "hindi" ? <>
-                                <Typography> नमस्ते,
-                                </Typography><Typography sx={{my: 2}}> आपके द्वारा दिए गए उत्तरों के आधार पर हम आपके साथ फीडबैक साझा कर रहे हैं।
-                                </Typography> {descHindi(id).desc}</> : <>
-                                <Typography> Namaste,
-                                </Typography> <Typography sx={{my:2}}> Basis the answers provided by you, we are sharing the feedback with you.
-                                </Typography>
-                                {descEng(id).desc}</>}
-                        </Box>
-                    </Box>
+                          <Box sx={{display: "flex", justifyContent: "center"}}>
+                              <Box sx={{
+                                  width: {sm:"550px",xs:"100%"},
+                                  backgroundColor: "rgba(215, 215, 215, 0.5)",
+                                  backdropFilter: "blur(100px)",
+                                  border: "1px solid rgba(255, 255, 255, 0.3)",
+                                  my: "30px",
+                                  padding: "20px",
+                                  borderRadius: "15px",
+                                  textAlign:"justify",
+                                  fontSize:"17px"
+                              }}>
+                                  {language === "hindi" ? <>
+                                      <Typography> नमस्ते,
+                                      </Typography><Typography sx={{my: 2}}> आपके द्वारा दिए गए उत्तरों के आधार पर हम आपके साथ फीडबैक साझा कर रहे हैं।
+                                  </Typography> {descHindi(id).desc}</> : <>
+                                      <Typography> Namaste,
+                                      </Typography> <Box sx={{my:2}}> Basis the answers provided by you, we are sharing the feedback with you.
+                                  </Box>
+                                      {descEng(id).desc}</>}
+                              </Box>
+                          </Box>
 
+                      </Box>
+                  </Box>
                 </Container>
             </Box>
         </>
