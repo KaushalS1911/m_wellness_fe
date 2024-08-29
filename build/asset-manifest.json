@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.bb5d31e0.css",
-    "main.js": "/static/js/main.bd5ed241.js",
+    "main.js": "/static/js/main.4c94ae6e.js",
     "static/media/bg-gradient-texture.png": "/static/media/bg-gradient-texture.9738b78b326169e4f539.png",
     "static/media/carousel-4.png": "/static/media/carousel-4.9e37585991f42d7ecc27.png",
     "static/media/carousel-6.png": "/static/media/carousel-6.22d3b5d4a0216b95d50f.png",
@@ -17,6 +17,7 @@
     "static/media/meet-5.jpg": "/static/media/meet-5.b1e36e3f2649b8805d29.jpg",
     "static/media/meet-6.jpg": "/static/media/meet-6.cf6ee46b54b906246bcb.jpg",
     "static/media/image-how-it-works-2.png": "/static/media/image-how-it-works-2.7b64c50d1d1c0e18052d.png",
+    "static/media/pexels-photo-5699431-1-1024x682.jpeg.jpg": "/static/media/pexels-photo-5699431-1-1024x682.jpeg.6a18c825d1c0a24e511d.jpg",
     "static/media/img1.png": "/static/media/img1.f1a103048127589386e8.png",
     "static/media/slide-1.jpg": "/static/media/slide-1.cd118a1c62de2fe15820.jpg",
     "static/media/image-how-it-works-3.png": "/static/media/image-how-it-works-3.c3d864b30085b8a7851f.png",
@@ -108,10 +109,10 @@
     "static/media/quote-right.svg": "/static/media/quote-right.95983c60418de02595e060196be66aa1.svg",
     "static/media/line-squiggle.svg": "/static/media/line-squiggle.a3c4eefc9983f6bd40fc99a662a352b2.svg",
     "main.bb5d31e0.css.map": "/static/css/main.bb5d31e0.css.map",
-    "main.bd5ed241.js.map": "/static/js/main.bd5ed241.js.map"
+    "main.4c94ae6e.js.map": "/static/js/main.4c94ae6e.js.map"
   },
   "entrypoints": [
     "static/css/main.bb5d31e0.css",
-    "static/js/main.bd5ed241.js"
+    "static/js/main.4c94ae6e.js"
   ]
 }
