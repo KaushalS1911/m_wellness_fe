@@ -30,7 +30,7 @@ export default function PsyConnectDrishtiForm(props) {
     const [age, setAge] = useState([]);
     const [error, setError] = useState(false)
     const [varified,setVarified] = useState("")
-    const [varify,setVarify] = useState({admissionNo:'',email:""})
+    const [varify,setVarify] = useState({addmissionNumber:'',email:""})
 
     const [open, setOpen] = useState(false)
     const handleClose = () => setOpen(false);
@@ -42,7 +42,7 @@ export default function PsyConnectDrishtiForm(props) {
         setAge(ages);
 
     }, []);
-    const defaultValues = varified == "" ?  {
+    const defaultValues = varified === "" ?  {
         addmissionNumber: '',
         email: '',
     }:{
@@ -50,53 +50,71 @@ export default function PsyConnectDrishtiForm(props) {
         age: '',
         gender: '',
         branch: '',
-        addmissionNumber: varify.admissionNo || '',
+        addmissionNumber: varify.addmissionNumber || '',
         email:varify.email || '',
         contact: '',
         discuss: [],
         problem: '',
         startTime: dayjs().hour(9).minute(0),
     }
+    const schema1= Yup.object({
+        addmissionNumber: Yup.string().required('Admission number is required'),
+        email: Yup.string().email('Invalid email address').required('Email is required'),
+    })
+    const schema2 = Yup.object({
+        // The same schema here, so you may adjust it if `varified` is `false`
+        name: Yup.string().required('Name is required'),
+        age: Yup.number().required('Age is required'),
+        gender: Yup.string().required('Gender is required'),
+        branch: Yup.string().required('Branch is required'),
+        addmissionNumber: Yup.string().required('Admission number is required'),
+        contact: Yup.string()
+            .required('Contact number is required')
+            .min(10, 'Contact number must be exactly 10 digits')
+            .max(10, 'Contact number must be exactly 10 digits')
+            .matches(/^\d+$/, 'Contact number must be numeric'),
+        problem: Yup.string().required('Please explain your problem'),
+        startTime: Yup.date()
+            .nullable()
+            .required('Call time is required')
+            .test(
+                'is-within-range',
+                'Call time must be between 9 AM to 9 PM',
+                (value) => {
+                    if (!value) return false;
+
+                    const selectedTime = moment(value);
+                    const start = moment().hour(9).minute(0).second(0);
+                    const end = moment().hour(21).minute(0).second(0);
+
+                    return selectedTime.isBetween(start, end, 'minute', '[]');
+                }
+            ),
+        email: Yup.string().email('Invalid email address').required('Email is required'),
+        discuss: Yup.array().min(1, 'Please select topics to discuss').required('Please select topics to discuss'),
+    })
     const formik = useFormik({
         initialValues: defaultValues,
-        validationSchema: varified == "" ? Yup.object({
-            addmissionNumber: Yup.string().required('Admission number is required'),
-            email: Yup.string().email('Invalid email address').required('Email is required'),
-        }) : Yup.object({
-            // The same schema here, so you may adjust it if `varified` is `false`
-            name: Yup.string().required('Name is required'),
-            age: Yup.number().required('Age is required'),
-            gender: Yup.string().required('Gender is required'),
-            branch: Yup.string().required('Branch is required'),
-            addmissionNumber: Yup.string().required('Admission number is required'),
-            contact: Yup.string()
-                .required('Contact number is required')
-                .min(10, 'Contact number must be exactly 10 digits')
-                .max(10, 'Contact number must be exactly 10 digits')
-                .matches(/^\d+$/, 'Contact number must be numeric'),
-            problem: Yup.string().required('Please explain your problem'),
-            startTime: Yup.date()
-                .nullable()
-                .required('Call time is required')
-                .test(
-                    'is-within-range',
-                    'Call time must be between 9 AM to 9 PM',
-                    (value) => {
-                        if (!value) return false;
-
-                        const selectedTime = moment(value);
-                        const start = moment().hour(9).minute(0).second(0);
-                        const end = moment().hour(21).minute(0).second(0);
-
-                        return selectedTime.isBetween(start, end, 'minute', '[]');
-                    }
-                ),
-            email: Yup.string().email('Invalid email address').required('Email is required'),
-            discuss: Yup.array().min(1, 'Please select topics to discuss').required('Please select topics to discuss'),
-        }),
+        validationSchema: (varified === "" ? schema1 : schema2),
         onSubmit: (values, action) => {
-            if(varified == ""){
-            setVarify({admissionNo: values.addmissionNumber,email: values.email})
+            if(varified === ""){
+            setVarify({addmissionNumber: values.addmissionNumber,email: values.email})
+                setVarified("hello")
+                action.resetForm({
+                    values: {
+                        ...values,
+                        name: '',
+                        age: '',
+                        gender: '',
+                        branch: '',
+                        contact: '',
+                        discuss: [],
+                        problem: '',
+                        startTime: dayjs().hour(9).minute(0),
+                    },
+                    errors: {},
+                    touched: {},
+                });
             }else{
             const time = values?.startTime.hour()
             const payload = {
@@ -190,7 +208,7 @@ export default function PsyConnectDrishtiForm(props) {
                                 boxShadow: 2,
                             }} className={"overpass"}>
                                 <form onSubmit={formik.handleSubmit}>
-                                    {varified == "" ? <>
+                                    {varified === "" ? <>
                                             <TextField
                                                 fullWidth
                                                 margin="normal"
