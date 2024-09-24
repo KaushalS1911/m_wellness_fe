@@ -30,11 +30,11 @@ export default function MentalHealthAssessment(props) {
                            <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass">
                                Exam Stress Gauage Test (18-21)
                            </Box>
-                           <Box sx={{fontSize: "18px", color: "#444444", mt: 4}}>
-                               The Adult ADHD Self-Report Scale (ASRS-v1.1) Symptom Checklist was developed in conjunction
-                               with the World Health Organization (WHO), and the Wor
-                           </Box>
-                           <Box sx={{display: {sm:"flex"}, justifyContent: "space-between", mt: 5}}>
+                           {/*<Box sx={{fontSize: "18px", color: "#444444", mt: 4}}>*/}
+                               {/*The Adult ADHD Self-Report Scale (ASRS-v1.1) Symptom Checklist was developed in conjunction*/}
+                               {/*with the World Health Organization (WHO), and the Wor*/}
+                           {/*</Box>*/}
+                           <Box sx={{display: {sm:"flex"}, justifyContent: "space-between", mt:15}}>
                                <Box sx={{height: "140px", width: "140px", borderRadius: 5, overflow: "hidden"}}>
                                    <img src={home1} alt="first"/>
                                </Box>
