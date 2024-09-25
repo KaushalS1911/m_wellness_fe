@@ -25,8 +25,8 @@ import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import dayjs from 'dayjs';
 import axios from "axios";
-import {RecaptchaVerifier, signInWithPhoneNumber} from "firebase/auth";
 import {auth} from "../../firebase.config";
+import {RecaptchaVerifier, signInWithPhoneNumber} from "firebase/auth";
 
 export default function PsyConnectDrishtiForm(props) {
     const navigate = useNavigate();
@@ -152,15 +152,15 @@ export default function PsyConnectDrishtiForm(props) {
             const time = values?.startTime.hour()
             const payload = {
                 student_name: values?.name,
-                age: values?.age,
+                age: String(values?.age),
                 gender: values?.gender,
                 batch: values?.branch,
                 admission_number: values?.addmissionNumber,
                 mobile_number: values?.contact,
                 email: values?.email,
-                category: values?.discuss,
+                category: (values?.discuss).join(","),
                 statement: values?.problem,
-                call_time: time,
+                call_time: String(time),
             }
             onSignup(values.contact);
             axios.post("https://interactapiverse.com/mahadevasth/drishti/pyconnects", payload).then((res) => {
