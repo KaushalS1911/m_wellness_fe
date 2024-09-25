@@ -21,10 +21,8 @@ import PsyConnectDrishti from "./pages/psyconnect-drishti button/PsyConnect-Dris
 import MentalHealthAssessment from "./pages/home/MentalHealthAssessment";
 import PsyConnectDrishtiForm from "./pages/psyconnect-drishti button/PsyConnectDrishtiForm";
 import Auth from "./components/auth/Auth";
-import {OtpContext} from "./context/otpcontext";
 
 export default function App() {
-    const [varification,setVarification] = useState('')
 
     function ScrollToTop() {
         const {pathname} = useLocation();
@@ -41,7 +39,6 @@ export default function App() {
             {/*<ShapAssementStape />*/}
 
             {/*<FamilyInfo />*/}
-            <OtpContext.Provider value={{varification , setVarification}}>
                 <Routes>
                     {/*<Route path="/" element={<Home />} />*/}
                     <Route path="/" element={<MentalHealthAssessment/>}/>
@@ -64,7 +61,6 @@ export default function App() {
                     {/*<Route path="faq" element={<MainFaqs />} />*/}
                     {/*<Route path="advice" element={<Advice />} />*/}
                 </Routes>
-            </OtpContext.Provider>
 
             {/*<Footer />*/}
             <Box sx={{fontSize: "20px", py: 5, textAlign: "center", fontWeight: "600", px: {md: 5, xs: 1}}}

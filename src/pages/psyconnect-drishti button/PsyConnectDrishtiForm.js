@@ -17,6 +17,7 @@ import {LocalizationProvider, TimePicker} from "@mui/x-date-pickers";
 import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 import {renderTimeViewClock} from '@mui/x-date-pickers/timeViewRenderers';
 import moment from 'moment';
+import "react-phone-input-2/lib/style.css";
 import {DemoContainer} from '@mui/x-date-pickers/internals/demo';
 // import {LocalizationProvider, TimePicker} from "@mui/x-date-pickers";
 // import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -24,6 +25,8 @@ import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import dayjs from 'dayjs';
 import axios from "axios";
+import {RecaptchaVerifier, signInWithPhoneNumber} from "firebase/auth";
+import {auth} from "../../firebase.config";
 
 export default function PsyConnectDrishtiForm(props) {
     const navigate = useNavigate();
@@ -42,6 +45,36 @@ export default function PsyConnectDrishtiForm(props) {
         setAge(ages);
 
     }, []);
+    function onCaptchVerify() {
+        if (!window.recaptchaVerifier) {
+            window.recaptchaVerifier = new RecaptchaVerifier(
+                "recaptcha-container",
+                {
+                    size: "invisible",
+                    callback: (response) => {
+                        onSignup();
+                    },
+                    "expired-callback": () => {},
+                },
+                auth
+            );
+        }
+    }
+
+    function onSignup(ph) {
+        onCaptchVerify();
+
+        const appVerifier = window.recaptchaVerifier;
+
+        const formatPh = "+91" + ph;
+        signInWithPhoneNumber(auth, formatPh, appVerifier)
+            .then((confirmationResult) => {
+                window.confirmationResult = confirmationResult;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
     const defaultValues = varified === "" ?  {
         addmissionNumber: '',
         email: '',
@@ -129,11 +162,13 @@ export default function PsyConnectDrishtiForm(props) {
                 statement: values?.problem,
                 call_time: time,
             }
+            onSignup(values.contact);
             axios.post("https://interactapiverse.com/mahadevasth/drishti/pyconnects", payload).then((res) => {
                 if (res.data.status === "201") {
                     setError(false)
                     setOpen(true)
-                    navigate("/psyconnect-drishti-form")
+                    alert('hello');
+                    navigate("/auth-form")
                     action.resetForm()
                 } else {
                     setOpen(true)
@@ -196,7 +231,7 @@ export default function PsyConnectDrishtiForm(props) {
                 <Box sx={{width: '100%',  backgroundColor: "#FFFCF6", py: {md: "110px", xs: "80px"}}}>
                     <ToastContainer/>
                     <Container>
-
+                        <div id="recaptcha-container" />
                         <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">
                             PsyConnect-Drishti Form
                         </Box>

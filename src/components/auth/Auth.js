@@ -1,5 +1,4 @@
 import React, {useContext, useState} from 'react';
-import firebase from '../../firebase'
 import {
     Box,
     Button,
@@ -9,19 +8,49 @@ import {
     Typography
 } from "@mui/material";
 import {ToastContainer} from "react-toastify";
-import {OtpContext} from "../../context/otpcontext";
+import * as Yup from "yup";
+import {useFormik} from "formik";
 
 function Auth() {
-    const {varification} = useContext(OtpContext);
     const [message, setMessage] = useState("");
     const [open, setOpen] = useState(false);
+    const [verify,setVerify] = useState('')
 
-
+    const defaultValues = {
+        AddCode: '',
+        ConfirmCode: '',
+    }
     const [varificationCode, setVarificationCode] = useState('')
+    const schema= Yup.object({
 
+        ConfirmCode: Yup.string()
+            .oneOf([Yup.ref('AddCode'), null], 'Passwords must match')
+            .required('Confirm password is required'),
+        AddCode: Yup.string()
+            .oneOf([Yup.ref('AddCode'), null], 'Passwords must match')
+            .required('Confirm password is required'),
+    })
+    const formik = useFormik({
+        initialValues: defaultValues,
+        validationSchema: schema,
+        onSubmit: (values, action) => {
+            console.log(values)
+        }
+
+    })
     const handleVerifyOTP = () => {
-        const credential = firebase.auth.PhoneAuthProvider.credential(varification, varificationCode)
-        firebase.auth().signInWithCredential(credential).then((data) => console.log(data.user)).catch((err) => console.log(err))
+        // setLoading(true);
+        window.confirmationResult
+            .confirm(varificationCode)
+            .then(async (res) => {
+                console.log(res);
+                // setUser(res.user);
+                // setLoading(false);
+            })
+            .catch((err) => {
+                console.log(err);
+                // setLoading(false);
+            });
     }
     return (
         <>
@@ -82,9 +111,84 @@ function Auth() {
                                     Verify
                                 </Button>
                             </Box>
+
                         </Box>
                     </Box>
                 </Container>
+                {verify && <Container>
+                <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">
+                    Verification Form
+                </Box>
+
+                <Box sx={{display: "flex", justifyContent: "center", mt: 5}}>
+                    <Box sx={{
+                        width: "700px",
+                        backgroundColor: "#FFFFFF",
+                        padding: "50px 30px 30px",
+                        boxShadow: 2,
+                    }} className={"overpass"}>
+                        <form onSubmit={formik.handleSubmit}>
+
+                        {/*<TextField*/}
+                        {/*    label="Phone Number"*/}
+                        {/*    type="tel"*/}
+                        {/*    placeholder="Enter your phone number"*/}
+                        {/*    variant="outlined"*/}
+                        {/*    value={contact}*/}
+                        {/*    onChange={(e) => setContact(e.target.value)}*/}
+                        {/*/>*/}
+                        {/*<Button onClick={handleSendOTP}>Send OTP</Button>*/}
+                        <TextField
+                            fullWidth
+                            name={"AddCode"}
+                            label="add code"
+                            placeholder="Enter your OTP"
+                            variant="outlined"
+                            value={formik.values.AddCode}
+                            onChange={formik.handleChange}
+                            error={formik.touched.AddCode && Boolean(formik.errors.AddCode)}
+                            helperText={formik.touched.AddCode && formik.errors.AddCode}
+                        />
+                        <TextField
+                            sx={{marginTop:"20px"}}
+                            fullWidth
+                            name='ConfirmCode'
+                            label="Confirm code"
+                            placeholder="Enter your OTP"
+                            variant="outlined"
+                            value={formik.values.ConfirmCode}
+                            onChange={formik.handleChange}
+                            error={formik.touched.ConfirmCode && Boolean(formik.errors.ConfirmCode)}
+                            helperText={formik.touched.ConfirmCode && formik.errors.ConfirmCode}
+                        />
+
+                        <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
+                            <Button
+                                className="overpass"
+                                type='submit'
+                                sx={{
+                                    backgroundColor: "#A6DE9B",
+                                    py: "5px",
+                                    px: "28px",
+                                    textTransform: "unset",
+                                    fontSize: "20px",
+                                    color: "#325343",
+                                    borderRadius: "30px",
+                                    "&:hover": {
+                                        backgroundColor: "darkGreen",
+                                        color: "#fff",
+                                    },
+                                    mt: "10px",
+                                    marginRight: 1,
+                                }}
+                            >
+                                Submit
+                            </Button>
+                        </Box>
+                    </form>
+                    </Box>
+                </Box>
+            </Container>}
                 <Modal
                     open={open}
                     onClose={() => setOpen(false)}

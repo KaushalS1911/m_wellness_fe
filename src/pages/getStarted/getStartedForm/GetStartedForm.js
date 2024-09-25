@@ -273,17 +273,17 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
-import {OtpContext} from "../../../context/otpcontext";
-import firebase from '../../../firebase'
+import "react-phone-input-2/lib/style.css";
+import { auth } from "../../../firebase.config";
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 
 function GetStartedForm(props) {
     const navigate = useNavigate();
+    const [otp, setOtp] = useState("");
     const [age, setAge] = useState([]);
     const [organization, setOrganization] = useState([]);
     const [open, setOpen] = useState(false);
     const [message, setMessage] = useState("");
-    const [contact, setContact] = useState('');
-    const {setVarification} = useContext(OtpContext);
     const recaptcha = useRef(null);
 
     useEffect(() => {
@@ -297,15 +297,35 @@ function GetStartedForm(props) {
             .catch((err) => console.log(err));
     }, []);
 
-    const handleSendOTP = (phNu) => {
-        if (recaptcha.current) {
-            recaptcha.current.innerHTML = '<div id="recaptcha-container"></div>'
+    function onCaptchVerify() {
+        if (!window.recaptchaVerifier) {
+            window.recaptchaVerifier = new RecaptchaVerifier(
+                "recaptcha-container",
+                {
+                    size: "invisible",
+                    callback: (response) => {
+                        onSignup();
+                    },
+                    "expired-callback": () => {},
+                },
+                auth
+            );
         }
-        const varifire = new firebase.auth.RecaptchaVerifier('recaptcha-container', {size: 'invisible'})
-        firebase.auth().signInWithPhoneNumber(phNu, varifire).then((data) => {
-            setVarification(data.verificationId)
-            alert("opt sent " , phNu , data.verificationId)
-        }).catch((err) => console.log(err))
+    }
+
+    function onSignup(ph) {
+        onCaptchVerify();
+
+        const appVerifier = window.recaptchaVerifier;
+
+        const formatPh = "+91" + ph;
+        signInWithPhoneNumber(auth, formatPh, appVerifier)
+            .then((confirmationResult) => {
+                window.confirmationResult = confirmationResult;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 
     const formik = useFormik({
@@ -329,7 +349,8 @@ function GetStartedForm(props) {
         }),
         onSubmit: (values) => {
             try {
-                handleSendOTP(values.phone);
+
+                onSignup(values.phone)
                 axios.post("https://interactapiverse.com/mahadevasth/organization/student/validate", {
                     organization_id: values.organization,
                     admission_id: values.admissionId,
@@ -337,7 +358,6 @@ function GetStartedForm(props) {
                     phone: values.phone
                 }).then(async (res) => {
                     if (res?.data?.status == "200") {
-
                         //     await setOpen(true)
                         //     setMessage("Data uploaded successfully")
                         //     setTimeout(() => {
@@ -396,7 +416,7 @@ function GetStartedForm(props) {
             <ToastContainer/>
             <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: {md: "100px", xs: "80px"}}}>
                 <Container>
-                    <div ref={recaptcha}></div>
+                    <div id="recaptcha-container" />
                     <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">
                         Assessment Form
                     </Box>
