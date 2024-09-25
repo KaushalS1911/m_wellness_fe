@@ -250,7 +250,7 @@
 //
 // export default GetStartedForm;
 
-import React, { useEffect, useState } from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import {
     Box,
     Button,
@@ -267,19 +267,25 @@ import {
     Typography,
     TextField, OutlinedInput
 } from "@mui/material";
-import { ToastContainer, toast } from 'react-toastify';
+import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import axios from "axios";
-import { useFormik } from 'formik';
+import {useFormik} from 'formik';
 import * as Yup from 'yup';
+import {OtpContext} from "../../../context/otpcontext";
+import firebase from '../../../firebase'
 
 function GetStartedForm(props) {
     const navigate = useNavigate();
     const [age, setAge] = useState([]);
     const [organization, setOrganization] = useState([]);
     const [open, setOpen] = useState(false);
-    const [message,setMessage] = useState("")
+    const [message, setMessage] = useState("");
+    const [contact, setContact] = useState('');
+    const {setVarification} = useContext(OtpContext);
+    const recaptcha = useRef(null);
+
     useEffect(() => {
         const ages = [];
         for (let i = 16; i <= 100; i++) {
@@ -290,6 +296,17 @@ function GetStartedForm(props) {
             .then((res) => setOrganization(res?.data?.data))
             .catch((err) => console.log(err));
     }, []);
+
+    const handleSendOTP = (phNu) => {
+        if (recaptcha.current) {
+            recaptcha.current.innerHTML = '<div id="recaptcha-container"></div>'
+        }
+        const varifire = new firebase.auth.RecaptchaVerifier('recaptcha-container', {size: 'invisible'})
+        firebase.auth().signInWithPhoneNumber(phNu, varifire).then((data) => {
+            setVarification(data.verificationId)
+            alert("opt sent " , phNu , data.verificationId)
+        }).catch((err) => console.log(err))
+    }
 
     const formik = useFormik({
         initialValues: {
@@ -307,36 +324,37 @@ function GetStartedForm(props) {
             admissionId: Yup.string().required('Admission ID is required'),
             phone: Yup.string().required('Phone is required'),
             gender: Yup.string().required('Gender is required'),
-                   age: Yup.number().required('Age is required'),
+            age: Yup.number().required('Age is required'),
             email: Yup.string().email('Invalid email address').required('Email is required'),
         }),
         onSubmit: (values) => {
             try {
+                handleSendOTP(values.phone);
                 axios.post("https://interactapiverse.com/mahadevasth/organization/student/validate", {
                     organization_id: values.organization,
                     admission_id: values.admissionId,
                     name: values.fullName,
                     phone: values.phone
                 }).then(async (res) => {
-                    if(res?.data?.status == "200"){
-                    //     await setOpen(true)
-                    //     setMessage("Data uploaded successfully")
-                    //     setTimeout(() => {
-                            navigate("/start-assessment");
-                    //     }, 3000);
-                    // toast.success('Data uploaded successfully', {
-                    //     position: "top-center",
-                    //     autoClose: 5000,
-                    //     hideProgressBar: false,
-                    //     closeOnClick: true,
-                    //     pauseOnHover: true,
-                    //     draggable: true,
-                    //     progress: undefined,
-                    //     theme: "light",
-                    //                         });
+                    if (res?.data?.status == "200") {
 
-                    }
-                    else {
+                        //     await setOpen(true)
+                        //     setMessage("Data uploaded successfully")
+                        //     setTimeout(() => {
+                        navigate("/auth-form");
+                        //     }, 3000);
+                        // toast.success('Data uploaded successfully', {
+                        //     position: "top-center",
+                        //     autoClose: 5000,
+                        //     hideProgressBar: false,
+                        //     closeOnClick: true,
+                        //     pauseOnHover: true,
+                        //     draggable: true,
+                        //     progress: undefined,
+                        //     theme: "light",
+                        //                         });
+
+                    } else {
                         setMessage("Student record not found")
                         setOpen(true)
                         // toast.error('Student record not found', {
@@ -375,14 +393,15 @@ function GetStartedForm(props) {
 
     return (
         <>
-            <ToastContainer />
-            <Box sx={{ width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: { md: "100px", xs: "80px" } }}>
+            <ToastContainer/>
+            <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: {md: "100px", xs: "80px"}}}>
                 <Container>
-                    <Box sx={{ fontSize: "32px", color: "#444444", textAlign: 'center' }} className="overpass">
+                    <div ref={recaptcha}></div>
+                    <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">
                         Assessment Form
                     </Box>
 
-                    <Box sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
+                    <Box sx={{display: "flex", justifyContent: "center", mt: 5}}>
                         <Box sx={{
                             width: "700px",
                             backgroundColor: "#FFFFFF",
@@ -416,7 +435,7 @@ function GetStartedForm(props) {
                                         ))}
                                     </Select>
                                     {formik.touched.organization && formik.errors.organization ? (
-                                        <div style={{color:"red"}}>{formik.errors.organization}</div>
+                                        <div style={{color: "red"}}>{formik.errors.organization}</div>
                                     ) : null}
                                 </FormControl>
 
@@ -489,12 +508,13 @@ function GetStartedForm(props) {
                                         ))}
                                     </Select>
                                     {formik.touched.age && formik.errors.age ? (
-                                        <div style={{color:"red"}}>{formik.errors.age}</div>
+                                        <div style={{color: "red"}}>{formik.errors.age}</div>
                                     ) : null}
                                 </FormControl>
 
-                                <Box display={{ sm: "flex" }} mt={{ xs: 2, sm: "unset" }} alignItems="center" margin="normal">
-                                    <FormLabel component="legend" sx={{ marginRight: '1rem' }}>Gender :</FormLabel>
+                                <Box display={{sm: "flex"}} mt={{xs: 2, sm: "unset"}} alignItems="center"
+                                     margin="normal">
+                                    <FormLabel component="legend" sx={{marginRight: '1rem'}}>Gender :</FormLabel>
                                     <RadioGroup
                                         name="gender"
                                         value={formik.values.gender}
@@ -502,16 +522,19 @@ function GetStartedForm(props) {
                                         row
                                         error={formik.touched.gender && Boolean(formik.errors.gender)}
                                     >
-                                        <FormControlLabel sx={{ color: "#00000099" }} value="male" control={<Radio />} label="Male" />
-                                        <FormControlLabel sx={{ color: "#00000099" }} value="female" control={<Radio />} label="Female" />
-                                        <FormControlLabel sx={{ color: "#00000099" }} value="other" control={<Radio />} label="Other" />
+                                        <FormControlLabel sx={{color: "#00000099"}} value="male" control={<Radio/>}
+                                                          label="Male"/>
+                                        <FormControlLabel sx={{color: "#00000099"}} value="female" control={<Radio/>}
+                                                          label="Female"/>
+                                        <FormControlLabel sx={{color: "#00000099"}} value="other" control={<Radio/>}
+                                                          label="Other"/>
                                     </RadioGroup>
                                 </Box>
-                                    {formik.touched.gender && formik.errors.gender ? (
-                                        <div style={{color:"red"}}>{formik.errors.gender}</div>
-                                    ) : null}
+                                {formik.touched.gender && formik.errors.gender ? (
+                                    <div style={{color: "red"}}>{formik.errors.gender}</div>
+                                ) : null}
 
-                                <Box sx={{ mt: "20px", display: "flex", justifyContent: "end" }}>
+                                <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
                                     <Button
                                         className="overpass"
                                         type="submit"
@@ -561,14 +584,14 @@ function GetStartedForm(props) {
                             outline: 'none',
                         }}
                     >
-                        <Typography id="modal-title" variant="h6" component="h2" sx={{paddingLeft:2,paddingTop:2}}>
+                        <Typography id="modal-title" variant="h6" component="h2" sx={{paddingLeft: 2, paddingTop: 2}}>
                             {message}
                         </Typography>
                         {/*<Typography id="modal-description" sx={{ mt: 2 }}>*/}
                         {/*    This is a responsive modal without a border. Resize the window to see the responsiveness.*/}
                         {/*</Typography>*/}
 
-                        <Box sx={{display:"flex",justifyContent:"flex-end"}}><Button
+                        <Box sx={{display: "flex", justifyContent: "flex-end"}}><Button
                             className="overpass"
                             onClick={() => setOpen(false)}
                             sx={{
@@ -584,7 +607,7 @@ function GetStartedForm(props) {
                                     color: "#fff",
                                 },
                                 mt: "10px",
-                                marginRight:2
+                                marginRight: 2
                             }}
                         >
                             OK
