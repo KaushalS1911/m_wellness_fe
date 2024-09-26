@@ -298,33 +298,43 @@ function GetStartedForm(props) {
     }, []);
 
     function onCaptchVerify() {
-        if (!window.recaptchaVerifier) {
-            window.recaptchaVerifier = new RecaptchaVerifier(
-                "recaptcha-container",
-                {
-                    size: "invisible",
-                    callback: (response) => {
-                        onSignup();
-                    },
-                    "expired-callback": () => {},
+        window.recaptchaVerifier = new RecaptchaVerifier(
+            'recaptcha-container',
+            {
+                'size': 'invisible',
+                'callback': (response) => {
+                    console.log("reCAPTCHA Verified", response);
                 },
-                auth
-            );
-        }
+                'expired-callback': () => {
+                    console.log("reCAPTCHA expired, resetting...");
+                    window.recaptchaVerifier.reset();
+                }
+            },
+            auth
+        );
+
+        // Render the reCAPTCHA widget
+        window.recaptchaVerifier.render().then((widgetId) => {
+            window.recaptchaWidgetId = widgetId;
+        });
     }
 
-    function onSignup(ph) {
-        onCaptchVerify();
 
+    async function onSignup(ph) {
+        onCaptchVerify();
         const appVerifier = window.recaptchaVerifier;
 
-        const formatPh = "+91" + ph;
-        signInWithPhoneNumber(auth, formatPh, appVerifier)
+        await signInWithPhoneNumber(auth, `+91${ph}`, appVerifier)
             .then((confirmationResult) => {
                 window.confirmationResult = confirmationResult;
+                toast.success("OTP sent successfully!");
+                // setShowOTP(true);
+                // setLoading(false);
             })
             .catch((error) => {
-                console.log(error);
+                console.error("Error during OTP send:", error);
+                toast.error("Failed to send OTP. Try again!");
+                // setLoading(false);
             });
     }
 
@@ -349,7 +359,7 @@ function GetStartedForm(props) {
         }),
         onSubmit: (values) => {
             try {
-
+                console.log("PHONE : ",values.phone)
                 onSignup(values.phone)
                 axios.post("https://interactapiverse.com/mahadevasth/organization/student/validate", {
                     organization_id: values.organization,

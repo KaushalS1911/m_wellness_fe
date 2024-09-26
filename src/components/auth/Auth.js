@@ -7,56 +7,73 @@ import {
     TextField,
     Typography
 } from "@mui/material";
-import {ToastContainer} from "react-toastify";
+import {toast, ToastContainer} from "react-toastify";
 import * as Yup from "yup";
+import {useNavigate} from 'react-router-dom';
 import {useFormik} from "formik";
 
 function Auth() {
     const [message, setMessage] = useState("");
     const [open, setOpen] = useState(false);
-    const [verify,setVerify] = useState('')
+    const [verify, setVerify] = useState(false)
+    const navigate = useNavigate();
 
     const defaultValues = {
-        AddCode: '',
-        ConfirmCode: '',
+        setPin: '',
+        confirmPin: '',
     }
     const [varificationCode, setVarificationCode] = useState('')
-    const schema= Yup.object({
+    const schema = Yup.object({
 
-        ConfirmCode: Yup.string()
-            .oneOf([Yup.ref('AddCode'), null], 'Passwords must match')
+        confirmPin: Yup.string()
+            .oneOf([Yup.ref('setPin'), null], 'Passwords must match')
             .required('Confirm password is required'),
-        AddCode: Yup.string()
-            .oneOf([Yup.ref('AddCode'), null], 'Passwords must match')
+        setPin: Yup.string()
+            .oneOf([Yup.ref('setPin'), null], 'Passwords must match')
             .required('Confirm password is required'),
     })
     const formik = useFormik({
         initialValues: defaultValues,
         validationSchema: schema,
         onSubmit: (values, action) => {
-            console.log(values)
+            localStorage.setItem('setPin', values.setPin);
+            localStorage.setItem('confirmPin', values.confirmPin);
+
+            localStorage.setItem('formValues', JSON.stringify(values));
+            navigate("/start-assessment");
         }
 
     })
     const handleVerifyOTP = () => {
-        // setLoading(true);
+        if (!window.confirmationResult) {
+            toast.error('Verification Failed');
+            console.error("No confirmationResult found. OTP might not have been sent.");
+            return;
+        }
+
         window.confirmationResult
             .confirm(varificationCode)
-            .then(async (res) => {
-                console.log(res);
-                // setUser(res.user);
-                // setLoading(false);
+            .then((result) => {
+                setVerify(true);
+                console.log("User authenticated:", result.user);
+                toast.success('Verified successfully');
             })
-            .catch((err) => {
-                console.log(err);
-                // setLoading(false);
+            .catch((error) => {
+                toast.error('Verification Failed');
+                console.error("Error verifying OTP:", error);
             });
     }
     return (
         <>
             <ToastContainer/>
-            <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: {md: "100px", xs: "80px"}}}>
-                <Container>
+            <Box sx={{
+                width: '100%',
+                pt: "150px",
+                height: "85vh",
+                backgroundColor: "#FFFCF6",
+                pb: {md: "100px", xs: "80px"}
+            }}>
+                {!verify && <Container>
                     <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">
                         Verification Form
                     </Box>
@@ -70,15 +87,6 @@ function Auth() {
                         }} className={"overpass"}>
 
 
-                            {/*<TextField*/}
-                            {/*    label="Phone Number"*/}
-                            {/*    type="tel"*/}
-                            {/*    placeholder="Enter your phone number"*/}
-                            {/*    variant="outlined"*/}
-                            {/*    value={contact}*/}
-                            {/*    onChange={(e) => setContact(e.target.value)}*/}
-                            {/*/>*/}
-                            {/*<Button onClick={handleSendOTP}>Send OTP</Button>*/}
                             <TextField
                                 sx={{width: "100%"}}
                                 label="Verify OTP"
@@ -114,81 +122,79 @@ function Auth() {
 
                         </Box>
                     </Box>
-                </Container>
+                </Container>}
                 {verify && <Container>
-                <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">
-                    Verification Form
-                </Box>
-
-                <Box sx={{display: "flex", justifyContent: "center", mt: 5}}>
-                    <Box sx={{
-                        width: "700px",
-                        backgroundColor: "#FFFFFF",
-                        padding: "50px 30px 30px",
-                        boxShadow: 2,
-                    }} className={"overpass"}>
-                        <form onSubmit={formik.handleSubmit}>
-
-                        {/*<TextField*/}
-                        {/*    label="Phone Number"*/}
-                        {/*    type="tel"*/}
-                        {/*    placeholder="Enter your phone number"*/}
-                        {/*    variant="outlined"*/}
-                        {/*    value={contact}*/}
-                        {/*    onChange={(e) => setContact(e.target.value)}*/}
-                        {/*/>*/}
-                        {/*<Button onClick={handleSendOTP}>Send OTP</Button>*/}
-                        <TextField
-                            fullWidth
-                            name={"AddCode"}
-                            label="add code"
-                            placeholder="Enter your OTP"
-                            variant="outlined"
-                            value={formik.values.AddCode}
-                            onChange={formik.handleChange}
-                            error={formik.touched.AddCode && Boolean(formik.errors.AddCode)}
-                            helperText={formik.touched.AddCode && formik.errors.AddCode}
-                        />
-                        <TextField
-                            sx={{marginTop:"20px"}}
-                            fullWidth
-                            name='ConfirmCode'
-                            label="Confirm code"
-                            placeholder="Enter your OTP"
-                            variant="outlined"
-                            value={formik.values.ConfirmCode}
-                            onChange={formik.handleChange}
-                            error={formik.touched.ConfirmCode && Boolean(formik.errors.ConfirmCode)}
-                            helperText={formik.touched.ConfirmCode && formik.errors.ConfirmCode}
-                        />
-
-                        <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
-                            <Button
-                                className="overpass"
-                                type='submit'
-                                sx={{
-                                    backgroundColor: "#A6DE9B",
-                                    py: "5px",
-                                    px: "28px",
-                                    textTransform: "unset",
-                                    fontSize: "20px",
-                                    color: "#325343",
-                                    borderRadius: "30px",
-                                    "&:hover": {
-                                        backgroundColor: "darkGreen",
-                                        color: "#fff",
-                                    },
-                                    mt: "10px",
-                                    marginRight: 1,
-                                }}
-                            >
-                                Submit
-                            </Button>
-                        </Box>
-                    </form>
+                    <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">
+                        Generate PIN
                     </Box>
-                </Box>
-            </Container>}
+
+                    <Box sx={{display: "flex", justifyContent: "center", mt: 5}}>
+                        <Box sx={{
+                            width: "700px",
+                            backgroundColor: "#FFFFFF",
+                            padding: "50px 30px 30px",
+                            boxShadow: 2,
+                        }} className={"overpass"}>
+                            <form onSubmit={formik.handleSubmit}>
+
+                                {/*<TextField*/}
+                                {/*    label="Phone Number"*/}
+                                {/*    type="tel"*/}
+                                {/*    placeholder="Enter your phone number"*/}
+                                {/*    variant="outlined"*/}
+                                {/*    value={contact}*/}
+                                {/*    onChange={(e) => setContact(e.target.value)}*/}
+                                {/*/>*/}
+                                {/*<Button onClick={handleSendOTP}>Send OTP</Button>*/}
+                                <TextField
+                                    fullWidth
+                                    name={"setPin"}
+                                    label="Set PIN"
+                                    variant="outlined"
+                                    value={formik.values.setPin}
+                                    onChange={formik.handleChange}
+                                    error={formik.touched.setPin && Boolean(formik.errors.setPin)}
+                                    helperText={formik.touched.setPin && formik.errors.setPin}
+                                />
+                                <TextField
+                                    sx={{marginTop: "20px"}}
+                                    fullWidth
+                                    name='confirmPin'
+                                    label="Confirm PIN"
+                                    variant="outlined"
+                                    value={formik.values.confirmPin}
+                                    onChange={formik.handleChange}
+                                    error={formik.touched.confirmPin && Boolean(formik.errors.confirmPin)}
+                                    helperText={formik.touched.confirmPin && formik.errors.confirmPin}
+                                />
+
+                                <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
+                                    <Button
+                                        className="overpass"
+                                        type='submit'
+                                        sx={{
+                                            backgroundColor: "#A6DE9B",
+                                            py: "5px",
+                                            px: "28px",
+                                            textTransform: "unset",
+                                            fontSize: "20px",
+                                            color: "#325343",
+                                            borderRadius: "30px",
+                                            "&:hover": {
+                                                backgroundColor: "darkGreen",
+                                                color: "#fff",
+                                            },
+                                            mt: "10px",
+                                            marginRight: 1,
+                                        }}
+                                    >
+                                        Submit
+                                    </Button>
+                                </Box>
+                            </form>
+                        </Box>
+                    </Box>
+                </Container>}
                 <Modal
                     open={open}
                     onClose={() => setOpen(false)}

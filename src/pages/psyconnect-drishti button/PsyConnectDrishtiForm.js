@@ -46,19 +46,25 @@ export default function PsyConnectDrishtiForm(props) {
 
     }, []);
     function onCaptchVerify() {
-        if (!window.recaptchaVerifier) {
-            window.recaptchaVerifier = new RecaptchaVerifier(
-                "recaptcha-container",
-                {
-                    size: "invisible",
-                    callback: (response) => {
-                        onSignup();
-                    },
-                    "expired-callback": () => {},
+        window.recaptchaVerifier = new RecaptchaVerifier(
+            'recaptcha-container',
+            {
+                'size': 'invisible',
+                'callback': (response) => {
+                    console.log("reCAPTCHA Verified", response);
                 },
-                auth
-            );
-        }
+                'expired-callback': () => {
+                    console.log("reCAPTCHA expired, resetting...");
+                    window.recaptchaVerifier.reset();
+                }
+            },
+            auth
+        );
+
+        // Render the reCAPTCHA widget
+        window.recaptchaVerifier.render().then((widgetId) => {
+            window.recaptchaWidgetId = widgetId;
+        });
     }
 
     function onSignup(ph) {
@@ -66,13 +72,18 @@ export default function PsyConnectDrishtiForm(props) {
 
         const appVerifier = window.recaptchaVerifier;
 
-        const formatPh = "+91" + ph;
-        signInWithPhoneNumber(auth, formatPh, appVerifier)
+        signInWithPhoneNumber(auth, `+91${ph}`, appVerifier)
             .then((confirmationResult) => {
                 window.confirmationResult = confirmationResult;
+                toast.success("OTP sent successfully!");
+                navigate("/auth-form")
+                // setShowOTP(true);
+                // setLoading(false);
             })
             .catch((error) => {
-                console.log(error);
+                console.error("Error during OTP send:", error);
+                toast.error("Failed to send OTP. Try again!");
+                // setLoading(false);
             });
     }
     const defaultValues = varified === "" ?  {
@@ -163,7 +174,7 @@ export default function PsyConnectDrishtiForm(props) {
                 call_time: String(time),
             }
             onSignup(values.contact);
-            axios.post("https://interactapiverse.com/mahadevasth/drishti/pyconnects", payload).then((res) => {
+                axios.post("https://interactapiverse.com/mahadevasth/drishti/pyconnects", payload).then((res) => {
                 if (res.data.status === "201") {
                     setError(false)
                     setOpen(true)
