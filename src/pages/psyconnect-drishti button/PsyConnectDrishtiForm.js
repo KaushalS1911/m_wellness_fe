@@ -25,8 +25,8 @@ import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import dayjs from 'dayjs';
 import axios from "axios";
-import {auth} from "../../firebase.config";
-import {RecaptchaVerifier, signInWithPhoneNumber} from "firebase/auth";
+import { RecaptchaVerifier, signInWithPhoneNumber,getAuth } from "firebase/auth";
+import {app} from "../../firebase.config";
 
 export default function PsyConnectDrishtiForm(props) {
     const navigate = useNavigate();
@@ -34,7 +34,7 @@ export default function PsyConnectDrishtiForm(props) {
     const [error, setError] = useState(false)
     const [varified,setVarified] = useState("")
     const [varify,setVarify] = useState({addmissionNumber:'',email:""})
-
+const auth = getAuth(app)
     const [open, setOpen] = useState(false)
     const handleClose = () => setOpen(false);
     useEffect(() => {
@@ -46,7 +46,7 @@ export default function PsyConnectDrishtiForm(props) {
 
     }, []);
     function onCaptchVerify() {
-        window.recaptchaVerifier = new RecaptchaVerifier(
+        window.recaptchaVerifier = new RecaptchaVerifier( auth,
             'recaptcha-container',
             {
                 'size': 'invisible',
@@ -57,8 +57,7 @@ export default function PsyConnectDrishtiForm(props) {
                     console.log("reCAPTCHA expired, resetting...");
                     window.recaptchaVerifier.reset();
                 }
-            },
-            auth
+            }
         );
 
         // Render the reCAPTCHA widget
@@ -239,8 +238,8 @@ export default function PsyConnectDrishtiForm(props) {
 
     return (
         <>
-            <Box sx={{minHeight:"88VH",height:"100%",display:"flex",justifyContent:"center",alignItems:"center"}}>
-                <Box sx={{width: '100%',  backgroundColor: "#FFFCF6", py: {md: "110px", xs: "80px"}}}>
+            <Box sx={{minHeight:"88VH",height:"100%",display:"flex",justifyContent:"center",alignItems:"center",backgroundColor: "#FFFCF6", py: {md: "110px", xs: "80px"}}}>
+                <Box sx={{width: '100%',}}>
                     <ToastContainer/>
                     <Container>
                         <div id="recaptcha-container" />

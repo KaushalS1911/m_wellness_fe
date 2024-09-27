@@ -12,8 +12,10 @@ import * as Yup from "yup";
 import {useNavigate} from 'react-router-dom';
 import {useFormik} from "formik";
 
-function Auth() {
+function Auth({onOtpVerified}) {
     const [message, setMessage] = useState("");
+    const [otp, setOtp] = useState('');
+    const [error, setError] = useState('');
     const [open, setOpen] = useState(false);
     const [verify, setVerify] = useState(false)
     const navigate = useNavigate();
@@ -44,23 +46,15 @@ function Auth() {
         }
 
     })
-    const handleVerifyOTP = () => {
-        if (!window.confirmationResult) {
-            toast.error('Verification Failed');
-            console.error("No confirmationResult found. OTP might not have been sent.");
-            return;
-        }
 
+    const handleVerifyOTP = () => {
         window.confirmationResult
-            .confirm(varificationCode)
+            .confirm(otp)
             .then((result) => {
-                setVerify(true);
-                console.log("User authenticated:", result.user);
-                toast.success('Verified successfully');
+                onOtpVerified(result.user);
             })
             .catch((error) => {
-                toast.error('Verification Failed');
-                console.error("Error verifying OTP:", error);
+                setError('Invalid OTP, please try again.');
             });
     }
     return (
@@ -71,57 +65,61 @@ function Auth() {
                 pt: "150px",
                 height: "85vh",
                 backgroundColor: "#FFFCF6",
-                pb: {md: "100px", xs: "80px"}
+                pb: {md: "100px", xs: "80px"},display:"flex",justifyContent:"center",alignItems:'center'
             }}>
                 {!verify && <Container>
-                    <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">
-                        Verification Form
-                    </Box>
+                  <Box>
+                      <Box>
+                      <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">
+                          Verification Form
+                      </Box>
 
-                    <Box sx={{display: "flex", justifyContent: "center", mt: 5}}>
-                        <Box sx={{
-                            width: "700px",
-                            backgroundColor: "#FFFFFF",
-                            padding: "50px 30px 30px",
-                            boxShadow: 2,
-                        }} className={"overpass"}>
+                      <Box sx={{display: "flex", justifyContent: "center", mt: 5}}>
+                          <Box sx={{
+                              width: "700px",
+                              backgroundColor: "#FFFFFF",
+                              padding: "50px 30px 30px",
+                              boxShadow: 2,
+                          }} className={"overpass"}>
 
 
-                            <TextField
-                                sx={{width: "100%"}}
-                                label="Verify OTP"
-                                placeholder="Enter your OTP"
-                                variant="outlined"
-                                value={varificationCode}
-                                onChange={(e) => setVarificationCode(e.target.value)}
-                            />
+                              <TextField
+                                  sx={{width: "100%"}}
+                                  label="Verify OTP"
+                                  placeholder="Enter your OTP"
+                                  variant="outlined"
+                                  value={otp}
+                                  onChange={(e) => setOtp(e.target.value)}
+                              />
 
-                            <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
-                                <Button
-                                    className="overpass"
-                                    onClick={handleVerifyOTP}
-                                    sx={{
-                                        backgroundColor: "#A6DE9B",
-                                        py: "5px",
-                                        px: "28px",
-                                        textTransform: "unset",
-                                        fontSize: "20px",
-                                        color: "#325343",
-                                        borderRadius: "30px",
-                                        "&:hover": {
-                                            backgroundColor: "darkGreen",
-                                            color: "#fff",
-                                        },
-                                        mt: "10px",
-                                        marginRight: 1,
-                                    }}
-                                >
-                                    Verify
-                                </Button>
-                            </Box>
+                              <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
+                                  <Button
+                                      className="overpass"
+                                      onClick={handleVerifyOTP}
+                                      sx={{
+                                          backgroundColor: "#A6DE9B",
+                                          py: "5px",
+                                          px: "28px",
+                                          textTransform: "unset",
+                                          fontSize: "20px",
+                                          color: "#325343",
+                                          borderRadius: "30px",
+                                          "&:hover": {
+                                              backgroundColor: "darkGreen",
+                                              color: "#fff",
+                                          },
+                                          mt: "10px",
+                                          marginRight: 1,
+                                      }}
+                                  >
+                                      Verify
+                                  </Button>
+                              </Box>
 
-                        </Box>
-                    </Box>
+                          </Box>
+                      </Box>
+                  </Box>
+                  </Box>
                 </Container>}
                 {verify && <Container>
                     <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">

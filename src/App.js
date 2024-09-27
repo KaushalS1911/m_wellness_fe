@@ -21,6 +21,7 @@ import PsyConnectDrishti from "./pages/psyconnect-drishti button/PsyConnect-Dris
 import MentalHealthAssessment from "./pages/home/MentalHealthAssessment";
 import PsyConnectDrishtiForm from "./pages/psyconnect-drishti button/PsyConnectDrishtiForm";
 import Auth from "./components/auth/Auth";
+import MainGetStarted from "./pages/getStarted/getStartedForm/MainGetStarted";
 
 export default function App() {
 
@@ -55,7 +56,7 @@ export default function App() {
                     <Route path="assessment" element={<GetStarted/>}/>
                     <Route path="auth-form" element={<Auth />}/>
                     <Route path="consent-form" element={<GetStartedHome/>}/>
-                    <Route path="assessment-form" element={<GetStartedForm/>}/>
+                    <Route path="assessment-form" element={<MainGetStarted/>}/>
                     <Route path="start-assessment" element={<StartAssessment/>}/>
 
                     {/*<Route path="faq" element={<MainFaqs />} />*/}
