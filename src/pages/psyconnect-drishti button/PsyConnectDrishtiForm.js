@@ -25,8 +25,8 @@ import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import dayjs from 'dayjs';
 import axios from "axios";
-import { RecaptchaVerifier, signInWithPhoneNumber,getAuth } from "firebase/auth";
-import {app} from "../../firebase.config";
+// import { RecaptchaVerifier, signInWithPhoneNumber,getAuth } from "firebase/auth";
+// import {app} from "../../firebase.config";
 
 export default function PsyConnectDrishtiForm(props) {
     const navigate = useNavigate();
@@ -34,7 +34,7 @@ export default function PsyConnectDrishtiForm(props) {
     const [error, setError] = useState(false)
     const [varified,setVarified] = useState("")
     const [varify,setVarify] = useState({addmissionNumber:'',email:""})
-const auth = getAuth(app)
+// const auth = getAuth(app)
     const [open, setOpen] = useState(false)
     const handleClose = () => setOpen(false);
     useEffect(() => {
@@ -45,46 +45,46 @@ const auth = getAuth(app)
         setAge(ages);
 
     }, []);
-    function onCaptchVerify() {
-        window.recaptchaVerifier = new RecaptchaVerifier( auth,
-            'recaptcha-container',
-            {
-                'size': 'invisible',
-                'callback': (response) => {
-                    console.log("reCAPTCHA Verified", response);
-                },
-                'expired-callback': () => {
-                    console.log("reCAPTCHA expired, resetting...");
-                    window.recaptchaVerifier.reset();
-                }
-            }
-        );
-
-        // Render the reCAPTCHA widget
-        window.recaptchaVerifier.render().then((widgetId) => {
-            window.recaptchaWidgetId = widgetId;
-        });
-    }
-
-    function onSignup(ph) {
-        onCaptchVerify();
-
-        const appVerifier = window.recaptchaVerifier;
-
-        signInWithPhoneNumber(auth, `+91${ph}`, appVerifier)
-            .then((confirmationResult) => {
-                window.confirmationResult = confirmationResult;
-                toast.success("OTP sent successfully!");
-                navigate("/auth-form")
-                // setShowOTP(true);
-                // setLoading(false);
-            })
-            .catch((error) => {
-                console.error("Error during OTP send:", error);
-                toast.error("Failed to send OTP. Try again!");
-                // setLoading(false);
-            });
-    }
+    // function onCaptchVerify() {
+    //     window.recaptchaVerifier = new RecaptchaVerifier( auth,
+    //         'sign-in-button',
+    //         {
+    //             'size': 'invisible',
+    //             'callback': (response) => {
+    //                 console.log("reCAPTCHA Verified", response);
+    //             },
+    //             'expired-callback': () => {
+    //                 console.log("reCAPTCHA expired, resetting...");
+    //                 window.recaptchaVerifier.reset();
+    //             }
+    //         }
+    //     );
+    //
+    //     // Render the reCAPTCHA widget
+    //     window.recaptchaVerifier.render().then((widgetId) => {
+    //         window.recaptchaWidgetId = widgetId;
+    //     });
+    // }
+    //
+    // function onSignup(ph) {
+    //     onCaptchVerify();
+    //
+    //     const appVerifier = window.recaptchaVerifier;
+    //
+    //     signInWithPhoneNumber(auth, `+91${ph}`, appVerifier)
+    //         .then((confirmationResult) => {
+    //             window.confirmationResult = confirmationResult;
+    //             toast.success("OTP sent successfully!");
+    //             navigate("/auth-form")
+    //             // setShowOTP(true);
+    //             // setLoading(false);
+    //         })
+    //         .catch((error) => {
+    //             console.error("Error during OTP send:", error);
+    //             toast.error("Failed to send OTP. Try again!");
+    //             // setLoading(false);
+    //         });
+    // }
     const defaultValues = varified === "" ?  {
         addmissionNumber: '',
         email: '',
@@ -172,25 +172,25 @@ const auth = getAuth(app)
                 statement: values?.problem,
                 call_time: String(time),
             }
-            onSignup(values.contact);
-                axios.post("https://interactapiverse.com/mahadevasth/drishti/pyconnects", payload).then((res) => {
-                if (res.data.status === "201") {
-                    setError(false)
-                    setOpen(true)
-                    alert('hello');
+            // onSignup(values.contact);
+            //     axios.post("https://interactapiverse.com/mahadevasth/drishti/pyconnects", payload).then((res) => {
+            //     if (res.data.status === "201") {
+            //         setError(false)
+            //         setOpen(true)
+            //         alert('hello');
                     navigate("/auth-form")
-                    action.resetForm()
-                } else {
-                    setOpen(true)
-                    setError(true)
-
-
-                }
-            }).catch((err) => {
-
-                setError(true)
-                setOpen(true)
-            })
+                //     action.resetForm()
+                // } else {
+                //     setOpen(true)
+                //     setError(true)
+                //
+                //
+                // }
+            // }).catch((err) => {
+            //
+            //     setError(true)
+            //     setOpen(true)
+            // })
         }
         //     const time = values?.startTime.hour()
         //     const payload = {
@@ -242,7 +242,7 @@ const auth = getAuth(app)
                 <Box sx={{width: '100%',}}>
                     <ToastContainer/>
                     <Container>
-                        <div id="recaptcha-container" />
+                        {/*<div id="sign-in-button" />*/}
                         <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">
                             PsyConnect-Drishti Form
                         </Box>
@@ -506,6 +506,7 @@ const auth = getAuth(app)
                                     }
                                     <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
                                         <Button
+                                            // id="sign-in-button"
                                             className="overpass"
                                             type="submit"
                                             sx={{

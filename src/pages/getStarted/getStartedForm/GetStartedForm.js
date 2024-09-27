@@ -274,8 +274,8 @@ import axios from "axios";
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
 import "react-phone-input-2/lib/style.css";
-import { RecaptchaVerifier, signInWithPhoneNumber,getAuth } from "firebase/auth";
-import {app} from "../../../firebase.config";
+// import { RecaptchaVerifier, signInWithPhoneNumber,getAuth } from "firebase/auth";
+// import {app} from "../../../firebase.config";
 function GetStartedForm({onOtpSent}) {
     const navigate = useNavigate();
     const [otp, setOtp] = useState("");
@@ -284,7 +284,7 @@ function GetStartedForm({onOtpSent}) {
     const [open, setOpen] = useState(false);
     const [message, setMessage] = useState("");
     const recaptcha = useRef(null);
-const auth = getAuth(app)
+// const auth = getAuth(app)
 
     useEffect(() => {
         const ages = [];
@@ -298,7 +298,7 @@ const auth = getAuth(app)
     }, []);
     // useEffect(() => {
     //     if (!window.recaptchaVerifier) {
-    //         window.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {
+    //         window.recaptchaVerifier = new RecaptchaVerifier('sign-in-button', {
     //             'size': 'invisible',
     //             'callback': (response) => {
     //                 // handleSendOtp();
@@ -306,59 +306,62 @@ const auth = getAuth(app)
     //         }, auth);
     //     }
     // }, [auth]);
+    // const handleSendOtp = (phNo) => {
+    // window.recaptchaVerifier = new RecaptchaVerifier(auth, 'sign-in-button',  {
+    //                 'size': 'invisible',
+    //             });
+    //
+    //     const phoneNumber = `+91${phNo}`
+    //     const appVerifier = window.recaptchaVerifier;
+    //  signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+    //         .then((confirmationResult) => {
+    //             window.confirmationResult = confirmationResult;
+    //             onOtpSent(phoneNumber);
+    //         })
+    //         .catch((error) => {
+    //             toast.error(error.message)
+    //         });
+    // };
+    // function onCaptchVerify() {
+    //     window.recaptchaVerifier = new RecaptchaVerifier(
+    //         'sign-in-button',
+    //         {
+    //             'size': 'invisible',
+    //             'callback': (response) => {
+    //                 console.log("reCAPTCHA Verified", response);
+    //             },
+    //             'expired-callback': () => {
+    //                 console.log("reCAPTCHA expired, resetting...");
+    //                 window.recaptchaVerifier.reset();
+    //             }
+    //         },
+    //         auth
+    //     );
+    //
+    //     // Render the reCAPTCHA widget
+    //     window.recaptchaVerifier.render().then((widgetId) => {
+    //         window.recaptchaWidgetId = widgetId;
+    //     });
+    // }
 
-    const handleSendOtp = (phNo) => {
-        const phoneNumber = `+91${phNo}`
-        const appVerifier = window.recaptchaVerifier;
-        signInWithPhoneNumber(auth, phoneNumber, appVerifier)
-            .then((confirmationResult) => {
-                window.confirmationResult = confirmationResult;
-                onOtpSent(phoneNumber);
-            })
-            .catch((error) => {
-                toast.error(error.message)
-            });
-    };
-    function onCaptchVerify() {
-        window.recaptchaVerifier = new RecaptchaVerifier(
-            'recaptcha-container',
-            {
-                'size': 'invisible',
-                'callback': (response) => {
-                    console.log("reCAPTCHA Verified", response);
-                },
-                'expired-callback': () => {
-                    console.log("reCAPTCHA expired, resetting...");
-                    window.recaptchaVerifier.reset();
-                }
-            },
-            auth
-        );
 
-        // Render the reCAPTCHA widget
-        window.recaptchaVerifier.render().then((widgetId) => {
-            window.recaptchaWidgetId = widgetId;
-        });
-    }
-
-
-    async function onSignup(ph) {
-        onCaptchVerify();
-        const appVerifier = window.recaptchaVerifier;
-
-        await signInWithPhoneNumber(auth, `+91${ph}`, appVerifier)
-            .then((confirmationResult) => {
-                window.confirmationResult = confirmationResult;
-                toast.success("OTP sent successfully!");
-                // setShowOTP(true);
-                // setLoading(false);
-            })
-            .catch((error) => {
-                console.error("Error during OTP send:", error);
-                toast.error("Failed to send OTP. Try again!");
-                // setLoading(false);
-            });
-    }
+    // async function onSignup(ph) {
+    //     onCaptchVerify();
+    //     const appVerifier = window.recaptchaVerifier;
+    //
+    //     await signInWithPhoneNumber(auth, `+91${ph}`, appVerifier)
+    //         .then((confirmationResult) => {
+    //             window.confirmationResult = confirmationResult;
+    //             toast.success("OTP sent successfully!");
+    //             // setShowOTP(true);
+    //             // setLoading(false);
+    //         })
+    //         .catch((error) => {
+    //             console.error("Error during OTP send:", error);
+    //             toast.error("Failed to send OTP. Try again!");
+    //             // setLoading(false);
+    //         });
+    // }
 
     const formik = useFormik({
         initialValues: {
@@ -382,7 +385,7 @@ const auth = getAuth(app)
         onSubmit: (values) => {
             try {
                 console.log("PHONE : ",values.phone)
-                if(values.phone) handleSendOtp(values.phone)
+                // if(values.phone) handleSendOtp(values.phone)
                 axios.post("https://interactapiverse.com/mahadevasth/organization/student/validate", {
                     organization_id: values.organization,
                     admission_id: values.admissionId,
@@ -442,19 +445,13 @@ const auth = getAuth(app)
         },
     });
     const handleClose = () => setOpen(false);
-    window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
-        'size': 'invisible',
-        'callback': (response) => {
-            // reCAPTCHA solved, allow signInWithPhoneNumber.
-            formik.handleSubmit();
-        }
-    });
+
     return (
         <>
             <ToastContainer/>
             <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: {md: "100px", xs: "80px"}}}>
                 <Container>
-                    <div id="recaptcha-container" />
+                    {/*<div id="sign-in-button" />*/}
                     <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">
                         Assessment Form
                     </Box>
@@ -594,6 +591,7 @@ const auth = getAuth(app)
 
                                 <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
                                     <Button
+                                        // id="sign-in-button"
                                         className="overpass"
                                         type="submit"
                                         sx={{

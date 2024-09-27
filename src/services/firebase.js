@@ -1,10 +1,6 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyB1DZnKfn7HqalLAGCH1klhZ6TQATR9Ov8",
   authDomain: "fir-auth-4e6df.firebaseapp.com",
@@ -15,6 +11,5 @@ const firebaseConfig = {
   measurementId: "G-6L31GFR06C"
 };
 
-// Initialize Firebase
-export const app = initializeApp(firebaseConfig);
-// export {auth ,RecaptchaVerifier,signInWithPhoneNumber}
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
