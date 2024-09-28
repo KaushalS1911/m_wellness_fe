@@ -266,17 +266,23 @@ import Success from "../otp/Success";
 import Toast from "../otp/Toast";
 import {useSelector} from "react-redux";
 import {Box} from "@mui/material";
+import {useLocation} from "react-router-dom";
 
 function Auth(props) {
     const { showComp, success } = useSelector((state) => state.otp);
     const [isVerified, setIsVerified] = useState(false);
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+
+    // Example: getting specific query params
+    const paramValue = queryParams.get('navigate');
     return (
         <>
             <Box className="otp-container">
                 {showComp && !isVerified ? (
                     <Send />
                 ) : !showComp && !success ? (
-                    <Verify onClick={() => setIsVerified(true)} />
+                    <Verify onClick={() => setIsVerified(true)} navi={paramValue}/>
                 ) : (
                     <Success />
                 )}

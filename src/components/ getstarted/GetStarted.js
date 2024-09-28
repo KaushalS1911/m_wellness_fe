@@ -817,18 +817,18 @@ function GetStarted2() {
                             display: "flex",
                             justifyContent: "center",
                             mb: "20px",
-                            "& .css-114p2tk-MuiMobileStepper-dot": {
-                                width: "50px !important",
-                                height: "5px !important",
-                                borderRadius: "unset !important",
-                                backgroundColor: "#DCE2DA !important",
-                            },
-                            "& .css-26w9jf-MuiMobileStepper-dot": {
-                                width: "50px !important",
-                                borderRadius: "unset !important",
-                                backgroundColor: "#325343 !important",
-                                height: "5px !important",
-                            }
+                            // "& .css-114p2tk-MuiMobileStepper-dot": {
+                            //     width: "50px !important",
+                            //     height: "5px !important",
+                            //     borderRadius: "unset !important",
+                            //     backgroundColor: "#DCE2DA !important",
+                            // },
+                            // "& .css-26w9jf-MuiMobileStepper-dot": {
+                            //     width: "50px !important",
+                            //     borderRadius: "unset !important",
+                            //     backgroundColor: "#325343 !important",
+                            //     height: "5px !important",
+                            // }
                         }}
                     />
                     <Box>

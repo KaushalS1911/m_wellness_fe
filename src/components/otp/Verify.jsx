@@ -14,7 +14,7 @@ import {Box, Button, Container, TextField} from "@mui/material";
 import * as Yup from "yup";
 import {useNavigate} from 'react-router-dom';
 import {useFormik} from "formik";
-const Verify = () => {
+const Verify = ({navi}) => {
   const dispatch = useDispatch();
   const { user, phoneNumber } = useSelector((state) => state.otp);
   const [otp, setOtp] = useState("");
@@ -131,7 +131,7 @@ const navigate = useNavigate()
             localStorage.setItem('confirmPin', values.confirmPin);
 
             localStorage.setItem('formValues', JSON.stringify(values));
-            navigate("/start-assessment");
+           navi ? navigate("/start-assessment"):navigate("/shape-assessment")
         }
 
     })

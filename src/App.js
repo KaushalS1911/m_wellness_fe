@@ -53,11 +53,11 @@ export default function App() {
                     {/*<Route path="about" element={<About />} />*/}
                     {/*<Route path="business" element={<BusinessPage />} />*/}
                     {/*<Route path="contact" element={<Contact />} />*/}
-                    <Route path="assessment" element={<GetStarted/>}/>
-                    <Route path="auth-form" element={<Auth />}/>
-                    <Route path="consent-form" element={<GetStartedHome/>}/>
-                    <Route path="assessment-form" element={<MainGetStarted/>}/>
-                    <Route path="start-assessment" element={<StartAssessment/>}/>
+                    <Route path="/assessment" element={<GetStarted/>}/>
+                    <Route path="/auth-form" element={<Auth />}/>
+                    <Route path="/consent-form" element={<GetStartedHome/>}/>
+                    <Route path="/assessment-form" element={<MainGetStarted/>}/>
+                    <Route path="/start-assessment" element={<StartAssessment/>}/>
 
                     {/*<Route path="faq" element={<MainFaqs />} />*/}
                     {/*<Route path="advice" element={<Advice />} />*/}

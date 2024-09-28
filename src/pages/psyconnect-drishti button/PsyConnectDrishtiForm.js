@@ -178,7 +178,7 @@ export default function PsyConnectDrishtiForm(props) {
             //         setError(false)
             //         setOpen(true)
             //         alert('hello');
-                    navigate("/auth-form")
+                    navigate("/auth-form?navigate=assessment")
                 //     action.resetForm()
                 // } else {
                 //     setOpen(true)
