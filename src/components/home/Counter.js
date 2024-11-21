@@ -19,7 +19,7 @@ function Counter() {
             <Container>
                 <Box sx={{ pb:20, pt: 6 }}>
                     <Grid container sx={{display:" flex", justifyContent: "center", alignItems: "center"}}>
-                        <Grid item md={6} xs={12}>
+                        <Grid item md={6} xs={12} data-aos="fade-right">
                             <Box
                                 sx={{
                                     display: "flex",
@@ -54,7 +54,7 @@ function Counter() {
                                 </Box>
                             </Box>
                         </Grid>
-                        <Grid item md={6} xs={12}>
+                        <Grid item md={6} xs={12} data-aos="fade-left">
                             {stats.map((stat, index) => (
                                 <Box key={index} sx={{
                                     borderBottom: index !== stats.length - 1 ? "1px solid #c3c8c1" : "none",

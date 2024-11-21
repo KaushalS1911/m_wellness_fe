@@ -22,6 +22,8 @@ import MentalHealthAssessment from "./pages/home/MentalHealthAssessment";
 import PsyConnectDrishtiForm from "./pages/psyconnect-drishti button/PsyConnectDrishtiForm";
 import Auth from "./components/auth/Auth";
 import MainGetStarted from "./pages/getStarted/getStartedForm/MainGetStarted";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function App() {
 
@@ -32,6 +34,14 @@ export default function App() {
         }, [pathname]);
         return null;
     }
+    useEffect(() => {
+        AOS.init({
+            duration: 1200,
+            once: false,
+            easing: 'ease-in-out',
+        });
+        // AOS.refresh()
+    }, []);
 
     return (
         <>

@@ -152,7 +152,7 @@ const Frequently = () => {
                     <img src={divider3} alt="divider image"/>
                 </Box>
                 <Box>
-                    <Box sx={{display: "flex", justifyContent: "center"}} pb={5}>
+                    <Box sx={{display: "flex", justifyContent: "center"}} pb={5} data-aos="zoom-in">
                         <Typography className="overpass title" sx={{fontSize: 48, fontWeight: 350, color: "white", fontFamily: "Overpass"}}>
                             <Typography variant="span" sx={{color: "#A6DE9B"}}>
                                 m
@@ -162,7 +162,7 @@ const Frequently = () => {
                     </Box>
                     <Box>
                         <Grid container display={"flex"} justifyContent={"center"}>
-                            <Grid item md={5}>
+                            <Grid item md={5} data-aos="zoom-out">
                                 <TableContainer>
                                     {/*{isMobile ? (*/}
                                     {/*    <Box sx={{color:"white"}}>*/}
@@ -351,71 +351,73 @@ const Frequently = () => {
                 {/*    </Box>*/}
                 {/*  </Box>*/}
                 {/*</Container>*/}
-                <Container>
-                    <Box
-                        sx={{
-                            position: "absolute",
-                            top: {md: "14%", xs: "20%"},
-                            left: "50%",
-                            width: {md: "600px", xs: "90%"},
-                            color: "white",
-                            transform: "translateX(-50%)",
-                            fontSize: {md: "32px", xs: "24px"},
-                            textAlign: "center",
-                            px: {xs: 2, md: 0},
-                        }}
-                    >
-                        <Box className="overpass title" sx={{position: "relative", textAlign: "center"}}>
-                            Susan is amazing in her insights and conversational approach. I am so glad and blessed to
-                            have found her and started healing with her guidance.
-                            <Box sx={{
-                                position: "absolute",
-                                top: "0",
-                                left: {md: "-100px", xs: "-5px"},
-                                height: {md: "40px", xs: "20px"}
-                            }}>
-                                <img src={left} alt="left"/>
-                            </Box>
-                            <Box sx={{
-                                position: "absolute",
-                                top: "0",
-                                right: {md: "-80px", xs: "-5px"},
-                                height: {md: "40px", xs: "20px"}
-                            }}>
-                                <img src={right} alt="right"/>
-                            </Box>
-                            <Box
-                                sx={{
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                    width: {md: "350px", xs: "250px"},
-                                    mx: "auto",
-                                    my: 2,
-                                }}
-                            >
-                                <img src={image} alt="image" style={{width: "100%", height: "auto"}}/>
-                            </Box>
-                            <Button
-                                variant="outlined"
-                              className="overpass"
-                                sx={{
-                                    color: "white",
-                                    padding: {md: "12px 36px", xs: "8px 24px"},
-                                    borderColor: "white",
-                                    borderRadius: 30,
-                                    fontFamily: "Overpass",
-                                    "&:hover": {
-                                        color: "lightGreen",
-                                        borderColor: "lightGreen",
-                                    },
-                                }}
-                            >
-                                More success stories
-                            </Button>
-                        </Box>
-                    </Box>
-                </Container>
+               <Box>
+                   <Container >
+                       <Box
+                           sx={{
+                               position: "absolute",
+                               top: {md: "14%", xs: "20%"},
+                               left: "50%",
+                               width: {md: "600px", xs: "90%"},
+                               color: "white",
+                               transform: "translateX(-50%)",
+                               fontSize: {md: "32px", xs: "24px"},
+                               textAlign: "center",
+                               px: {xs: 2, md: 0},
+                           }}
+                       >
+                           <Box data-aos="zoom-in" className="overpass title" sx={{position: "relative", textAlign: "center"}}>
+                               Susan is amazing in her insights and conversational approach. I am so glad and blessed to
+                               have found her and started healing with her guidance.
+                               <Box  sx={{
+                                   position: "absolute",
+                                   top: "0",
+                                   left: {md: "-100px", xs: "-5px"},
+                                   height: {md: "40px", xs: "20px"}
+                               }}>
+                                   <img src={left} alt="left"/>
+                               </Box>
+                               <Box sx={{
+                                   position: "absolute",
+                                   top: "0",
+                                   right: {md: "-80px", xs: "-5px"},
+                                   height: {md: "40px", xs: "20px"}
+                               }}>
+                                   <img src={right} alt="right"/>
+                               </Box>
+                               <Box
+                                   sx={{
+                                       display: "flex",
+                                       justifyContent: "center",
+                                       alignItems: "center",
+                                       width: {md: "350px", xs: "250px"},
+                                       mx: "auto",
+                                       my: 2,
+                                   }}
+                               >
+                                   <img src={image} alt="image" style={{width: "100%", height: "auto"}}/>
+                               </Box>
+                               <Button
+                                   variant="outlined"
+                                   className="overpass"
+                                   sx={{
+                                       color: "white",
+                                       padding: {md: "12px 36px", xs: "8px 24px"},
+                                       borderColor: "white",
+                                       borderRadius: 30,
+                                       fontFamily: "Overpass",
+                                       "&:hover": {
+                                           color: "lightGreen",
+                                           borderColor: "lightGreen",
+                                       },
+                                   }}
+                               >
+                                   More success stories
+                               </Button>
+                           </Box>
+                       </Box>
+                   </Container>
+               </Box>
 
                 <img src={divider} alt="divider image"/>
             </Box>
@@ -437,6 +439,7 @@ const Frequently = () => {
                 <Container>
                     <Box sx={{px: {lg: "160px", md: "50px"}}}>
                         <Box
+                            data-aos="zoom-in"
                             sx={{
                                 fontSize: "36px",
                                 color: "black",
@@ -448,6 +451,7 @@ const Frequently = () => {
                         </Box>
                         {data.map((item, index) => (
                             <Accordion
+                                data-aos="zoom-in"
                                 key={index}
                                 expanded={expanded === index}
                                 onChange={handleExpansion(index)}
@@ -492,6 +496,7 @@ const Frequently = () => {
                         ))}
                     </Box>
                     <Box
+                        data-aos="zoom-in"
                         sx={{
                             fontSize: "18px",
                             cursor: "pointer",
@@ -511,6 +516,7 @@ const Frequently = () => {
                             justifyContent: "center",
                             alignItems: "center",
                         }}
+                        data-aos="zoom-in"
                     >
                         <Button
                             className='overpass'

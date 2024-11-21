@@ -23,7 +23,7 @@ function HowItWorks() {
     return (
         <Box sx={{backgroundColor: "#F5F7F5"}}>
             <Box>
-                <Box display={"flex"} justifyContent={"center"}>
+                <Box display={"flex"} justifyContent={"center"} data-aos="zoom-in">
                     <Typography
                         className="title overpass"
                         my={5}
@@ -37,15 +37,15 @@ function HowItWorks() {
                     </Typography>
                 </Box>
                 <Grid container py={5} display={"flex"} justifyContent={"center"}>
-                    <Grid item xl={8}>
+                    <Grid item xl={8} >
                         <Box>
                             <Grid container my={5}>
-                                <Grid item md={8}>
+                                <Grid item md={8} data-aos="fade-right">
                                     <Box>
                                         <img src={image1} alt="How it works step 1"/>
                                     </Box>
                                 </Grid>
-                                <Grid item md={4} alignSelf={"center"} p={{xs: 5, md: 0}}>
+                                <Grid item md={4} alignSelf={"center"} p={{xs: 5, md: 0}} data-aos="fade-left">
                                     <Box>
                                         <Typography style={{
                                             fontSize: 32,
@@ -72,19 +72,19 @@ function HowItWorks() {
                                 </Grid>
                             </Grid>
                         </Box>
-                        <Box display={"flex"} justifyContent={"center"}>
+                        <Box display={"flex"} justifyContent={"center"} data-aos="zoom-in">
                             <Box sx={{height: "80px", width: "60px", objectFit: "contain"}}>
                                 <img src={arro} alt="Arrow down"/>
                             </Box>
                         </Box>
                         <Box>
                             <Grid container py={5} my={5}>
-                                <Grid item md={8}>
+                                <Grid item md={8} data-aos="fade-right">
                                     <Box>
                                         <img src={image2} alt="How it works step 2"/>
                                     </Box>
                                 </Grid>
-                                <Grid item md={4} alignSelf={"center"} p={{xs: 5, md: 0}}>
+                                <Grid item md={4} alignSelf={"center"} p={{xs: 5, md: 0}} data-aos="fade-left">
                                     <Box>
                                         <Typography className="title overpass" style={{
                                             fontSize: 32,
@@ -110,19 +110,19 @@ function HowItWorks() {
                                 </Grid>
                             </Grid>
                         </Box>
-                        <Box display={"flex"} justifyContent={"center"}>
+                        <Box display={"flex"} justifyContent={"center"} data-aos="zoom-in">
                             <Box sx={{height: "80px", width: "60px", objectFit: "contain"}}>
                                 <img src={arro} alt="Arrow down"/>
                             </Box>
                         </Box>
                         <Box>
                             <Grid container py={5} my={5}>
-                                <Grid item md={8}>
+                                <Grid item md={8} data-aos="fade-right">
                                     <Box>
                                         <img src={image3} alt="How it works step 3"/>
                                     </Box>
                                 </Grid>
-                                <Grid item md={4} alignSelf={"center"} p={{xs: 5, md: 0}}>
+                                <Grid item md={4} alignSelf={"center"} p={{xs: 5, md: 0}} data-aos="fade-left">
                                     <Box>
                                         <Typography className="title overpass" style={{
                                             fontSize: 32,

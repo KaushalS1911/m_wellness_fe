@@ -21,7 +21,7 @@ function Professional(props) {
         }}>
             <Container>
                 <Grid container sx={{py: {xs: "50px", md: "100px"}, pb: "250px !important"}}>
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12} md={6} data-aos="zoom-in">
                         <Box className="title overpass" sx={{fontSize: {xs: 28, sm: 38, md: 48}, letterSpacing: -1.5, fontWeight: 300}}>Professional
                             and credentialed therapists who you can trust</Box>
                         <Box sx={{maxHeight: "100%", display: {md: "none", xs: "block"}}}>
@@ -54,7 +54,7 @@ function Professional(props) {
                             </Button>
                         </Box>
                     </Grid>
-                    <Grid item xs={12} md={6} sx={{display: {md: "block", xs: "none"}}}>
+                    <Grid item xs={12} md={6} data-aos="fade-left" sx={{display: {md: "block", xs: "none"}}}>
                         <Box sx={{maxHeight: "100%"}}>
                             <img src={professionalImg} alt="professional"/>
                         </Box>

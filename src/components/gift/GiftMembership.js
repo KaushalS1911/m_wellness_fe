@@ -33,7 +33,7 @@ const GiftMembership = () => {
         </Box>
         <Container>
           <Grid container sx={{pt: {md:"50px",xs:"unset"}}}>
-            <Grid item xs={12} md={8} sx={{textAlign:{xs:'center',md:'unset'},zIndex:'11'}}>
+            <Grid data-aos="fade-right" item xs={12} md={8} sx={{textAlign:{xs:'center',md:'unset'},zIndex:'11'}}>
               <Box
                 sx={{
                   fontSize: { md: "48px", xs: "32px" },
@@ -98,6 +98,7 @@ const GiftMembership = () => {
               </Box>
             </Grid>
             <Grid
+                data-aos="fade-left"
               item
               xs={4}
               sx={{
@@ -130,7 +131,7 @@ const GiftMembership = () => {
                 </Box>
               </Box>
             </Grid>
-            <Grid xs={12} md={6} mt={{ md: "90px", xs: "0px" }}>
+            <Grid xs={12} md={6} mt={{ md: "90px", xs: "0px" }} data-aos="fade-right">
               <Box
                 sx={{
                   display: "flex",
@@ -159,7 +160,7 @@ const GiftMembership = () => {
                 </Box>
               </Box>
             </Grid>
-            <Grid xs={12} md={6} mt={{ md: "90px", xs: "32px" }}>
+            <Grid xs={12} md={6} mt={{ md: "90px", xs: "32px" }} data-aos="fade-left">
               <Box
                 sx={{
                   display: "flex",

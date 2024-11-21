@@ -26,7 +26,7 @@ function HomeHerosection(props) {
                             <Grid container spacing={{xs: 2, md: 3, lg: 5}} className="title overpass">
                                 {happyImg.map((item, index) => (
                                     <Grid item xs={12} key={index} lg={4}>
-                                        <Box sx={{
+                                        <Box data-aos="fade-up" sx={{
                                             overflow: "hidden",
                                             height: {lg: "auto", xs: "120px"},
                                             position: "relative",
