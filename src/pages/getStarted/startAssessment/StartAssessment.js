@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from "@mui/material/Box";
 import {Button, Checkbox, Container} from "@mui/material";
-import GetStartedReview from "../../../components/ getstarted/GetStartedReview";
+import GetStartedReview from "../../../components/getstarted/GetStartedReview";
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import {useNavigate} from "react-router-dom"
 

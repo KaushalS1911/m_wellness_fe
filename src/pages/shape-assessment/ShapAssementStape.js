@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import LookingFor from "../../components/ getstarted/LookingFor";
+import LookingFor from "../../components/getstarted/LookingFor";
 import Box from "@mui/material/Box";
 import {Container, MobileStepper} from "@mui/material";
 import ShapStapper from "./ShapStapper";

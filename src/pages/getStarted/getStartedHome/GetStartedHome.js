@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import GetStartedReview from "../../../components/ getstarted/GetStartedReview";
+import GetStartedReview from "../../../components/getstarted/GetStartedReview";
 import Box from "@mui/material/Box";
 import {useNavigate} from "react-router-dom"
 import {
