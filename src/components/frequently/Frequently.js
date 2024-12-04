@@ -437,7 +437,7 @@ const Frequently = () => {
                 }
             }}>
                 <Container>
-                    <Box sx={{px: {lg: "160px", md: "50px"}}}>
+                    <Box data-aos="zoom-in" sx={{px: {lg: "160px", md: "50px"}}}>
                         <Box
                             data-aos="zoom-in"
                             sx={{
@@ -451,7 +451,6 @@ const Frequently = () => {
                         </Box>
                         {data.map((item, index) => (
                             <Accordion
-                                data-aos="zoom-in"
                                 key={index}
                                 expanded={expanded === index}
                                 onChange={handleExpansion(index)}

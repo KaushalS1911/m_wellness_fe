@@ -32,8 +32,8 @@ export default function PsyConnectDrishtiForm(props) {
     const navigate = useNavigate();
     const [age, setAge] = useState([]);
     const [error, setError] = useState(false)
-    const [varified,setVarified] = useState("")
-    const [varify,setVarify] = useState({addmissionNumber:'',email:""})
+    const [varified, setVarified] = useState("")
+    const [varify, setVarify] = useState({addmissionNumber: '', email: ""})
 // const auth = getAuth(app)
     const [open, setOpen] = useState(false)
     const handleClose = () => setOpen(false);
@@ -85,23 +85,28 @@ export default function PsyConnectDrishtiForm(props) {
     //             // setLoading(false);
     //         });
     // }
-    const defaultValues = varified === "" ?  {
+    const defaultValues = varified === "" ? {
         addmissionNumber: '',
         email: '',
-    }:{
+    } : {
         name: '',
         age: '',
         gender: '',
         branch: '',
         addmissionNumber: varify.addmissionNumber || '',
-        email:varify.email || '',
+        email: varify.email || '',
         contact: '',
         discuss: [],
         problem: '',
         startTime: dayjs().hour(9).minute(0),
     }
-    const schema1= Yup.object({
-        addmissionNumber: Yup.string().required('Admission number is required'),
+    const schema1 = Yup.object({
+        addmissionNumber: Yup.string()
+            .required('Admission number is required')
+            .matches(
+                /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/,
+                'Please enter valid admission number'
+            ),
         email: Yup.string().email('Invalid email address').required('Email is required'),
     })
     const schema2 = Yup.object({
@@ -140,8 +145,8 @@ export default function PsyConnectDrishtiForm(props) {
         initialValues: defaultValues,
         validationSchema: (varified === "" ? schema1 : schema2),
         onSubmit: (values, action) => {
-            if(varified === ""){
-            setVarify({addmissionNumber: values.addmissionNumber,email: values.email})
+            if (varified === "") {
+                setVarify({addmissionNumber: values.addmissionNumber, email: values.email})
                 setVarified("hello")
                 action.resetForm({
                     values: {
@@ -158,27 +163,27 @@ export default function PsyConnectDrishtiForm(props) {
                     errors: {},
                     touched: {},
                 });
-            }else{
-            const time = values?.startTime.hour()
-            const payload = {
-                student_name: values?.name,
-                age: String(values?.age),
-                gender: values?.gender,
-                batch: values?.branch,
-                admission_number: values?.addmissionNumber,
-                mobile_number: values?.contact,
-                email: values?.email,
-                category: (values?.discuss).join(","),
-                statement: values?.problem,
-                call_time: String(time),
-            }
-            // onSignup(values.contact);
-            //     axios.post("https://interactapiverse.com/mahadevasth/drishti/pyconnects", payload).then((res) => {
-            //     if (res.data.status === "201") {
-            //         setError(false)
-            //         setOpen(true)
-            //         alert('hello');
-                    navigate("/auth-form?navigate=assessment")
+            } else {
+                const time = values?.startTime.hour()
+                const payload = {
+                    student_name: values?.name,
+                    age: String(values?.age),
+                    gender: values?.gender,
+                    batch: values?.branch,
+                    admission_number: values?.addmissionNumber,
+                    mobile_number: values?.contact,
+                    email: values?.email,
+                    category: (values?.discuss).join(","),
+                    statement: values?.problem,
+                    call_time: String(time),
+                }
+                // onSignup(values.contact);
+                //     axios.post("https://interactapiverse.com/mahadevasth/drishti/pyconnects", payload).then((res) => {
+                //     if (res.data.status === "201") {
+                //         setError(false)
+                //         setOpen(true)
+                //         alert('hello');
+                navigate("/auth-form?navigate=assessment")
                 //     action.resetForm()
                 // } else {
                 //     setOpen(true)
@@ -186,42 +191,42 @@ export default function PsyConnectDrishtiForm(props) {
                 //
                 //
                 // }
-            // }).catch((err) => {
+                // }).catch((err) => {
+                //
+                //     setError(true)
+                //     setOpen(true)
+                // })
+            }
+            //     const time = values?.startTime.hour()
+            //     const payload = {
+            //         student_name: values?.name,
+            //         age: values?.age,
+            //         gender: values?.gender,
+            //         batch: values?.branch,
+            //         admission_number: values?.addmissionNumber,
+            //         mobile_number: values?.contact,
+            //         email: values?.email,
+            //         category: values?.discuss,
+            //         statement: values?.problem,
+            //         call_time: time,
+            //     }
+            //     axios.post("https://interactapiverse.com/mahadevasth/drishti/pyconnect", payload).then((res) => {
+            //         if (res.data.status === "201") {
+            //             setError(false)
+            //             setOpen(true)
+            //             navigate("/psyconnect-drishti-form")
+            //             action.resetForm()
+            //         } else {
+            //             setOpen(true)
+            //             setError(true)
             //
-            //     setError(true)
-            //     setOpen(true)
-            // })
-        }
-        //     const time = values?.startTime.hour()
-        //     const payload = {
-        //         student_name: values?.name,
-        //         age: values?.age,
-        //         gender: values?.gender,
-        //         batch: values?.branch,
-        //         admission_number: values?.addmissionNumber,
-        //         mobile_number: values?.contact,
-        //         email: values?.email,
-        //         category: values?.discuss,
-        //         statement: values?.problem,
-        //         call_time: time,
-        //     }
-        //     axios.post("https://interactapiverse.com/mahadevasth/drishti/pyconnect", payload).then((res) => {
-        //         if (res.data.status === "201") {
-        //             setError(false)
-        //             setOpen(true)
-        //             navigate("/psyconnect-drishti-form")
-        //             action.resetForm()
-        //         } else {
-        //             setOpen(true)
-        //             setError(true)
-        //
-        //         }
-        //     }).catch((err) => {
-        //
-        //         setError(true)
-        //         setOpen(true)
-        //     })
-        // }
+            //         }
+            //     }).catch((err) => {
+            //
+            //         setError(true)
+            //         setOpen(true)
+            //     })
+            // }
         }
 
     })
@@ -238,7 +243,15 @@ export default function PsyConnectDrishtiForm(props) {
 
     return (
         <>
-            <Box sx={{minHeight:"88VH",height:"100%",display:"flex",justifyContent:"center",alignItems:"center",backgroundColor: "#FFFCF6", py: {md: "110px", xs: "80px"}}}>
+            <Box sx={{
+                minHeight: "88VH",
+                height: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor: "#FFFCF6",
+                py: {md: "110px", xs: "80px"}
+            }}>
                 <Box sx={{width: '100%',}}>
                     <ToastContainer/>
                     <Container>
@@ -323,7 +336,8 @@ export default function PsyConnectDrishtiForm(props) {
 
                                             <Box display={{sm: "flex"}} mt={{xs: 2, sm: "unset"}} alignItems="center"
                                                  margin="normal">
-                                                <FormLabel component="legend" sx={{marginRight: '1rem'}}>Gender :</FormLabel>
+                                                <FormLabel component="legend" sx={{marginRight: '1rem'}}>Gender
+                                                    :</FormLabel>
                                                 <RadioGroup
                                                     name="gender"
                                                     value={formik.values.gender}
@@ -331,11 +345,14 @@ export default function PsyConnectDrishtiForm(props) {
                                                     row
                                                     error={formik.touched.gender && Boolean(formik.errors.gender)}
                                                 >
-                                                    <FormControlLabel sx={{color: "#00000099"}} value="male" control={<Radio/>}
+                                                    <FormControlLabel sx={{color: "#00000099"}} value="male"
+                                                                      control={<Radio/>}
                                                                       label="Male"/>
-                                                    <FormControlLabel sx={{color: "#00000099"}} value="female" control={<Radio/>}
+                                                    <FormControlLabel sx={{color: "#00000099"}} value="female"
+                                                                      control={<Radio/>}
                                                                       label="Female"/>
-                                                    <FormControlLabel sx={{color: "#00000099"}} value="other" control={<Radio/>}
+                                                    <FormControlLabel sx={{color: "#00000099"}} value="other"
+                                                                      control={<Radio/>}
                                                                       label="Other"/>
                                                 </RadioGroup>
                                             </Box>
@@ -450,14 +467,15 @@ export default function PsyConnectDrishtiForm(props) {
                                                 error={formik.touched.problem && Boolean(formik.errors.problem)}
                                                 helperText={formik.touched.problem && formik.errors.problem}
                                             />
-                                            <FormLabel sx={{my: 2}} component="legend">Preferred time to Call (Between Morning 9
+                                            <FormLabel sx={{my: 2}} component="legend">Preferred time to Call (Between
+                                                Morning 9
                                                 till Evening 9)</FormLabel>
                                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                                 <Box display="flex" justifyContent="space-evenly" mt={2} width={"100%"}>
                                                     <Box mx={2} width={"100%"}>
                                                         <TimePicker
                                                             label="Call Time"
-                                                            sx={{width:"100%"}}
+                                                            sx={{width: "100%"}}
                                                             value={formik.values.startTime}
                                                             onChange={(value) => formik.setFieldValue('startTime', value)}
                                                             renderInput={(params) => (
@@ -502,7 +520,7 @@ export default function PsyConnectDrishtiForm(props) {
                                                     </Box>
                                                 </Box>
                                             </LocalizationProvider>
-                                           </>
+                                        </>
                                     }
                                     <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
                                         <Button
@@ -554,7 +572,8 @@ export default function PsyConnectDrishtiForm(props) {
                                 outline: 'none',
                             }}
                         >
-                            <Typography id="modal-title" variant="h6" component="h2" sx={{paddingLeft: 2, paddingTop: 2}}>
+                            <Typography id="modal-title" variant="h6" component="h2"
+                                        sx={{paddingLeft: 2, paddingTop: 2}}>
                                 {error ? "Something went wrong, student record not created" : "Thank you for contacting us. We will get back to you soon"}
                             </Typography>
                             {/*<Typography id="modal-description" sx={{ mt: 2 }}>*/}
