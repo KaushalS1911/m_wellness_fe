@@ -15,7 +15,7 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  monospace;
 }
 
 li {
@@ -54,11 +54,11 @@ img {
 }
 
 .businessSlider
-  .swiper-horizontal
-  > .swiper-pagination-bullets
-  .swiper-pagination-bullet,
+.swiper-horizontal
+> .swiper-pagination-bullets
+.swiper-pagination-bullet,
 .swiper-pagination-horizontal.swiper-pagination-bullets
-  .swiper-pagination-bullet {
+.swiper-pagination-bullet {
   background-color: #6e716e;
   padding: 6px !important;
   margin-inline: 8px;
@@ -105,12 +105,12 @@ img {
 
 @media screen and (max-width: 600px) {
   .businessSlider
-    .swiper-horizontal
-    > .swiper-pagination-bullets
-    .swiper-pagination-bullet,
+  .swiper-horizontal
+  > .swiper-pagination-bullets
+  .swiper-pagination-bullet,
   .businessSlider
-    .swiper-pagination-horizontal.swiper-pagination-bullets
-    .swiper-pagination-bullet {
+  .swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
     padding: 5px !important;
   }
 }
@@ -214,11 +214,11 @@ img {
   width: 50px !important;
   height: 5px !important;
   borderRadius: unset !important;
-backgroundColor: #325343 !important;
+  backgroundColor: #325343 !important;
 }
 .css-454acy{
   width: 50px !important;
-height: 5px !important;
-borderRadius: unset !important;
+  height: 5px !important;
+  borderRadius: unset !important;
   backgroundColor: #DCE2DA !important;
 }
