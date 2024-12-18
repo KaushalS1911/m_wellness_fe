@@ -34,10 +34,10 @@ export default function MentalHealthAssessment(props) {
                             borderRadius: 8,
                             padding: "24px"
                         }}>
-                            <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass">
-                                Exam Stress Gauage Test (18-21)
+                            <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass title">
+                                Exam Stress Gauge (18-21)
                             </Box>
-                            <Box sx={{display: {sm: "flex"}, justifyContent: "space-between", mt: {xs: 4, sm: 15}}}>
+                            <Box sx={{display: {sm: "flex"}, justifyContent: "space-between", mt: {xs: 4, sm: 10}}}>
                                 <Box sx={{height: "140px", width: "140px", borderRadius: 5, overflow: "hidden"}}>
                                     <img src={home1} alt="first"/>
                                 </Box>
@@ -71,14 +71,10 @@ export default function MentalHealthAssessment(props) {
                                 borderRadius: 8,
                                 padding: "24px"
                             }}>
-                                <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass">
-                                    SHAPE K-12 Assessment Test
+                                <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass title">
+                                    SHAPE K-12
                                 </Box>
-                                <Box sx={{fontSize: "18px", color: "#444444", mt: 4}}>
-                                    OCD, or Obsessive Compulsive Disorder, is a common mental health concern that many
-                                    people struggle with. However, it
-                                </Box>
-                                <Box sx={{display: {sm: "flex"}, justifyContent: "space-between", mt: 7}}>
+                                <Box sx={{display: {sm: "flex"}, justifyContent: "space-between", mt: {xs: 4, sm: 15}}}>
                                     <Box sx={{height: "140px", width: "140px", borderRadius: 5, overflow: "hidden"}}>
                                         <img src={home2} alt="first"/>
                                     </Box>
@@ -114,10 +110,10 @@ export default function MentalHealthAssessment(props) {
                                 borderRadius: 8,
                                 padding: "24px"
                             }}>
-                                <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass">
-                                    Emotional Awareness and Regulation Ages 4-10 Years
+                                <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass title">
+                                    Emotional Awareness and Regulation (Ages 4-10)
                                 </Box>
-                                <Box sx={{display: {sm: "flex"}, justifyContent: "space-between", mt: {xs: 4, sm: 15}}}>
+                                <Box sx={{display: {sm: "flex"}, justifyContent: "space-between", mt: {xs: 4, sm: 5}}}>
                                     <Box sx={{height: "140px", width: "140px", borderRadius: 5, overflow: "hidden"}}>
                                         <img src={home1} alt="first"/>
                                     </Box>
@@ -151,10 +147,10 @@ export default function MentalHealthAssessment(props) {
                                 borderRadius: 8,
                                 padding: "24px"
                             }}>
-                                <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass">
+                                <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass title">
                                     Academic Stress 16-25 Years
                                 </Box>
-                                <Box sx={{display: {sm: "flex"}, justifyContent: "space-between", mt: {xs: 4, sm: 15}}}>
+                                <Box sx={{display: {sm: "flex"}, justifyContent: "space-between", mt: {xs: 4, sm: 10}}}>
                                     <Box sx={{height: "140px", width: "140px", borderRadius: 5, overflow: "hidden"}}>
                                         <img src={home1} alt="first"/>
                                     </Box>
@@ -188,10 +184,10 @@ export default function MentalHealthAssessment(props) {
                                 borderRadius: 8,
                                 padding: "24px"
                             }}>
-                                <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass">
-                                    Self-Esteem Assessment 11-13 Years
+                                <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass title">
+                                    Self-Esteem Scale for Pre-Adolescents (Ages 11-13)
                                 </Box>
-                                <Box sx={{display: {sm: "flex"}, justifyContent: "space-between", mt: {xs: 4, sm: 15}}}>
+                                <Box sx={{display: {sm: "flex"}, justifyContent: "space-between", mt: {xs: 4, sm: 5}}}>
                                     <Box sx={{height: "140px", width: "140px", borderRadius: 5, overflow: "hidden"}}>
                                         <img src={home1} alt="first"/>
                                     </Box>
