@@ -5,7 +5,7 @@ import {useParams} from "react-router-dom"
 import Typography from "@mui/material/Typography";
 import background from "../assets/score/pexels-photo-5699431-1-1024x682.jpeg.jpg"
 
-function EmotionalAwarenessPointTable(props) {
+function AcademicStressPointTable(props) {
     const language = sessionStorage.getItem("language");
     const {id} = useParams();
     const settings = {
@@ -13,16 +13,14 @@ function EmotionalAwarenessPointTable(props) {
         height: 200,
     };
 
-    const per = ((id * 100) / 15).toFixed(0);
+    const per = ((id * 100) / 80).toFixed(0);
 
     const descEng = (data) => {
         switch (true) {
             case data >= 13 && data <= 15:
                 return {
-                    desc: "You have demonstrated excellent stress management, emotional resilience, and decision-making skills, which are crucial for your exam preparation. Your ability to stay calm under pressure and maintain a positive mindset is commendable. These traits will serve you well not only in your exams but also in your future career. Keep up the good work, continue refining your skills, and remember that consistent effort and self-belief are key to achieving your goals.",
+                    desc: "The student experiences high levels of academic stress but has developed effective coping strategies to manage it. This indicates a strong ability to handle pressure while maintaining mental and emotional balance.",
                     color: "#325343",
-                    interpretation: "The child has a strong understanding of emotions and demonstrates effective emotional regulation skills.",
-                    recommendations: "Encourage continued emotional development through positive reinforcement and activities that promote emotional intelligence. Engage the child in more complex emotional awareness activities to further enhance their skills.",
                     actionPlan: [
                         "Continue reinforcing positive emotional behaviours.",
                         "Introduce more advanced emotional intelligence activities.",
@@ -187,4 +185,4 @@ function EmotionalAwarenessPointTable(props) {
     );
 }
 
-export default EmotionalAwarenessPointTable;
+export default AcademicStressPointTable;

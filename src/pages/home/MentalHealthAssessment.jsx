@@ -171,7 +171,7 @@ export default function MentalHealthAssessment(props) {
                                                 cursor: "pointer"
                                             }} onClick={() => {
                                                 sessionStorage.setItem("data", "hello")
-                                                navigate("/emotional")
+                                                navigate("/AcademicStress")
                                             }}>
                                                 TAKE ASSESSMENT
                                             </Box>
@@ -214,7 +214,7 @@ export default function MentalHealthAssessment(props) {
                                                 cursor: "pointer"
                                             }} onClick={() => {
                                                 sessionStorage.setItem("data", "hello")
-                                                navigate("/emotional")
+                                                navigate("/SelfEsteemAssessment")
                                             }}>
                                                 TAKE ASSESSMENT
                                             </Box>

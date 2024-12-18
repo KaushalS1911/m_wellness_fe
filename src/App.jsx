@@ -18,6 +18,10 @@ import ShapAssementStape from "./pages/shape-assessment/ShapAssementStape";
 import MentalHealthAssessment from "./pages/home/MentalHealthAssessment";
 import EmotionalAwarenessStape from "./pages/emotional-awareness/EmotionalAwarenessStape";
 import EmotionalAwarenessPointTable from "./pages/EmotionalAwarenessPointTable";
+import AcademicStressStape from "./pages/academic-stress/AcademicStressStape";
+import AcademicStressPointTable from "./pages/AcademicStressPointTable";
+import SelfEsteemAssessmentStape from "./pages/self-esteem-assessment/SelfEsteemAssessmentStape";
+import SelfEsteemAssessmentPointTable from "./pages/SelfEsteemAssessmentPointTable";
 
 function App() {
     function ScrollToTop() {
@@ -52,6 +56,8 @@ function App() {
                 <Route path="/emotional" element={<GetStartedHome/>}/>
                 <Route path="/assessment/:id" element={<PointTable/>}/>
                 <Route path="/EmotionalAwarenessAssessment/:id" element={<EmotionalAwarenessPointTable/>}/>
+                <Route path="/AcademicStressAssessment/:id" element={<AcademicStressPointTable/>}/>
+                <Route path="/SelfEsteemAssessment/:id" element={<SelfEsteemAssessmentPointTable/>}/>
                 <Route path="/shape-form" element={<ShapAssessment/>}/>
                 <Route path="/shape-family" element={<FamilyInfo/>}/>
                 <Route path="/shape-assessment" element={<ShapAssementStape/>}/>
@@ -64,6 +70,8 @@ function App() {
                 <Route path="/assessment-form" element={<MainGetStarted/>}/>
                 <Route path="/start-assessment" element={<StartAssessment/>}/>
                 <Route path="/EmotionalAwareness" element={<EmotionalAwarenessStape/>}/>
+                <Route path="/AcademicStress" element={<AcademicStressStape/>}/>
+                <Route path="/SelfEsteemAssessment" element={<SelfEsteemAssessmentStape/>}/>
 
                 {/*<Route path="faq" element={<MainFaqs />} />*/}
                 {/*<Route path="advice" element={<Advice />} />*/}
