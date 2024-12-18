@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import GetStartedReview from "../../../components/ getstarted/GetStartedReview";
 import Box from "@mui/material/Box";
 import {useNavigate} from "react-router-dom"
 import {
@@ -8,52 +7,49 @@ import {
     Container,
     FormControlLabel,
     FormLabel,
-    MobileStepper, Radio,
+    Radio,
     RadioGroup,
-    Typography
 } from "@mui/material";
 
 function GetStartedHome(props) {
-    const [check,setCheck] = useState()
-    const [language,setLanguage] = useState()
+    const [check, setCheck] = useState()
+    const [language, setLanguage] = useState()
     const navigate = useNavigate()
-const ad= sessionStorage.getItem("data")
-    console.log(ad)
-    const handleChange = (e) =>{
+    const ad = sessionStorage.getItem("data")
+    const handleChange = (e) => {
         setLanguage(e.target.checked)
-        sessionStorage.setItem("language",e.target.value)
+        sessionStorage.setItem("language", e.target.value)
     }
     return (
         <>
             <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: "60px"}}>
                 <Container>
-                <Box sx={{mt: "20px", display:"flex", justifyContent: "start"}}>
-                    <Button
-                        className="overpass"
-                        onClick={() => navigate("/")}
-                        sx={{
-                            backgroundColor: "darkGreen",
-                            py: "5px",
-                            px: "28px",
-                            textTransform: "unset",
-                            fontSize: "20px",
-                            color: "white",
-                            borderRadius: "30px",
-                            "&:hover": {
-                                backgroundColor: "green",
+                    <Box sx={{mt: "20px", display: "flex", justifyContent: "start"}}>
+                        <Button
+                            className="overpass"
+                            onClick={() => navigate("/")}
+                            sx={{
+                                backgroundColor: "darkGreen",
+                                py: "5px",
+                                px: "28px",
+                                textTransform: "unset",
+                                fontSize: "20px",
                                 color: "white",
-                            },
-                            mt: "10px"
-                        }}
-                    >
-                        Back
-                    </Button>
-                </Box>
+                                borderRadius: "30px",
+                                "&:hover": {
+                                    backgroundColor: "green",
+                                    color: "white",
+                                },
+                                mt: "10px"
+                            }}
+                        >
+                            Back
+                        </Button>
+                    </Box>
                     {/*<Box onClick={}*/}
                     {/*     sx={{cursor: "pointer", fontSize: "18px", display: activeStep !== 0 ? "block" : "none"}}>*/}
                     {/*    <i className="fa-solid fa-arrow-left" style={{marginRight: 8}}></i>Back*/}
                     {/*</Box>*/}
-
                     {/*<Box>*/}
                     {/*    <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">*/}
                     {/*        If you are in a crisis or any other person may be in danger - don't use this site.*/}
@@ -65,11 +61,9 @@ const ad= sessionStorage.getItem("data")
                     {/*        </Box>*/}
                     {/*    </Box>*/}
                     {/*</Box>*/}
-
-
-                        <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">
-                            {ad ? "Exam Stress Gauage Test (18-21)" :"SHAPE K-12 Assessment Test"}
-                        </Box>
+                    <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">
+                        {ad ? "Exam Stress Gauage Test (18-21)" : "SHAPE K-12 Assessment Test"}
+                    </Box>
                     <Box sx={{display: "flex", justifyContent: "center", mt: 5}}>
                         <Box sx={{
                             width: "700px",
@@ -82,34 +76,37 @@ const ad= sessionStorage.getItem("data")
                             {/*    Emotional Wellness Basic Screening Test- Adults*/}
                             {/*    /!*{mainStepContent(mainActiveStep)}*!/*/}
                             {/*</Box>*/}
-                            <Box sx={{ mt: 2, width: {md: "100%"},fontSize: "20px",letterSpacing:-0.5}}>
-                                The form is initial data for Annual health & Performance Evaluation carried by Mahadevasth Technologies Pvt Ltd in association with your organisation.
+                            <Box sx={{mt: 2, width: {md: "100%"}, fontSize: "20px", letterSpacing: -0.5}}>
+                                The form is initial data for Annual health & Performance Evaluation carried by
+                                Mahadevasth Technologies Pvt Ltd in association with your organisation.
                             </Box>
-                            <Box sx={{fontSize: "20px", color: "black",letterSpacing:-0.5,mt:2}}>
-                                Emotional wellness is crucial for maintaining overall well-being and navigating life's challenges effectively. This basic screening test aims to provide individuals with an initial assessment of their emotional well-being. While not a diagnostic tool, it can offer insights into areas that may require attention or improvement.
-
+                            <Box sx={{fontSize: "20px", color: "black", letterSpacing: -0.5, mt: 2}}>
+                                Emotional wellness is crucial for maintaining overall well-being and navigating life's
+                                challenges effectively. This basic screening test aims to provide individuals with an
+                                initial assessment of their emotional well-being. While not a diagnostic tool, it can
+                                offer insights into areas that may require attention or improvement.
                             </Box>
-
-                            <Box display={{sm:"flex"}} alignItems="center" margin="normal" my={3} sx={{fontWeight:700}} className={"overpass"}>
-                                <FormLabel  sx={{ marginRight: '1rem',color:"black" }} className={"overpass"}>Language :</FormLabel>
+                            <Box display={{sm: "flex"}} alignItems="center" margin="normal" my={3}
+                                 sx={{fontWeight: 700}} className={"overpass"}>
+                                <FormLabel sx={{marginRight: '1rem', color: "black"}} className={"overpass"}>Language
+                                    :</FormLabel>
                                 <RadioGroup
                                     name="gender"
                                     // value={formValues.gender}
                                     onChange={handleChange}
                                     row
                                 >
-                                    <FormControlLabel value="english" control={<Radio />} label="English" />
-                                    <FormControlLabel value="hindi" control={<Radio />} label="Hindi" />
+                                    <FormControlLabel value="english" control={<Radio/>} label="English"/>
+                                    <FormControlLabel value="hindi" control={<Radio/>} label="Hindi"/>
                                 </RadioGroup>
                             </Box>
-                            <Box sx={{display:"flex", alignItems:"center"}}>
-                                <Checkbox  onChange={(e) => setCheck(e.target.checked)} />
+                            <Box sx={{display: "flex", alignItems: "center"}}>
+                                <Checkbox onChange={(e) => setCheck(e.target.checked)}/>
                                 <Box className={"overpass"}>
                                     I accept the terms and conditions outlined above.
                                 </Box>
                             </Box>
-                            <Box sx={{mt: "20px", display: {sm:"flex"}, justifyContent: "end"}}>
-
+                            <Box sx={{mt: "20px", display: {sm: "flex"}, justifyContent: "end"}}>
                                 <Button
                                     className="overpass"
                                     // onClick={handleSubmit}
@@ -125,16 +122,16 @@ const ad= sessionStorage.getItem("data")
                                             backgroundColor: "darkGreen",
                                             color: "white",
                                         },
-                                        mt: "10px",marginRight:1,
-                                        width:{xs:"100%",sm:"unset"}
+                                        mt: "10px", marginRight: 1,
+                                        width: {xs: "100%", sm: "unset"}
                                     }}
                                 >
                                     Cancel
                                 </Button>
                                 <Button
                                     className="overpass"
-                                    onClick={()=> navigate("/assessment-form")}
-                                    disabled={check && language === true ? false : true }
+                                    onClick={() => navigate("/assessment-form")}
+                                    disabled={check && language === true ? false : true}
                                     sx={{
                                         backgroundColor: "green",
                                         py: "5px",
@@ -148,7 +145,7 @@ const ad= sessionStorage.getItem("data")
                                             color: "white",
                                         },
                                         mt: "10px",
-                                        width:{xs:"100%",sm:"unset"}
+                                        width: {xs: "100%", sm: "unset"}
                                     }}
                                 >
                                     I Agree
@@ -156,8 +153,6 @@ const ad= sessionStorage.getItem("data")
                             </Box>
                         </Box>
                     </Box>
-
-
                 </Container>
             </Box>
 

@@ -17,18 +17,18 @@ const style = {
     overflow: "hidden",
 };
 
-function ShapStapper({
-                         therapyQuestion,
-                         processMessage,
-                         therapyTypes,
-                         link,
-                         submit,
-                         points,
-                         handlePoints,
-                         points1,
-                         handleBack,
-                         apiOptions
-                     }) {
+function EmotionalAwarenessStapper({
+                                       therapyQuestion,
+                                       processMessage,
+                                       therapyTypes,
+                                       link,
+                                       submit,
+                                       points,
+                                       handlePoints,
+                                       points1,
+                                       handleBack,
+                                       apiOptions
+                                   }) {
     const [open, setOpen] = React.useState(false);
     const navigate = useNavigate()
     const handleOpen = () => setOpen(true);
@@ -36,9 +36,11 @@ function ShapStapper({
     const [email, setEmail] = useState('');
     const [error, setError] = useState(false);
     const [helperText, setHelperText] = useState('');
+
     const handleSubmit = () => {
-        console.log(apiOptions)
+        navigate(`/EmotionalAwarenessAssessment/${points}`)
     }
+
     const TherapyButton = ({fullWidth, children, onClick, value, disabled}) => (
         <Grid item xs={12}>
             <Button
@@ -46,7 +48,6 @@ function ShapStapper({
                 value={value}
                 fullWidth={fullWidth}
                 onClick={onClick}
-                // disabled={true}
                 disabled={disabled}
                 sx={{
                     backgroundColor: "#A6DE9B",
@@ -60,13 +61,13 @@ function ShapStapper({
                         color: "white",
                     },
                     textTransform: "capitalize",
-
                 }}
             >
                 {children}
             </Button>
         </Grid>
     );
+
     return (
         <>
             <Card style={{maxWidth: 700, margin: "50px auto", padding: {md: "20px 20px 0", xs: "20px 0 0"}}}>
@@ -89,39 +90,13 @@ function ShapStapper({
                                     fullWidth
                                     onClick={(e) => handlePoints(e, "valu")}
                                     value={therapy?.label}
-                                    disabled={apiOptions?.length === 33 ? true : false}
+                                    disabled={apiOptions?.length === 15 ? true : false}
                                 >
                                     {therapy?.label}
                                 </TherapyButton>
                             ))}
-
                         </Grid>
                     </Box>
-                    {/*<Button*/}
-                    {/*    className="overpass"*/}
-                    {/*    onClick={handleBack}*/}
-                    {/*    sx={{*/}
-                    {/*        backgroundColor: "darkGreen",*/}
-                    {/*        py: "5px",*/}
-                    {/*        px: "28px",*/}
-                    {/*        textTransform: "unset",*/}
-                    {/*        fontSize: "20px",*/}
-                    {/*        color: "white",*/}
-                    {/*        borderRadius: "30px",*/}
-                    {/*        "&:hover": {*/}
-                    {/*            backgroundColor: "green",*/}
-                    {/*            color: "white",*/}
-                    {/*        },*/}
-                    {/*        mt: "10px"*/}
-                    {/*    }}*/}
-                    {/*>*/}
-                    {/*    Back*/}
-                    {/*</Button>*/}
-                    {/*<Button variant={"contained"} sx={{}} onClick={handleBack}*/}
-                    {/*     sx={{cursor: "pointer", fontSize: "18px", display:  "flex" ,alignItems:"center",mt:2}}>*/}
-                    {/*    /!*<WestIcon sx={{marginRight:1}} />*!/*/}
-                    {/*    Back*/}
-                    {/*</Button>*/}
                     <Box>
                         <Box sx={{
                             color: "green",
@@ -174,10 +149,8 @@ function ShapStapper({
                             </Button>
                         </Box>
                         {submit && <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
-
                             <Button
                                 className="overpass"
-                                // onClick={handleSubmit}
                                 onClick={handleSubmit}
                                 sx={{
                                     backgroundColor: "darkGreen",
@@ -198,7 +171,6 @@ function ShapStapper({
                             </Button>
                         </Box>}
                     </Box>
-
                     <Modal
                         keepMounted
                         open={open}
@@ -225,7 +197,6 @@ function ShapStapper({
                             Enter your email below to get a copy of your result
                         </Typography>
                             <Box sx={{display: "flex", justifyContent: "center", px: 1}}>
-
                                 <TextField
                                     id="outlined-basic"
                                     label="Enter email address"
@@ -261,7 +232,7 @@ function ShapStapper({
                                 <Button
                                     className="overpass"
                                     onClick={() => {
-                                        points && navigate(`/assessment/${points}`)
+                                        points && navigate(` / assessment /${points}`)
                                     }}
                                     sx={{
                                         backgroundColor: "#219f2175",
@@ -282,7 +253,7 @@ function ShapStapper({
                                 </Button>
                             </Box>
                             <Box onClick={() => {
-                                points && navigate(`/assessment/${points}`)
+                                points && navigate(` / assessment /${points}`)
                             }} sx={{
                                 textDecoration: "underline",
                                 my: "20px",
@@ -298,4 +269,4 @@ function ShapStapper({
     );
 }
 
-export default ShapStapper;
+export default EmotionalAwarenessStapper;

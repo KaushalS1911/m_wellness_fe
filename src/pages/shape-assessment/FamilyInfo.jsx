@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { ToastContainer } from "react-toastify";
+import {ToastContainer} from "react-toastify";
 import {
     Box,
     Button,
@@ -15,17 +15,17 @@ import {
     Select,
     TextField
 } from "@mui/material";
-import { useFormik } from 'formik';
+import {useFormik} from 'formik';
 import * as Yup from 'yup';
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import axios from "axios";
 
 function FamilyInfo() {
     const navigate = useNavigate();
-    const [single,setSingle] = useState("")
-    const [singleRadio,setSingleRadio] = useState('')
-    const [whether,setWhether] = useState('')
-    const [workingParent,setWorkingParent] = useState('')
+    const [single, setSingle] = useState("")
+    const [singleRadio, setSingleRadio] = useState('')
+    const [whether, setWhether] = useState('')
+    const [workingParent, setWorkingParent] = useState('')
     const validationSchema = Yup.object({
         familyType: Yup.string().required('Family Type is required'),
         // singleParentReason: Yup.string().required('Reason is required'),
@@ -57,7 +57,7 @@ function FamilyInfo() {
             sibling: '',
             transferableJob: '',
             workingParent: '',
-            frequent:"",
+            frequent: "",
             whatsappNumber: '',
             whatsappNumber1: '',
             emailId1: '',
@@ -73,19 +73,19 @@ function FamilyInfo() {
     });
     return (
         <>
-            <ToastContainer />
-            <Box sx={{ width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: { md: "100px", xs: "80px" } }}>
+            <ToastContainer/>
+            <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: {md: "100px", xs: "80px"}}}>
                 <Container>
-                    <Box sx={{ fontSize: "32px", color: "#444444", textAlign: 'center' }} className="overpass">
+                    <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">
                         Family Information
                     </Box>
 
-                    <Box sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
+                    <Box sx={{display: "flex", justifyContent: "center", mt: 5}}>
                         <Box sx={{
                             width: "100%",
                             maxWidth: "700px",
                             backgroundColor: "#FFFFFF",
-                            padding: {md:"50px 30px 30px",xs:"50px 20px 30px"},
+                            padding: {md: "50px 30px 30px", xs: "50px 20px 30px"},
                             boxShadow: 2,
                         }} className={"overpass"}>
                             <form onSubmit={formik.handleSubmit}>
@@ -170,8 +170,10 @@ function FamilyInfo() {
                                 {/*    error={formik.touched.singleChild && Boolean(formik.errors.singleChild)}*/}
                                 {/*    helperText={formik.touched.singleChild && formik.errors.singleChild}*/}
                                 {/*/>    */}
-                                <Box display={{ sm: "flex" }} mt={{ xs: 2, sm: "unset" }} alignItems="center" margin="normal">
-                                    <FormLabel component="legend" sx={{ marginRight: '1rem' }}>Whether Single Child :</FormLabel>
+                                <Box display={{sm: "flex"}} mt={{xs: 2, sm: "unset"}} alignItems="center"
+                                     margin="normal">
+                                    <FormLabel component="legend" sx={{marginRight: '1rem'}}>Whether Single Child
+                                        :</FormLabel>
                                     <RadioGroup
                                         name="singleChild"
                                         value={formik.values.singleChild}
@@ -182,11 +184,13 @@ function FamilyInfo() {
                                         row
                                         error={formik.touched.singleChild && Boolean(formik.errors.singleChild)}
                                     >
-                                        <FormControlLabel sx={{ color: "#00000099" }} value="Yes" control={<Radio />} label="Yes" />
-                                        <FormControlLabel sx={{ color: "#00000099" }} value="No" control={<Radio />} label="No" />
+                                        <FormControlLabel sx={{color: "#00000099"}} value="Yes" control={<Radio/>}
+                                                          label="Yes"/>
+                                        <FormControlLabel sx={{color: "#00000099"}} value="No" control={<Radio/>}
+                                                          label="No"/>
                                     </RadioGroup>
                                 </Box>
-                                <FormHelperText sx={{color:"#d32f2f"}}>
+                                <FormHelperText sx={{color: "#d32f2f"}}>
                                     {formik.touched.singleChild && formik.errors.singleChild}
                                 </FormHelperText>
                                 {
@@ -203,22 +207,31 @@ function FamilyInfo() {
                                         helperText={formik.touched.sibling && formik.errors.sibling}
                                     />
                                 }
-                                <Box display={{ sm: "flex" }} mt={{ xs: 2, sm: "unset" }} alignItems="center" margin="normal">
-                                    <FormLabel component="legend" sx={{ marginRight: '1rem' }}>Who is the Working Parent:</FormLabel>
+                                <Box display={{sm: "flex"}} mt={{xs: 2, sm: "unset"}} alignItems="center"
+                                     margin="normal">
+                                    <FormLabel component="legend" sx={{marginRight: '1rem'}}>Who is the Working
+                                        Parent:</FormLabel>
                                     <RadioGroup
                                         name="workingParent"
                                         value={formik.values.workingParent}
-                                        onChange={(e) => {formik.handleChange(e);setWorkingParent(e.target.value)}}
+                                        onChange={(e) => {
+                                            formik.handleChange(e);
+                                            setWorkingParent(e.target.value)
+                                        }}
                                         row
                                         error={formik.touched.workingParent && Boolean(formik.errors.workingParent)}
                                     >
-                                        <FormControlLabel sx={{ color: "#00000099" }} value="Mother" control={<Radio />} label="Mother" />
-                                        <FormControlLabel sx={{ color: "#00000099" }} value="Father" control={<Radio />} label="Father" />
-                                        <FormControlLabel sx={{ color: "#00000099" }} value="Both" control={<Radio />} label="Both" />
-                                        <FormControlLabel sx={{ color: "#00000099" }} value="None" control={<Radio />} label="None" />
+                                        <FormControlLabel sx={{color: "#00000099"}} value="Mother" control={<Radio/>}
+                                                          label="Mother"/>
+                                        <FormControlLabel sx={{color: "#00000099"}} value="Father" control={<Radio/>}
+                                                          label="Father"/>
+                                        <FormControlLabel sx={{color: "#00000099"}} value="Both" control={<Radio/>}
+                                                          label="Both"/>
+                                        <FormControlLabel sx={{color: "#00000099"}} value="None" control={<Radio/>}
+                                                          label="None"/>
                                     </RadioGroup>
                                 </Box>
-                                <FormHelperText sx={{color:"#d32f2f"}}>
+                                <FormHelperText sx={{color: "#d32f2f"}}>
                                     {formik.touched.workingParent && formik.errors.workingParent}
                                 </FormHelperText>
 
@@ -268,8 +281,10 @@ function FamilyInfo() {
                                 {/*    helperText={formik.touched.transferableJob && formik.errors.transferableJob}*/}
                                 {/*/>*/}
                                 {workingParent !== "None" &&
-                                <> <Box display={{ sm: "flex" }} mt={{ xs: 2, sm: "unset" }} alignItems="center" margin="normal">
-                                    <FormLabel component="legend" sx={{ marginRight: '1rem' }}>Whether Parents into Transferable Job :</FormLabel>
+                                <> <Box display={{sm: "flex"}} mt={{xs: 2, sm: "unset"}} alignItems="center"
+                                        margin="normal">
+                                    <FormLabel component="legend" sx={{marginRight: '1rem'}}>Whether Parents into
+                                        Transferable Job :</FormLabel>
                                     <RadioGroup
                                         name="transferableJob"
                                         value={formik.values.transferableJob}
@@ -280,11 +295,13 @@ function FamilyInfo() {
                                         row
                                         error={formik.touched.transferableJob && Boolean(formik.errors.transferableJob)}
                                     >
-                                        <FormControlLabel sx={{ color: "#00000099" }} value="Yes" control={<Radio />} label="Yes" />
-                                        <FormControlLabel sx={{ color: "#00000099" }} value="No" control={<Radio />} label="No" />
+                                        <FormControlLabel sx={{color: "#00000099"}} value="Yes" control={<Radio/>}
+                                                          label="Yes"/>
+                                        <FormControlLabel sx={{color: "#00000099"}} value="No" control={<Radio/>}
+                                                          label="No"/>
                                     </RadioGroup>
                                 </Box>
-                                    <FormHelperText sx={{color:"#d32f2f"}}>
+                                    <FormHelperText sx={{color: "#d32f2f"}}>
                                         {formik.touched.transferableJob && formik.errors.transferableJob}
                                     </FormHelperText>
                                 </>
@@ -346,7 +363,7 @@ function FamilyInfo() {
                                         value={formik.values.frequent}
                                         onChange={formik.handleChange}
                                     >
-                                        {["Less than a Year", "2-5 Years","Not Systematic(Can happen anytime)"].map((option) => (
+                                        {["Less than a Year", "2-5 Years", "Not Systematic(Can happen anytime)"].map((option) => (
                                             <MenuItem key={option} value={option}>
                                                 {option}
                                             </MenuItem>
@@ -356,7 +373,7 @@ function FamilyInfo() {
                                 </FormControl>
                                 }
 
-                                <Box sx={{display: {md:"flex"}}}>
+                                <Box sx={{display: {md: "flex"}}}>
                                     {/*<FormControl*/}
                                     {/*    margin="normal"*/}
                                     {/*    error={formik.touched.whatsappNumber && Boolean(formik.errors.whatsappNumber)}*/}
@@ -378,8 +395,10 @@ function FamilyInfo() {
                                     {/*    </Select>*/}
                                     {/*    <FormHelperText>{formik.touched.whatsappNumber && formik.errors.whatsappNumber}</FormHelperText>*/}
                                     {/*</FormControl>*/}
-                                    <Box display={{ sm: "flex" }} mt={{ xs: 2, sm: "unset" }} alignItems="center" margin="normal">
-                                        <FormLabel component="legend" sx={{ marginRight: '1rem',textWrap:"nowrap" }}>Whatsapp Number of :</FormLabel>
+                                    <Box display={{sm: "flex"}} mt={{xs: 2, sm: "unset"}} alignItems="center"
+                                         margin="normal">
+                                        <FormLabel component="legend" sx={{marginRight: '1rem', textWrap: "nowrap"}}>Whatsapp
+                                            Number of :</FormLabel>
                                         <Box>
                                             <RadioGroup
                                                 name="whatsappNumber1"
@@ -391,16 +410,18 @@ function FamilyInfo() {
                                                 row
                                                 error={formik.touched.whatsappNumber1 && Boolean(formik.errors.whatsappNumber1)}
                                             >
-                                                <FormControlLabel sx={{ color: "#00000099" }} value="Father" control={<Radio />} label="Father" />
-                                                <FormControlLabel sx={{ color: "#00000099" }} value="Mother" control={<Radio />} label="Mother" />
+                                                <FormControlLabel sx={{color: "#00000099"}} value="Father"
+                                                                  control={<Radio/>} label="Father"/>
+                                                <FormControlLabel sx={{color: "#00000099"}} value="Mother"
+                                                                  control={<Radio/>} label="Mother"/>
                                             </RadioGroup>
-                                            <FormHelperText sx={{color:"#d32f2f"}}>
+                                            <FormHelperText sx={{color: "#d32f2f"}}>
                                                 {formik.touched.whatsappNumber1 && formik.errors.whatsappNumber1}
                                             </FormHelperText>
                                         </Box>
                                     </Box>
                                     <TextField
-                                        sx={{width: {md:"250px",xs:"100%"}}}
+                                        sx={{width: {md: "250px", xs: "100%"}}}
                                         margin="normal"
                                         id="fatherAge"
                                         name="whatsappNumber"
@@ -412,7 +433,7 @@ function FamilyInfo() {
                                     />
 
                                 </Box>
-                                <Box sx={{display: {md:"flex"}}}>
+                                <Box sx={{display: {md: "flex"}}}>
 
                                     {/*<FormControl*/}
                                     {/*    fullWidth*/}
@@ -435,8 +456,10 @@ function FamilyInfo() {
                                     {/*    </Select>*/}
                                     {/*    <FormHelperText>{formik.touched.emailId && formik.errors.emailId}</FormHelperText>*/}
                                     {/*</FormControl>*/}
-                                    <Box display={{ sm: "flex" }} mt={{ xs: 2, sm: "unset" }} alignItems="center" margin="normal">
-                                        <FormLabel component="legend" sx={{ marginRight: '1rem',textWrap:"nowrap" }}>Email Id of :</FormLabel>
+                                    <Box display={{sm: "flex"}} mt={{xs: 2, sm: "unset"}} alignItems="center"
+                                         margin="normal">
+                                        <FormLabel component="legend" sx={{marginRight: '1rem', textWrap: "nowrap"}}>Email
+                                            Id of :</FormLabel>
                                         <Box>
                                             <RadioGroup
                                                 name="emailId1"
@@ -448,16 +471,18 @@ function FamilyInfo() {
                                                 row
                                                 error={formik.touched.emailId1 && Boolean(formik.errors.emailId1)}
                                             >
-                                                <FormControlLabel sx={{ color: "#00000099" }} value="Father" control={<Radio />} label="Father" />
-                                                <FormControlLabel sx={{ color: "#00000099" }} value="Mother" control={<Radio />} label="Mother" />
+                                                <FormControlLabel sx={{color: "#00000099"}} value="Father"
+                                                                  control={<Radio/>} label="Father"/>
+                                                <FormControlLabel sx={{color: "#00000099"}} value="Mother"
+                                                                  control={<Radio/>} label="Mother"/>
                                             </RadioGroup>
-                                            <FormHelperText sx={{color:"#d32f2f"}}>
+                                            <FormHelperText sx={{color: "#d32f2f"}}>
                                                 {formik.touched.emailId1 && formik.errors.emailId1}
                                             </FormHelperText>
                                         </Box>
                                     </Box>
                                     <TextField
-                                        sx={{width: {md:"300px",xs:"100%"}}}
+                                        sx={{width: {md: "300px", xs: "100%"}}}
                                         margin="normal"
                                         id="fatherAge"
                                         name="emailId"
@@ -484,7 +509,7 @@ function FamilyInfo() {
                                 {/*    helperText={formik.touched.emailId && formik.errors.emailId}*/}
                                 {/*/>*/}
 
-                                <Box sx={{ mt: "20px", display: "flex", justifyContent: "end" }}>
+                                <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
                                     <Button
                                         className="overpass"
                                         type="submit"

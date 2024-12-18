@@ -41,7 +41,7 @@ function ShapAssementStape(props) {
 
         setPoints1(prevPoints => [...prevPoints, pointsToAdd]);
 
-        if (activeStep === 4 || activeStep === 7 || activeStep === 12 || activeStep === 16 || activeStep === 21  || activeStep === 26) {
+        if (activeStep === 4 || activeStep === 7 || activeStep === 12 || activeStep === 16 || activeStep === 21 || activeStep === 26) {
             mainHandleNext();
         }
 
@@ -63,7 +63,7 @@ function ShapAssementStape(props) {
         window.scrollTo(0, 0);
         if (activeStep !== 0) {
             setActiveStep((prevActiveStep) => prevActiveStep - 1);
-            if (activeStep === 4 || activeStep === 7 || activeStep === 12 || activeStep === 16 || activeStep === 21  || activeStep === 26) {
+            if (activeStep === 4 || activeStep === 7 || activeStep === 12 || activeStep === 16 || activeStep === 21 || activeStep === 26) {
                 setMainActiveStep((prevActiveStep) => prevActiveStep - 1);
             }
             if (activeStep === 32) {
@@ -90,11 +90,10 @@ function ShapAssementStape(props) {
                 return ("Academic Wellbeing");
             case 4:
                 return ("Nutritional Wellbeing");
-                case 5:
+            case 5:
                 return ("Digital Wellbeing");
-                case 6:
+            case 6:
                 return ("Safety and Environmental Wellbeing");
-
 
         }
     }
@@ -112,11 +111,11 @@ function ShapAssementStape(props) {
                         {label: "Never"},
                     ]}
 
-                                therapyQuestion={"1. How often does your child seem happy?"}
-                                handleNext={handleNext}
-                                handlePoints={handlePoints}
-                                points={points}
-                                handleBack={handleBack}
+                                 therapyQuestion={"1. How often does your child seem happy?"}
+                                 handleNext={handleNext}
+                                 handlePoints={handlePoints}
+                                 points={points}
+                                 handleBack={handleBack}
 
 
                     />
@@ -364,7 +363,7 @@ function ShapAssementStape(props) {
                         therapyQuestion={"16. Do you think the child is scoring up to his full potential"}
                         handleBack={handleBack}
                         handleNext={handleNext}
-                                                points={points}
+                        points={points}
                         handlePoints={handlePoints}
                     />
                 );
@@ -419,7 +418,7 @@ function ShapAssementStape(props) {
 
                     />
                 );
-                case 19:
+            case 19:
                 return (
                     <ShapStapper
                         therapyTypes={[
@@ -435,7 +434,8 @@ function ShapAssementStape(props) {
                         points1={points1}
 
                     />
-                ); case 20:
+                );
+            case 20:
                 return (
                     <ShapStapper
                         therapyTypes={[
@@ -451,7 +451,8 @@ function ShapAssementStape(props) {
                         points1={points1}
 
                     />
-                ); case 21:
+                );
+            case 21:
                 return (
                     <ShapStapper
                         therapyTypes={[
@@ -469,7 +470,8 @@ function ShapAssementStape(props) {
                         points1={points1}
 
                     />
-                ); case 22:
+                );
+            case 22:
                 return (
                     <ShapStapper
                         therapyTypes={[
@@ -485,7 +487,8 @@ function ShapAssementStape(props) {
                         points1={points1}
 
                     />
-                ); case 23:
+                );
+            case 23:
                 return (
                     <ShapStapper
                         therapyTypes={[
@@ -502,7 +505,7 @@ function ShapAssementStape(props) {
 
                     />
                 );
-                case 24:
+            case 24:
                 return (
                     <ShapStapper
                         therapyTypes={[
@@ -518,7 +521,8 @@ function ShapAssementStape(props) {
                         points1={points1}
 
                     />
-                );case 25:
+                );
+            case 25:
                 return (
                     <ShapStapper
                         therapyTypes={[
@@ -534,7 +538,8 @@ function ShapAssementStape(props) {
                         points1={points1}
 
                     />
-                );case 26:
+                );
+            case 26:
                 return (
                     <ShapStapper
                         therapyTypes={[
@@ -550,7 +555,8 @@ function ShapAssementStape(props) {
                         points1={points1}
 
                     />
-                );case 27:
+                );
+            case 27:
                 return (
                     <ShapStapper
                         therapyTypes={[
@@ -567,7 +573,7 @@ function ShapAssementStape(props) {
 
                     />
                 );
-                case 28:
+            case 28:
                 return (
                     <ShapStapper
                         therapyTypes={[
@@ -583,7 +589,8 @@ function ShapAssementStape(props) {
                         points1={points1}
 
                     />
-                );  case 29:
+                );
+            case 29:
                 return (
                     <ShapStapper
                         therapyTypes={[
@@ -599,7 +606,8 @@ function ShapAssementStape(props) {
                         points1={points1}
 
                     />
-                );  case 30:
+                );
+            case 30:
                 return (
                     <ShapStapper
                         therapyTypes={[
@@ -615,7 +623,8 @@ function ShapAssementStape(props) {
                         points1={points1}
 
                     />
-                );  case 31:
+                );
+            case 31:
                 return (
                     <ShapStapper
                         therapyTypes={[
@@ -658,7 +667,14 @@ function ShapAssementStape(props) {
     };
     return (
         <>
-            <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6",minHeight:"87vh",height:"100%", pb: "5px"}}>
+            <Box sx={{
+                width: '100%',
+                pt: "150px",
+                backgroundColor: "#FFFCF6",
+                minHeight: "87vh",
+                height: "100%",
+                pb: "5px"
+            }}>
                 <Container>
 
                     <MobileStepper
@@ -691,10 +707,11 @@ function ShapAssementStape(props) {
                     <Box>
                         <Box sx={{fontSize: "46px", color: "#444444", textAlign: 'center'}} className="overpass">
                             {/*Help us match you to the <Typography variant="span" sx={{color:"green"}}> right therapist</Typography>*/}
-                            { mainEnglishStepContent(mainActiveStep)}
+                            {mainEnglishStepContent(mainActiveStep)}
                         </Box>
                         <Box sx={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-                            {language === "english" && <Box sx={{textAlign: "center", mt: "20px", width: {md: "850px"}}}>
+                            {language === "english" &&
+                            <Box sx={{textAlign: "center", mt: "20px", width: {md: "850px"}}}>
                                 It's important to have a therapist who you can establish a personal connection with. The
                                 following questions are designed to help match you to a licensed therapist based on your
                                 needs and personal preferences.
@@ -703,7 +720,7 @@ function ShapAssementStape(props) {
                     </Box>
 
                     <React.Fragment>
-                        <Box>{ getEnglishStepContent(activeStep)}</Box>
+                        <Box>{getEnglishStepContent(activeStep)}</Box>
 
                     </React.Fragment>
 

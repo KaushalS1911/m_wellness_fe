@@ -16,6 +16,9 @@ import GetStartedHome from "./pages/getStarted/getStartedHome/GetStartedHome";
 import PointTable from "./pages/PointTable";
 import ShapAssementStape from "./pages/shape-assessment/ShapAssementStape";
 import MentalHealthAssessment from "./pages/home/MentalHealthAssessment";
+import EmotionalAwarenessStape from "./pages/emotional-awareness/EmotionalAwarenessStape";
+import EmotionalAwarenessPointTable from "./pages/EmotionalAwarenessPointTable";
+
 function App() {
     function ScrollToTop() {
         const {pathname} = useLocation();
@@ -24,6 +27,7 @@ function App() {
         }, [pathname]);
         return null;
     }
+
     useEffect(() => {
         AOS.init({
             duration: 1200,
@@ -33,43 +37,45 @@ function App() {
         // AOS.refresh()
     }, []);
 
-  return (
-    <>
-        <Header/>
-        <ScrollToTop/>
-        {/*<ShapAssementStape />*/}
+    return (
+        <>
+            <Header/>
+            <ScrollToTop/>
+            {/*<ShapAssementStape />*/}
 
-        {/*<FamilyInfo />*/}
-        <Routes>
-            {/*<Route path="/" element={<Home />} />*/}
-            <Route path="/" element={<MentalHealthAssessment/>}/>
-            <Route path="/psyconnect-drishti" element={<PsyConnectDrishti/>}/>
-            <Route path="/psyconnect-drishti-form" element={<PsyConnectDrishtiForm/>}/>
-            <Route path="/emotional" element={<GetStartedHome/>}/>
-            <Route path="/assessment/:id" element={<PointTable/>}/>
-            <Route path="/shape-form" element={<ShapAssessment/>}/>
-            <Route path="/shape-family" element={<FamilyInfo/>}/>
-            <Route path="/shape-assessment" element={<ShapAssementStape/>}/>
-            {/*<Route path="about" element={<About />} />*/}
-            {/*<Route path="business" element={<BusinessPage />} />*/}
-            {/*<Route path="contact" element={<Contact />} />*/}
-            <Route path="/assessment" element={<GetStarted/>}/>
-            <Route path="/auth-form" element={<Auth />}/>
-            <Route path="/consent-form" element={<GetStartedHome/>}/>
-            <Route path="/assessment-form" element={<MainGetStarted/>}/>
-            <Route path="/start-assessment" element={<StartAssessment/>}/>
+            {/*<FamilyInfo />*/}
+            <Routes>
+                {/*<Route path="/" element={<Home />} />*/}
+                <Route path="/" element={<MentalHealthAssessment/>}/>
+                <Route path="/psyconnect-drishti" element={<PsyConnectDrishti/>}/>
+                <Route path="/psyconnect-drishti-form" element={<PsyConnectDrishtiForm/>}/>
+                <Route path="/emotional" element={<GetStartedHome/>}/>
+                <Route path="/assessment/:id" element={<PointTable/>}/>
+                <Route path="/EmotionalAwarenessAssessment/:id" element={<EmotionalAwarenessPointTable/>}/>
+                <Route path="/shape-form" element={<ShapAssessment/>}/>
+                <Route path="/shape-family" element={<FamilyInfo/>}/>
+                <Route path="/shape-assessment" element={<ShapAssementStape/>}/>
+                {/*<Route path="about" element={<About />} />*/}
+                {/*<Route path="business" element={<BusinessPage />} />*/}
+                {/*<Route path="contact" element={<Contact />} />*/}
+                <Route path="/assessment" element={<GetStarted/>}/>
+                <Route path="/auth-form" element={<Auth/>}/>
+                <Route path="/consent-form" element={<GetStartedHome/>}/>
+                <Route path="/assessment-form" element={<MainGetStarted/>}/>
+                <Route path="/start-assessment" element={<StartAssessment/>}/>
+                <Route path="/EmotionalAwareness" element={<EmotionalAwarenessStape/>}/>
 
-            {/*<Route path="faq" element={<MainFaqs />} />*/}
-            {/*<Route path="advice" element={<Advice />} />*/}
-        </Routes>
+                {/*<Route path="faq" element={<MainFaqs />} />*/}
+                {/*<Route path="advice" element={<Advice />} />*/}
+            </Routes>
 
-        {/*<Footer />*/}
-        <Box sx={{fontSize: "20px", py: 5, textAlign: "center", fontWeight: "600", px: {md: 5, xs: 1}}}
-             className={"overpass"}>Mahadevasth Technologies or any of their employees and associates are not into
-            providing any Suicide Prevention. For any such emergency or help, kindly connect with National Suicide
-            Helpline/TeleManas: 1-800-8914416</Box>
-    </>
-  )
+            {/*<Footer />*/}
+            <Box sx={{fontSize: "20px", py: 5, textAlign: "center", fontWeight: "600", px: {md: 5, xs: 1}}}
+                 className={"overpass"}>Mahadevasth Technologies or any of their employees and associates are not into
+                providing any Suicide Prevention. For any such emergency or help, kindly connect with National Suicide
+                Helpline/TeleManas: 1-800-8914416</Box>
+        </>
+    )
 }
 
 export default App

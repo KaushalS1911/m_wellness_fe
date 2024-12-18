@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { ToastContainer } from "react-toastify";
+import React, {useEffect, useState} from 'react';
+import {ToastContainer} from "react-toastify";
 import {
     Box,
     Button,
@@ -11,8 +11,8 @@ import {
     Select,
     TextField
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import { useFormik } from 'formik';
+import {useNavigate} from "react-router-dom";
+import {useFormik} from 'formik';
 import * as Yup from 'yup';
 import axios from "axios";
 
@@ -55,139 +55,139 @@ function ShapAssessment(props) {
 
     return (
         <>
-        <ToastContainer />
-        <Box sx={{ width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: { md: "100px", xs: "80px" } }}>
-            <Container>
-                <Box sx={{ fontSize: "32px", color: "#444444", textAlign: 'center' }} className="overpass">
-                    Child's Information
-                </Box>
-
-                <Box sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
-                    <Box sx={{
-                        width: "700px",
-                        backgroundColor: "#FFFFFF",
-                        padding: "50px 30px 30px",
-                        boxShadow: 2,
-                    }} className={"overpass"}>
-                        <form onSubmit={formik.handleSubmit}>
-                            <TextField
-                                fullWidth
-                                margin="normal"
-                                label="Child's Name"
-                                name="admissionId"
-                                value={formik.values.admissionId}
-                                onChange={formik.handleChange}
-                                error={formik.touched.admissionId && Boolean(formik.errors.admissionId)}
-                                helperText={formik.touched.admissionId && formik.errors.admissionId}
-                            />
-
-                            <FormControl
-                                fullWidth
-                                margin="normal"
-                                error={formik.touched.age && Boolean(formik.errors.age)}
-                            >
-                                <InputLabel
-                                    sx={{
-                                        backgroundColor: '#fff',
-                                        px: 1,
-                                        '&.Mui-focused': {
-                                            backgroundColor: '#fff',
-                                        },
-                                    }}
-                                >
-                                    Age
-                                </InputLabel>
-                                <Select
-                                    name="age"
-                                    value={formik.values.age}
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    displayEmpty
-                                    inputProps={{ 'aria-label': 'Age' }}
-                                >
-                                    {/*<MenuItem value="" disabled>Select Age</MenuItem>*/}
-                                    {age.map(option => (
-                                        <MenuItem key={option} value={option}>
-                                            {option}
-                                        </MenuItem>
-                                    ))}
-                                </Select>
-                                <FormHelperText>
-                                    {formik.touched.age && formik.errors.age}
-                                </FormHelperText>
-                            </FormControl>
-
-                            <TextField
-                                fullWidth
-                                margin="normal"
-                                label="Standard"
-                                name="fullName"
-                                value={formik.values.fullName}
-                                onChange={formik.handleChange}
-                                error={formik.touched.fullName && Boolean(formik.errors.fullName)}
-                                helperText={formik.touched.fullName && formik.errors.fullName}
-                            />
-
-                            <TextField
-                                fullWidth
-                                margin="normal"
-                                label="Contact Information"
-                                name="phone"
-                                value={formik.values.phone}
-                                onChange={formik.handleChange}
-                                error={formik.touched.phone && Boolean(formik.errors.phone)}
-                                helperText={formik.touched.phone && formik.errors.phone}
-                            />
-
-                            <TextField
-                                fullWidth
-                                margin="normal"
-                                label="Height in CMs"
-                                name="height"
-                                value={formik.values.height}
-                                onChange={formik.handleChange}
-                                error={formik.touched.height && Boolean(formik.errors.height)}
-                                helperText={formik.touched.height && formik.errors.height}
-                            />
-
-                            <TextField
-                                fullWidth
-                                margin="normal"
-                                label="Weight in KGs"
-                                name="weight"
-                                value={formik.values.weight}
-                                onChange={formik.handleChange}
-                                error={formik.touched.weight && Boolean(formik.errors.weight)}
-                                helperText={formik.touched.weight && formik.errors.weight}
-                            />
-
-                            <Box sx={{ mt: "20px", display: "flex", justifyContent: "end" }}>
-                                <Button
-                                    className="overpass"
-                                    type="submit"
-                                    sx={{
-                                        backgroundColor: "#A6DE9B",
-                                        py: "5px",
-                                        px: "28px",
-                                        textTransform: "unset",
-                                        fontSize: "20px",
-                                        color: "#325343",
-                                        borderRadius: "30px",
-                                        "&:hover": {
-                                            backgroundColor: "darkGreen",
-                                            color: "white",
-                                        },
-                                        mt: "10px",
-                                        marginRight: 1,
-                                    }}
-                                >
-                                    Submit
-                                </Button>
-                            </Box>
-                        </form>
+            <ToastContainer/>
+            <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: {md: "100px", xs: "80px"}}}>
+                <Container>
+                    <Box sx={{fontSize: "32px", color: "#444444", textAlign: 'center'}} className="overpass">
+                        Child's Information
                     </Box>
-                </Box>
-            </Container>
+
+                    <Box sx={{display: "flex", justifyContent: "center", mt: 5}}>
+                        <Box sx={{
+                            width: "700px",
+                            backgroundColor: "#FFFFFF",
+                            padding: "50px 30px 30px",
+                            boxShadow: 2,
+                        }} className={"overpass"}>
+                            <form onSubmit={formik.handleSubmit}>
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Child's Name"
+                                    name="admissionId"
+                                    value={formik.values.admissionId}
+                                    onChange={formik.handleChange}
+                                    error={formik.touched.admissionId && Boolean(formik.errors.admissionId)}
+                                    helperText={formik.touched.admissionId && formik.errors.admissionId}
+                                />
+
+                                <FormControl
+                                    fullWidth
+                                    margin="normal"
+                                    error={formik.touched.age && Boolean(formik.errors.age)}
+                                >
+                                    <InputLabel
+                                        sx={{
+                                            backgroundColor: '#fff',
+                                            px: 1,
+                                            '&.Mui-focused': {
+                                                backgroundColor: '#fff',
+                                            },
+                                        }}
+                                    >
+                                        Age
+                                    </InputLabel>
+                                    <Select
+                                        name="age"
+                                        value={formik.values.age}
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        displayEmpty
+                                        inputProps={{'aria-label': 'Age'}}
+                                    >
+                                        {/*<MenuItem value="" disabled>Select Age</MenuItem>*/}
+                                        {age.map(option => (
+                                            <MenuItem key={option} value={option}>
+                                                {option}
+                                            </MenuItem>
+                                        ))}
+                                    </Select>
+                                    <FormHelperText>
+                                        {formik.touched.age && formik.errors.age}
+                                    </FormHelperText>
+                                </FormControl>
+
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Standard"
+                                    name="fullName"
+                                    value={formik.values.fullName}
+                                    onChange={formik.handleChange}
+                                    error={formik.touched.fullName && Boolean(formik.errors.fullName)}
+                                    helperText={formik.touched.fullName && formik.errors.fullName}
+                                />
+
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Contact Information"
+                                    name="phone"
+                                    value={formik.values.phone}
+                                    onChange={formik.handleChange}
+                                    error={formik.touched.phone && Boolean(formik.errors.phone)}
+                                    helperText={formik.touched.phone && formik.errors.phone}
+                                />
+
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Height in CMs"
+                                    name="height"
+                                    value={formik.values.height}
+                                    onChange={formik.handleChange}
+                                    error={formik.touched.height && Boolean(formik.errors.height)}
+                                    helperText={formik.touched.height && formik.errors.height}
+                                />
+
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Weight in KGs"
+                                    name="weight"
+                                    value={formik.values.weight}
+                                    onChange={formik.handleChange}
+                                    error={formik.touched.weight && Boolean(formik.errors.weight)}
+                                    helperText={formik.touched.weight && formik.errors.weight}
+                                />
+
+                                <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
+                                    <Button
+                                        className="overpass"
+                                        type="submit"
+                                        sx={{
+                                            backgroundColor: "#A6DE9B",
+                                            py: "5px",
+                                            px: "28px",
+                                            textTransform: "unset",
+                                            fontSize: "20px",
+                                            color: "#325343",
+                                            borderRadius: "30px",
+                                            "&:hover": {
+                                                backgroundColor: "darkGreen",
+                                                color: "white",
+                                            },
+                                            mt: "10px",
+                                            marginRight: 1,
+                                        }}
+                                    >
+                                        Submit
+                                    </Button>
+                                </Box>
+                            </form>
+                        </Box>
+                    </Box>
+                </Container>
                 {/*<Modal*/}
                 {/*    open={open}*/}
                 {/*    onClose={handleClose}*/}
