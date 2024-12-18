@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Box, Card, Container, GlobalStyles} from '@mui/material';
+import {Box, Card, Container, GlobalStyles, List} from '@mui/material';
 import {Gauge, gaugeClasses} from '@mui/x-charts';
 import {useParams} from "react-router-dom"
 import Typography from "@mui/material/Typography";
@@ -85,7 +85,7 @@ function PointTable(props) {
     return (
         <>
             <Box sx={{
-                pt: 20, mb: 5, background: `linear-gradient(
+                pt: 18, pb:5, background: `linear-gradient(
             rgba(000, 0, 0, 0.5), 
             rgba(000, 0, 0, 0.5) 
           ), url(${background})`, backgroundSize: "cover", backgroundRepeat: "no-repeat"
@@ -97,7 +97,7 @@ function PointTable(props) {
                             width: {sm: "550px", xs: "100%"},
                             my: "30px",
                             borderRadius: "15px",
-                            padding: "40px 30px",
+                            padding: "40px",
                         }}>
                             <Box
                                 sx={{fontSize: '28px', fontWeight: '700', textAlign: 'center'}}
@@ -123,7 +123,7 @@ function PointTable(props) {
                                             color: 'red',
                                         },
                                         "&.MuiGauge-root .MuiGauge-valueArc": {
-                                            fill: id >= 50 ? "#1A5319" : id >= 40 ? "#508D4E" : id >= 30 ? "#FFB200" : id >= 20 ? "#EB5B00" : "#C80036"
+                                            fill: id >= 13 ? "#1A5319" : id >= 10 ? "#508D4E" : id >= 7 ? "#FFB200" : id >= 4 ? "#EB5B00" : "#C80036"
                                         }
                                     }}
                                 />
@@ -132,7 +132,7 @@ function PointTable(props) {
                                 <Box sx={{
                                     textAlign: "center",
                                     width: "100%",
-                                    mb: 2,
+                                    mb: 3,
                                     fontSize: "18px",
                                     letterSpacing: -0.25
                                 }}
@@ -140,7 +140,7 @@ function PointTable(props) {
                                     Interpretation and feedback based on your inputs</Box>
                             </Box>
 
-                            <Box sx={{mb: 1.5}}>
+                            <Box sx={{mb: 0.5, lineHeight: 1}} className={'overpass'}>
                                 <Box sx={{
                                     fontSize: '18px',
                                     fontWeight: 'bold',
@@ -148,36 +148,23 @@ function PointTable(props) {
                                     Interpretation:
                                 </Box>
                             </Box>
-                            <Box sx={{mb: 2}}>
+                            <Box sx={{mb: 1.5}} className={'overpass'}>
                                 <Typography
-                                    sx={{wordBreak: "break-word", width: "100%", fontSize: "16px", fontWeight: "400"}}>
+                                    sx={{wordBreak: "break-word", textAlign: "justify",  lineHeight:1.3, width: "100%", fontSize: "16px", fontWeight: "400"}}>
                                     {descEng(id).interpretation}
                                 </Typography>
                             </Box>
 
-                            <Box sx={{mb: 2}}>
+                            <Box sx={{mb: 0.5}} className={'overpass'}>
                                 <Box sx={{fontSize: '18px', fontWeight: 'bold',}}>
                                     Recommendations:
                                 </Box>
                             </Box>
-                            <Box sx={{mb: 3}}>
+                            <Box   className={'overpass'}>
                                 <Typography
-                                    sx={{textAlign: "justify", width: "86%", fontSize: "16px", fontWeight: "400"}}>
+                                    sx={{width: "100%",lineHeight:1.3, textAlign: "justify", fontSize: "16px", fontWeight: "400"}}>
                                     {descEng(id).recommendations}
                                 </Typography>
-                            </Box>
-
-                            <Box sx={{mb: 2}}>
-                                <Box sx={{fontSize: '18px', fontWeight: 'bold'}}>
-                                    Action Plan:
-                                </Box>
-                            </Box>
-                            <Box sx={{mb: 3}}>
-                                <ul>
-                                    {descEng(id).actionPlan.map((action, index) => (
-                                        <li key={index} style={{fontSize: "16px", fontWeight: "400"}}>{action}</li>
-                                    ))}
-                                </ul>
                             </Box>
                         </Box>
                     </Box>
