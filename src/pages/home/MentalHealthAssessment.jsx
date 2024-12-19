@@ -111,6 +111,45 @@ export default function MentalHealthAssessment(props) {
                                 padding: "24px"
                             }}>
                                 <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass title">
+                                    General Stress and Anxiety
+                                </Box>
+                                <Box sx={{display: {sm: "flex"}, justifyContent: "space-between", mt: {xs: 4, sm: 10}}}>
+                                    <Box sx={{height: "140px", width: "140px", borderRadius: 5, overflow: "hidden"}}>
+                                        <img src={home2} alt="first"/>
+                                    </Box>
+                                    <Box sx={{display: "flex", alignItems: "end"}}>
+                                        <Box>
+                                            <Box sx={{color: "#a7a7a7", display: "flex", alignItems: "center"}}>
+                                                <CalendarTodayIcon/> <Box sx={{marginLeft: 1}}>5 mins quiz</Box>
+                                                {/*<i className="fa-regular fa-calendar" ></i>*/}
+                                            </Box>
+                                            <Box sx={{
+                                                color: "darkGreen",
+                                                mt: 4,
+                                                textDecoration: "underline",
+                                                fontWeight: 600,
+                                                cursor: "pointer"
+                                            }} onClick={() => {
+                                                sessionStorage.clear()
+                                                navigate("/general-stress-anxiety-start-assessment")
+
+                                            }}>
+                                                TAKE ASSESSMENT
+                                            </Box>
+                                        </Box>
+                                    </Box>
+                                </Box>
+                            </Box>
+                        </Box></Grid>
+                    <Grid item xs={12} sm={6} md={4}>
+                        <Box>
+                            <Box sx={{
+                                width: '100%',
+                                backgroundColor: "#fff",
+                                borderRadius: 8,
+                                padding: "24px"
+                            }}>
+                                <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass title">
                                     Emotional Awareness and Regulation (Ages 4-10)
                                 </Box>
                                 <Box sx={{display: {sm: "flex"}, justifyContent: "space-between", mt: {xs: 4, sm: 5}}}>

@@ -426,6 +426,7 @@ function GetStarted2() {
                         handlePoints={handlePoints}
                         points={points}
                         points1={points1}
+                        disabledAt={20}
 
                     />
                 );
@@ -447,7 +448,7 @@ function GetStarted2() {
                         handlePoints={handlePoints}
                         apiOptions={options}
                         points1={points1}
-
+                        disabledAt={20}
                     />
                 );
             default:
@@ -791,6 +792,7 @@ function GetStarted2() {
                         handlePoints={handlePoints}
                         apiOptions={options}
                         points1={points1}
+                        disabledAt={20}
 
                     />
                 );

@@ -10,9 +10,11 @@ function GeneralStressAnxietyAssessment() {
     const [mainActiveStep, setMainActiveStep] = React.useState(0);
     const [options, setOptions] = useState([])
     const language = sessionStorage.getItem("language")
+
     const handleNext = () => {
         window.scrollTo(0, 0);
-        if (points1?.length !== 19) {
+            console.log("Hello I am calling", points1.length)
+        if (points1?.length < 11) {
             setActiveStep((prevActiveStep) => prevActiveStep + 1);
         } else {
             setActiveStep((prevActiveStep => prevActiveStep))
@@ -43,10 +45,10 @@ function GeneralStressAnxietyAssessment() {
 
         setPoints1(prevPoints => [...prevPoints, pointsToAdd]);
 
-        if (activeStep === 11) {
-            mainHandleNext();
-        }
-
+        // if (activeStep === 11) {
+        //     mainHandleNext();
+        // }
+        //
         handleNext();
     }
 
@@ -118,7 +120,7 @@ function GeneralStressAnxietyAssessment() {
                                 handlePoints={handlePoints}
                                 points={points}
                                 handleBack={handleBack}
-
+                                // disabledAt={12}
 
                     />
                 );
@@ -296,6 +298,8 @@ function GeneralStressAnxietyAssessment() {
                         handleNext={handleNext}
                         handlePoints={handlePoints}
                         points={points}
+                        disabledAt={12}
+
                     />
                 );
             case 11:
@@ -310,10 +314,15 @@ function GeneralStressAnxietyAssessment() {
                         ]}
                         therapyQuestion={"12. I find it hard to relax even during non-working or leisure hours"}
                         handleBack={handleBack}
-                        handleNext={handleNext}
-                        handlePoints={handlePoints}
+                        submit={true}
+                        last={true}
                         points={points}
-                        mainHandleNext={mainHandleNext}
+                        handleClean={handleClean}
+                        handlePoints={handlePoints}
+                        apiOptions={options}
+                        points1={points1}
+                        disabledAt={12}
+
                     />
                 );
             // case 12:
@@ -815,33 +824,33 @@ function GeneralStressAnxietyAssessment() {
             <Box sx={{width: '100%', pt: "150px", backgroundColor: "#FFFCF6", pb: "5px"}}>
                 <Container>
 
-                    <MobileStepper
-                        className="main"
-                        variant="dots"
-                        steps={5}
-                        position="static"
-                        activeStep={mainActiveStep}
-                        sx={{
-                            width: "100%",
-                            flexGrow: 1,
-                            backgroundColor: "#FFFCF6",
-                            display: "flex",
-                            justifyContent: "center",
-                            mb: "20px",
-                            // "& .css-114p2tk-MuiMobileStepper-dot": {
-                            //     width: "50px !important",
-                            //     height: "5px !important",
-                            //     borderRadius: "unset !important",
-                            //     backgroundColor: "#DCE2DA !important",
-                            // },
-                            // "& .css-26w9jf-MuiMobileStepper-dot": {
-                            //     width: "50px !important",
-                            //     borderRadius: "unset !important",
-                            //     backgroundColor: "#325343 !important",
-                            //     height: "5px !important",
-                            // }
-                        }}
-                    />
+                    {/*<MobileStepper*/}
+                    {/*    className="main"*/}
+                    {/*    variant="dots"*/}
+                    {/*    steps={5}*/}
+                    {/*    position="static"*/}
+                    {/*    activeStep={mainActiveStep}*/}
+                    {/*    sx={{*/}
+                    {/*        width: "100%",*/}
+                    {/*        flexGrow: 1,*/}
+                    {/*        backgroundColor: "#FFFCF6",*/}
+                    {/*        display: "flex",*/}
+                    {/*        justifyContent: "center",*/}
+                    {/*        mb: "20px",*/}
+                    {/*        // "& .css-114p2tk-MuiMobileStepper-dot": {*/}
+                    {/*        //     width: "50px !important",*/}
+                    {/*        //     height: "5px !important",*/}
+                    {/*        //     borderRadius: "unset !important",*/}
+                    {/*        //     backgroundColor: "#DCE2DA !important",*/}
+                    {/*        // },*/}
+                    {/*        // "& .css-26w9jf-MuiMobileStepper-dot": {*/}
+                    {/*        //     width: "50px !important",*/}
+                    {/*        //     borderRadius: "unset !important",*/}
+                    {/*        //     backgroundColor: "#325343 !important",*/}
+                    {/*        //     height: "5px !important",*/}
+                    {/*        // }*/}
+                    {/*    }}*/}
+                    {/*/>*/}
                     <Box>
                         <Box sx={{fontSize: "46px", color: "#444444", textAlign: 'center'}} className="overpass">
                             {/*Help us match you to the <Typography variant="span" sx={{color:"green"}}> right therapist</Typography>*/}

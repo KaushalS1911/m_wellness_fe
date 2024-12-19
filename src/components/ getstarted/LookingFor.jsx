@@ -8,7 +8,7 @@ import {
     Grid, FormControl, InputLabel, Select, MenuItem, Modal, TextField,
 } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import {useNavigate} from "react-router-dom"
+import {useLocation, useNavigate} from "react-router-dom"
 import WestIcon from "@mui/icons-material/West";
 import axios from "axios";
 import moment from "moment";
@@ -38,32 +38,40 @@ function LookingFor({
                         handlePoints,
                         points1,
                         handleBack,
-                        apiOptions
-
+                        apiOptions,
+                        disabledAt,
                     }) {
 
     const [open, setOpen] = React.useState(false);
     const navigate = useNavigate()
+    const {pathname} = useLocation()
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const [email, setEmail] = useState('');
     const [error, setError] = useState(false);
     const [helperText, setHelperText] = useState('');
-    const handleSubmit = () => {
-        const data = JSON.parse(sessionStorage.getItem("student"))
-        const language = sessionStorage.getItem("language")
 
-        try {
-            axios.post("https://interactapiverse.com/mahadevasth/assessment", {
-                student_id: data[0]?.admission_id,
-                assessment_id: 1,
-                responses: apiOptions,
-                score: points,
-                created_at: moment(new Date()).format("YYYY-MM-DD HH:mm:ss"),
-                assessment_language:language
-            }).then((res) => navigate(`/assessment/${points}`))
-        } catch (err) {
-            console.log(err)
+    console.log(pathname)
+    const handleSubmit = () => {
+
+        if(pathname === '/general-stress-anxiety-assessment'){
+            navigate(`/general-stress-anxiety/${points}`)
+        }else{
+            const data = JSON.parse(sessionStorage.getItem("student"))
+            const language = sessionStorage.getItem("language")
+
+            try {
+                axios.post("https://interactapiverse.com/mahadevasth/assessment", {
+                    student_id: data[0]?.admission_id,
+                    assessment_id: 1,
+                    responses: apiOptions,
+                    score: points,
+                    created_at: moment(new Date()).format("YYYY-MM-DD HH:mm:ss"),
+                    assessment_language:language
+                }).then((res) => navigate(`/assessment/${points}`))
+            } catch (err) {
+                console.log(err)
+            }
         }
         // handleOpen()
     }
@@ -131,7 +139,7 @@ function LookingFor({
                                 fullWidth
                                 onClick={(e) => handlePoints(e, "valu")}
                                 value={therapy?.label}
-                                disabled={points1?.length === 20 ? true : false}
+                                disabled={disabledAt && (points1?.length === disabledAt ? true : false)}
                             >
                                 {therapy?.label}
                             </TherapyButton>

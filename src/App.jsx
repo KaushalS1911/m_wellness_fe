@@ -26,6 +26,7 @@ import GeneralStressAnxiety from "./pages/general-stress-anxiety/GeneralStressAn
 import GeneralStressAnxietyStartAssessment
     from "./pages/getStarted/startAssessment/GeneralStressAnxietyStartAssessment";
 import GeneralStressAnxietyAssessment from "./components/general-stress-anxiety/Assessment";
+import GeneralStressAnxietyPointTable from "./components/general-stress-anxiety/GeneralStressAnxietyPointsTable";
 
 function App() {
     function ScrollToTop() {
@@ -62,6 +63,7 @@ function App() {
                 <Route path="/EmotionalAwarenessAssessment/:id" element={<EmotionalAwarenessPointTable/>}/>
                 <Route path="/AcademicStressAssessment/:id" element={<AcademicStressPointTable/>}/>
                 <Route path="/SelfEsteemAssessment/:id" element={<SelfEsteemAssessmentPointTable/>}/>
+                <Route path="/general-stress-anxiety/:id" element={<GeneralStressAnxietyPointTable/>}/>
                 <Route path="/shape-form" element={<ShapAssessment/>}/>
                 <Route path="/shape-family" element={<FamilyInfo/>}/>
                 <Route path="/shape-assessment" element={<ShapAssementStape/>}/>

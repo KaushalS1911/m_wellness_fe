@@ -1,0 +1,164 @@
+import React, {useState} from 'react';
+import {Box, Card, Container, GlobalStyles} from '@mui/material';
+import {Gauge, gaugeClasses} from '@mui/x-charts';
+import {useParams} from "react-router-dom"
+import Typography from "@mui/material/Typography";
+import background from "../../assets/score/pexels-photo-5699431-1-1024x682.jpeg.jpg"
+function PointTable(props) {
+    const [points, setPoints] = useState(75);
+    const language = sessionStorage.getItem("language");
+    const {id} = useParams();
+    const settings = {
+        width: 350,
+        height: 200,
+        // value: 60,
+    };
+
+    const per = ((id * 100) / 60).toFixed(0);
+
+    const descEng = (data) => {
+        switch (true) {
+            case data >= 37 :
+                return {
+                    desc: "Significant levels of stress and anxiety are present. The results are indicative basis the Self-Assessment questions and are not Psychometric Tests. For better and accurate results and consultation, it is strongly advised that you engage with certified Psychologists and Professionals.",
+                    color: "#ff0000"
+                };
+            case data >= 25 && data <= 36 :
+                return {
+                    desc: "Your stress and anxiety levels may be impacting your daily life. The results are indicative basis the Self-Assessment questions and are not Psychometric Tests. For better and accurate results and consultation, it is recommended that you engage with certified Psychologists and Professionals.",
+                    color: "#F76F00"
+                };
+            case data >= 13 && data <= 24 :
+                return {
+                    desc: " You may be experiencing stress or anxiety at manageable levels. Consider mindfulness, self-care, or seeking support if needed. The results are indicative basis the Self-Assessment questions and are not Psychometric Tests. For better and accurate results and consultation, we suggest to engage with certified Psychologists and Professionals.",
+                    color: "#C6892C"
+                };
+            case data >= 0 && data <= 12 :
+                return {
+                    desc: "You appear to control Strain and tension well. Keep Practicing healthful habits. The results are indicative basis the Self-Assessment questions and are not Psychometric Tests. For better and accurate results and consultation, we suggest to engage with certified Psychologists and Professionals.",
+                    color: "green"
+                };
+            default:
+                return "Invalid data";
+
+        }
+    }
+    const descHindi = (data) => {
+        switch (true) {
+            case data >= 50 && data <= 60 :
+                return {
+                    desc: "आपने उत्कृष्ट तनाव प्रबंधन, भावनात्मक दृढ़ता, और निर्णय लेने के कौशल का प्रदर्शन किया है, जो आपकी परीक्षा की तैयारी के लिए बहुत महत्वपूर्ण हैं। दबाव में शांत रहने और सकारात्मक सोच बनाए रखने की आपकी क्षमता सराहनीय है, और ये गुण न केवल आपकी परीक्षाओं में बल्कि आपके भविष्य के करियर में भी आपको अच्छी तरह से सेवा देंगे। अच्छा काम जारी रखें, अपने कौशल को परिष्कृत करते रहें, और याद रखें कि निरंतर प्रयास और आत्मविश्वास आपके लक्ष्यों को प्राप्त करने की कुंजी हैं। आपके दृढ़ संकल्प और दृढ़ता के साथ, आप किसी भी चुनौती को पार करने के लिए अच्छी तरह से सुसज्जित हैं।",
+                    color: "#325343"
+                }
+            case data >= 40 && data <= 49 :
+                return {
+                    desc: "आपने अच्छे कौशल और व्यवहार का प्रदर्शन किया है, लेकिन कुछ क्षेत्रों में सुधार की आवश्यकता है। आने वाली चुनौतियों के लिए पूरी तरह से तैयार होने के लिए अपने तनाव प्रबंधन तकनीकों और निर्णय लेने की रणनीतियों को बढ़ाने पर ध्यान दें। तनाव प्रबंधन कौशल को विकसित करना आपको दबाव में शांत और केंद्रित रहने में मदद करेगा, जबकि निर्णय लेने की रणनीतियों को परिष्कृत करना सुनिश्चित करेगा कि आप जटिल परिस्थितियों को आत्मविश्वास के साथ संभाल सकें। इन क्षेत्रों पर काम करके, आप किसी भी बाधा का मुकाबला करने और अपने लक्ष्यों को अधिक प्रभावी ढंग से प्राप्त करने के लिए बेहतर सुसज्जित होंगे।",
+                    color: "green"
+                };
+            case data >= 30 && data <= 39 :
+                return {
+                    desc: "आपमें संभावना है, लेकिन कई क्षेत्रों में विशेष अभिवृद्धि की आवश्यकता है। अपनी रूटीन में नियमित तनाव-मुक्ति तकनीकों, भावनात्मक बुद्धिमत्ता प्रशिक्षण, और संरचित निर्णय लेने की प्रथाओं को शामिल करने का विचार करें। तनाव-मुक्ति तकनीकों का अभ्यास आपको दबाव के तहत शांत रहने और सकारात्मक दृष्टिकोण बनाए रखने में मदद करेगा, भावनात्मक बुद्धिमत्ता प्रशिक्षण आपको अपनी भावनाओं को समझने और प्रभावी रूप से प्रबंधित करने में मदद करेगा, और संरचित निर्णय लेने की प्रथाएँ आपको जटिल स्थितियों को समझने और उन्हें हल करने में मदद करेंगी। इन सभी उपायों को अपनाकर, आप अपनी क्षमताओं को सुधार सकते हैं और अपने लक्ष्यों की दिशा में प्रगति कर सकते हैं।",
+                    color: "#C6892C"
+                };
+            case data >= 20 && data <= 29 :
+                return {
+                    desc: "कई चिंता के क्षेत्र हैं जिन्हें संबोधित करने की आवश्यकता है। अच्छे तनाव प्रबंधन तकनीकों, भावनात्मक संघर्षशीलता, और नियमित अध्ययन आदतों के विकास पर ध्यान केंद्रित करें। इन तकनीकों को सुधारकर आप दबाव को सही ढंग से संभाल सकेंगे, भावनात्मक संघर्षशीलता को बढ़ाकर आप संकटों से विश्वासपूर्वक उभर सकेंगे, और नियमित अध्ययन आदतें आपको आपके लक्ष्यों पर संगठित और ध्यानित रहने में मदद करेंगी। इन क्षेत्रों में सुधार के लिए मार्गदर्शन और संसाधनों की खोज करें। इन पहलुओं पर सक्रिय रूप से काम करके, आप अपने प्रयासों में सफलता प्राप्त करने के लिए मजबूत आधार बना सकेंगे।",
+                    color: "#F76F00"
+                };
+            case data >= 0 && data <= 19 :
+                return {
+                    desc: "आपके उत्तर बताते हैं कि लगभग सभी पहलुओं में महत्वपूर्ण विकास की आवश्यकता है। तनाव प्रबंधन, भावनात्मक बुद्धिमत्ता, और अनुशासित अध्ययन रूटीन में मजबूत नींव बनाने पर ध्यान केंद्रित करें। इन कौशलों को सही दिशा में विकसित करना मुश्किलाहटों को सफलतापूर्वक निभाने और अपने लक्ष्यों को प्राप्त करने के लिए महत्वपूर्ण है। पेशेवर मार्गदर्शन या प्रशिक्षण लेना इन क्षेत्रों में आपके विकास को गति देने के लिए महत्वपूर्ण हो सकता है। इन बुनियादी कौशलों को सुधारने के लिए प्रतिबद्ध रहकर, आप अपनी तैयारी को मजबूत करेंगे और अपने प्रयासों में सफलता प्राप्त करने की क्षमता को बढ़ाएंगे।",
+                    color: "#ff0000"
+                };
+            default:
+                return "Invalid data";
+
+        }
+    }
+    // 508D4E
+    // 1A5319
+
+    return (
+        <>
+            <Box sx={{pt: 20, mb: 5, background: `linear-gradient(
+            rgba(000, 0, 0, 0.5), 
+            rgba(000, 0, 0, 0.5) 
+          ), url(${background})`,backgroundSize:"cover",backgroundRepeat:"no-repeat"}}>
+                <Container>
+                    <Box sx={{display:"flex",justifyContent:"center",alignItems:"center",width:"100%"}}>
+                        <Box sx={{
+                            backgroundColor: "#fff",
+                            width: {sm:"550px",xs:"100%"},
+                            my: "30px",
+                            borderRadius: "15px",
+                            padding: "40px 30px",
+                        }}>
+                            <Box
+                                sx={{fontSize: '28px', fontWeight: '700', textAlign: 'center'}}
+                                className="overpass title"
+                            >
+                                Assessment Score
+                            </Box>
+                            <Box sx={{textAlign: 'center', color: 'gray'}}>
+                                Here are your results
+                            </Box>
+                            <Box sx={{display: "flex", justifyContent: "center", my: 3}}>
+                                <Gauge
+                                    {...settings}
+                                    value={per}
+                                    startAngle={-110}
+                                    endAngle={110}
+                                    text={id}
+                                    sx={{
+                                        [`& .${gaugeClasses.valueText}`]: {
+                                            fontSize: 40,
+                                            transform: 'translate(0px, 0px)',
+                                            fontWeight: 700,
+                                            color: 'red',
+                                        },
+                                        "&.MuiGauge-root .MuiGauge-valueArc" :{
+                                            fill: id >= 37 ? "#FF0000" :id >= 25 ? "#EB5B00" :id >= 13 ? "#FFB200" :id <= 12 ? "#325343" :"#C80036"
+                                        },
+                                        "&.css-nxtzjj" :{
+                                            fill: id >= 50 ? "" :""
+                                        }
+                                    }}
+                                />
+                            </Box>
+                            <Box sx={{display: "flex", justifyContent: "center"}}>
+                                <Box sx={{textAlign: "center", width: "250px", fontSize: "18px",letterSpacing: -0.25}} className={"overpass"} >
+                                    Interpretation and feedback based on your inputs</Box>
+                            </Box>
+
+                            <Box sx={{display: "flex", justifyContent: "center"}}>
+                                <Box sx={{
+                                    width: {sm:"550px",xs:"100%"},
+                                    backgroundColor: "rgba(215, 215, 215, 0.5)",
+                                    backdropFilter: "blur(100px)",
+                                    border: "1px solid rgba(255, 255, 255, 0.3)",
+                                    my: "30px",
+                                    padding: "20px",
+                                    borderRadius: "15px",
+                                    textAlign:"justify",
+                                    fontSize:"17px"
+                                }}>
+                                    {language === "hindi" ? <>
+                                        <Typography> नमस्ते,
+                                        </Typography><Typography sx={{my: 2}}> आपके द्वारा दिए गए उत्तरों के आधार पर हम आपके साथ फीडबैक साझा कर रहे हैं।
+                                    </Typography> {descHindi(id).desc}</> : <>
+                                        <Typography> Namaste,
+                                        </Typography> <Box sx={{my:2}}> Basis the answers provided by you, we are sharing the feedback with you.
+                                    </Box>
+                                        {descEng(id).desc}</>}
+                                </Box>
+                            </Box>
+
+                        </Box>
+                    </Box>
+                </Container>
+            </Box>
+        </>
+    );
+}
+
+export default PointTable;
