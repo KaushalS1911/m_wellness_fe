@@ -22,6 +22,10 @@ import AcademicStressStape from "./pages/academic-stress/AcademicStressStape";
 import AcademicStressPointTable from "./pages/AcademicStressPointTable";
 import SelfEsteemAssessmentStape from "./pages/self-esteem-assessment/SelfEsteemAssessmentStape";
 import SelfEsteemAssessmentPointTable from "./pages/SelfEsteemAssessmentPointTable";
+import GeneralStressAnxiety from "./pages/general-stress-anxiety/GeneralStressAnxiety";
+import GeneralStressAnxietyStartAssessment
+    from "./pages/getStarted/startAssessment/GeneralStressAnxietyStartAssessment";
+import GeneralStressAnxietyAssessment from "./components/general-stress-anxiety/Assessment";
 
 function App() {
     function ScrollToTop() {
@@ -61,14 +65,17 @@ function App() {
                 <Route path="/shape-form" element={<ShapAssessment/>}/>
                 <Route path="/shape-family" element={<FamilyInfo/>}/>
                 <Route path="/shape-assessment" element={<ShapAssementStape/>}/>
+                <Route path="/general-stress-anxiety" element={<GeneralStressAnxiety/>}/>
                 {/*<Route path="about" element={<About />} />*/}
                 {/*<Route path="business" element={<BusinessPage />} />*/}
                 {/*<Route path="contact" element={<Contact />} />*/}
                 <Route path="/assessment" element={<GetStarted/>}/>
+                <Route path="/general-stress-anxiety-assessment" element={<GeneralStressAnxietyAssessment/>}/>
                 <Route path="/auth-form" element={<Auth/>}/>
                 <Route path="/consent-form" element={<GetStartedHome/>}/>
                 <Route path="/assessment-form" element={<MainGetStarted/>}/>
                 <Route path="/start-assessment" element={<StartAssessment/>}/>
+                <Route path="/general-stress-anxiety-start-assessment" element={<GeneralStressAnxietyStartAssessment/>}/>
                 <Route path="/EmotionalAwareness" element={<EmotionalAwarenessStape/>}/>
                 <Route path="/AcademicStress" element={<AcademicStressStape/>}/>
                 <Route path="/SelfEsteemAssessment" element={<SelfEsteemAssessmentStape/>}/>

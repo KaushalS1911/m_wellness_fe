@@ -4,9 +4,8 @@ import {Button, Checkbox, Container} from "@mui/material";
 import GetStartedReview from "../../../components/ getstarted/GetStartedReview";
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import {useNavigate} from "react-router-dom"
-import {useLocation} from "react-router";
 
-function StartAssessment() {
+function GeneralStressAnxietyStartAssessment() {
     const navigate = useNavigate()
     return (
         <>
@@ -46,7 +45,7 @@ function StartAssessment() {
 
                                 <Button
                                     className="overpass"
-                                    onClick={() => navigate("/assessment")}
+                                    onClick={() => navigate("/general-stress-anxiety-assessment")}
                                     sx={{
                                         backgroundColor: "#A6DE9B",
                                         py: "5px",
@@ -82,4 +81,4 @@ function StartAssessment() {
     );
 }
 
-export default StartAssessment;
+export default GeneralStressAnxietyStartAssessment;

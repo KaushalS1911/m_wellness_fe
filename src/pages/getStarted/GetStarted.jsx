@@ -7,10 +7,10 @@ import GetStartedReview from "../../components/ getstarted/GetStartedReview";
 function GetStarted(props) {
     const [points1, setPoints1] = useState([])
     return (
-<>
-            <GetStarted2  />
-    {/*<GetStartedReview />*/}
-</>
+        <>
+            <GetStarted2/>
+            {/*<GetStartedReview />*/}
+        </>
     );
 }
 
