@@ -27,7 +27,7 @@ function EmotionalAwarenessStapper({
                                        handlePoints,
                                        points1,
                                        handleBack,
-                                       apiOptions
+                                       apiOptions,disabledAt,handleNext
                                    }) {
     const [open, setOpen] = React.useState(false);
     const navigate = useNavigate()
@@ -67,7 +67,6 @@ function EmotionalAwarenessStapper({
             </Button>
         </Grid>
     );
-
     return (
         <>
             <Card style={{maxWidth: 700, margin: "50px auto", padding: {md: "20px 20px 0", xs: "20px 0 0"}}}>
@@ -90,7 +89,7 @@ function EmotionalAwarenessStapper({
                                     fullWidth
                                     onClick={(e) => handlePoints(e, "valu")}
                                     value={therapy?.label}
-                                    disabled={apiOptions?.length === 15 ? true : false}
+                                    disabled={disabledAt && (points1?.length === disabledAt ? true : false)}
                                 >
                                     {therapy?.label}
                                 </TherapyButton>
@@ -126,7 +125,7 @@ function EmotionalAwarenessStapper({
                         </Box>
                     )}
                     <Box sx={{display: "flex", justifyContent: "space-between"}}>
-                        <Box sx={{mt: "20px", display: points === 0 ? "none" : "flex", justifyContent: "start",}}>
+                        <Box sx={{mt: "20px", display: !handleBack ? "none" : "flex", justifyContent: "start",}}>
                             <Button
                                 className="overpass"
                                 onClick={handleBack}
@@ -148,7 +147,7 @@ function EmotionalAwarenessStapper({
                                 Back
                             </Button>
                         </Box>
-                        {submit && <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
+                        {disabledAt && (points1?.length === disabledAt) && <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
                             <Button
                                 className="overpass"
                                 onClick={handleSubmit}

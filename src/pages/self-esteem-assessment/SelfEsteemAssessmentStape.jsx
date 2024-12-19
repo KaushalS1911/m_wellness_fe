@@ -12,7 +12,7 @@ function SelfEsteemAssessmentStape(props) {
 
     const handleNext = () => {
         window.scrollTo(0, 0);
-        if (points1?.length !== 14) {
+        if (points1?.length < 19) {
             setActiveStep((prevActiveStep) => prevActiveStep + 1);
         } else {
             setActiveStep((prevActiveStep => prevActiveStep))
@@ -25,23 +25,28 @@ function SelfEsteemAssessmentStape(props) {
 
     const handlePoints = (e, questionIndex) => {
         const selectedAnswer = e.target.value;
-
         const pointsMapping = [
-            {"Happy": 1, "Sad": 0, "Angry": 0, "Scared": 0},
-            {"Happy": 1, "Sad": 0, "Angry": 0, "Scared": 0},
-            {"Happy": 0, "Sad": 0, "Angry": 1, "Scared": 0},
-            {"Happy": 0, "Sad": 1, "Angry": 0, "Scared": 0},
-            {"Happy": 1, "Sad": 0, "Angry": 0, "Scared": 0},
-            {"Smile and laugh": 1, "Cry": 0, "Yell": 0, "Stay quiet": 0},
-            {"Talk to someone": 1, "Cry": 0, "Hit something": 0, "Stay quiet": 0},
-            {"Talk to someone": 1, "Take deep breaths": 1, "Hit something": 0, "Stay quiet": 0},
-            {"Talk to someone": 1, "Cry": 0, "Yell": 0, "Stay quiet": 0},
-            {"Talk to someone": 1, "Take deep breaths": 1, "Hit something": 0, "Stay quiet": 0},
-            {"Happy": 0, "Sad": 1, "Angry": 0, "Scared": 0},
-            {"Happy": 0, "Sad": 0, "Angry": 1, "Scared": 0},
-            {"Happy": 1, "Sad": 0, "Angry": 0, "Scared": 0},
-            {"Happy": 0, "Sad": 1, "Angry": 0, "Scared": 0},
-            {"Happy": 0, "Sad": 0, "Angry": 0, "Scared": 1},
+            {"Never": 0, "Rarely": 1, "Sometimes": 2, "Often": 3, "Always": 4},
+            {"Never": 0, "Rarely": 1, "Sometimes": 2, "Often": 3, "Always": 4},
+            {"Never": 0, "Rarely": 1, "Sometimes": 2, "Often": 3, "Always": 4},
+            {"Never": 0, "Rarely": 1, "Sometimes": 2, "Often": 3, "Always": 4},
+            {"Never": 0, "Rarely": 1, "Sometimes": 2, "Often": 3, "Always": 4},
+            {"Never": 0, "Rarely": 1, "Sometimes": 2, "Often": 3, "Always": 4},
+            {"Never": 0, "Rarely": 1, "Sometimes": 2, "Often": 3, "Always": 4},
+            {"Never": 0, "Rarely": 1, "Sometimes": 2, "Often": 3, "Always": 4},
+            {"Never": 0, "Rarely": 1, "Sometimes": 2, "Often": 3, "Always": 4},
+            {"Never": 0, "Rarely": 1, "Sometimes": 2, "Often": 3, "Always": 4},
+            {"Never": 0, "Rarely": 1, "Sometimes": 2, "Often": 3, "Always": 4},
+            {"Never": 0, "Rarely": 1, "Sometimes": 2, "Often": 3, "Always": 4},
+            {"Never": 0, "Rarely": 1, "Sometimes": 2, "Often": 3, "Always": 4},
+            {"Never": 0, "Rarely": 1, "Sometimes": 2, "Often": 3, "Always": 4},
+            {"Never": 0, "Rarely": 1, "Sometimes": 2, "Often": 3, "Always": 4},
+            {"Never": 0, "Rarely": 1, "Sometimes": 2, "Often": 3, "Always": 4},
+            {"Never": 0, "Rarely": 1, "Sometimes": 2, "Often": 3, "Always": 4},
+            {"Never": 0, "Rarely": 1, "Sometimes": 2, "Often": 3, "Always": 4},
+            {"Never": 0, "Rarely": 1, "Sometimes": 2, "Often": 3, "Always": 4},
+            {"Never": 0, "Rarely": 1, "Sometimes": 2, "Often": 3, "Always": 4},
+
         ];
 
         const questionPoints = pointsMapping[questionIndex];
@@ -59,7 +64,7 @@ function SelfEsteemAssessmentStape(props) {
             return updatedOptions;
         });
 
-        if (activeStep === 14) {
+        if (activeStep === 19) {
             mainHandleNext();
         }
         handleNext();
@@ -76,16 +81,15 @@ function SelfEsteemAssessmentStape(props) {
 
     const handleBack = () => {
         window.scrollTo(0, 0);
+        // if (activeStep > 0) {
+        //     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+        // }
+
+        // if (mainActiveStep > 0 && activeStep === 0) {
+        //     setMainActiveStep((prevActiveStep) => prevActiveStep - 1);
+        // }
 
         if (activeStep > 0) {
-            setActiveStep((prevActiveStep) => prevActiveStep - 1);
-        }
-
-        if (mainActiveStep > 0 && activeStep === 0) {
-            setMainActiveStep((prevActiveStep) => prevActiveStep - 1);
-        }
-
-        if (activeStep > 1) {
             setActiveStep((prevActiveStep) => prevActiveStep - 1);
         }
 
@@ -116,24 +120,30 @@ function SelfEsteemAssessmentStape(props) {
             case 0:
                 return (
                     <SelfEsteemAssessmentStapper
-                        therapyTypes={[{label: "Happy"}, {label: "Sad"}, {label: "Angry"}, {label: "Scared"}]}
-                        therapyQuestion={"1. Look at this picture. How do you think this person is feeling? (Show a picture of a happy face)"}
+                        therapyTypes={[
+                            {label: "Never"},
+                            {label: "Rarely"},
+                            {label: "Sometimes"},
+                            {label: "Often"},
+                            {label: "Always"},
+                        ]}
+                        therapyQuestion={"1. I feel good about myself."}
                         handlePoints={(e) => handlePoints(e, activeStep)}
                         points={points}
                         handleNext={handleNext}
-                        handleBack={handleBack}
                     />
                 );
             case 1:
                 return (
                     <SelfEsteemAssessmentStapper
                         therapyTypes={[
-                            {label: "Happy"},
-                            {label: "Sad"},
-                            {label: "Angry"},
-                            {label: "Scared"},
+                            {label: "Never"},
+                            {label: "Rarely"},
+                            {label: "Sometimes"},
+                            {label: "Often"},
+                            {label: "Always"},
                         ]}
-                        therapyQuestion={"2. How do you feel when you get to play with your favourite toy?"}
+                        therapyQuestion={"2. I am happy with the way I look."}
                         handleBack={handleBack}
                         points={points}
                         handleNext={handleNext}
@@ -144,13 +154,14 @@ function SelfEsteemAssessmentStape(props) {
                 return (
                     <SelfEsteemAssessmentStapper
                         therapyTypes={[
-                            {label: "Happy"},
-                            {label: "Sad"},
-                            {label: "Angry"},
-                            {label: "Scared"},
+                            {label: "Never"},
+                            {label: "Rarely"},
+                            {label: "Sometimes"},
+                            {label: "Often"},
+                            {label: "Always"},
                         ]}
 
-                        therapyQuestion={"3. When someone takes your toy without asking, how do you feel?"}
+                        therapyQuestion={"3. I feel proud of the things I do."}
                         handleBack={handleBack}
                         points={points}
                         handleNext={handleNext}
@@ -161,13 +172,14 @@ function SelfEsteemAssessmentStape(props) {
                 return (
                     <SelfEsteemAssessmentStapper
                         therapyTypes={[
-                            {label: "Happy"},
-                            {label: "Sad"},
-                            {label: "Angry"},
-                            {label: "Scared"},
+                            {label: "Never"},
+                            {label: "Rarely"},
+                            {label: "Sometimes"},
+                            {label: "Often"},
+                            {label: "Always"},
                         ]}
 
-                        therapyQuestion={"4. How do you feel when you lose a game?"}
+                        therapyQuestion={"4. I believe I can do things well."}
                         handleBack={handleBack}
                         points={points}
                         handleNext={handleNext}
@@ -178,12 +190,13 @@ function SelfEsteemAssessmentStape(props) {
                 return (
                     <SelfEsteemAssessmentStapper
                         therapyTypes={[
-                            {label: "Happy"},
-                            {label: "Sad"},
-                            {label: "Angry"},
-                            {label: "Scared"},
+                            {label: "Never"},
+                            {label: "Rarely"},
+                            {label: "Sometimes"},
+                            {label: "Often"},
+                            {label: "Always"},
                         ]}
-                        therapyQuestion={"5. When you get a hug from a family member, how do you feel?" + "specify"}
+                        therapyQuestion={"5. I think I am a good person."}
                         handleBack={handleBack}
                         points={points}
                         handleNext={handleNext}
@@ -194,12 +207,13 @@ function SelfEsteemAssessmentStape(props) {
                 return (
                     <SelfEsteemAssessmentStapper
                         therapyTypes={[
-                            {label: "Smile and laugh"},
-                            {label: "Cry"},
-                            {label: "Yell"},
-                            {label: "Stay quiet"},
+                            {label: "Never"},
+                            {label: "Rarely"},
+                            {label: "Sometimes"},
+                            {label: "Often"},
+                            {label: "Always"},
                         ]}
-                        therapyQuestion={"6. What do you do when you feel happy?"}
+                        therapyQuestion={"6. I feel confident when I try new things."}
                         handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={(e) => handlePoints(e, activeStep)}
@@ -210,12 +224,13 @@ function SelfEsteemAssessmentStape(props) {
                 return (
                     <SelfEsteemAssessmentStapper
                         therapyTypes={[
-                            {label: "Talk to someone"},
-                            {label: "Cry"},
-                            {label: "Hit something"},
-                            {label: "Stay quiet"},
+                            {label: "Never"},
+                            {label: "Rarely"},
+                            {label: "Sometimes"},
+                            {label: "Often"},
+                            {label: "Always"},
                         ]}
-                        therapyQuestion={"7. What do you do when you feel sad?"}
+                        therapyQuestion={"7. I feel good about my abilities."}
                         handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={(e) => handlePoints(e, activeStep)}
@@ -226,12 +241,13 @@ function SelfEsteemAssessmentStape(props) {
                 return (
                     <SelfEsteemAssessmentStapper
                         therapyTypes={[
-                            {label: "Talk to someone"},
-                            {label: "Take deep breaths"},
-                            {label: "Hit something"},
-                            {label: "Stay quiet"},
+                            {label: "Never"},
+                            {label: "Rarely"},
+                            {label: "Sometimes"},
+                            {label: "Often"},
+                            {label: "Always"},
                         ]}
-                        therapyQuestion={"8. If you feel angry, what can you do to feel better?"}
+                        therapyQuestion={"8. I think positively about myself."}
                         handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={(e) => handlePoints(e, activeStep)}
@@ -242,12 +258,13 @@ function SelfEsteemAssessmentStape(props) {
                 return (
                     <SelfEsteemAssessmentStapper
                         therapyTypes={[
-                            {label: "Talk to someone"},
-                            {label: "Cry"},
-                            {label: "Yell"},
-                            {label: "Stay quiet"},
+                            {label: "Never"},
+                            {label: "Rarely"},
+                            {label: "Sometimes"},
+                            {label: "Often"},
+                            {label: "Always"},
                         ]}
-                        therapyQuestion={"9. When you are scared, what do you do?"}
+                        therapyQuestion={"9. I feel that others like me."}
                         handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={(e) => handlePoints(e, activeStep)}
@@ -258,12 +275,13 @@ function SelfEsteemAssessmentStape(props) {
                 return (
                     <SelfEsteemAssessmentStapper
                         therapyTypes={[
-                            {label: "Talk to someone"},
-                            {label: "Take deep breaths"},
-                            {label: "Hit something"},
-                            {label: "Stay quiet"},
+                            {label: "Never"},
+                            {label: "Rarely"},
+                            {label: "Sometimes"},
+                            {label: "Often"},
+                            {label: "Always"},
                         ]}
-                        therapyQuestion={"10. What do you do when you feel frustrated?"}
+                        therapyQuestion={"10. I am satisfied with my achievements."}
                         handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={(e) => handlePoints(e, activeStep)}
@@ -274,12 +292,13 @@ function SelfEsteemAssessmentStape(props) {
                 return (
                     <SelfEsteemAssessmentStapper
                         therapyTypes={[
-                            {label: "Happy"},
-                            {label: "Sad"},
-                            {label: "Angry"},
-                            {label: "Scared"},
+                            {label: "Never"},
+                            {label: "Rarely"},
+                            {label: "Sometimes"},
+                            {label: "Often"},
+                            {label: "Always"},
                         ]}
-                        therapyQuestion={"11. If your friend is crying, how do you think they feel?"}
+                        therapyQuestion={"11. I feel comfortable in social situations."}
                         handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={(e) => handlePoints(e, activeStep)}
@@ -290,12 +309,13 @@ function SelfEsteemAssessmentStape(props) {
                 return (
                     <SelfEsteemAssessmentStapper
                         therapyTypes={[
-                            {label: "Happy"},
-                            {label: "Sad"},
-                            {label: "Angry"},
-                            {label: "Scared"},
+                            {label: "Never"},
+                            {label: "Rarely"},
+                            {label: "Sometimes"},
+                            {label: "Often"},
+                            {label: "Always"},
                         ]}
-                        therapyQuestion={"12. If your friend is yelling, how do you think they feel?"}
+                        therapyQuestion={"12. I can handle my problems well"}
                         handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={(e) => handlePoints(e, activeStep)}
@@ -306,12 +326,13 @@ function SelfEsteemAssessmentStape(props) {
                 return (
                     <SelfEsteemAssessmentStapper
                         therapyTypes={[
-                            {label: "Happy"},
-                            {label: "Sad"},
-                            {label: "Angry"},
-                            {label: "Scared"},
+                            {label: "Never"},
+                            {label: "Rarely"},
+                            {label: "Sometimes"},
+                            {label: "Often"},
+                            {label: "Always"},
                         ]}
-                        therapyQuestion={"13. If your friend is laughing, how do you think they feel?"}
+                        therapyQuestion={"13. I feel respected by others."}
                         handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={(e) => handlePoints(e, activeStep)}
@@ -322,28 +343,115 @@ function SelfEsteemAssessmentStape(props) {
                 return (
                     <SelfEsteemAssessmentStapper
                         therapyTypes={[
-                            {label: "Happy"},
-                            {label: "Sad"},
-                            {label: "Angry"},
-                            {label: "Scared"},
+                            {label: "Never"},
+                            {label: "Rarely"},
+                            {label: "Sometimes"},
+                            {label: "Often"},
+                            {label: "Always"},
                         ]}
-                        therapyQuestion={"14. If your friend is very quiet, how do you think they feel?"}
+                        therapyQuestion={"14. I believe I am important."}
                         handleBack={handleBack}
                         handleNext={handleNext}
                         handlePoints={(e) => handlePoints(e, activeStep)}
                         points={points}
                     />
                 );
-            case 14:
+                case 14:
                 return (
                     <SelfEsteemAssessmentStapper
                         therapyTypes={[
-                            {label: "Happy"},
-                            {label: "Sad"},
-                            {label: "Angry"},
-                            {label: "Scared"},
+                            {label: "Never"},
+                            {label: "Rarely"},
+                            {label: "Sometimes"},
+                            {label: "Often"},
+                            {label: "Always"},
                         ]}
-                        therapyQuestion={"15. If your friend is playing alone, how do you think they feel?"}
+                        therapyQuestion={"15. I accept my mistakes and learn from them."}
+                        handleBack={handleBack}
+                        handleNext={handleNext}
+                        handlePoints={(e) => handlePoints(e, activeStep)}
+                        points={points}
+                    />
+                );
+                case 15:
+                return (
+                    <SelfEsteemAssessmentStapper
+                        therapyTypes={[
+                            {label: "Never"},
+                            {label: "Rarely"},
+                            {label: "Sometimes"},
+                            {label: "Often"},
+                            {label: "Always"},
+                        ]}
+                        therapyQuestion={"16. I feel happy with my friendships."}
+                        handleBack={handleBack}
+                        handleNext={handleNext}
+                        handlePoints={(e) => handlePoints(e, activeStep)}
+                        points={points}
+                    />
+                );
+                case 16:
+                return (
+                    <SelfEsteemAssessmentStapper
+                        therapyTypes={[
+                            {label: "Never"},
+                            {label: "Rarely"},
+                            {label: "Sometimes"},
+                            {label: "Often"},
+                            {label: "Always"},
+                        ]}
+                        therapyQuestion={"17. I like myself even when things go wrong."}
+                        handleBack={handleBack}
+                        handleNext={handleNext}
+                        handlePoints={(e) => handlePoints(e, activeStep)}
+                        points={points}
+                    />
+                );
+                case 17:
+                return (
+                    <SelfEsteemAssessmentStapper
+                        therapyTypes={[
+                            {label: "Never"},
+                            {label: "Rarely"},
+                            {label: "Sometimes"},
+                            {label: "Often"},
+                            {label: "Always"},
+                        ]}
+                        therapyQuestion={"18. I believe I can achieve my goals."}
+                        handleBack={handleBack}
+                        handleNext={handleNext}
+                        handlePoints={(e) => handlePoints(e, activeStep)}
+                        points={points}
+                    />
+                );
+            case 18:
+                return (
+                    <SelfEsteemAssessmentStapper
+                        therapyTypes={[
+                            {label: "Never"},
+                            {label: "Rarely"},
+                            {label: "Sometimes"},
+                            {label: "Often"},
+                            {label: "Always"},
+                        ]}
+                        therapyQuestion={"19. I feel positive about my future."}
+                        handleBack={handleBack}
+                        handleNext={handleNext}
+                        handlePoints={(e) => handlePoints(e, activeStep)}
+                        points={points}
+                    />
+                );
+            case 19:
+                return (
+                    <SelfEsteemAssessmentStapper
+                        therapyTypes={[
+                            {label: "Never"},
+                            {label: "Rarely"},
+                            {label: "Sometimes"},
+                            {label: "Often"},
+                            {label: "Always"},
+                        ]}
+                        therapyQuestion={"20. I think I am special."}
                         handleBack={handleBack}
                         points={points}
                         handleClean={handleClean}
@@ -352,6 +460,7 @@ function SelfEsteemAssessmentStape(props) {
                         points1={points1}
                         last={true}
                         submit={true}
+                        disabledAt={20}
                     />
                 );
             default:

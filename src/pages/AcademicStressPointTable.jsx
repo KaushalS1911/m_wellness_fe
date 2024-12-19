@@ -17,62 +17,79 @@ function AcademicStressPointTable(props) {
 
     const descEng = (data) => {
         switch (true) {
-            case data >= 13 && data <= 15:
+            case data >= 61 && data <= 80:
                 return {
                     desc: "The student experiences high levels of academic stress but has developed effective coping strategies to manage it. This indicates a strong ability to handle pressure while maintaining mental and emotional balance.",
                     color: "#325343",
+                    listHeader : [
+                        "Maintain Current Strategies:",
+                        "Share Techniques:",
+                        "Balance Life:"
+                    ],
                     actionPlan: [
-                        "Continue reinforcing positive emotional behaviours.",
-                        "Introduce more advanced emotional intelligence activities.",
-                        "Encourage peer mentoring or leadership in group activities."
+                        "Encourage the student to continue using and refining their current coping strategies to ensure they remain effective.",
+                        "Suggest that the student share their successful coping techniques with peers, which can help reinforce their own strategies and provide support to others.",
+                        "Advise maintaining a balanced lifestyle, incorporating academic responsibilities and personal well-being activities to sustain mental and emotional health."
                     ]
+
                 };
-            case data >= 10 && data <= 12:
+            case data >= 41 && data <= 60:
                 return {
-                    desc: "You have demonstrated good skills and behaviors, but there are some areas that could benefit from improvement. Focus on enhancing your stress management techniques and decision-making strategies to be fully prepared for the challenges ahead. Developing a robust set of stress management skills will help you stay calm and focused under pressure, while refining your decision-making strategies will ensure you can navigate complex situations with confidence.",
+                    desc: "The student experiences moderate to high levels of academic stress and uses some effective coping strategies but may need improvement in certain areas. While they have some good techniques in place, there is room to enhance their ability to manage stress.",
                     color: "green",
-                    interpretation: "The child has a good understanding of emotions and generally manages and expresses emotions appropriately, but there may be some areas needing slight improvement.",
-                    recommendations: "Provide additional support through structured activities and discussions that focus on understanding and managing emotions. Reinforce positive behaviors and work on specific areas where the child showed some difficulty.",
+                    listHeader : [
+                        "Develop Targeted Strategies:",
+                        "Engage in Workshops:",
+                        "Time Management & Self-Care:"
+                    ],
                     actionPlan: [
-                        "Identify specific areas for improvement and focus on those.",
-                        "Use positive reinforcement to encourage appropriate emotional responses.",
-                        "Engage the child in group activities that promote emotional sharing and empathy."
+                        "Identify specific areas of stress and develop targeted coping strategies to address them effectively.",
+                        "Encourage participation in stress management workshops or seeking guidance from academic advisors or counselors to improve coping skills.",
+                        "Focus on enhancing time management and self-care routines to better handle academic pressures."
                     ]
+
                 };
-            case data >= 7 && data <= 9:
+            case data >= 21 && data <= 40:
                 return {
-                    desc: "You show potential, but there are several areas that need significant improvement. Consider incorporating regular stress-relief techniques, emotional intelligence training, and structured decision-making practices into your routine. Practicing stress-relief techniques will help you stay calm under pressure and maintain a positive outlook. Emotional intelligence training will aid you in understanding your emotions and managing them effectively.",
+                    desc: "The student experiences moderate levels of academic stress and has inconsistent coping strategies. They may sometimes manage stress well but struggle at other times.",
                     color: "#C6892C",
-                    interpretation: "The child has a basic understanding of emotions but shows inconsistencies in emotional regulation and expression.",
-                    recommendations: "Engage the child in more frequent and varied emotional learning activities. Use role-playing, storytelling, and interactive games to help the child better recognize and manage emotions.",
+                    listHeader : [
+                        "Increase Effective Strategies:",
+                        "Stress Reduction Programs:",
+                        "Structured Plan:"
+                    ],
                     actionPlan: [
-                        "Increase the frequency of emotional learning activities.",
-                        "Provide more opportunities for the child to practice emotional regulation.",
-                        "Work closely with parents to ensure consistent emotional support at home."
+                        "Promote the use of effective coping strategies such as time management, relaxation techniques, and seeking support from friends, family, or professionals.",
+                        "Encourage participation in stress reduction programs to learn and implement new coping methods.",
+                        "Help the student create a structured study and relaxation plan to manage their academic workload more effectively."
                     ]
+
                 };
-            case data >= 4 && data <= 6:
+            case data >= 11 && data <= 20:
                 return {
-                    desc: "There are several areas of concern that need to be addressed. It's crucial to prioritize the development of better stress management techniques, emotional resilience, and consistent study habits. Improving your stress management skills will empower you to handle pressure effectively; while enhancing emotional resilience will help you bounce back from setbacks with confidence. Developing consistent study habits will ensure you stay organized and focused on your goals.",
+                    desc: "The student experiences low to moderate levels of academic stress but has limited or ineffective coping strategies. This suggests that while stress levels are not very high, the strategies in place to manage stress are not sufficiently effective.",
                     color: "#F76F00",
-                    interpretation: "The child has significant difficulty in identifying and managing emotions, indicating a need for targeted emotional learning and support.",
-                    recommendations: "Implement a structured emotional learning program with daily activities focused on identifying and managing emotions. Collaborate with teachers and parents to ensure consistent support across environments.",
-                    actionPlan: [
-                        "Develop a daily routine focused on emotional learning.",
-                        "Implement specific strategies to address identified weaknesses.",
-                        "Seek support from school counselors or child psychologists for targeted interventions."
-                    ]
+                    listHeader : [
+                        "Develop New Strategies:",
+                        "Seek Support:",
+                        "Build a Routine:"
+                    ],
+                    actionPlan: ["Work on developing and practicing new coping strategies that can help manage stress better.", "Advise seeking regular support from peers, professors, or counsellors to gain different perspectives and coping methods.", "Focus on building a routine that includes regular breaks, physical activity, and adequate sleep to maintain overall well-being."]
+
                 };
-            case data >= 0 && data <= 3:
+            case data >= 0 && data <= 10:
                 return {
-                    desc: "Your responses indicate major development is needed in almost all aspects. It's essential to prioritize building a strong foundation in stress management, emotional intelligence, and disciplined study routines. These skills are crucial for navigating challenges effectively and achieving your goals. Seeking professional guidance or training can provide valuable insights and strategies to accelerate your growth in these areas.",
+                    desc: "The student experiences low levels of academic stress but may still benefit from improved coping strategies. Even though the stress is currently low, having robust coping mechanisms in place can help prevent future stress buildup.",
                     color: "#ff0000",
-                    interpretation: "The child has major challenges in understanding and regulating emotions, which could impact their social interactions and overall well-being.",
-                    recommendations: "Immediate intervention is recommended. Develop a comprehensive support plan involving teachers, parents, and mental health professionals.",
+                    listHeader : [
+                        "Proactive Coping",
+                        "Well-Being Activities:",
+                        "Monitor Stress Levels:"
+                    ],
                     actionPlan: [
-                        "Immediate and intensive emotional support and learning activities.",
-                        "Close collaboration with mental health professionals to create a tailored intervention plan.",
-                        "Frequent monitoring and adjustments to the support plan based on the child's progress."
+                        "Encourage the adoption of proactive coping strategies to maintain low stress levels and prevent future stress buildup.",
+                        "Promote participation in activities that support overall well-being and help in preventing stress.",
+                        "Stay vigilant about any potential increase in stress levels and address them promptly to ensure they do not escalate."
                     ]
                 };
             default:
@@ -137,43 +154,32 @@ function AcademicStressPointTable(props) {
                                      className={"overpass"}>
                                     Interpretation and feedback based on your inputs</Box>
                             </Box>
-
-                            <Box sx={{mb: 1.5}}>
-                                <Box sx={{
-                                    fontSize: '18px',
-                                    fontWeight: 'bold',
-                                }}>
-                                    Interpretation:
-                                </Box>
-                            </Box>
-                            <Box sx={{mb: 2}}>
+                            <Box sx={{mb: 2}}  className={'overpass'}>
                                 <Typography
-                                    sx={{wordBreak: "break-word", width: "100%", fontSize: "16px", fontWeight: "400"}}>
-                                    {descEng(id).interpretation}
+                                    sx={{wordBreak: "break-word", textAlign: "justify",  lineHeight:1.3, width: "100%", fontSize: "16px", fontWeight: "400"}}>
+                                    {descEng(id).desc}
                                 </Typography>
                             </Box>
 
-                            <Box sx={{mb: 2}}>
-                                <Box sx={{fontSize: '18px', fontWeight: 'bold',}}>
-                                    Recommendations:
-                                </Box>
-                            </Box>
-                            <Box sx={{mb: 3}}>
-                                <Typography
-                                    sx={{textAlign: "justify", width: "86%", fontSize: "16px", fontWeight: "400"}}>
-                                    {descEng(id).recommendations}
-                                </Typography>
-                            </Box>
-
-                            <Box sx={{mb: 2}}>
-                                <Box sx={{fontSize: '18px', fontWeight: 'bold'}}>
-                                    Action Plan:
-                                </Box>
-                            </Box>
                             <Box sx={{mb: 3}}>
                                 <ul>
-                                    {descEng(id).actionPlan.map((action, index) => (
-                                        <li key={index} style={{fontSize: "16px", fontWeight: "400"}}>{action}</li>
+                                    {descEng(id).actionPlan?.map((action, index) => (
+                                        <Box>
+                                            <Box sx={{mb: 1.5}}>
+                                                <Box sx={{
+                                                    fontSize: '17px',
+                                                    fontWeight: 'bold',
+                                                }}>
+                                                    {descEng(id).listHeader[index]}
+                                                </Box>
+                                            </Box>
+                                            <Box sx={{mb: 2}}>
+                                                <Typography
+                                                    sx={{wordBreak: "break-word", width: "100%", fontSize: "16px", fontWeight: "400"}}>
+                                                    {action}
+                                                </Typography>
+                                            </Box>
+                                        </Box>
                                     ))}
                                 </ul>
                             </Box>

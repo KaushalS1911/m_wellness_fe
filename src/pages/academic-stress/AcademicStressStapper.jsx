@@ -27,7 +27,8 @@ function AcademicStressStapper({
                                    handlePoints,
                                    points1,
                                    handleBack,
-                                   apiOptions
+                                   apiOptions,
+                                   disabledAt
                                }) {
     const [open, setOpen] = React.useState(false);
     const navigate = useNavigate()
@@ -90,7 +91,7 @@ function AcademicStressStapper({
                                     fullWidth
                                     onClick={(e) => handlePoints(e, "valu")}
                                     value={therapy?.label}
-                                    disabled={apiOptions?.length === 19 ? true : false}
+                                    disabled={disabledAt && (points1?.length === disabledAt ? true : false)}
                                 >
                                     {therapy?.label}
                                 </TherapyButton>
@@ -126,7 +127,7 @@ function AcademicStressStapper({
                         </Box>
                     )}
                     <Box sx={{display: "flex", justifyContent: "space-between"}}>
-                        <Box sx={{mt: "20px", display: points === 0 ? "none" : "flex", justifyContent: "start",}}>
+                        <Box sx={{mt: "20px", display: !handleBack ? "none" : "flex", justifyContent: "start",}}>
                             <Button
                                 className="overpass"
                                 onClick={handleBack}
@@ -148,7 +149,7 @@ function AcademicStressStapper({
                                 Back
                             </Button>
                         </Box>
-                        {submit && <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
+                        {disabledAt && (points1?.length === disabledAt) && <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
                             <Button
                                 className="overpass"
                                 onClick={handleSubmit}

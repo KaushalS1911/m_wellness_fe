@@ -223,7 +223,7 @@ function LookingFor({
                             Back
                         </Button>
                     </Box>
-                    {submit && <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
+                    {disabledAt && (points1?.length === disabledAt) && <Box sx={{mt: "20px", display: "flex", justifyContent: "end"}}>
 
                         <Button
                             className="overpass"

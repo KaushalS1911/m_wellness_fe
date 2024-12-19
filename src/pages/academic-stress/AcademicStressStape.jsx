@@ -86,13 +86,13 @@ function AcademicStressStape(props) {
             setActiveStep((prevActiveStep) => prevActiveStep - 1);
         }
 
-        if (mainActiveStep > 0 && activeStep === 0) {
-            setMainActiveStep((prevActiveStep) => prevActiveStep - 1);
-        }
-
-        if (activeStep > 1) {
-            setActiveStep((prevActiveStep) => prevActiveStep - 1);
-        }
+        // if (mainActiveStep > 0 && activeStep === 0) {
+        //     setMainActiveStep((prevActiveStep) => prevActiveStep - 1);
+        // }
+        //
+        // if (activeStep > 1) {
+        //     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+        // }
 
         setPoints1((prevPoints) => {
             const updatedPoints = [...prevPoints];
@@ -132,7 +132,6 @@ function AcademicStressStape(props) {
                         handlePoints={(e) => handlePoints(e, activeStep)}
                         points={points}
                         handleNext={handleNext}
-                        handleBack={handleBack}
                     />
                 );
             case 1:
@@ -460,6 +459,7 @@ function AcademicStressStape(props) {
                         points1={points1}
                         last={true}
                         submit={true}
+                        disabledAt={20}
                     />
                 );
             default:
