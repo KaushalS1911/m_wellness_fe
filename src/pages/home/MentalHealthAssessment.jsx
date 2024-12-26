@@ -258,6 +258,49 @@ export default function MentalHealthAssessment(props) {
                                 </Box>
                             </Box>
                         </Box></Grid>
+                    <Grid item xs={12} sm={6} md={4}>
+                        <Box>
+                            <Box sx={{
+                                width: '100%',
+                                backgroundColor: "#fff",
+                                borderRadius: 8,
+                                padding: "24px"
+                            }}>
+                                <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass title">
+                                    Work-Life Balance Assessment (21+)
+                                </Box>
+                                <Box sx={{display: {sm: "flex"}, justifyContent: "space-between", mt: {xs: 4, sm: 5}}}>
+                                    <Box sx={{height: "140px", width: "140px", borderRadius: 5, overflow: "hidden"}}>
+                                        <img src={home1} alt="first"/>
+                                    </Box>
+                                    <Box sx={{display: "flex", alignItems: "end"}}>
+                                        <Box>
+                                            <Box sx={{
+                                                color: "#a7a7a7",
+                                                display: "flex",
+                                                alignItems: "center",
+                                                mt: {xs: 2, sm: 0}
+                                            }}>
+                                                <CalendarTodayIcon/> <Box sx={{marginLeft: 1}}>5
+                                                mins quiz</Box>
+                                            </Box>
+                                            <Box sx={{
+                                                color: "darkGreen",
+                                                mt: 4,
+                                                textDecoration: "underline",
+                                                fontWeight: 600,
+                                                cursor: "pointer"
+                                            }} onClick={() => {
+                                                sessionStorage.setItem("data", "hello")
+                                                navigate("/work-life-Assessment")
+                                            }}>
+                                                TAKE ASSESSMENT
+                                            </Box>
+                                        </Box>
+                                    </Box>
+                                </Box>
+                            </Box>
+                        </Box></Grid>
                 </Grid>
             </Container>
         </Box>

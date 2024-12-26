@@ -27,6 +27,8 @@ import GeneralStressAnxietyStartAssessment
     from "./pages/getStarted/startAssessment/GeneralStressAnxietyStartAssessment";
 import GeneralStressAnxietyAssessment from "./components/general-stress-anxiety/Assessment";
 import GeneralStressAnxietyPointTable from "./components/general-stress-anxiety/GeneralStressAnxietyPointsTable";
+import WorkLifeAssessment from "./pages/work-life-assessment/WorkLifeAssessment";
+import WorkLifeAssessmentPoint from "./pages/WorkLifeAssessment";
 
 function App() {
     function ScrollToTop() {
@@ -63,6 +65,7 @@ function App() {
                 <Route path="/EmotionalAwarenessAssessment/:id" element={<EmotionalAwarenessPointTable/>}/>
                 <Route path="/AcademicStressAssessment/:id" element={<AcademicStressPointTable/>}/>
                 <Route path="/SelfEsteemAssessment/:id" element={<SelfEsteemAssessmentPointTable/>}/>
+                <Route path="/work-life-Assessment/:id" element={<WorkLifeAssessmentPoint />}/>
                 <Route path="/general-stress-anxiety/:id" element={<GeneralStressAnxietyPointTable/>}/>
                 <Route path="/shape-form" element={<ShapAssessment/>}/>
                 <Route path="/shape-family" element={<FamilyInfo/>}/>
@@ -81,6 +84,7 @@ function App() {
                 <Route path="/EmotionalAwareness" element={<EmotionalAwarenessStape/>}/>
                 <Route path="/AcademicStress" element={<AcademicStressStape/>}/>
                 <Route path="/SelfEsteemAssessment" element={<SelfEsteemAssessmentStape/>}/>
+                <Route path="/work-life-Assessment" element={<WorkLifeAssessment/>}/>
 
                 {/*<Route path="faq" element={<MainFaqs />} />*/}
                 {/*<Route path="advice" element={<Advice />} />*/}
