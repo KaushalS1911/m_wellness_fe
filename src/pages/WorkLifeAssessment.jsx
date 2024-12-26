@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 import {Box, Container} from "@mui/material";
 import background from "../assets/score/pexels-photo-5699431-1-1024x682.jpeg.jpg";
 import {Gauge, gaugeClasses} from "@mui/x-charts";
+import Typography from "@mui/material/Typography";
 
 function WorkLifeAssessmentPoint(props) {
     const language = sessionStorage.getItem("language");
@@ -25,13 +26,13 @@ function WorkLifeAssessmentPoint(props) {
             case data >= 45 && data <= 59 :
                 return {
                     desc: "You have a fair degree of balance between your work and personal life, but some areas may need attention. Consider focusing on improving specific aspects such as stress management, setting clearer boundaries, or dedicating more time to personal well-being. By addressing these areas, you can elevate your overall sense of harmony and satisfaction.",
-                    subDesc:"This Self-Assessment shows an indicative result based on your responses. These are not Psychometric Tests. For accurate and scientific approach, you should consult professional psychology practitioners.",
+                    subDesc: "This Self-Assessment shows an indicative result based on your responses. These are not Psychometric Tests. For accurate and scientific approach, you should consult professional psychology practitioners.",
                     color: "green"
                 };
             case data >= 0 && data <= 45 :
                 return {
                     desc: "Your score indicates significant challenges in maintaining a healthy work-life balance. You may experience stress, burnout, or dissatisfaction due to a lack of boundaries or insufficient time for personal needs. It's essential to reevaluate your priorities, develop better time management strategies, and incorporate regular self-care practices into your routine. Seeking guidance from a mentor, counselor, or professional may also be beneficial in helping you regain balance and improve your overall well-being.",
-                    subDesc:"This Self-Assessment shows an indicative result based on your responses. These are not Psychometric Tests. For accurate and scientific approach, you should consult professional psychology practitioners.",
+                    subDesc: "This Self-Assessment shows an indicative result based on your responses. These are not Psychometric Tests. For accurate and scientific approach, you should consult professional psychology practitioners.",
                     color: "#ff0000"
                 };
             default:
@@ -105,10 +106,14 @@ function WorkLifeAssessmentPoint(props) {
                                     textAlign: "justify",
                                     fontSize: "17px"
                                 }}>
+                                    <Typography> Namaste,
+                                    </Typography> <Box sx={{my: 2}}> Basis the answers provided by you, we are sharing
+                                    the feedback with you.
+                                </Box>
                                     <Box sx={{my: 2}}> {descEng(id).desc}
-                                </Box>
+                                    </Box>
                                     <Box sx={{my: 2}}> {descEng(id).subDesc}
-                                </Box>
+                                    </Box>
                                 </Box>
 
                             </Box>
