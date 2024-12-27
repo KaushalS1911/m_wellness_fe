@@ -154,34 +154,48 @@ function AcademicStressPointTable(props) {
                                      className={"overpass"}>
                                     Interpretation and feedback based on your inputs</Box>
                             </Box>
-                            <Box sx={{mb: 2}}  className={'overpass'}>
-                                <Typography
-                                    sx={{wordBreak: "break-word", textAlign: "justify",  lineHeight:1.3, width: "100%", fontSize: "16px", fontWeight: "400"}}>
-                                    {descEng(id).desc}
-                                </Typography>
+                            <Box className={"overpass"} sx={{
+                                backgroundColor: "rgba(215, 215, 215, 0.5)",
+                                backdropFilter: "blur(100px)",
+                                border: "1px solid rgba(255, 255, 255, 0.3)",
+                                my: "30px",
+                                padding: "20px",
+                                borderRadius: "15px",
+                                textAlign:"justify",
+                                fontSize:"17px"
+                            }}>
+                                <Typography> Namaste,
+                                </Typography> <Box sx={{my:2}}> Basis the answers provided by you, we are sharing the feedback with you.
                             </Box>
+                                <Box sx={{mb: 2}}  className={'overpass'}>
+                                    <Typography
+                                       >
+                                        {descEng(id).desc}
+                                    </Typography>
+                                </Box>
 
-                            <Box sx={{mb: 3}}>
-                                <ul>
-                                    {descEng(id).actionPlan?.map((action, index) => (
-                                        <Box>
-                                            <Box sx={{mb: 1.5}}>
-                                                <Box sx={{
-                                                    fontSize: '17px',
-                                                    fontWeight: 'bold',
-                                                }}>
-                                                    {descEng(id).listHeader[index]}
+                                <Box sx={{mb: 3}}>
+                                    <ul>
+                                        {descEng(id).actionPlan?.map((action, index) => (
+                                            <Box>
+                                                <Box sx={{mb: 0.5}}>
+                                                    <Box sx={{
+                                                        fontSize: '17px',
+                                                        fontWeight: 'bold',
+                                                    }}>
+                                                        {descEng(id).listHeader[index]}
+                                                    </Box>
+                                                </Box>
+                                                <Box sx={{mb: 2}}>
+                                                    <Typography
+                                                       >
+                                                        {action}
+                                                    </Typography>
                                                 </Box>
                                             </Box>
-                                            <Box sx={{mb: 2}}>
-                                                <Typography
-                                                    sx={{wordBreak: "break-word", width: "100%", fontSize: "16px", fontWeight: "400"}}>
-                                                    {action}
-                                                </Typography>
-                                            </Box>
-                                        </Box>
-                                    ))}
-                                </ul>
+                                        ))}
+                                    </ul>
+                                </Box>
                             </Box>
                         </Box>
                     </Box>

@@ -477,33 +477,6 @@ function AcademicStressStape(props) {
                 pb: "5px"
             }}>
                 <Container>
-                    <MobileStepper
-                        className="main"
-                        variant="dots"
-                        steps={1}
-                        position="static"
-                        activeStep={mainActiveStep}
-                        sx={{
-                            width: "100%",
-                            flexGrow: 1,
-                            backgroundColor: "#FFFCF6",
-                            display: "flex",
-                            justifyContent: "center",
-                            mb: "20px",
-                            "& .css-114p2tk-MuiMobileStepper-dot": {
-                                width: "50px !important",
-                                height: "5px !important",
-                                borderRadius: "unset !important",
-                                backgroundColor: "#DCE2DA !important",
-                            },
-                            "& .css-26w9jf-MuiMobileStepper-dot": {
-                                width: "50px !important",
-                                borderRadius: "unset !important",
-                                backgroundColor: "#325343 !important",
-                                height: "5px !important",
-                            }
-                        }}
-                    />
                     <Box>
                         <Box sx={{fontSize: "46px", color: "#444444", textAlign: 'center'}} className="overpass">
                             {mainEnglishStepContent(mainActiveStep)}

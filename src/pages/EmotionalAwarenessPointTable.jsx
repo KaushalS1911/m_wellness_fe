@@ -97,8 +97,9 @@ function EmotionalAwarenessPointTable(props) {
                             width: {sm: "550px", xs: "100%"},
                             my: "30px",
                             borderRadius: "15px",
-                            padding: "40px",
+                            padding: "40px 30px",
                         }}>
+
                             <Box
                                 sx={{fontSize: '28px', fontWeight: '700', textAlign: 'center'}}
                                 className="overpass title"
@@ -140,31 +141,45 @@ function EmotionalAwarenessPointTable(props) {
                                     Interpretation and feedback based on your inputs</Box>
                             </Box>
 
-                            <Box sx={{mb: 0.5, lineHeight: 1}} className={'overpass'}>
-                                <Box sx={{
-                                    fontSize: '18px',
-                                    fontWeight: 'bold',
-                                }}>
-                                    Interpretation:
+                            <Box className={"overpass"} sx={{
+                                backgroundColor: "rgba(215, 215, 215, 0.5)",
+                                backdropFilter: "blur(100px)",
+                                border: "1px solid rgba(255, 255, 255, 0.3)",
+                                my: "30px",
+                                padding: "20px",
+                                borderRadius: "15px",
+                                textAlign:"justify",
+                                fontSize:"17px"
+                            }}>
+                                <Typography> Namaste,
+                                </Typography> <Box sx={{my:2}}> Basis the answers provided by you, we are sharing the feedback with you.
+                            </Box>
+                                <Box sx={{mb: 0.5, lineHeight: 1}}>
+                                    <Box sx={{
+                                        fontSize: '18px',
+                                        fontWeight: 'bold',
+                                    }}>
+                                        Interpretation:
+                                    </Box>
                                 </Box>
-                            </Box>
-                            <Box sx={{mb: 1.5}} className={'overpass'}>
-                                <Typography
-                                    sx={{wordBreak: "break-word", textAlign: "justify",  lineHeight:1.3, width: "100%", fontSize: "16px", fontWeight: "400"}}>
-                                    {descEng(id).interpretation}
-                                </Typography>
-                            </Box>
+                                <Box sx={{mb: 1.5}} >
+                                    <Typography
+                                       >
+                                        {descEng(id).interpretation}
+                                    </Typography>
+                                </Box>
 
-                            <Box sx={{mb: 0.5}} className={'overpass'}>
-                                <Box sx={{fontSize: '18px', fontWeight: 'bold',}}>
-                                    Recommendations:
+                                <Box sx={{mb: 0.5}}>
+                                    <Box sx={{fontSize: '18px', fontWeight: 'bold',}}>
+                                        Recommendations:
+                                    </Box>
                                 </Box>
-                            </Box>
-                            <Box   className={'overpass'}>
-                                <Typography
-                                    sx={{width: "100%",lineHeight:1.3, textAlign: "justify", fontSize: "16px", fontWeight: "400"}}>
-                                    {descEng(id).recommendations}
-                                </Typography>
+                                <Box>
+                                    <Typography
+                                       >
+                                        {descEng(id).recommendations}
+                                    </Typography>
+                                </Box>
                             </Box>
                         </Box>
                     </Box>

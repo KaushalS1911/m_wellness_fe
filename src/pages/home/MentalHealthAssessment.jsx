@@ -2,6 +2,11 @@ import React from 'react';
 import {Box, Container, Grid} from "@mui/material";
 import home1 from "../../assets/home/home1.jpg"
 import home2 from "../../assets/home/home2.jpeg"
+import General_Stress_Anxiety from "../../assets/home/General_Stress_Anxiety.jpeg"
+import Emotional_Awareness from "../../assets/home/Emotional_Awareness.jpg"
+import Academic_Stress from "../../assets/home/Academic_Stress.jpg"
+import Self_Esteem_Scale from "../../assets/home/Self_Esteem_Scale.jpg"
+import Work_Life_Balance from "../../assets/home/Work_Life_Balance.jpg"
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import {useNavigate} from "react-router-dom";
 
@@ -35,7 +40,7 @@ export default function MentalHealthAssessment(props) {
                             padding: "24px"
                         }}>
                             <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass title">
-                                Exam Stress Gauge (18-21)
+                                Exam Stress Gauge <br /> (Age 18-21)
                             </Box>
                             <Box sx={{display: {sm: "flex"}, justifyContent: "space-between", mt: {xs: 4, sm: 10}}}>
                                 <Box sx={{height: "140px", width: "140px", borderRadius: 5, overflow: "hidden"}}>
@@ -115,7 +120,7 @@ export default function MentalHealthAssessment(props) {
                                 </Box>
                                 <Box sx={{display: {sm: "flex"}, justifyContent: "space-between", mt: {xs: 4, sm: 10}}}>
                                     <Box sx={{height: "140px", width: "140px", borderRadius: 5, overflow: "hidden"}}>
-                                        <img src={home2} alt="first"/>
+                                        <img src={General_Stress_Anxiety} alt="first"/>
                                     </Box>
                                     <Box sx={{display: "flex", alignItems: "end"}}>
                                         <Box>
@@ -150,11 +155,11 @@ export default function MentalHealthAssessment(props) {
                                 padding: "24px"
                             }}>
                                 <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass title">
-                                    Emotional Awareness and Regulation (Ages 4-10)
+                                    Emotional Awareness and Regulation <br /> (Age 4-10)
                                 </Box>
                                 <Box sx={{display: {sm: "flex"}, justifyContent: "space-between", mt: {xs: 4, sm: 5}}}>
                                     <Box sx={{height: "140px", width: "140px", borderRadius: 5, overflow: "hidden"}}>
-                                        <img src={home1} alt="first"/>
+                                        <img src={Emotional_Awareness} alt="first"/>
                                     </Box>
                                     <Box sx={{display: "flex", alignItems: "end"}}>
                                         <Box>
@@ -187,11 +192,11 @@ export default function MentalHealthAssessment(props) {
                                 padding: "24px"
                             }}>
                                 <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass title">
-                                    Academic Stress 16-25 Years
+                                    Academic Stress <br /> (Age 16-25)
                                 </Box>
                                 <Box sx={{display: {sm: "flex"}, justifyContent: "space-between", mt: {xs: 4, sm: 10}}}>
                                     <Box sx={{height: "140px", width: "140px", borderRadius: 5, overflow: "hidden"}}>
-                                        <img src={home1} alt="first"/>
+                                        <img src={Academic_Stress} alt="first"/>
                                     </Box>
                                     <Box sx={{display: "flex", alignItems: "end"}}>
                                         <Box>
@@ -224,11 +229,11 @@ export default function MentalHealthAssessment(props) {
                                 padding: "24px"
                             }}>
                                 <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass title">
-                                    Self-Esteem Scale for Pre-Adolescents (Ages 11-13)
+                                    Self-Esteem Scale for Pre-Adolescents <br /> (Age 11-13)
                                 </Box>
                                 <Box sx={{display: {sm: "flex"}, justifyContent: "space-between", mt: {xs: 4, sm: 5}}}>
                                     <Box sx={{height: "140px", width: "140px", borderRadius: 5, overflow: "hidden"}}>
-                                        <img src={home1} alt="first"/>
+                                        <img src={Self_Esteem_Scale} alt="first"/>
                                     </Box>
                                     <Box sx={{display: "flex", alignItems: "end"}}>
                                         <Box>
@@ -267,11 +272,11 @@ export default function MentalHealthAssessment(props) {
                                 padding: "24px"
                             }}>
                                 <Box sx={{fontSize: "32px", color: "#444444"}} className="overpass title">
-                                    Work-Life Balance Assessment (21+)
+                                    Work-Life Balance <br /> (Age 21+)
                                 </Box>
                                 <Box sx={{display: {sm: "flex"}, justifyContent: "space-between", mt: {xs: 4, sm: 5}}}>
                                     <Box sx={{height: "140px", width: "140px", borderRadius: 5, overflow: "hidden"}}>
-                                        <img src={home1} alt="first"/>
+                                        <img src={Work_Life_Balance} alt="first"/>
                                     </Box>
                                     <Box sx={{display: "flex", alignItems: "end"}}>
                                         <Box>
